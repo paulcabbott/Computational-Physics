@@ -1,0 +1,2 @@
+# Computational Physics
+This directory includes the book chapters for an introductory Wolfram Language course on Computational Physics, based on the course I presented at the University of Western Australia.
