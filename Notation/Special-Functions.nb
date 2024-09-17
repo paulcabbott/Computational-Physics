@@ -1,0 +1,489 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     14287,        479]
+NotebookOptionsPosition[     10590,        390]
+NotebookOutlinePosition[     11138,        409]
+CellTagsIndexPosition[     11095,        406]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ 
+ CounterBox["Section"],
+ StyleBox[" | Special Functions", "SectionBar"]
+}], "Section",
+ CounterAssignments->{{"Section", 0}},
+ CellID->232431872,ExpressionUUID->"5565a8ed-342b-4997-9e35-c4c25e76ddf5"],
+
+Cell[CellGroupData[{
+
+Cell["Integrals", "Subsection",
+ CellID->1623528300,ExpressionUUID->"ea842ac8-586e-4301-aaa2-825f3b2968cb"],
+
+Cell[TextData[{
+ "Mathematical expressions are easier to read in ",
+ ButtonBox["TraditionalForm",
+  BaseStyle->"Link",
+  ButtonData->
+   "http://reference.wolfram.com/language/ref/TraditionalForm.html"],
+ ":"
+}], "CodeText",
+ CellID->712919318,ExpressionUUID->"9d0323a2-1cd5-4e73-979e-a30264a1ffa3"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"Assuming", "[", 
+   RowBox[{
+    RowBox[{"m", "<", "1"}], ",", 
+    RowBox[{
+     SubsuperscriptBox["\[Integral]", "0", 
+      FractionBox["\[Pi]", "2"]], 
+     RowBox[{
+      FractionBox["1", 
+       SqrtBox[
+        RowBox[{"1", "-", 
+         RowBox[{"m", " ", 
+          RowBox[{
+           SuperscriptBox["sin", "2"], "(", "\[Theta]", ")"}]}]}]]], 
+      RowBox[{"\[DifferentialD]", "\[Theta]"}]}]}]}], "]"}], 
+  TraditionalForm]], "Input",
+ CellLabel->"In[14]:=",
+ CellID->1223711013,ExpressionUUID->"c6856ee5-8599-4a04-9278-4c20a42cc0ac"],
+
+Cell[BoxData[
+ FormBox[
+  FractionBox[
+   TemplateBox[{
+     FractionBox["m", 
+      RowBox[{"m", "-", "1"}]]},
+    "EllipticK"], 
+   SqrtBox[
+    RowBox[{"1", "-", "m"}]]], TraditionalForm]], "Output",
+ CellLabel->"Out[14]=",
+ CellID->214716920,ExpressionUUID->"c3c41515-da80-4916-b3c6-425aec079a59"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Hold your mouse over the resulting function to see what it is\[LongDash]and \
+click to go directly to the ",
+ ButtonBox["Documentation Center",
+  BaseStyle->"Link",
+  ButtonData->"paclet:guide/WolframRoot"],
+ "."
+}], "Text",
+ CellDingbat->"\[LightBulb]",
+ CellID->2096917604,ExpressionUUID->"57181e9f-5cfe-4783-aca0-ffc40b702f12"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{
+   SubscriptBox["J", "n"], "(", "z", ")"}], 
+  TraditionalForm]],ExpressionUUID->"c0675136-9705-46c2-80d2-052ead38e396"]], \
+"Subsection",
+ CellID->540039511,ExpressionUUID->"eeca2296-9f58-412e-8f91-edfc0cf53cdd"],
+
+Cell[TextData[{
+ "Where it is not ambiguous, ",
+ ButtonBox["special functions",
+  BaseStyle->"Link",
+  ButtonData->"paclet:guide/SpecialFunctions"],
+ " are interpreted automatically in ",
+ ButtonBox["TraditionalForm",
+  BaseStyle->"Link",
+  ButtonData->
+   "http://reference.wolfram.com/language/ref/TraditionalForm.html"],
+ "."
+}], "Text",
+ CellID->1178169155,ExpressionUUID->"27da9c26-175a-4354-a4b2-c898214a5885"],
+
+Cell[TextData[{
+ "For example, here is the derivative of the Bessel function, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["J", "n"], "(", "z", ")"}], TraditionalForm]],ExpressionUUID->
+  "0c95ee6d-7e07-445e-bd63-aef72eb3c46f"],
+ ":"
+}], "CodeText",
+ CellID->1689762745,ExpressionUUID->"f4f3966c-0a8a-4122-8f3f-99a7f90a2292"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  FractionBox[
+   RowBox[{"\[PartialD]", 
+    RowBox[{
+     SubscriptBox["J", "n"], "(", "z", ")"}]}], 
+   RowBox[{"\[PartialD]", "z"}],
+   MultilineFunction->None], TraditionalForm]], "Input",
+ CellLabel->"In[11]:=",
+ CellID->1518707287,ExpressionUUID->"0cf9c5dd-4a0c-4362-a93b-107b28ea7038"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   FractionBox["1", "2"], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     TemplateBox[{
+       RowBox[{"n", "-", "1"}], "z"},
+      "BesselJ"], "-", 
+     TemplateBox[{
+       RowBox[{"n", "+", "1"}], "z"},
+      "BesselJ"]}], ")"}]}], TraditionalForm]], "Output",
+ CellLabel->"Out[11]=",
+ CellID->770698690,ExpressionUUID->"6f806f93-6ed5-4e1a-a52a-cfbe63f5b389"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Hypergeometric Functions", "Subsection",
+ CellID->792182604,ExpressionUUID->"937b91fa-8f8b-4226-8754-5f14329d60a6"],
+
+Cell[TextData[{
+ "Special function names and syntax correspond to that found in \
+\[OpenCurlyDoubleQuote]standard\[CloseCurlyDoubleQuote] tables (e.g. ",
+ ButtonBox["DLMF",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://dlmf.nist.gov"], None},
+  ButtonNote->"http://dlmf.nist.gov"],
+ "):"
+}], "CodeText",
+ CellID->1961897675,ExpressionUUID->"b1c45c97-e2f4-4359-8836-5648e177e5be"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  TagBox[
+   TagBox[
+    RowBox[{
+     RowBox[{
+      SubscriptBox["\[InvisiblePrefixScriptBase]", "2"], 
+      SubscriptBox["F", "1"]}], "\[InvisibleApplication]", 
+     RowBox[{"(", 
+      RowBox[{
+       TagBox[
+        TagBox[
+         RowBox[{
+          TagBox["1",
+           HypergeometricPFQ,
+           Editable->True,
+           Selectable->True], ",", 
+          TagBox["1",
+           HypergeometricPFQ,
+           Editable->True,
+           Selectable->True]}],
+         InterpretTemplate[{
+           SlotSequence[1]}& ]],
+        HypergeometricPFQ,
+        Editable->False,
+        Selectable->False], ";", 
+       TagBox[
+        TagBox[
+         TagBox["2",
+          HypergeometricPFQ,
+          Editable->True,
+          Selectable->True],
+         InterpretTemplate[{
+           SlotSequence[1]}& ]],
+        HypergeometricPFQ,
+        Editable->False,
+        Selectable->False], ";", 
+       TagBox["x",
+        HypergeometricPFQ,
+        Editable->True,
+        Selectable->True]}], ")"}]}],
+    InterpretTemplate[HypergeometricPFQ[#, #2, #3]& ],
+    Editable->False,
+    Selectable->False],
+   HypergeometricPFQ], TraditionalForm]], "Input",
+ CellLabel->"In[13]:=",
+ CellID->1150307687,ExpressionUUID->"45670b33-c120-461a-b4e1-7ef73eaf2d08"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"-", 
+   FractionBox[
+    RowBox[{"log", "(", 
+     RowBox[{"1", "-", "x"}], ")"}], "x"]}], TraditionalForm]], "Output",
+ CellLabel->"Out[13]=",
+ CellID->142861654,ExpressionUUID->"c7c46f5d-a044-452d-aa84-71cb7886ddfa"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More Esoteric Functions", "Subsection",
+ CellID->1786838647,ExpressionUUID->"54b1c207-02cb-4a6c-8ef6-3a590b451366"],
+
+Cell["Complicated functions can be much easier to read and digest:", \
+"CodeText",
+ CellID->985820481,ExpressionUUID->"3f782dac-dfd2-4cbc-955b-b11cfba1415b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MeijerG", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", "a", "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"b", ",", "c"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"d", ",", "e"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"f", ",", "g", ",", "h"}], "}"}]}], "}"}], ",", "z"}], 
+  "]"}]], "Input",
+ CellLabel->"In[12]:=",
+ CellID->848487562,ExpressionUUID->"d2d147cf-fa3c-4e37-be7e-abb2763cc8be"],
+
+Cell[BoxData[
+ FormBox[
+  TagBox[
+   RowBox[{
+    SubsuperscriptBox[
+     TagBox["G",
+      MeijerG], 
+     RowBox[{"3", ",", "5"}], 
+     RowBox[{"2", ",", "1"}]], "\[InvisibleApplication]", 
+    RowBox[{"(", 
+     RowBox[{
+      TagBox["z",
+       MeijerG,
+       Editable->True,
+       Selectable->True], "\[VerticalSeparator]", GridBox[{
+        {
+         RowBox[{
+          TagBox["a",
+           MeijerG,
+           Editable->True,
+           Selectable->True], ",", 
+          TagBox["b",
+           MeijerG,
+           Editable->True,
+           Selectable->True], ",", 
+          TagBox["c",
+           MeijerG,
+           Editable->True,
+           Selectable->True]}]},
+        {
+         RowBox[{
+          TagBox["d",
+           MeijerG,
+           Editable->True,
+           Selectable->True], ",", 
+          TagBox["e",
+           MeijerG,
+           Editable->True,
+           Selectable->True], ",", 
+          TagBox["f",
+           MeijerG,
+           Editable->True,
+           Selectable->True], ",", 
+          TagBox["g",
+           MeijerG,
+           Editable->True,
+           Selectable->True], ",", 
+          TagBox["h",
+           MeijerG,
+           Editable->True,
+           Selectable->True]}]}
+       }]}], ")"}]}],
+   MeijerG,
+   Editable->False,
+   Selectable->False], TraditionalForm]], "Output",
+ CellLabel->"Out[12]=",
+ CellID->2088943313,ExpressionUUID->"742a3504-4d4d-4c2b-a098-21862977071b"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Functions Website", "Subsection",
+ CellID->370371419,ExpressionUUID->"19196ff1-cad7-4d63-a795-5349cc85bebf"],
+
+Cell[TextData[{
+ "You can access and compute with ",
+ "all",
+ " the formulas on the ",
+ ButtonBox["functions website",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://functions.wolfram.com"], None},
+  ButtonNote->"http://functions.wolfram.com"],
+ ". "
+}], "Text",
+ CellID->1424830127,ExpressionUUID->"65963289-a51e-4b58-9df5-5ae73850a6d3"],
+
+Cell[TextData[{
+ "For example, if you copy the ",
+ ButtonBox["InputForm",
+  BaseStyle->"Link"],
+ " (or other forms) for any identity you can ",
+ "directly",
+ " evaluate the expression."
+}], "Text",
+ CellID->529796792,ExpressionUUID->"d4cbb0ac-608f-4407-b43f-95f69a222f80"],
+
+Cell[TextData[{
+ "The ",
+ ButtonBox["Rule",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/Rule"],
+ " form is useful when the WL ",
+ "cannot",
+ " (presently) do the computation\[LongDash]but you can always apply an \
+identity as a ",
+ ButtonBox["replacement rule",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/Rule"],
+ "."
+}], "Text",
+ CellID->827482682,ExpressionUUID->"9f94e234-6d67-4e25-91cf-579ef824cda5"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Continued Fractions", "Subsection",
+ CellID->397338402,ExpressionUUID->"80c5fa13-b244-4264-bcef-30eecf61becb"],
+
+Cell[TextData[{
+ "This post on ",
+ ButtonBox["continued fractions",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://blog.wolframalpha.com/2013/05/16/computational-knowledge-of-\
+continued-fractions/"], None},
+  ButtonNote->
+   "https://blog.wolframalpha.com/2013/05/16/computational-knowledge-of-\
+continued-fractions/"],
+ " is a very nice example of computation integrated with typesetting."
+}], "Text",
+ CellID->1539863891,ExpressionUUID->"96b8a750-dc26-4d98-a9a9-939595accd7c"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 796},
+WindowMargins->{{331, Automatic}, {Automatic, 50}},
+CommonDefaultFormatTypes->{"Input"->TraditionalForm,
+"Output"->TraditionalForm},
+FrontEndVersion->"14.1 for Mac OS X ARM (64-bit) (July 16, 2024)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "BookToolsStyles.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"73de4015-fa23-4819-8c46-7974a6e1475d"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 218, 6, 108, "Section",ExpressionUUID->"5565a8ed-342b-4997-9e35-c4c25e76ddf5",
+ CounterAssignments->{{"Section", 0}},
+ CellID->232431872],
+Cell[CellGroupData[{
+Cell[819, 32, 107, 1, 55, "Subsection",ExpressionUUID->"ea842ac8-586e-4301-aaa2-825f3b2968cb",
+ CellID->1623528300],
+Cell[929, 35, 299, 8, 38, "CodeText",ExpressionUUID->"9d0323a2-1cd5-4e73-979e-a30264a1ffa3",
+ CellID->712919318],
+Cell[CellGroupData[{
+Cell[1253, 47, 580, 18, 57, "Input",ExpressionUUID->"c6856ee5-8599-4a04-9278-4c20a42cc0ac",
+ CellID->1223711013],
+Cell[1836, 67, 301, 10, 65, "Output",ExpressionUUID->"c3c41515-da80-4916-b3c6-425aec079a59",
+ CellID->214716920]
+}, Open  ]],
+Cell[2152, 80, 348, 9, 60, "Text",ExpressionUUID->"57181e9f-5cfe-4783-aca0-ffc40b702f12",
+ CellID->2096917604]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2537, 94, 262, 6, 55, "Subsection",ExpressionUUID->"eeca2296-9f58-412e-8f91-edfc0cf53cdd",
+ CellID->540039511],
+Cell[2802, 102, 416, 12, 60, "Text",ExpressionUUID->"27da9c26-175a-4354-a4b2-c898214a5885",
+ CellID->1178169155],
+Cell[3221, 116, 338, 9, 38, "CodeText",ExpressionUUID->"f4f3966c-0a8a-4122-8f3f-99a7f90a2292",
+ CellID->1689762745],
+Cell[CellGroupData[{
+Cell[3584, 129, 317, 9, 47, "Input",ExpressionUUID->"0cf9c5dd-4a0c-4362-a93b-107b28ea7038",
+ CellID->1518707287],
+Cell[3904, 140, 391, 13, 53, "Output",ExpressionUUID->"6f806f93-6ed5-4e1a-a52a-cfbe63f5b389",
+ CellID->770698690]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4344, 159, 121, 1, 55, "Subsection",ExpressionUUID->"937b91fa-8f8b-4226-8754-5f14329d60a6",
+ CellID->792182604],
+Cell[4468, 162, 391, 10, 38, "CodeText",ExpressionUUID->"b1c45c97-e2f4-4359-8836-5648e177e5be",
+ CellID->1961897675],
+Cell[CellGroupData[{
+Cell[4884, 176, 1289, 46, 25, "Input",ExpressionUUID->"45670b33-c120-461a-b4e1-7ef73eaf2d08",
+ CellID->1150307687],
+Cell[6176, 224, 253, 7, 53, "Output",ExpressionUUID->"c7c46f5d-a044-452d-aa84-71cb7886ddfa",
+ CellID->142861654]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6478, 237, 121, 1, 55, "Subsection",ExpressionUUID->"54b1c207-02cb-4a6c-8ef6-3a590b451366",
+ CellID->1786838647],
+Cell[6602, 240, 157, 2, 38, "CodeText",ExpressionUUID->"3f782dac-dfd2-4cbc-955b-b11cfba1415b",
+ CellID->985820481],
+Cell[CellGroupData[{
+Cell[6784, 246, 488, 16, 25, "Input",ExpressionUUID->"d2d147cf-fa3c-4e37-be7e-abb2763cc8be",
+ CellID->848487562],
+Cell[7275, 264, 1436, 56, 54, "Output",ExpressionUUID->"742a3504-4d4d-4c2b-a098-21862977071b",
+ CellID->2088943313]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8760, 326, 114, 1, 55, "Subsection",ExpressionUUID->"19196ff1-cad7-4d63-a795-5349cc85bebf",
+ CellID->370371419],
+Cell[8877, 329, 349, 11, 36, "Text",ExpressionUUID->"65963289-a51e-4b58-9df5-5ae73850a6d3",
+ CellID->1424830127],
+Cell[9229, 342, 272, 8, 60, "Text",ExpressionUUID->"d4cbb0ac-608f-4407-b43f-95f69a222f80",
+ CellID->529796792],
+Cell[9504, 352, 411, 14, 60, "Text",ExpressionUUID->"9f94e234-6d67-4e25-91cf-579ef824cda5",
+ CellID->827482682]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9952, 371, 116, 1, 55, "Subsection",ExpressionUUID->"80c5fa13-b244-4264-bcef-30eecf61becb",
+ CellID->397338402],
+Cell[10071, 374, 491, 12, 60, "Text",ExpressionUUID->"96b8a750-dc26-4d98-a9a9-939595accd7c",
+ CellID->1539863891]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
