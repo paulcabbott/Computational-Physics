@@ -25,7 +25,7 @@ Cell[TextData[{
  CounterBox["Section"],
  StyleBox[" | Special Functions", "SectionBar"]
 }], "Section",
- CounterAssignments->{{"Section", 5}},
+ CounterAssignments->{{"Section", 6}},
  CellID->232431872,ExpressionUUID->"5565a8ed-342b-4997-9e35-c4c25e76ddf5"],
 
 Cell[TextData[{
@@ -771,7 +771,7 @@ CellTagsIndex->{}
 Notebook[{
 Cell[CellGroupData[{
 Cell[576, 22, 218, 6, 108, "Section",ExpressionUUID->"5565a8ed-342b-4997-9e35-c4c25e76ddf5",
- CounterAssignments->{{"Section", 5}},
+ CounterAssignments->{{"Section", 6}},
  CellID->232431872],
 Cell[797, 30, 617, 14, 107, "Text",ExpressionUUID->"4569eeb4-891d-461c-816b-0aa6f2a6e666",
  CellID->1258446255],
