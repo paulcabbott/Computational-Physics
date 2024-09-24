@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     26866,        847]
-NotebookOptionsPosition[     20280,        695]
-NotebookOutlinePosition[     21154,        723]
-CellTagsIndexPosition[     21111,        720]
+NotebookDataLength[     27807,        873]
+NotebookOptionsPosition[     20938,        715]
+NotebookOutlinePosition[     21813,        743]
+CellTagsIndexPosition[     21770,        740]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -689,12 +689,32 @@ nb"], None},
    "https://www.wolframcloud.com/obj/abbott/Published/EckartPotential.nb"],
  ")."
 }], "Text",
- CellID->660358495,ExpressionUUID->"b992553a-cbbd-4efb-ae0f-6dad3da26bf5"]
+ CellID->660358495,ExpressionUUID->"b992553a-cbbd-4efb-ae0f-6dad3da26bf5"],
+
+Cell[CellGroupData[{
+
+Cell["More to Explore", "MoreExploreSection",
+ CellID->1117772751,ExpressionUUID->"0421372c-abfa-4167-9aac-e3f61cf41ac2"],
+
+Cell[TextData[{
+ "This post on ",
+ ButtonBox["continued fractions",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://blog.wolframalpha.com/2013/05/16/computational-knowledge-of-\
+continued-fractions/"], None},
+  ButtonNote->
+   "https://blog.wolframalpha.com/2013/05/16/computational-knowledge-of-\
+continued-fractions/"],
+ " is a very nice example of computation integrated with typesetting."
+}], "MoreExplore",
+ CellID->278534070,ExpressionUUID->"fbaa8f1f-10b1-4de1-b227-7992098d2d3b"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 },
 WindowSize->{808, 796},
-WindowMargins->{{331, Automatic}, {Automatic, 50}},
+WindowMargins->{{307, Automatic}, {-48, Automatic}},
 CommonDefaultFormatTypes->{"Input"->TraditionalForm,
 "Output"->TraditionalForm},
 SpanMaxSize->DirectedInfinity[1],
@@ -846,7 +866,13 @@ Cell[18984, 652, 714, 23, 210, "Output",ExpressionUUID->"b3f895b1-51b5-4f7d-9e82
  CellID->1353625598]
 }, Open  ]],
 Cell[19713, 678, 539, 13, 83, "Text",ExpressionUUID->"b992553a-cbbd-4efb-ae0f-6dad3da26bf5",
- CellID->660358495]
+ CellID->660358495],
+Cell[CellGroupData[{
+Cell[20277, 695, 121, 1, 69, "MoreExploreSection",ExpressionUUID->"0421372c-abfa-4167-9aac-e3f61cf41ac2",
+ CellID->1117772751],
+Cell[20401, 698, 497, 12, 29, "MoreExplore",ExpressionUUID->"fbaa8f1f-10b1-4de1-b227-7992098d2d3b",
+ CellID->278534070]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }
