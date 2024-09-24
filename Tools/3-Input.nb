@@ -8778,11 +8778,11 @@ ExpressionUUID->"b7025eef-664e-4bb8-bf94-2d5bc2905345"
 (* Internal cache information *)
 (*CellTagsOutline
 CellTagsIndex->{
- "copyLinkDialogID"->{
+ "CreateHyperlinkDialog"->{
   Cell[279321, 4784, 1020, 26, 50, "Item",ExpressionUUID->"e8f9a5d5-557b-4c35-a621-6d9c07fa8f6e",
    CellTags->{"CreateHyperlinkDialog", "copyLinkDialogID"},
    CellID->8990]},
- "CreateHyperlinkDialog"->{
+ "copyLinkDialogID"->{
   Cell[279321, 4784, 1020, 26, 50, "Item",ExpressionUUID->"e8f9a5d5-557b-4c35-a621-6d9c07fa8f6e",
    CellTags->{"CreateHyperlinkDialog", "copyLinkDialogID"},
    CellID->8990]}
@@ -8790,8 +8790,8 @@ CellTagsIndex->{
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"copyLinkDialogID", 479962, 8780},
- {"CreateHyperlinkDialog", 480167, 8784}
+ {"CreateHyperlinkDialog", 479967, 8780},
+ {"copyLinkDialogID", 480167, 8784}
  }
 *)
 (*NotebookFileOutline

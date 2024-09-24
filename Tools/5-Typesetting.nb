@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     26824,        843]
-NotebookOptionsPosition[     20238,        691]
-NotebookOutlinePosition[     21112,        719]
-CellTagsIndexPosition[     21069,        716]
+NotebookDataLength[     26807,        842]
+NotebookOptionsPosition[     20221,        690]
+NotebookOutlinePosition[     21095,        718]
+CellTagsIndexPosition[     21052,        715]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -25,7 +25,7 @@ Cell[TextData[{
  CounterBox["Section"],
  StyleBox[" | Typesetting", "SectionBar"]
 }], "Section",
- CounterAssignments->{{"Section", 0}},
+ CounterAssignments->{{"Section", 4}},
  CellID->2054005871,ExpressionUUID->"9a5b2ea2-f648-466f-a4bd-5fd4719b7c45"],
 
 Cell[CellGroupData[{
@@ -672,10 +672,9 @@ Cell[BoxData[
 }, Open  ]],
 
 Cell[TextData[{
- "I do this type of coding ",
- "all",
- " the time\[LongDash]often encountering logical or typographical errors in \
-published formulas\[LongDash]and use it when reviewing papers (e.g. ",
+ "This type of coding helps uncover logical or typographical errors in \
+published formulas, and is very useful when checking papers and reviewing \
+manuscripts (e.g. ",
  ButtonBox["Eckart Potential review",
   BaseStyle->"Hyperlink",
   ButtonData->{
@@ -720,7 +719,7 @@ CellTagsIndex->{}
 Notebook[{
 Cell[CellGroupData[{
 Cell[576, 22, 213, 6, 108, "Section",ExpressionUUID->"9a5b2ea2-f648-466f-a4bd-5fd4719b7c45",
- CounterAssignments->{{"Section", 0}},
+ CounterAssignments->{{"Section", 4}},
  CellID->2054005871],
 Cell[CellGroupData[{
 Cell[814, 32, 122, 1, 55, "Subsection",ExpressionUUID->"ded84bc4-6652-4b41-805e-092646769480",
@@ -841,7 +840,7 @@ Cell[16678, 578, 2244, 67, 168, "Input",ExpressionUUID->"6cb23d86-549e-4980-b6fe
 Cell[18925, 647, 714, 23, 210, "Output",ExpressionUUID->"b3f895b1-51b5-4f7d-9e82-d38ccc0b4fb3",
  CellID->1353625598]
 }, Open  ]],
-Cell[19654, 673, 556, 14, 83, "Text",ExpressionUUID->"b992553a-cbbd-4efb-ae0f-6dad3da26bf5",
+Cell[19654, 673, 539, 13, 83, "Text",ExpressionUUID->"b992553a-cbbd-4efb-ae0f-6dad3da26bf5",
  CellID->660358495]
 }, Open  ]]
 }, Open  ]]
