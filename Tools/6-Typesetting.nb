@@ -25,7 +25,7 @@ Cell[TextData[{
  CounterBox["Section"],
  StyleBox[" | Typesetting", "SectionBar"]
 }], "Section",
- CounterAssignments->{{"Section", 6}},
+ CounterAssignments->{{"Section", 5}},
  CellID->2054005871,ExpressionUUID->"9a5b2ea2-f648-466f-a4bd-5fd4719b7c45"],
 
 Cell[CellGroupData[{
@@ -710,7 +710,7 @@ continued-fractions/"],
 }, Open  ]]
 },
 WindowSize->{808, 796},
-WindowMargins->{{307, Automatic}, {-48, Automatic}},
+WindowMargins->{{Automatic, 256}, {-41, Automatic}},
 CommonDefaultFormatTypes->{"Input"->TraditionalForm,
 "Output"->TraditionalForm},
 SpanMaxSize->DirectedInfinity[1],
@@ -740,7 +740,7 @@ CellTagsIndex->{}
 Notebook[{
 Cell[CellGroupData[{
 Cell[576, 22, 213, 6, 108, "Section",ExpressionUUID->"9a5b2ea2-f648-466f-a4bd-5fd4719b7c45",
- CounterAssignments->{{"Section", 6}},
+ CounterAssignments->{{"Section", 5}},
  CellID->2054005871],
 Cell[CellGroupData[{
 Cell[814, 32, 122, 1, 55, "Subsection",ExpressionUUID->"ded84bc4-6652-4b41-805e-092646769480",
