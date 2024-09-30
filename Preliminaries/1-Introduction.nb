@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     22805,        599]
-NotebookOptionsPosition[     16658,        470]
-NotebookOutlinePosition[     17125,        487]
-CellTagsIndexPosition[     17082,        484]
+NotebookDataLength[     57812,       1190]
+NotebookOptionsPosition[     51270,       1055]
+NotebookOutlinePosition[     51737,       1072]
+CellTagsIndexPosition[     51694,       1069]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -116,7 +116,13 @@ Cell["\<\
 Importantly, using the Wolfram Language and Notebooks makes reproducible \
 computation straightforward.\
 \>", "Text",
- CellID->1389712104,ExpressionUUID->"9079395a-b05b-45e2-94aa-ff7c332243b7"],
+ CellID->1389712104,ExpressionUUID->"9079395a-b05b-45e2-94aa-ff7c332243b7"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["What about GenAI?", "Subsection",
+ CellID->178662139,ExpressionUUID->"b1d4995a-bc64-470d-8da7-feae0bceb0ce"],
 
 Cell[TextData[{
  "Using the ",
@@ -135,36 +141,615 @@ Cell[TextData[{
 }], "Text",
  CellID->859187156,ExpressionUUID->"6fe1c280-3a3c-4017-a743-f4b7c7f78c3a"],
 
-Cell[CellGroupData[{
+Cell["What is Computational Physics?", "ChatInput",
+ CellDingbat->Cell[
+   BoxData[
+    DynamicBox[
+     ToBoxes[
+      If[
+       TrueQ[CloudSystem`$CloudNotebooks], 
+       RawBoxes[
+        TemplateBox[{}, "ChatIconUser"]], 
+       RawBoxes[
+        TemplateBox[{}, "ChatInputCellDingbat"]]], StandardForm]]], 
+   Background -> None, CellFrame -> 0, CellMargins -> 0],
+ CellID->1097613892,ExpressionUUID->"ecc5ed7d-6201-415f-8b62-499aaf7f851d"],
 
 Cell["\<\
-Computational physics employs numerical algorithms to solve problems that are \
-too complex for analytical solutions or where the system is too complicated \
-to solve by other means. It combines elements of both theoretical and \
-experimental physics, using computations to provide quantitative predictions \
-that can be tested by real-world experiments. \
-\>", "Note",
- CellID->678488464,ExpressionUUID->"6481a783-3550-4619-b340-b9cba48a4127"],
+Computational physics is a branch of physics that employs numerical \
+algorithms to solve problems that are too complex for analytical solutions or \
+where the system is too complicated to solve by other means. It combines \
+elements of both theoretical and experimental physics, using computations to \
+provide quantitative predictions that can be tested by real-world experiments. 
 
-Cell["\<\
 In this field, computer simulations are used extensively, and Wolfram \
 Language provides a comprehensive set of tools for creating these \
 simulations. These tools can model a wide range of physical phenomena, \
 including mechanics, fluid dynamics, quantum mechanics, thermodynamics, and \
-more.\
-\>", "Note",
- CellGroupingRules->{"GroupTogetherNestedGrouping", 15000.},
- CellID->2101313431,ExpressionUUID->"bbd199a1-0074-4b66-9d31-16c4653868a6"],
+more.
 
-Cell["\<\
 By using computational physics, scientists can model and simulate experiments \
 that might be too costly, dangerous, or impossible to conduct in a laboratory \
-setting. It\[CloseCurlyQuote]s an important tool in modern research and is \
-used across many industries and fields of study.\
-\>", "Note",
- CellGroupingRules->{"GroupTogetherNestedGrouping", 15000.},
- CellID->1226120533,ExpressionUUID->"e7c44228-9e46-4eb2-9a0c-56181caa08f2"]
-}, Open  ]]
+setting. It's an important tool in modern research and is used across many \
+industries and fields of study.\
+\>", "ChatOutput",
+ CellDingbat->Cell[
+   BoxData[
+    PaneBox[
+     TemplateBox[{}, "ChatIconCodeAssistant"], ContentPadding -> False, 
+     FrameMargins -> 0, ImageSize -> {35, 35}, ImageSizeAction -> 
+     "ShrinkToFit", Alignment -> {Center, Center}]], Background -> None],
+ TaggingRules-><|
+  "CellToStringData" -> 
+   "Computational physics is a branch of physics that employs numerical \
+algorithms to solve problems that are too complex for analytical solutions or \
+where the system is too complicated to solve by other means. It combines \
+elements of both theoretical and experimental physics, using computations to \
+provide quantitative predictions that can be tested by real-world \
+experiments. \n\nIn this field, computer simulations are used extensively, \
+and Wolfram Language provides a comprehensive set of tools for creating these \
+simulations. These tools can model a wide range of physical phenomena, \
+including mechanics, fluid dynamics, quantum mechanics, thermodynamics, and \
+more.\n\nBy using computational physics, scientists can model and simulate \
+experiments that might be too costly, dangerous, or impossible to conduct in \
+a laboratory setting. It's an important tool in modern research and is used \
+across many industries and fields of study.", "ChatData" -> 
+   "OEM6eJztWk1vHEd6tleUbI7XWnllZ51LUqYFSFQ4w9jZNWBG0GJMUhJ3+\
+QX2yMxC1q5qumtm2tPd1a7q5nAS+E/kllyC3IMccsu/ySnIMT8hz/tW9ReH0tqHHAJEEKSZ6qp6v5/\
+3o2f41/2gN7Q2toXMQmXXRqZU/eD2sCxmKiviUBaxzuw6vusUn0Pajs9PtMHXanvvK2nVqdFpXkx+\
+YtcOcVuwfqwLNdZ6boMPz3UyMTI9lNm0lFMVFMsEpz7cncliV2eFuixOjcr5fIfUz2nHnokvVFbfdv\
+OJTCxOf0DPnoGSNstDlU2L2W7kTxxkeYl/IuJem2Dtv//p7/+\
+lH7y3p2xo4pwECr54ppJcLOJiJhYmLuJsKmQWianKlJH81fMsKqZFqCNFt8Q2T+\
+TyWKYquL2LNVGprwBTe8tMpnG4qqJf7GdynChi76nRZR6ogsjYRh634fDwKFDmIoYtqqN3nhj1Xamy\
+cHmqMpkUS/OP/0B//\
+v3XePYMbCfKPCmzkC01XOsH60RlONYG1I91hivepZVTbeuFd3jBqHrDmbI6uVBRRfTDqxf/\
+Vi3t5JY37tpXOloG6/Tv7qzM5sHP649wA+JdRUEvKGRRWtJR0BtJO3ffg/V92LMgBfaDW8/\
+iKFJZrYXbB1mYlJHyhu14w88OspmCschRR8rWqsU6LCgTdieVJLXeoMv9C5mU5AVsr/\
+eJl5a57h7JSzoRFAa2cF707Z37OEoPnGeO9Bz8ffuW6Ad/\
+itWTsoBzrRz6rxtQOx673R223z9SZqqOoBN4UW3Um0dgJRn+BKbw9g5uneQqGx70gzVm9uY0L/q/\
+RHAdlUkRpzqChio1rV0vThUk59ASKBYzHQW3YWWFwEIQHcbZvB/8iSMzPD3YRcAliqz7/\
+OwweDgritzubG/LPB5o7JHxINTp9sVn2yE0ux3Wuy3sdmLiaZwFd3yYbJPyiTT4PZUh9jGH1zy+\
+c6qM1Zl8Ii80sWknN7xTdcUJevSVJTHB+mki44wu6Qc3IFDwrzd+\
+p0shjRJSzBDKkzJZjVhZ3SUQlCoS3WgdCFxhxLd6LGIrCi0iLQB6YqKTRC9g2p1e76E4mUyUWb3all\
+MYk5UhxgC/SOhM5EZdxLq0IiYAsgMcZ5iZxJdCGaMNL+\
+1f5iSMWxGp9wthHfXSglyZRVASmIysWEBosUDAAKh0Nm3foNkXwTttSeVSjAmlsklpCcAgUZypyxwh\
+A+wAh3Q1c+BU0JBjGNT4anAoj0MLzYlMqUhFA3E+ixMlltC2zVWIMIv/\
+VuHiFZVs8Z5QZmwPd6fMlu7GAaKU0IYYWQWxux4zwHWDY+8QxCPMRprMXoXPhif7qnKoVyt7+\
+sFP2ycmb9t3q1vxeS1IdLH7NtyUNgXlOI27OeeOw2166mLdfrJC8+oW4JZbGmmd7EpA0J+/\
+5ky1AUKzazd3MHLdWzl2za5r0Podl3zt5C0XS8DvaguJVicbv/2uh5w9NZEAFwdFb/\
+crBKqh5zYOEsU9HB43uez9YKYXR3EWp/CFqKO9j4CKChkwmzp+\
+axCShiDap0eYdiQBisVuosvoZPytCrtGeG8EyKJMXBplJvznP+EoHzG8flVGOMqomCexMmTN9/\
+kJ2DEd7Pyg0nedQrulDD12LF4hj/WTvE6oH18pYOqsMrwFxx7m0Fr0/OzAG6EC6btDAhIV7V+\
+qsCzUqSxm3cxwx284UzJyT28Mybwf+HW2/eqxjz15cDeKU4U8ZQsDPCh2H6EAOoXuryz/GSQ9V+\
+MnqggR42ToOr9lhU9g/4EQfQ+bAiUN71qr+BhG0LTfbNd9Dlaotd6t1NFdxdUHhUrt7k04lLf/\
+radaT6nmuwMSBynVgP+7dNjwgUoUx/\
+1omavhWwAGWrWu0KpjZ22k81PyoY9HRobzIDRIAFDiOQpgpJ2wFWVfA0Cperz52eCXgy9g+q9jG+\
+Mun9LsZO3HpDKEsVxw7KEcYM7q4vnung7LFIpgKx8CCFAxftRZrBQIAfZkIcmq79aY51MqlRdrZzpB\
+bREsLZRFhZ/TcPBvX/x/Bv2/lEF7vU/FU25PEnFAoV26RNnrVXZEqONpyN2LO+\
+yYK2ZoOKb01dOvKZMXiqpoHIjRDGbE3ySek1cYNS0TaUTmNwh1Gaq8EHEhZhCvuoyKQ2cvEVIOg77j\
+cNbohgTCB9Im8n/U2AsLeDQ8EA8g9yaRV81DUoVRoULZKibA1ea+\
+mcTSWKmMLHWhDNCArnIGpYrd7a+\
+5Dp3DD0SAfAV5kiUruuU4HAQVviJZLFs3812tu8dqog3RJy1Hrhd0DFQMDgRSPb65kFhoQywYyFJ4y\
+iIt4Tsygreo6mAdMmJaxkAE+J3l6OEIQ+WUw9RgdREnCTlpLg2FDMyQSjOP9CLj/\
+nXCRQbzzTw4jrYoNCrfIlPUZ+\
+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\
+eNqQJHTm4GQB0103wD1oI9CGhtA/\
+y260jZ0PeLaWhius3TWYostyParN3k7LzS1NIhKVEJo8P1QR9UVEAsF81LRz87l2gLlJvnMBL9QsG7\
+4VNPz/QdvrqZXsrqiqt19k141mS498iyV6zr64YUbmFGb5Z7yNAVHbPNzhW7j3x73OMatL8rQW/\
+TdfJUrsi1fQbpxELU6y/pK14f4WREPW5qwaITce352cPzU0d99fnYG/\
+2xVkb4NQCDzQTdScgohmVy8saJ8s1bP4TrzNRiz0k9D2ctIqdl0DTNB1Yk9hSR0J8SmKR70cDCphqD\
+Szl1HWmjPiPNtpBOHAPTs6HkwEjQ/S/Oi2sgyOKZtY/QtmkZk1QCLiu+\
+5m2iAGR6BaYOGGeRrCYhFaJ9pw6s7s2ui5WeEfCC2tuSiUfk59WK2pOvpDpooH+9/vX/\
+W1rGstJQR8aozIKeQnQCDFjgQNSr7wiy5n8O1MXoR54AR0IQbetciFOxH3nG8Y/ghH/VTdTu+\
+ZM8lq3oWIj1wTYwFrSQiYjzvvdAxtXEZwbkbsVPxCB9kDISkXbd2kzfXcMJecu5zJ81o0XCXhW8uql\
+51db5Y8JR1wT2KyMp0rMwfqEM0LbMvmMWKTiGTub98g/\
+p0cOnO2Y2Bn7i54PBiVMr3QrgrvdjOgZD4mh8N+\
+elUsWx30rWX0A3kt83sjV24iQF2Iy4iYj9uQBlLlWeFFGx0OBgMaHXW8msXy9tGkS1Wwyyj6KvpILe\
+5na9JcY+o926Q+TFBTuzH07PYz0nrtzkN+1zhhDQhzMlDrXs/54Os/\
+caAfoDi7besB8o0TUIlRhK6IEXz5i3CCFC3wvDW1rsZ4ol7afxnIpfQyX35RYl7WVExaCt0dhWoj0n\
+fwQya92lrNHFqvU37lIZC4pzHN1bscuMt/fTkdLa0VM43p9dbP9qpr/\
+jnd7rHcneM7pOURjPwSUMXv8wqgw4SjbQGB1WGUE/IZEo/q5ml7CT8EwDyOHTkqT/DWUFr4X7Pc+\
+kdRiZLfvlBR0o31sD6wr2jaNIgv9TwZ/\
+14rCaDAHCvwFIlqTbmGW46pqGTQCmfcvEPCcbaVQJwQEeSswG/\
+ZuNSrxZ9y49iw0Yvtl2nf1dCgzE9YCFVFId+\
+D8npZySFS9JjjoikD2BO2tTAJ8Itc8l2EqskqucmNMNOgZvuTlIboyrihBqXC0Wvc4j1lS7Z82fZ1V\
+MwNnMH4L/cVTjQI73XUyUHtC16/\
+Dqswl6WhQZkVLAuSHS4w1Q17sA6Uxl1fXLLTxzp2lSFM5mxKidJCeiN3A8w8J2VV6btLWQ8UKm31D0\
+9Gq/lqi3ahrJhTGhIE/sWr/ROw4mk2ir3r1vj6YxzlXMoy6/\
+HIpLLADO2yP3itJpJugyZRWVYOAxJgNCGfoKxJK2SDsnh7lN7xsdM4V4qacYcP1ykDpT7d84r1tlTh\
+gZEXK0ZgwKNAXybx/7APmuLMloO+sFP278pvPKa/38AR/9dSg=="|>,
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellID->712155114,ExpressionUUID->"893ceaca-2182-4d20-8dce-88677ce5d9be"],
+
+Cell["What are the broad categories of computational physics?", "ChatInput",
+ CellDingbat->Cell[
+   BoxData[
+    DynamicBox[
+     ToBoxes[
+      If[
+       TrueQ[CloudSystem`$CloudNotebooks], 
+       RawBoxes[
+        TemplateBox[{}, "ChatIconUser"]], 
+       RawBoxes[
+        TemplateBox[{}, "ChatInputCellDingbat"]]], StandardForm]]], 
+   Background -> None, CellFrame -> 0, CellMargins -> 0],
+ CellID->2088755669,ExpressionUUID->"4961afc3-bdfc-4dcb-8c2f-a915992446fd"],
+
+Cell[TextData[{
+ "Computational physics can be broadly categorized into several areas, each \
+focusing on different types of problems and numerical methods:\n\n1. ",
+ StyleBox["Classical Mechanics Simulations",
+  FontWeight->Bold],
+ ": This involves modeling and simulating the motion of objects under the \
+influence of various forces. This can include simple systems like pendulums \
+and springs, or more complex systems like celestial bodies in astrophysics.\n\
+\n2. ",
+ StyleBox["Quantum Mechanics Simulations",
+  FontWeight->Bold],
+ ": These simulations model the behavior of particles at the quantum scale, \
+including phenomena like superposition and quantum entanglement.\n\n3. ",
+ StyleBox["Statistical Mechanics and Thermodynamics",
+  FontWeight->Bold],
+ ": This involves simulations of large number of particles to study phenomena \
+like phase transitions, energy distribution, and entropy.\n\n4. ",
+ StyleBox["Fluid Dynamics",
+  FontWeight->Bold],
+ ": This includes simulations of fluid flow, such as the weather patterns in \
+the atmosphere, the flow of water in rivers, or the flow of blood in the \
+circulatory system.\n\n5. ",
+ StyleBox["Electrodynamics",
+  FontWeight->Bold],
+ ": This involves simulations of electrical and magnetic fields, including \
+phenomena like electromagnetic waves and Maxwell's equations.\n\n6. ",
+ StyleBox["Plasma Physics",
+  FontWeight->Bold],
+ ": This involves simulations of plasmas, which are ionized gases. These are \
+important in many areas, including astrophysics, nuclear fusion research, and \
+semiconductor manufacturing.\n\n7. ",
+ StyleBox["Material Science",
+  FontWeight->Bold],
+ ": This involves simulations of the properties of materials, such as their \
+mechanical and thermal properties, or their electrical and magnetic behavior.\
+\n\n8. ",
+ StyleBox["Biological Physics",
+  FontWeight->Bold],
+ ": This involves simulations of biological systems, from the molecular scale \
+(like protein folding or DNA sequencing) to the macroscopic scale (like \
+neural networks or ecosystem dynamics).\n\nEach of these categories employs \
+different numerical methods and computational tools, and the Wolfram Language \
+includes functions to support many of these types of simulations."
+}], "ChatOutput",
+ CellDingbat->Cell[
+   BoxData[
+    PaneBox[
+     TemplateBox[{}, "ChatIconCodeAssistant"], ContentPadding -> False, 
+     FrameMargins -> 0, ImageSize -> {35, 35}, ImageSizeAction -> 
+     "ShrinkToFit", Alignment -> {Center, Center}]], Background -> None],
+ TaggingRules-><|
+  "CellToStringData" -> 
+   "Computational physics can be broadly categorized into several areas, each \
+focusing on different types of problems and numerical methods:\n\n1. \
+**Classical Mechanics Simulations**: This involves modeling and simulating \
+the motion of objects under the influence of various forces. This can include \
+simple systems like pendulums and springs, or more complex systems like \
+celestial bodies in astrophysics.\n\n2. **Quantum Mechanics Simulations**: \
+These simulations model the behavior of particles at the quantum scale, \
+including phenomena like superposition and quantum entanglement.\n\n3. \
+**Statistical Mechanics and Thermodynamics**: This involves simulations of \
+large number of particles to study phenomena like phase transitions, energy \
+distribution, and entropy.\n\n4. **Fluid Dynamics**: This includes \
+simulations of fluid flow, such as the weather patterns in the atmosphere, \
+the flow of water in rivers, or the flow of blood in the circulatory system.\n\
+\n5. **Electrodynamics**: This involves simulations of electrical and \
+magnetic fields, including phenomena like electromagnetic waves and Maxwell's \
+equations.\n\n6. **Plasma Physics**: This involves simulations of plasmas, \
+which are ionized gases. These are important in many areas, including \
+astrophysics, nuclear fusion research, and semiconductor manufacturing.\n\n7. \
+**Material Science**: This involves simulations of the properties of \
+materials, such as their mechanical and thermal properties, or their \
+electrical and magnetic behavior.\n\n8. **Biological Physics**: This involves \
+simulations of biological systems, from the molecular scale (like protein \
+folding or DNA sequencing) to the macroscopic scale (like neural networks or \
+ecosystem dynamics).\n\nEach of these categories employs different numerical \
+methods and computational tools, and the Wolfram Language includes functions \
+to support many of these types of simulations.", "ChatData" -> 
+   "OEM6eJztWktvHFd2tseUbbbHijy2E2czuaYFSFTIVix7nJgRPGiTlMQMKXJYLSsDWTO6XXW7u8\
+yquuW6VWz2BP4T2SWbIPsgQJb5IdlnFWSZn5DvnHPrxZZkezGLADEMm32f5/\
+mdx63RX28Hg5FzsSt1Fhq3Ni4qsx1cHVXl3GRlHOoytplbx2+b4u+\
+QluPve7bAz3r54EvtzElh07yc/\
+sStHeK0YP2hLc3E2jMXvPfYJtNCp4c6m1V6ZoJymWDXe7tzXe7arDQX5Ulhct7fu+\
+pntGKviM9N1px25Z5OHHa/Q3MPcJMtlocmm5Xz3cjvOMjyCv+JiHpbBGv/809//y/\
+bwVt7xoVFnBNDwWcPTJKrRVzO1aKIyzibKZ1FamYyU2j+\
+6WlWNdEqtJGhU2KXJ3r5UKcmuLqLMVWLrwRRe8tMp3G4KqI/2c/\
+0JDFE3v3CVnlgSrrGtfzIgsPDo8AU5zF0UW+9dq8w31YmC5cnJtNJuSz+8R/on3//\
+JeYegOzEFPeqLGRNjda2g3W6ZTSxBW5/aDMc8SaNnFjXDLzBA4VpFpwaZ5NzE9WXvnf54F+ZpZu+\
+7pW79qWNlsE6/Xd3XmVnwc+aP2EGRLuJgkFQ6rJyJKNgMNbuTH4H6/\
+vQZ0kC3A5efxBHkckaKVw9yMKkioxXbM8a/uggmxsoiwx1bFwjWoxDgzphczJJ0sgNstw/\
+10lFVsD6epto6ajr3SN9QTuCsoAuxIq+uXYDW2lCLHNsz0DfN6+o7eBPMXpclTCulU3//\
+RrEjmlZ3SP77SNTzMwRZAIrapR65QikJKOfQBVe38Hrx7nJRgfbwRoTe2WWl9ufwrmOqqSMUxtBQrW\
+Y1p7PTu0kjyEl3FjObRRchZYNHAtOdBhnZ9vBH8s1o5ODXThcYki7j04Pg1vzsszdzu3bOo+\
+HFmt0PAxtevv849shJHs7bFY76O24iGdxFlzzbnKbhE9Xg94THWIdU/ic6WsnpnA20/\
+f0uSUy3fQ1b1R9doIB/WROimD9JNFxRodsB6+BoeBfX/uNrZQujNJqDleeVsmqx+r6LAWnNJHqe+\
+tQ4YhCfWMnKnaqtCqyCqCnpjZJ7AKq3RkMbqnj6dQUq0e7agZlsjDUBOAXKZupvDDnsa2cigmA3BDb\
+GWam8YUyRWELHtq/\
+yIkZGVGptwvl5PbK4boqiyAkEBk5tQDTagGHAVDZbNY9wbItgnZakuqlmhBKZdPKEYCBozgzFzlcBt\
+gBCulopkBE0F7HMGjxs8CmPA4dJKcyYyITDdXjeZwYtYS0XW5CuFn8e4ODV0SyxWtCnbE+\
+5EydLeXEIbyU0IYIWQWxdz1mgOoWx94giIebjS2pvXafDX/ts9qgnq2s2Q5+2t0xfdW9WZ+\
+Kv9eCxJa7r8JMaVFQTdK4H3OuCW7TrPi6+\
+3DlzstLgFsyNLY22dWAoD97wZ56AZhm027PYOS6vrLtOaueg9ZvSPB101fEl4Df9RJirQk2fvm7HnL\
+2zFQDXASKXt2uEaiBnqvYSDfuYfOkjWVvB3O7OIqzOIUtRD3pvQ9UNIiA2UzobUBIFwTRPjxCtWMNU\
+Cx3E1tFx5NvTNhXwltjQBZF4qowxZT/+S8YyvsMr19WEbYyKuZJbArS5ts8A3KKHna+\
+U8u7CaH9VIamhcRL12P8OG8C6geXEpgmqoxeh2GPckgtenR64JVQg/S7IwISE+1fmLAqzYku5/\
+3IcM0vODU6ktnXRqTed/w463512wf+elA3jlODOOXKAnhQ7t5FAnQC2V8a/\
+jk4fWwm90wZwsdJ0U18y0ofwP4TLvoWFgVGF7xqraZjFEHSfrFb9zHYINd6sxZHfxRHH5QmdbtXYFB\
+e/6/ft3ZGOd81XHGQUg74h72HFR+\
+YxLDfj5e5Gb0CYKBRJ4lW4ztrY5ufkA19MC50eBaEBQIAhPgYCTDCTtjxsq8AoJQ9Xvl4+OnwM6j+\
+q9jFOMuHNDdd+zGhDG6sF+\
+x7SAeYsiZ5fnfPhlUKQbCWDwEEyBjf7w3WAgQDe7rUpNU3G8y7IudQerF2ahPkFsHSQViU+ImEg3/\
+75P8j6P+lCDoYfKTuc3mSqANy7UoC5WBQ6xGujtmQqxfZLMSVcxQcM/rp729uJitUddI4VOM51Ih/\
+k/iMrKIwsyrRhcr8AmUuQpOXKi7VHOzVh1FyKPpSIcUwyDsO561siCH8QdJE/\
+I9afWEAU6MDdRN8b9L1pp0kURQmNEhb1RS42p431xiaGJORps5NATSgo0ShlLHL+obqUAx+qALEK/\
+CTLFnQHcNhJ6jxFcFi2TmZz+qcPTFTW9D9JOVIakEhoCZwqBDq8UtcYmELIqEAL6W/\
+WaUVbEdHsBZTb2xcRs2qGIgAu3PsPexhyJxyqBqkLuIkISPNdUEuAzWkujiL7CLj+\
+nXKSQbTzTQIRVvkGrVtkSqaPW4JNLkgImSnCKa5bqj2M4cQzJtRPevckLrJyOAIrY2reMpL4P8QO4h\
+0886ZHSJFNuZCUymxVW9bEMAQfIg4YXoJQSVsSwO0itiddeTmyYjL2sYnAG2XaDffUV/\
+fgsQItw201+eFzQBadLQjseGZslMu6SGcCjgCwGjOhMMYw+\
+fCHs4cSzaWupRlmtQYtsBVSufIQkIKKTuDZ8+\
+e1ZMDOpwGiCSCfggBZwNOCkp1CfYEZQ712Pwt39EQgktSISWCXcAFXTzL3I66fv3it3fUn6vlb+\
+9cv45zD6YvYjLEUZTuEM7IGW6LOx2mxhUvyKh7BSR4/fPPh5//gjDu4Ojk+HQ8ejj+\
+sCdSf0qro1pO6uazTQXtds5TN69vKu85W2p0+Hj0m+\
+AlCoS5iWXsqAOACbUr4KQ1TYooABoit2E6YF1IA8lu/IlfP6Prv76OKILyFX7+\
+IbigmheGJe5Hi1cCUdSNqmqy9Grpe6U4yo56kuiJSZ7ezLnG3amKeLNn0zuD9VvqyZisoVlUmOltHt\
+nkyebi43PKws2iWciuf7uer6dlF/\
+e0VMBkNBtKgFYBDL7NszK56V0ARoG4Cxt4bjPLLdMJEo5WOaJVNjxNPtKXCvAI8eE4gwg5xsedneTx\
+ZOscoVYu4l6fut+\
+AGmHar4zJeQuMhIQmfpRbx8kUFjyCKU99zQYLgz5nOJSqClwLSNAReW9OVWNUwQaxZU+\
+ghxIW2N0ssRNsPNeQDo50ckNc3nC8KjNUbupiiY0nLCeVgpxiNSY3gtIcubhSwKYjisuZWTTTbVDSU\
+STx4PEh2EPaIC56ltkFkk7qI0Jp06mKdGkYmJHEwXn68m6QtVZmiKqKA3uO8hWujFuUlQIFsIFwix1\
+smkJpYmaGUh+Qkeozr1ejXcwJSic7Ip1R6vmclIJZ0iFJiqMUJag+tlMcmXBsiZq0j+\
+rLLTWlGoN401uKGkYVMYmxIe30WRDzYvrIBdfXlDQQKSUo9hkgsfU3wfHDjidqGXAQW6phcw8oilIE\
+J4fV5xohHhr35GoB07ggw7BIVyg0ylYKr8w5FYw7ffn/LuGMe+B7vX5JL/\
+1Wh35J21TeQX5WXlJkzgkGBeMXWdZwEDA9O4O/G6xvlKhUNnY2LJfEG1sYETArY+\
+M2drBifYMycf93s95xL5LWYyxqScLUcWYIFlPKWl5o3c4goWDhTCj5SSGeDZz13WD9O6KBimdAaLSx\
+86SlYLD+dPDdS2TofIHyUikGzaKuHGX0+\
+6CapNpzT7BIYEyWoqpcCQFkYigsXR3aL58iqvaWZxWHFIL+ColWnEkKg3U/\
+Wk3fVohWP1xNIyWTih5CqFEmbxKXiPUsydkvVlA9zwr66CN1j5jxEQrevb29PRg8oczw6eABZAX/\
+PeC8cAQa7P1C5/By90usaeq/\
+p4NDCCY1Hq1WxUjKgEdTkECmY2liOBwOxsfHh7ujw8MXOBjJ0tvzRu/yDVC+/3BvdHr/0dH+w3FAP+\
+qzQJfjavbp4BEl8IPezid5gTyf2t2AIw+\
+RT1upUmwrF3Y7QhqROYkvFGUpoDiEVVNjBhUzVJ9i3uWUqgNrvgSChnWS4gbEYE9GY8tifNIjqJcH9\
+GY2Ja0lpOcKprDnCJOcWiHRBUEzv1C1PDF5nq1L2TST09XtY1RmNxwzMwEryLOXYuL8yEUXlZTo4qJ\
+pnDDkYmhGr20+Y7LF8pIVvEifjbOTRr3pb/RO/\
+4EavaXuYbV0K8a0f1vddKifgBxIAjcvzT4prC2fMs2uZmcxt9DBmVlKYUdSuaX4qL1Ccwhpj/xk+\
+BebalWNP9xo++S8nMdWP2QoVGgSycCdTvbVDXSlVP+U7yLLoaFeyKT41RB6l/\
+GLqPqC6btLeI58BfGeBtXHX2xgEfUN6e/nLLjTWXDni5fyMUpgSI4tHevjSAIylffUEZgumY/\
+meMkU5xKRmeuh8icIr83kDdcN7T/qwHsxozUPMw+\
+86O4XakItPdNFfz9d18c5NaZD7nPQeUPkg94LqWqF/\
+Dv3atfe6xHXNcxwnmWzDlmsQdZfs8jreWEpo4ZXIhNCfel7CqbJgJgpqHdOEZqMS+p+\
+I41kJoL72U56H819gAau0Ghx3TzR9RG+3VHXiHWNI+GRW3mc19G7v/RrKMuXWS7mscW1r+\
+X9urPbbRDCnU/KUCJsS3uPM7Itn0FKN4J6GcvmSCknfKuCa/3WLVom9x6dHjy8L/\
+fvPjo9hX12skhfBsCReaN0NEQgxJP4GwvKiLCaNlCvvQNl1vJpb/Y8Umgu+\
+oqZIuvEmlITuhNiUxMJckB97ntw2p1JT6u0nhCxbYQTQQCaO3oUjBW1b9K8rBcyD0K0a5W+\
+RcVwVvdPKPk+k4IaxHAHxhao13B9wwGRCOnz3bDqXuuU7vItKt4QO1dx0mh8m3QxX9LxdAY1NB/\
+uf7V/2pWxrqWU0eV1ZUBGoXsOBimwI1pk9mWx5HoOx8aoRcQAI6AJ15NSIpRsR95wvGH4HhPVU9LZx\
+aIlWy5p1ZMQ2aEUMQ53JRFdxu3GcxtTGZcRnEuHl5JH2CBjIDjtm7U0fqTghL70mY+d1CLUE+\
+aCi4u6Vl1tb5Xc5FtwjaKyKp2Y4ndUIRYdtS+YxPqeUidn/vANrCQqZZ/\
+bGPqGjziHZ6MWvmdCjvRsiwEh8LXfrPjmSLnsVtKNldAJZLdt64dNuPUBNiNOIghbOA00jjLPGilY6\
+TAwKNDZrGPX4su3C0O6WHWzjLyvuQexTVa+\
+IMTdpdq7ReYvCHJi3x2dx75N1zwmtORzhhNSgyonC3XyPOSdrNuwpu8fvP6WTT/\
+TGTo0Jg7FSVG8eY0wAjSlMKy18zRANHEtjf8VkQR0Ml/u00uvvCbQ1egsGaj3SV/BDNvnnLVHjl5+\
+msecnz/mJrxTu1xza984OZkvHWXy7cb1zucize5/fqO/LZdtdJ6mCJqBROq3+\
+GGWFthPLCIabNMUBHhKJzP6oGOesn3w4zMZG4rx1O/hgGCtki9JLryt6GTJbXfaUklHA+\
+ML6Y63EZDb6X4vfdglObNcA9uXx5fUaEqLuXuYTqjfpJDFp5z3g4OJlSQAtidXciDgBx7O8hrWt3wT\
+MGzl4rop+rcVJBjTBDNpojj0a4hP3x4pJT5P2BmSbWBy0r0NdMLTMomz09gkUdMyoe5pCsiUM0lsDK\
+hwEapZzg09JBDpKwWyp8+xlacgbC4bYLpcUAjekdybhpJgbOc+\
+foipYZd5od4Y5aoLYh3mMDOtObDMTEYFn97yXXI6NjXhXGcsymlSAXUjefrHbxZelXaXkPJwS7OkKe\
+dRcy1XddFVlAtjAkLqFXdopW66sGS6IvcPffFszmFKDMrxw0xEfBWAiy0yvzit25ESHLOoCkuBjwTg\
+XNDj/5KkSjIkg7tBlRlvK0p5zrAMN76vSMUnl+4cUpzoU4cFLpE0M8YN1AHwFR7bA9usK6to+RLX/+\
+xx41pU5xVWUxQsDTmjcfLK8RzBfQ8k/MfV50OCN22+ht7J/EW/pzegjCHyXB5uCP+\
+3JKWdoohiDVqqK6fclYaAlrmQ12AE8d3CiW+2IhJ8PFS3bu0mVKDRxFFtNvSgVxvtrVs7/\
+vkyOydIcGII9XedtXn7YJNahn1cLh0cJx1RSX4y2Cs999I0NZApgsBjQuP8CynJoH4O8g1swSj/\
+ckpfg1RJ5TlyeSGt0boJV6Nfb0/bbJjYKPa1uGSTLHg4wh0Sw6+\
+977xECJfc2XuENAEQhyh8kdQ5LaOq34e+2isdZGy6nty4t1DqKngTnCOW5AMc1jsJQbOZwC3o/\
+YTopU8+YVyXFEe7xj2XX9VflwXQm9D3Qj4T6tNPVkc+\
+cpnQfK4JxYBXQiuZI5K32ZLeGeFpEw42W74YIFFTyv4pUX2PEWtvlTZW+\
+gptAnBT1LJbTTOeRLoAxFJUyildKLKmcNVlaqWnJHkC7aRzFpqgH4voi+\
+dCTKY7P0msjepDwrigrFpwiE0J1P+CqN+nr16KHy5a/\
+kqmaOJhqmcZhUePQS8xBdlomw0LXTeojvTFwiRU0aNi8WFlMPiMqDuBI6O696nJ9xKX8/\
+KmbuTvHGzGgDPTzjTRiica9CXgJVT1MNRy0PWpLZgTLEhT/k6dwAakxSacgfQE+\
+Ml1dVZNdVhyIwa8/CXxckQKI6cNQv5C5Hu5kbS07hTTSOqPcD3TiYsmOnqtcISUtzC/\
+uzYPrH2RBmuHB71/RfR+GdvEznjdD5X/pN3iAWur/\
+R4jRfyQ0o5RQ90UxytsaWJqCScsc5C593AEefIXeBjZrL96SDkChvR9S++EzNCrHv5XUiHL+\
+aBBnJZEsLbrTXDFj0YiV3r9bsNenZ628WYlski92ItyvtKsO8Ar6VUDAHXBJ+\
+hT5WR3YnENMU1866ZW28FPux+lX/pO7H8BU4qiQw=="|>,
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellID->801351374,ExpressionUUID->"263b921f-412d-434e-8e11-1d923c5d8fc9"],
+
+Cell["\<\
+Describe some important numerical methods, algorithms, and data analysis \
+techniques used in computational physics.\
+\>", "ChatInput",
+ CellDingbat->Cell[
+   BoxData[
+    DynamicBox[
+     ToBoxes[
+      If[
+       TrueQ[CloudSystem`$CloudNotebooks], 
+       RawBoxes[
+        TemplateBox[{}, "ChatIconUser"]], 
+       RawBoxes[
+        TemplateBox[{}, "ChatInputCellDingbat"]]], StandardForm]]], 
+   Background -> None, CellFrame -> 0, CellMargins -> 0],
+ CellID->1442592481,ExpressionUUID->"854fa1b5-44ae-4b7d-b9d2-d9d4d442b0be"],
+
+Cell[TextData[{
+ "Sure, here's an overview of some widely used numerical methods, algorithms, \
+and data analysis techniques in computational physics:\n\n",
+ StyleBox["Numerical Methods and Algorithms:",
+  FontWeight->Bold],
+ "\n\n1. ",
+ StyleBox["Differential Equation Solvers",
+  FontWeight->Bold],
+ ": These are used to numerically solve both ordinary differential equations \
+(ODEs) and partial differential equations (PDEs). Examples include the \
+Runge-Kutta method for ODEs and the finite difference method for PDEs.\n\n2. ",
+ StyleBox["Monte Carlo Simulations",
+  FontWeight->Bold],
+ ": These are random sampling methods used for numerical integration, \
+optimization, and probabilistic modeling, especially in statistical \
+mechanics.\n\n3. ",
+ StyleBox["Molecular Dynamics Simulations",
+  FontWeight->Bold],
+ ": These simulate the motion of atoms and molecules for understanding the \
+physical properties of matter.\n\n4. ",
+ StyleBox["Fast Fourier Transform",
+  FontWeight->Bold],
+ ": This algorithm is used to convert data between its time (or spatial) \
+representation and its frequency representation. It's used in many areas, \
+including signal processing and solving differential equations.\n\n5. ",
+ StyleBox["Linear Algebraic Equation Solvers",
+  FontWeight->Bold],
+ ": These are used to solve systems of linear equations, which often arise in \
+computational physics. Examples include the Gauss-Seidel method and the LU \
+decomposition method.\n\n",
+ StyleBox["Data Analysis Techniques:",
+  FontWeight->Bold],
+ "\n\n1. ",
+ StyleBox["Regression Analysis",
+  FontWeight->Bold],
+ ": This is used to model the relationship between a dependent variable and \
+one or more independent variables. \n\n2. ",
+ StyleBox["Fourier Analysis",
+  FontWeight->Bold],
+ ": This is used to decompose a function or a dataset into its constituent \
+frequencies.\n\n3. ",
+ StyleBox["Statistical Analysis",
+  FontWeight->Bold],
+ ": This includes techniques like hypothesis testing, data clustering, and \
+principal component analysis. These techniques can help identify patterns in \
+data and make predictions.\n\n4. ",
+ StyleBox["Machine Learning",
+  FontWeight->Bold],
+ ": This is a set of techniques where computers are trained on data to make \
+decisions or predictions. These techniques are increasingly being used in \
+computational physics for tasks like identifying patterns in large datasets \
+or optimizing complex systems.\n\nEach of these techniques and algorithms has \
+corresponding functions in the Wolfram Language, making it a powerful tool \
+for computational physics."
+}], "ChatOutput",
+ CellDingbat->Cell[
+   BoxData[
+    PaneBox[
+     TemplateBox[{}, "ChatIconCodeAssistant"], ContentPadding -> False, 
+     FrameMargins -> 0, ImageSize -> {35, 35}, ImageSizeAction -> 
+     "ShrinkToFit", Alignment -> {Center, Center}]], Background -> None],
+ TaggingRules-><|
+  "CellToStringData" -> 
+   "Sure, here's an overview of some widely used numerical methods, \
+algorithms, and data analysis techniques in computational physics:\n\n\
+**Numerical Methods and Algorithms:**\n\n1. **Differential Equation \
+Solvers**: These are used to numerically solve both ordinary differential \
+equations (ODEs) and partial differential equations (PDEs). Examples include \
+the Runge-Kutta method for ODEs and the finite difference method for PDEs.\n\n\
+2. **Monte Carlo Simulations**: These are random sampling methods used for \
+numerical integration, optimization, and probabilistic modeling, especially \
+in statistical mechanics.\n\n3. **Molecular Dynamics Simulations**: These \
+simulate the motion of atoms and molecules for understanding the physical \
+properties of matter.\n\n4. **Fast Fourier Transform**: This algorithm is \
+used to convert data between its time (or spatial) representation and its \
+frequency representation. It's used in many areas, including signal \
+processing and solving differential equations.\n\n5. **Linear Algebraic \
+Equation Solvers**: These are used to solve systems of linear equations, \
+which often arise in computational physics. Examples include the Gauss-Seidel \
+method and the LU decomposition method.\n\n**Data Analysis Techniques:**\n\n\
+1. **Regression Analysis**: This is used to model the relationship between a \
+dependent variable and one or more independent variables. \n\n2. **Fourier \
+Analysis**: This is used to decompose a function or a dataset into its \
+constituent frequencies.\n\n3. **Statistical Analysis**: This includes \
+techniques like hypothesis testing, data clustering, and principal component \
+analysis. These techniques can help identify patterns in data and make \
+predictions.\n\n4. **Machine Learning**: This is a set of techniques where \
+computers are trained on data to make decisions or predictions. These \
+techniques are increasingly being used in computational physics for tasks \
+like identifying patterns in large datasets or optimizing complex systems.\n\n\
+Each of these techniques and algorithms has corresponding functions in the \
+Wolfram Language, making it a powerful tool for computational physics.", 
+   "ChatData" -> 
+   "OEM6eJztW1tzHMd1ti3ogrWl0JacOC9OG2KVCARYRpIvMaKSCwJIChFAIBxQjIuizd6Z3t0RZq\
+fX0zNYrlP+E3lLXlJ5TaVSlZdU+Tm/Ie95SuUxPyHfOae7ZwYLQHSl8pCqsFjk7kxfzvU7l+7d+\
+7OdZLDnXO5qXabGrZ1VjdlJ3tpr6qkp6zzVdW5Lt47vdobPKQ3H5/\
+u2wtcwfPCJdua0srN5Pf6GWzvCasn6Q1ubkbXnLnnniS3GlZ4d6XLS6IlJ6mWBWe/\
+sT3W9b8vavKhPKzPn+b2tvkMjDqr8wpRxtVfv68Jh9rfp3afYyVbLI1NO6ul+5mcclvMG/\
+2REva2Stf/6u7/+x53kmwfGpVU+\
+J4aSH39qirla5PVULaq8zsuJ0mWmJqY0leavnmYViFapzQytkrt5oZcP9cwkb+\
+3jmQriq0HUwbLUszxdFdEf3Cv1qDBE3oPKNvPE1LSNa/\
+mRAUdHx4mpLnLoIky9db8yv2pMmS5PTamLeln97d/Qn9/+DO8+\
+BdmFqe43Zcqa2lvbSdZpl72RrbD7Q1tiiTfoyal18cHr/KAyccAj42xxYbKw6TuXF/7MLN34Na/\
+ctU9stkzW6d/9aVOeJ9+\
+JH2EGRLvJkkFS67pxJKNkcKbduXxP1u9BnzUJcCd57dM8y0wZpfDWYZkWTWa8YnvW8HuH5dRAWWSoZ\
+8ZF0eI5NKgLNidTFFFukOW9C100ZAWsrzeJlo663j7WL2hGUlfQhVjRl7few1R6IZZ5Zs9B35dfUzv\
+JH+LpSVPDuFYm/ecrEDtey+ge2W8em2pijiETWFFU6qvHIKXY+wZU4fWdvHYyN+Xe4U6yxsS+\
+OpnXOz+Ecx03RZ3PbAYJBTGtXc1OcJInkBJ2rKc2S96Clg0cC050lJfnO8nvyzZ7p4f7cLjCkHYfPz\
+pKtqZ1PXe7d+/qeT60GKPzYWpndy/\
+ev5tCsnfTONpBbydVPsnL5JZ3k7skfNoa9J7qFOOYwite3zo1lbOlvq8vLJHpxq94o+\
+qzkwzoK3NSJeunhc5LWmQneQUMJf/\
+0ys9to3RllFZTuPK4KVY9Voe1FJzSZKrvrUOFJSr1pR2p3KnaqswqgJ4a26KwC6h2dzDYUifjsalWl\
+3bNBMpkYagRwC9TtlTzylzktnEqJwByQ0xnmBnnL5SpKlvxo3sv5sSMPFEzbxfKye6Nw3ZNmUFIIDJ\
+zagGm1QIOA6Cy5aS7gmVbBO00ZKaXakQoVY4bRwAGjvLSvJjDZYAdoJCWZgpEBO12DIMWXytMmuepg\
++RUaUxmsqF6Ms0Lo5aQtpubFG6W/\
+9pg4RWRbPOYVJesD1lTl0tZcQgvJbQhQlZB7G2PGaC6xbHXCeLhZmeW1B7cZ8Nv+\
+zwY1POVMTvJt7ozxl93b4RV8XktKWy9/3WYKQ1KmtEs78ecW4Lb9FZ83f1gZc/\
+LQ4Bb8ujM2mJfA4L+6Jo5YQCYZtNu12Dkur0y7YpRV6D16xJ83fhr4kvA7zCEWIvBxg9/\
+20POgRlrgItA0dd3AgJF6HkLE2nHA0wetbHszWRqF8d5mc9gC1lPet8FKhpEwHIi9EYQ0hVBtA+\
+PUO2ZBijW+4VtspPRlybtK+GbZ4AsisRNZaox//kPGMp3GV4/aTJMZVScF7mpSJtv8huQU/\
+Ww89tB3jGE9lMZei0kXtoez0/mMaB+71ICE6PK3msw7L05pJY9fnTolRBA+\
+u09AhKT3Xth0qY2p7qe9iPDLT/gkdGZvH1lj9T7bf+cdb867Xt+e1B3ls8M4pSrK+\
+BBvf8REqBTyP7S4++D0ydmdN/UKXycFB3jW1n7APbvcNFvYlBidMWj1gIdexkk7Qe7dR+\
+DDXKtN4I4+k+x9GFtZm7/VRiU1/9rD6ydUM53C1sczigH/N/dhxWfmMKw358t52bvawAGeuok0Yq+\
+s3Zm56dkQ987q3R6nqQVAgCE+AQJMMJO2vGyzwGglD2++v7wh8MfQ/\
+Wf5y7HWj6kufHa7xLK4MZ6wb6HdIApi8nz2wc2bWYQBGv5CECAjPG7vYdBgGDgQNeatPpGxLx1WYfS\
+i7VHtkBukSwdhEWJn0g4+ecP/z+C/l+KoIPBu+\
+oBlyeFOiTXbiRQDgZBj3B1vE25epHJQlw9RcExoa9+/\
+7gzWaEKSeNQnU2hRvwt8nOyispMmkJXqvQDlHmRmnmt8lpNwV5YjJJD0ZdKKYZB3nk6bWVDDOEDSRP\
+xP2v1hQd4tXeo7oDvTdretC9JFJVJDdJWNQaututNNR6NjClJUxemAhrQUqJQythlfKQ6FYMfqgTxC\
+vwUSxZ0x3DYCQK+\
+IlgsOyvzWp21R2ZsK9qfpJxJLSgEBAKHCqEe38QlFrYiEirwUvud1ayB7egM1mLCxOgyatLkQATYnW\
+PvYQ9D5jSHqkHqIi8KMtK5rshloIaZrs4zuyi5fh1zksF0Mw1C0Ta5RrAtUkWc45ZAkxdEhMwUwcTt\
+hupe6RCCeTKqZz03pG4yMjhCa+MqH/MQ+D/\
+EDiLdtLNmh0iRjXmhqZTYDtMWBDAEHyJOmF5BUAnb0gCtKnfnHbl5MvI62PgIoO0K7aa76ostSIxw2\
+0B7fV7YDKBFRzMKm54rO+aSHsJpgCMAjLgmHMYYXhf2cO5YsrnUpSzTImDYAlspPUcWklJI2R08f/\
+48vBzQ4vSASCLohxCwNuCkolSXYE9Q5kifmb/kPSIh2GQmpGSwC7igyyel21W3b7/4xQfqj9XyFx/\
+cvo11D8fXMZliKUp3CGdkDbfNnQ4TcMULMutuAQne/ulPhz/9EWHc4fHpyaOzvYdnP+iJ1K/\
+S6ijISd15vqmg3c566s7tTeU9Z1vtHT3Z+3lygwJhbmIZu+\
+oQYELtCjhpoEkRBUBD5DZMB6wLaSDZjV/xi+e0/\
+Re3EUVQvsLPfwAuqOaFYYn70eCVQJR1o6oaLb1a+l4pjrKrnhZ6ZIpnd+Zc4+42Vb7Zs+\
+ndwfqWenpG1hAHVWZ8l59s8su48ckFZeFmEQey698N78NrmcU9LZUwGXFCDdCqgMF3+\
+a283PQuAKNA3IUNXNnMcsvZCAlHqxzRKhueJh/\
+pSwV4hPhwUkKEHOPzzkzyeLJ1jlArG3GvTz2IoEaY9pkxc54CIyGhiR/\
+NreNkCgMew5THvmaDhUGfEyxKVQW2BSTojLx3TlVj1sAGMeVAoIcSFtjdpLAjTLzQkA6WdLJDXr/\
+neFRpqNzU1RITT1lOagZyqtWYHAWlOXJxpYBJxxSXS7OIr9ugpLNM4sGTI7CHtEFc9Ly0CySd1EeE0\
+sZjlenaMDAjiYPz9OUdkTUoM0VVxYF9jvIVroxdlJUCBbCBcIsZbJpCaWEmhlIfkDHT516vRrucE5R\
+OdkQ6o9TzipSCWdIpSYqjFCWoPrZTHBlxbMli2kf15bYaU41BvOltRQ2jhpjEsyHN9FkQ82L6yAXX1\
+5Q0ECk1KPYZILH158nJw44nanngILaZhs19SlGUIjg5rL7QCPHQuCdXC5jmFRmGRbpCoVGmUnhlzql\
+g3O3L/5cFZ9wD3+v1Q3rptzryQ9qm8i7ys/qSIuecYFAwvs6yhoOE6dkd/\
+NVgfaNGpbKxu2G5JN7YxhMBszo3bmMXI9Y3KBP3n+\
+N4x71IGo9nWUsSXp2UhmBxRlnLtdbtDBIKFs6Ikp8ZxLOBtX4zWP8N0UDFMyA029h92lIwWH82+\
+M0NMnS+QLlRikkc1JWjPP0qqCap9twTLBIYk6WoZq6EADIxFJYuhPbLq4iqveVZxSGFoL9BopWXksJ\
+g3O+spl81iFYvr6Y9JS8VHYRQo0zOJC4R61mSta9XUHjPCnr3XXWfmPERCt69s7MzGDylzPDZ4FPIC\
+v57yHnhHmiwDyo9h5e7n2FMrP+eDY4gmJnxaLUqRlIGPJqCBDIdSy+Gw+Hg7OTkaH/\
+v6OgaByNZenve6G2+AcrvPTzYe/Tg8fG9h2cJfQlrgS7H1eyzwWNK4Ae9mU/\
+nFfJ8ancDjjxEPmulSrGtXtidDGlE6SS+\
+UJSlgOIQVk3ADCpmqD7FezenVB1Y8wkQNA1JihsQgz0ZnVkW49MeQb08oPdmU9JaQnquYCp7gTDJqR\
+USXRA08QNVyxOT59m6lE0zOV3dPkFl9p5jZkZgBXn2UkycD7loo5oSXWw0zguGXDya0Gmbz5hstbxk\
+BdfpMzo7adSb/kZv9ZfU6Ja6j9HSrTij+\
+TvqjkP9BORAErh56e3Tytr6GdPsAjuLqYUOzs1SCjuSypbipQ4qzSGkXfLD4Z9sqlU1vrzR9sm5mcd\
+WP2QoVGgSycCdTvbVDXS1VP+U7yLLoUe9kEnxKxL6EeMXUfUx0/cR4TnyFcR7eqje/3gDg6hvSJ+\
+vGPBBZ8AHH9/Ix14BQ3Js6RifZxKQqbynjsB4yXzE5SVTnEpEZq6Hyq8gvMaX77luaP+\
+dFryfM1rzY+aBB330sRpRS8900d+/DvXxnBrTKfc5aL0h8kHvhVS1Qv6dfbVr9/\
+WI6yIznGfZskMWa5D1Fwd5PS8sZdTwSmRCqC99T8HEDIiZgnqnFKHJuKTuN9JIZiK4n+\
+2k9xH3AzRwhUaDQ/NEhyV8uyPUiKHGkfDIrTzO6+jcX/o1lOXLWy7mMcW1p+X9urPbbRDCnU/\
+KUCLsSHuPM7Jtn0FKN4J6Gcu4pJQTvlXBtX7rFi2TB48fHT58IPvvP370CPbZySJ9GQBH5onS0RCBE\
+E/ibywoI8KKbaBeewfKDPJpd/Y8Umiu+ooZI+\
+vEmFoTuhNiUxMJckB97ntw2p1LT6u2nhCxbYQTQQB6d/w4OVPUvpnN6zCQeRCiXav0bSqGy9A/\
+oeT7XApqEMMdGFuhXsP2kQMiEdLnvWHVvdYp7eVbVDwhd67hpNH4NuliuqTlaQ1qaD689/\
+m9R10Z6yClkjYPlQEZhe45GKTAjmiR2dfVkus5LJujFhEDzIAmXE9KiVCzHXnD8Ybhe0xUT0lnF4OW\
+bLmkVU9CZodSxDjsVWS0GbcbL2xOZVxJcC4dXkoeYYOMgeC0b9bS+JGCE/\
+rS5z52UotQj5gLLi5Crbra3qq5ybfgGkWVzWxkql9ShVh11L5gEsM+tS7O/\
+eIbGElUyjy3MfQNH3EOz0YQvmdClvRsiwEh8LV3VnxzpF52K+loJbQC2W3b+\
+mETbn2AzYiTCMIWTgONo8wzIAUrHQYGBTpbduxafPluZUgXq25WkvfFfRDbZOQ1Ie4jqr1bZP6YICf\
+33dFp7tt08TChJZ8znJQaVHOyUCfHQ97Jug1ruv/g9beM/\
+UxnaNGcOBQnRfHmNcIIEEthWGvnaIBo4loa/1WZBHQyX+\
+7TS688EOgCOksG6n3SVzDD9jhn7bGjk594mPP9J9yEd2qfa27tGyen06WjTL6duN65LhJn//3r/\
+WlzmUbraYqgJUikfot/zNIC+4VFRINtmooAT+\
+liQhc6pjO2Dz58JmNDMT7zczggWKvkJskLbyu6WHLbnaY00tHA84V0x9sIyO10P5cudknOLNvA9uXw\
+ZWY0pcXcPZyNqN+\
+kkMXPOO8HByMrSQBsT7bkQMAHPJzlRda3fRMwbeXiuin6rxpIMKcXzKTJ8tSPIT59e6SW+\
+DxiZyh2gMlFdzfQCU8rJc6Oc1NksWVC3dMZIFPWJLExoMJFqGa5MHSQQKSvFMiePsdWPgNhU5kA0+\
+WCQvCO5B4bSoKxnf34ICbALvNCvTHKVRfEOsxhYlpzYJmZkgo+ve275LTszKRTXbIox0UD1M3k6B/\
+fWXjNrDuElIdd4pBYzqPmWq7qoqsol+YEhNQr7tBK3XRhyXRF7g/68smUw5QYlOODmYz4qgAX22R++\
+Sy0IyU4llmT1gIfBcC5osP/JUmVZEgG9x5VZjytquU4wzLc+\
+L4iFZ9cunNIcaJPnVbYRNLMHDtQB8BXeGwPbLOubrLlDa7/\
+kyfRtajOq6ymKFgbckbj5JTjCsF9FSb821tXY4K3bd6HDsr8Tr+\
+mQ6CSMfJCTm4oAGxLTjtGFcUqtFRYjrktDQkt50JfBAlivMUT321FKHh/\
+qLa29guq0OjFcbAbOtELVru1tevPL8sLwgQnlhAudgb79tFmZhn3sbm0cJy0RCX7KWGwdN5Lr6mDTC\
+EELpMa549ISQbhPMh3sAWk/NEpXQdpisZz5OaV9EZDFy7AX29O220Y2Sz3xbikkyx4eMIHJIa/\
+8M5zgxAu+bN3CekCIBBR/CKpc15GZb+PfcEtHWRsuq4c/VsodQ3cCd6RS/\
+YBDsNMgtByIngLej8keunOJ4zrkuJo1lnP51f112UB9BZ0YcinQn36yerISS4TOp9qgjEAltBK5ojs\
+bbKkg0a42oijzbavBkjUlLP/kKi+\
+z5B1sEobK32FNkG4MYrZ7diNJ5EugLEUluaUL1RlrFx1PbPSVJJEgWbSOgtN2I9BdOW5EpPpvh8V1m\
+ZhkTSvKK0WIGJTAvU/Iurv0bWX6uVFy9dkqhgQZ3pSUnz0IHSDKchEGycsdOhQHesXC1NQSY+\
+SxceVweDHRN0pHBnlvc9NvpK4OQ+PhSNfdLAlA85EOxPDFb+\
+I8EvIS7DqYajloOtT2zAnWJCmBJ5agRGlxSacgfQE+cl1ddmMdVpzJwa8/IR4OSaFkdMmKV8R+\
+UpuJC8NrWJ6MvNLuJ7p5FUMj14rHCLlMMzPDuaBsddpMDg86P1ToveT3BZ2wuNeVv6jdooHrO32QsY\
+M8UNqO0YNdUccr7K1yaknXLDMQebBwz3Ik6/g4clmuPYw4xCY0gWX3gqloWM9/\
+FdTJcsJoUGglkww2PUmuOJTI5ErHX+3cS/kp228WYksUjD2opwvNUMLeCW/\
+igAQKj5Bn2ZOdicWF4mJ8a2bW10fxz+TTnxPAdvqIncNXRjSEWwZzTmujfNaYu5l5r8qtv/\
+Dm8l1W2y3e7C3VHwQm2mfHktOmJdX5xRtlt9Nb7h1Mkah7zokDhWd2wEeptIAXHpu6M7LVktda50uu\
+A6fR1JWExJYqvxHdNURCZoPdbbt97f9L9E2uzNN62aF1mfhPP1yEQ9mY+rRSVm5DudEMiaa/\
+cxCxzyASgAqVEL2EW2SkCPiI4OBlTYCygLXCZw3b6sJCPshUdItrY5J42pfV4X1Vi9ZSPDa4EpDEvv\
+nXUMgyZ/40+\
+v3UEDYEZWlsc53ggG6Z6x8vm7HsLH2hJ2UESwsNHTCEng1MhQZOwfSfFQd8ixuYoy4F+vzLHyiE3B/\
+OMbnI8x5SEcobFLFn0s7R1+lu5BwMn5qF/Mx+\
+hiNSn14ADqJLEYwUmcb5SUyygb96iaszQI99m70UlbcmqxuLcibbreqBMjkc1a8PzTi4rNFerKda0o\
+ltnHRT0T7DgF0P8n4O3AxadR19+yMqQ91n086hDUZHxvIoQfIImptpFtMXeRV3ZADdCriweCy7+\
+nVcrFnc5qTjojHbW3HBBEKiU2VyjDHcAC6yMQGotPUVpm/6UmsJem0+td/\
+oScYEhxTLiYGmxWbDDxGy+YyP1qmV/JIj/\
+Iir5FvUhVeL2MC4P0U3lLY1Ks7UDXkpoAHzcvIvn11WIpl/9wuTEU3edtC/\
+9po0of6y6hXt7Fu1ORFvUPxPAY9Xtgj2tVotn3pygpvBp8KR5qyOzRPJ+y+\
+yenDc7fpckPArOTKALTg7Kyb+60E+\
+u1Ob0r2pQsq0npy5JOwrDKn1no02is9aPgVcfW3t5KGUvqphDYtWo2ny0QltVCKpWzzP6HzOhI5fj6\
+MCx93Mp29uPbu1pYvqg+6urvndacScpSqU03GkA4/iVQXy9B9o64aOxLh/\
+TXB7c7JwT23KUqX34JcO/KURsa7gLHqYtN/\
+1MA3dz5rasjFBzSyRVo8Zm10UlW3UTY13ZG0eKilu9Hxyiqa+\
+Eb5mCHSOSJGGlsi0njE0aqRLmBPKu9cdEY/67laRASK6tHxUJT6m9QF39a8Mu6Havo4Ru5Qm95Y/q+\
+kJLWdhbsyvJA/CG3Db0Sv2Ny7XKzUfMInVTKKKcAGKiJg1xnV2eTMMdpFY44NL0F/\
+ulktlo3ovzB8Mc+H7DuEK6iWIY3NywGRO2ecePif8lwa4LtwwYOvLv/\
+odqBw5X9wJpXejVAWyuoj5D+\
+QPPzIjCpNF0FeymHESUKzhzoZsk4HKqW0lcisq9yZ6yHoard4oBvndhJD6BKsPbjD0WPEH1os5Ejyn\
+jMU+uWI2gv4chbxpUWIR7Boua8cx3XTmcBk22OqjLfGaT6PCtYggbJhSsjDpUy5ydK5nZaXq4O4Sc7\
+OGuzsJioCn5QTx4yATyHJ3KgHzvUSlyL086i8bmizYFFUl1zRtlrdMUTGDiBz2TpdzukcQrDa1ezdb\
+OgYzzfZ6YFAAdbI5z7YQQhUqPhtYv+9XTz+\
+JiQn4dCNiG5HyQeJTK4gdE4jgp8eo0im6wZHMLvyUj6q49FAu52cvYSzCDmA4J+\
+SyY90eL9wsxQiz104tOnuvcqF/EaF0gJyvGLpf0RxY8iVmwV8es4SDgLgvKIjA+kOei0zLR5/\
+w8lBp+G60jbo0ggxdg6yplweVHIgzADS5kC+Dbf6Kx5/qplT7dlLyOTg5Uq33km+1f21+\
+qUfkP03LE156A=="|>,
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellID->561453537,ExpressionUUID->"2bcaaac4-daab-4dba-a21e-da9573bbbdda"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -173,8 +758,8 @@ Cell["Something is Missing", "Subsection",
  CellID->958493254,ExpressionUUID->"0002e0b1-4e03-4148-a610-d57438e65dd0"],
 
 Cell[TextData[{
- "These definitions miss a vitally important component of computational \
-physics, exemplified by the award of the 1999 ",
+ "However, a vitally important component of computational physics is missing, \
+exemplified by the award of the 1999 ",
  ButtonBox["Nobel Physics Prize",
   BaseStyle->"Hyperlink",
   ButtonData->{
@@ -508,96 +1093,102 @@ Cell[2511, 78, 761, 19, 83, "Text",ExpressionUUID->"258a68f0-fe98-4ec1-b55f-4f56
 Cell[3275, 99, 825, 13, 223, "Note",ExpressionUUID->"178e6c71-2bd4-4a7e-9915-3d30161618a7",
  CellID->143571955],
 Cell[4103, 114, 203, 4, 60, "Text",ExpressionUUID->"9079395a-b05b-45e2-94aa-ff7c332243b7",
- CellID->1389712104],
-Cell[4309, 120, 546, 15, 60, "Text",ExpressionUUID->"6fe1c280-3a3c-4017-a743-f4b7c7f78c3a",
- CellID->859187156],
-Cell[CellGroupData[{
-Cell[4880, 139, 454, 7, 128, "Note",ExpressionUUID->"6481a783-3550-4619-b340-b9cba48a4127",
- CellID->678488464],
-Cell[5337, 148, 457, 8, 128, "Note",ExpressionUUID->"bbd199a1-0074-4b66-9d31-16c4653868a6",
- CellGroupingRules->{"GroupTogetherNestedGrouping", 15000.},
- CellID->2101313431],
-Cell[5797, 158, 446, 7, 105, "Note",ExpressionUUID->"e7c44228-9e46-4eb2-9a0c-56181caa08f2",
- CellGroupingRules->{"GroupTogetherNestedGrouping", 15000.},
- CellID->1226120533]
-}, Open  ]]
+ CellID->1389712104]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[6292, 171, 117, 1, 55, "Subsection",ExpressionUUID->"0002e0b1-4e03-4148-a610-d57438e65dd0",
+Cell[4343, 123, 114, 1, 55, "Subsection",ExpressionUUID->"b1d4995a-bc64-470d-8da7-feae0bceb0ce",
+ CellID->178662139],
+Cell[4460, 126, 546, 15, 60, "Text",ExpressionUUID->"6fe1c280-3a3c-4017-a743-f4b7c7f78c3a",
+ CellID->859187156],
+Cell[5009, 143, 447, 12, 46, "ChatInput",ExpressionUUID->"ecc5ed7d-6201-415f-8b62-499aaf7f851d",
+ CellID->1097613892],
+Cell[5459, 157, 8644, 137, 295, "ChatOutput",ExpressionUUID->"893ceaca-2182-4d20-8dce-88677ce5d9be",
+ CellID->712155114],
+Cell[14106, 296, 472, 12, 46, "ChatInput",ExpressionUUID->"4961afc3-bdfc-4dcb-8c2f-a915992446fd",
+ CellID->2088755669],
+Cell[14581, 310, 11687, 189, 689, "ChatOutput",ExpressionUUID->"263b921f-412d-434e-8e11-1d923c5d8fc9",
+ CellID->801351374],
+Cell[26271, 501, 541, 15, 66, "ChatInput",ExpressionUUID->"854fa1b5-44ae-4b7d-b9d2-d9d4d442b0be",
+ CellID->1442592481],
+Cell[26815, 518, 14055, 233, 876, "ChatOutput",ExpressionUUID->"2bcaaac4-daab-4dba-a21e-da9573bbbdda",
+ CellID->561453537]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[40907, 756, 117, 1, 55, "Subsection",ExpressionUUID->"0002e0b1-4e03-4148-a610-d57438e65dd0",
  CellID->958493254],
-Cell[6412, 174, 529, 11, 83, "Text",ExpressionUUID->"709a3caa-e965-41ca-944d-063c0b09fb03",
+Cell[41027, 759, 526, 11, 83, "Text",ExpressionUUID->"709a3caa-e965-41ca-944d-063c0b09fb03",
  CellID->1121283831],
-Cell[6944, 187, 1002, 21, 199, "Note",ExpressionUUID->"47cf4fdd-321e-417f-839b-e751f21feace",
+Cell[41556, 772, 1002, 21, 199, "Note",ExpressionUUID->"47cf4fdd-321e-417f-839b-e751f21feace",
  CellID->1248345192],
-Cell[7949, 210, 361, 12, 60, "Text",ExpressionUUID->"41681a22-4971-457c-affd-34128d2327e0",
+Cell[42561, 795, 361, 12, 60, "Text",ExpressionUUID->"41681a22-4971-457c-affd-34128d2327e0",
  CellID->22410754]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[8347, 227, 119, 1, 55, "Subsection",ExpressionUUID->"95c9bb49-d530-4993-80e3-7fa2784b34c3",
+Cell[42959, 812, 119, 1, 55, "Subsection",ExpressionUUID->"95c9bb49-d530-4993-80e3-7fa2784b34c3",
  CellID->847904253],
-Cell[8469, 230, 670, 19, 83, "Text",ExpressionUUID->"69b4b16a-6328-4bdb-b2f2-6558cdd2b2eb",
+Cell[43081, 815, 670, 19, 83, "Text",ExpressionUUID->"69b4b16a-6328-4bdb-b2f2-6558cdd2b2eb",
  CellID->25298679],
-Cell[9142, 251, 934, 28, 154, "Text",ExpressionUUID->"28e00328-756b-4bf9-b6d6-546564b6790a",
+Cell[43754, 836, 934, 28, 154, "Text",ExpressionUUID->"28e00328-756b-4bf9-b6d6-546564b6790a",
  CellID->2140619494],
-Cell[10079, 281, 778, 18, 83, "Text",ExpressionUUID->"3426d248-662c-4268-83ad-b4c152e0e70b",
+Cell[44691, 866, 778, 18, 83, "Text",ExpressionUUID->"3426d248-662c-4268-83ad-b4c152e0e70b",
  CellID->598297467],
-Cell[10860, 301, 415, 12, 60, "Text",ExpressionUUID->"bd7ae805-a7e5-4ddc-b623-b203d7650935",
+Cell[45472, 886, 415, 12, 60, "Text",ExpressionUUID->"bd7ae805-a7e5-4ddc-b623-b203d7650935",
  CellID->1067092615]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[11312, 318, 128, 1, 55, "Subsection",ExpressionUUID->"c8263f51-1181-4432-a785-eb80e1d900eb",
+Cell[45924, 903, 128, 1, 55, "Subsection",ExpressionUUID->"c8263f51-1181-4432-a785-eb80e1d900eb",
  CellID->138065479],
-Cell[11443, 321, 489, 11, 107, "Text",ExpressionUUID->"30353ea9-450f-4158-ad14-383922a6e5eb",
+Cell[46055, 906, 489, 11, 107, "Text",ExpressionUUID->"30353ea9-450f-4158-ad14-383922a6e5eb",
  CellID->1184166793],
-Cell[11935, 334, 278, 7, 60, "Text",ExpressionUUID->"697a1827-008a-491b-8110-2d743b426331",
+Cell[46547, 919, 278, 7, 60, "Text",ExpressionUUID->"697a1827-008a-491b-8110-2d743b426331",
  CellID->1560333202],
 Cell[CellGroupData[{
-Cell[12238, 345, 111, 1, 52, "Subsubsection",ExpressionUUID->"e98c5fcc-882c-441a-ba69-543f7d24c59d",
+Cell[46850, 930, 111, 1, 52, "Subsubsection",ExpressionUUID->"e98c5fcc-882c-441a-ba69-543f7d24c59d",
  CellID->1597312497],
-Cell[12352, 348, 250, 6, 30, "ItemNumbered",ExpressionUUID->"a9980448-f868-4eee-b6a2-5bb7bc8e950c",
+Cell[46964, 933, 250, 6, 30, "ItemNumbered",ExpressionUUID->"a9980448-f868-4eee-b6a2-5bb7bc8e950c",
  CellID->338065932],
-Cell[12605, 356, 203, 4, 25, "Subitem",ExpressionUUID->"94ea9af2-f158-4238-b5aa-c72793b9e76d",
+Cell[47217, 941, 203, 4, 25, "Subitem",ExpressionUUID->"94ea9af2-f158-4238-b5aa-c72793b9e76d",
  CellID->1779872809],
-Cell[12811, 362, 135, 1, 25, "Subitem",ExpressionUUID->"f9b3d7f3-855e-411c-9fa5-e1b727750134",
+Cell[47423, 947, 135, 1, 25, "Subitem",ExpressionUUID->"f9b3d7f3-855e-411c-9fa5-e1b727750134",
  CellID->2022581800],
-Cell[12949, 365, 232, 4, 25, "Subitem",ExpressionUUID->"29b51bdf-0cb6-4c39-9a93-8f3178384fb7",
+Cell[47561, 950, 232, 4, 25, "Subitem",ExpressionUUID->"29b51bdf-0cb6-4c39-9a93-8f3178384fb7",
  CellID->1013664237],
-Cell[13184, 371, 127, 1, 25, "Subitem",ExpressionUUID->"a1d01f21-a909-422a-95a4-6d53cc7cdea5",
+Cell[47796, 956, 127, 1, 25, "Subitem",ExpressionUUID->"a1d01f21-a909-422a-95a4-6d53cc7cdea5",
  CellID->667059608],
-Cell[13314, 374, 129, 1, 25, "Subitem",ExpressionUUID->"6881d86e-53e7-44b3-88e6-337949ffe97d",
+Cell[47926, 959, 129, 1, 25, "Subitem",ExpressionUUID->"6881d86e-53e7-44b3-88e6-337949ffe97d",
  CellID->1406194316],
-Cell[13446, 377, 132, 1, 25, "Subitem",ExpressionUUID->"c9863673-da1c-448d-b08f-39af2b981c5a",
+Cell[48058, 962, 132, 1, 25, "Subitem",ExpressionUUID->"c9863673-da1c-448d-b08f-39af2b981c5a",
  CellID->850333777],
 Cell[CellGroupData[{
-Cell[13603, 382, 165, 3, 25, "Subitem",ExpressionUUID->"b43a6dba-9a08-46f6-9cd0-300057281c6e",
+Cell[48215, 967, 165, 3, 25, "Subitem",ExpressionUUID->"b43a6dba-9a08-46f6-9cd0-300057281c6e",
  CellID->56119254],
-Cell[13771, 387, 235, 4, 50, "ItemNumbered",ExpressionUUID->"940b31b9-c62a-4603-b9b5-d98ca70b013d",
+Cell[48383, 972, 235, 4, 50, "ItemNumbered",ExpressionUUID->"940b31b9-c62a-4603-b9b5-d98ca70b013d",
  CellID->450980945]
 }, Open  ]],
-Cell[14021, 394, 111, 1, 25, "Subitem",ExpressionUUID->"220f87ef-2eba-43a1-a012-2ce188b2e065",
+Cell[48633, 979, 111, 1, 25, "Subitem",ExpressionUUID->"220f87ef-2eba-43a1-a012-2ce188b2e065",
  CellID->1166952352],
-Cell[14135, 397, 109, 1, 25, "Subitem",ExpressionUUID->"e40efc1b-3a15-4610-8359-fb490c4c93b2",
+Cell[48747, 982, 109, 1, 25, "Subitem",ExpressionUUID->"e40efc1b-3a15-4610-8359-fb490c4c93b2",
  CellID->32013],
-Cell[14247, 400, 114, 1, 25, "Subitem",ExpressionUUID->"b867b3fa-b279-4cc1-8aaf-2991c0c70668",
+Cell[48859, 985, 114, 1, 25, "Subitem",ExpressionUUID->"b867b3fa-b279-4cc1-8aaf-2991c0c70668",
  CellID->538042491],
-Cell[14364, 403, 114, 1, 25, "Subitem",ExpressionUUID->"13fc9113-5c5a-48da-aa4a-70835fb5ab96",
+Cell[48976, 988, 114, 1, 25, "Subitem",ExpressionUUID->"13fc9113-5c5a-48da-aa4a-70835fb5ab96",
  CellID->1973992367],
-Cell[14481, 406, 116, 1, 25, "Subitem",ExpressionUUID->"7f956d5b-88ec-4a78-bab9-3c2c1f87dae4",
+Cell[49093, 991, 116, 1, 25, "Subitem",ExpressionUUID->"7f956d5b-88ec-4a78-bab9-3c2c1f87dae4",
  CellID->414849666],
-Cell[14600, 409, 110, 1, 25, "Subitem",ExpressionUUID->"bb580ecc-be96-46c4-a838-e26cf733a398",
+Cell[49212, 994, 110, 1, 25, "Subitem",ExpressionUUID->"bb580ecc-be96-46c4-a838-e26cf733a398",
  CellID->1646418300],
-Cell[14713, 412, 419, 12, 25, "Subitem",ExpressionUUID->"5e3a2d0f-da74-41e8-bb6c-ab4ff9e1b493",
+Cell[49325, 997, 419, 12, 25, "Subitem",ExpressionUUID->"5e3a2d0f-da74-41e8-bb6c-ab4ff9e1b493",
  CellID->1025576505]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[15181, 430, 107, 1, 55, "Subsection",ExpressionUUID->"1515b188-05e5-45d4-a710-e8c05a9578f0",
+Cell[49793, 1015, 107, 1, 55, "Subsection",ExpressionUUID->"1515b188-05e5-45d4-a710-e8c05a9578f0",
  CellID->678261337],
-Cell[15291, 433, 550, 12, 24, "Reference",ExpressionUUID->"1111507d-0268-462a-966e-985f40f8ab56",
+Cell[49903, 1018, 550, 12, 24, "Reference",ExpressionUUID->"1111507d-0268-462a-966e-985f40f8ab56",
  CellID->111683501],
-Cell[15844, 447, 402, 9, 24, "Reference",ExpressionUUID->"a9232581-f765-4fe8-89e7-72fe5bd8f36f",
+Cell[50456, 1032, 402, 9, 24, "Reference",ExpressionUUID->"a9232581-f765-4fe8-89e7-72fe5bd8f36f",
  CellID->163893829],
-Cell[16249, 458, 381, 8, 24, "Reference",ExpressionUUID->"0f663568-3d52-4255-bf16-1d89c829eaca",
+Cell[50861, 1043, 381, 8, 24, "Reference",ExpressionUUID->"0f663568-3d52-4255-bf16-1d89c829eaca",
  CellID->1489548549]
 }, Open  ]]
 }, Open  ]]
