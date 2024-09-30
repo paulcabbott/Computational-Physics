@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[      6066,        136]
-NotebookOptionsPosition[      5095,        109]
-NotebookOutlinePosition[      5562,        126]
-CellTagsIndexPosition[      5519,        123]
+NotebookDataLength[      4821,        126]
+NotebookOptionsPosition[      3741,         97]
+NotebookOutlinePosition[      4208,        114]
+CellTagsIndexPosition[      4165,        111]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -28,29 +28,34 @@ Cell[TextData[{
  CounterAssignments->{{"Section", -1}},
  CellID->942139248,ExpressionUUID->"593bd7a3-bb8a-49f1-9ed1-823705ed1aa4"],
 
-Cell["\<\
-I started using the Wolfram Language in all my teaching and research 35 years \
-ago. In 1993 I commenced teaching a Computational Physics course and in 2008, \
-with Grant Keady, I developed an introductory course on Applied Mathematics. \
-This MOOC distills my lecture notes, exercises, exam problems and some of my \
-research to provide a course designed for both students and academics.\
-\>", "Text",
- CellChangeTimes->{{3.926480263549502*^9, 3.926480400164668*^9}, {
-   3.926480483229854*^9, 3.926480517212262*^9}, {3.9278143071697283`*^9, 
-   3.927814431328203*^9}, {3.9278145325486917`*^9, 3.9278146437513103`*^9}, {
-   3.927814812776312*^9, 3.9278148569261427`*^9}, 3.927815344093286*^9, {
-   3.92781560070039*^9, 3.9278156513722677`*^9}, {3.9278159641806717`*^9, 
-   3.927815970038975*^9}},
+Cell[TextData[{
+ "I started using ",
+ "Mathematica",
+ " in all my teaching and research over 35 years ago. In 1990 I accepted a \
+position at ",
+ StyleBox["The Mathematica Journal",
+  FontSlant->"Italic"],
+ ", initially as Technical Editor and later as a Contributing Editor. I",
+ "n 1993, after taking up a Faculty position at the University of Western \
+Australia, I commenced teaching a Computational Physics course. And in 2008, \
+with Grant Keady, I developed an introductory computational course on Applied \
+Mathematics. "
+}], "Text",
  CellID->827767554,ExpressionUUID->"2a233627-3284-4e19-b8a5-e7d9c9941814"],
+
+Cell["\<\
+This book, intended for both students and academics, draws from my journal \
+columns, lecture notes, exercises, exam problems, and some of my research.\
+\>", "Text",
+ CellID->1267255787,ExpressionUUID->"724460d8-4604-4117-b1ea-52eae04bb093"],
 
 Cell[TextData[{
  "My approach to teaching and learning the Wolfram Language, was immersion: \
-using the Wolfram Language for lectures, laboratories ",
+using the Notebooks for lectures, laboratories ",
  StyleBox["and",
   FontSlant->"Italic"],
- " exams to e",
- "xplore programs that run, and learn from them as examples. The short video\
-\[LongDash]",
+ " exams to explore programs that run, and learn from them as examples. The \
+short video\[LongDash]",
  ButtonBox["An Immersive Environment: Teaching Real-World Problems with \
 Mathematica",
   BaseStyle->"Hyperlink",
@@ -62,28 +67,19 @@ problems-with-mathematica.html"], None},
 with-mathematica.html"],
  "\[LongDash]gives a brief overview of my approach."
 }], "Text",
- CellChangeTimes->{{3.926480263549502*^9, 3.926480318880331*^9}, {
-  3.927814444027123*^9, 3.92781447922456*^9}, {3.927814513684757*^9, 
-  3.927814523140572*^9}, {3.927814755002281*^9, 3.92781480408383*^9}, {
-  3.927814860150763*^9, 3.927814964211048*^9}, {3.9278150104394608`*^9, 
-  3.927815227754158*^9}, {3.927815266139619*^9, 3.927815276393207*^9}},
  CellID->890214812,ExpressionUUID->"3b2c2e64-4969-4561-8b25-5210a30b7469"],
 
-Cell["\<\
-Using the Wolfram Language, computational thinking becomes much more \
+Cell[TextData[{
+ "Using the Wolfram Language, computational thinking becomes much more \
 concrete: at every step you can see what is happening, and whether what you\
 \[CloseCurlyQuote]re doing is right. There are no hidden concepts that have \
 to be explained abstractly from outside and cannot explicitly be seen. My \
-experience is that coding in the Wolfram Language code helps me better \
-understand theoretical physical concepts and, often, the code is a direct \
-implementation of the underlying theory.\
-\>", "Text",
- CellChangeTimes->{{3.926480263549502*^9, 3.926480318880331*^9}, {
-   3.927814444027123*^9, 3.92781447922456*^9}, {3.927814513684757*^9, 
-   3.927814523140572*^9}, {3.927814755002281*^9, 3.927814777193408*^9}, {
-   3.927815236434312*^9, 3.927815250033595*^9}, 3.927815301365098*^9, 
-   3.927815405227751*^9, {3.927815455823268*^9, 3.927815477595552*^9}, 
-   3.927815573298398*^9, {3.927815992592031*^9, 3.927816232158422*^9}},
+experience is that coding in the Wolfram Language helps me better understand \
+theoretical concepts and, often, the best code is a ",
+ StyleBox["direct",
+  FontSlant->"Italic"],
+ " implementation of the underlying theory."
+}], "Text",
  CellID->321776635,ExpressionUUID->"39507243-81ef-41d7-835a-4882f4030539"],
 
 Cell["\<\
@@ -92,18 +88,10 @@ practice. Understanding the core principles of the language\[LongDash]and \
 using the interactive online documentation, which explains how to use all the \
 many capabilities of the system, including many physical \
 examples\[LongDash]gives a good grounding to apply the Wolfram Language to a \
-wide range of Computational Physics problems. I hope that you find this MOOC \
-a good introduction to computational thinking, which has become a defining \
-feature of our times.\
+wide range of physics problems. Computational thinking has become a defining \
+feature of our times, and the goal of this book is to highlight its \
+application to physics.\
 \>", "Text",
- CellChangeTimes->{{3.926480263549502*^9, 3.926480318880331*^9}, {
-   3.927814444027123*^9, 3.92781447922456*^9}, {3.927814513684757*^9, 
-   3.927814523140572*^9}, {3.927814755002281*^9, 3.927814777193408*^9}, {
-   3.927815236434312*^9, 3.927815250033595*^9}, 3.927815301365098*^9, {
-   3.927815418416535*^9, 3.9278154490589647`*^9}, {3.9278155353610773`*^9, 
-   3.92781556053342*^9}, {3.9278157004336023`*^9, 3.927815803840385*^9}, {
-   3.92781583388982*^9, 3.927815867128666*^9}, {3.927815902263165*^9, 
-   3.927815932853711*^9}, {3.9278162555664177`*^9, 3.9278163134170113`*^9}},
  CellID->736081299,ExpressionUUID->"95e593da-5272-4d3b-b118-b508724bab7a"]
 }, Open  ]]
 },
@@ -129,18 +117,18 @@ Cell[CellGroupData[{
 Cell[576, 22, 209, 6, 108, "Section",ExpressionUUID->"593bd7a3-bb8a-49f1-9ed1-823705ed1aa4",
  CounterAssignments->{{"Section", -1}},
  CellID->942139248],
-Cell[788, 30, 882, 13, 130, "Text",ExpressionUUID->"2a233627-3284-4e19-b8a5-e7d9c9941814",
+Cell[788, 30, 616, 13, 154, "Text",ExpressionUUID->"2a233627-3284-4e19-b8a5-e7d9c9941814",
  CellID->827767554],
-Cell[1673, 45, 1152, 24, 130, "Text",ExpressionUUID->"3b2c2e64-4969-4561-8b25-5210a30b7469",
+Cell[1407, 45, 251, 4, 60, "Text",ExpressionUUID->"724460d8-4604-4117-b1ea-52eae04bb093",
+ CellID->1267255787],
+Cell[1661, 51, 786, 18, 130, "Text",ExpressionUUID->"3b2c2e64-4969-4561-8b25-5210a30b7469",
  CellID->890214812],
-Cell[2828, 71, 1017, 15, 154, "Text",ExpressionUUID->"39507243-81ef-41d7-835a-4882f4030539",
+Cell[2450, 71, 629, 11, 154, "Text",ExpressionUUID->"39507243-81ef-41d7-835a-4882f4030539",
  CellID->321776635],
-Cell[3848, 88, 1231, 18, 178, "Text",ExpressionUUID->"95e593da-5272-4d3b-b118-b508724bab7a",
+Cell[3082, 84, 643, 10, 178, "Text",ExpressionUUID->"95e593da-5272-4d3b-b118-b508724bab7a",
  CellID->736081299]
 }, Open  ]]
 }
 ]
 *)
-
-(* End of internal cache information *)
 
