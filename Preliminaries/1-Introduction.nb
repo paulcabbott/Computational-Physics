@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     57812,       1190]
-NotebookOptionsPosition[     51270,       1055]
-NotebookOutlinePosition[     51737,       1072]
-CellTagsIndexPosition[     51694,       1069]
+NotebookDataLength[     59347,       1228]
+NotebookOptionsPosition[     52401,       1085]
+NotebookOutlinePosition[     52868,       1102]
+CellTagsIndexPosition[     52825,       1099]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1049,7 +1049,37 @@ Cell[TextData[{
   ButtonNote->"https://www.nature.com/collections/ggidgjfffi"],
  " provides some interesting background"
 }], "Reference",
- CellID->1489548549,ExpressionUUID->"0f663568-3d52-4255-bf16-1d89c829eaca"]
+ CellID->1489548549,ExpressionUUID->"0f663568-3d52-4255-bf16-1d89c829eaca"],
+
+Cell[CellGroupData[{
+
+Cell["More to Explore", "MoreExploreSection",
+ CellID->1961449169,ExpressionUUID->"4dd8ee34-7630-4f6b-a3e0-759e85119c16"],
+
+Cell[TextData[{
+ ButtonBox["The Mathematica GuideBooks",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.mathematicaguidebooks.org"], None},
+  ButtonNote->"http://www.mathematicaguidebooks.org"],
+ "\[LongDash]a four-volume exploration of Mathematica\[CloseCurlyQuote]s \
+application to classic and current problems in science, computer science, and \
+visualization\[LongDash]is a tremendous resource for a wide range of \
+computational physics problems."
+}], "MoreExplore",
+ CellID->54718286,ExpressionUUID->"0e20ebfa-a9c7-4127-a9ba-5c6d8cb2be69"],
+
+Cell[TextData[{
+ "Michael Trott\[CloseCurlyQuote]s ",
+ ButtonBox["blog posts",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://blog.wolfram.com/author/michael-trott/"], None},
+  ButtonNote->"https://blog.wolfram.com/author/michael-trott/"],
+ ", many of which are on physics, are always worth reading."
+}], "MoreExplore",
+ CellID->102051047,ExpressionUUID->"08117c8d-c035-412a-9441-201beb8ebe88"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 },
@@ -1189,7 +1219,15 @@ Cell[49903, 1018, 550, 12, 24, "Reference",ExpressionUUID->"1111507d-0268-462a-9
 Cell[50456, 1032, 402, 9, 24, "Reference",ExpressionUUID->"a9232581-f765-4fe8-89e7-72fe5bd8f36f",
  CellID->163893829],
 Cell[50861, 1043, 381, 8, 24, "Reference",ExpressionUUID->"0f663568-3d52-4255-bf16-1d89c829eaca",
- CellID->1489548549]
+ CellID->1489548549],
+Cell[CellGroupData[{
+Cell[51267, 1055, 121, 1, 69, "MoreExploreSection",ExpressionUUID->"4dd8ee34-7630-4f6b-a3e0-759e85119c16",
+ CellID->1961449169],
+Cell[51391, 1058, 561, 11, 66, "MoreExplore",ExpressionUUID->"0e20ebfa-a9c7-4127-a9ba-5c6d8cb2be69",
+ CellID->54718286],
+Cell[51955, 1071, 406, 9, 29, "MoreExplore",ExpressionUUID->"08117c8d-c035-412a-9441-201beb8ebe88",
+ CellID->102051047]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }
