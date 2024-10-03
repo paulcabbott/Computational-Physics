@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     59347,       1228]
-NotebookOptionsPosition[     52401,       1085]
-NotebookOutlinePosition[     52868,       1102]
-CellTagsIndexPosition[     52825,       1099]
+NotebookDataLength[     63975,       1344]
+NotebookOptionsPosition[     55506,       1173]
+NotebookOutlinePosition[     55973,       1190]
+CellTagsIndexPosition[     55930,       1187]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1078,7 +1078,95 @@ Cell[TextData[{
   ButtonNote->"https://blog.wolfram.com/author/michael-trott/"],
  ", many of which are on physics, are always worth reading."
 }], "MoreExplore",
- CellID->102051047,ExpressionUUID->"08117c8d-c035-412a-9441-201beb8ebe88"]
+ CellID->102051047,ExpressionUUID->"08117c8d-c035-412a-9441-201beb8ebe88"],
+
+Cell[TextData[{
+ "I have found the following selected books\[LongDash]from the longer list \
+available ",
+ ButtonBox["here",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://www.wolfram.com/books/topics.html?query=&start=1&limit=200&\
+topic=Physics&language=English"], None},
+  ButtonNote->"https://www.wolfram.com/books"],
+ "\[LongDash]particularly useful:"
+}], "Text",
+ CellID->581506883,ExpressionUUID->"677cb8f3-4876-470a-b906-9003257ee742"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Mathematica for Theoretical Physics: Electrodynamics, Quantum Mechanics, \
+General Relativity, and Fractals: \
+https://www.wolfram.com/books/profile.cgi?id=6008\
+\>", "Item",
+ CellID->1042846099,ExpressionUUID->"55681b26-5c26-4dfb-a0f9-c7da6976d3e2"],
+
+Cell["\<\
+Mathematica for Theoretical Physics: Classical Mechanics and Nonlinear \
+Dynamics: https://www.wolfram.com/books/profile.cgi?id=5753\
+\>", "Item",
+ CellID->1914335295,ExpressionUUID->"57b936a8-fdf9-41e6-86d2-f3b5a5f04213"],
+
+Cell["\<\
+ElectroDynamics: A Novel Computational Approach: \
+https://www.wolfram.com/books/profile.cgi?id=9805\
+\>", "Item",
+ CellID->170995964,ExpressionUUID->"aca2e4eb-6487-4ad9-98b1-f8883fd4b540"],
+
+Cell["\<\
+Using Mathematica for Quantum Mechanics: A Student\[CloseCurlyQuote]s Manual: \
+https://www.wolfram.com/books/profile.cgi?id=9759\
+\>", "Item",
+ CellID->1014192752,ExpressionUUID->"8efadcd5-62f1-4eb7-9cc4-0ef37515bb69"],
+
+Cell["\<\
+Graduate Mathematical Physics: With Mathematica Supplements: \
+https://www.wolfram.com/books/profile.cgi?id=6657\
+\>", "Item",
+ CellID->306719569,ExpressionUUID->"6f17ba26-d753-4e2d-b3ac-eacf780bd894"],
+
+Cell["\<\
+Quantum Methods with Mathematica: \
+https://www.wolfram.com/books/profile.cgi?id=3555\
+\>", "Item",
+ CellID->1627291651,ExpressionUUID->"59270060-2233-4c19-90b5-a4be88817811"],
+
+Cell["\<\
+Nonlinear Physics with Mathematica for Scientists and Engineers: \
+https://www.wolfram.com/books/profile.cgi?id=3240\
+\>", "Item",
+ CellID->556504419,ExpressionUUID->"260d0792-1ecb-47a0-8041-ee76f3247042"],
+
+Cell["\<\
+Visual Quantum Mechanics: https://www.wolfram.com/books/profile.cgi?id=2205\
+\>", "Item",
+ CellID->1764060687,ExpressionUUID->"d00005e8-312b-44e4-aa3d-497777884fd0"],
+
+Cell["\<\
+Numerical and Analytical Methods for Scientists and Engineers Using \
+Mathematica: https://www.wolfram.com/books/profile.cgi?id=4804\
+\>", "Item",
+ CellID->1658344130,ExpressionUUID->"83d10adc-ec70-4fe0-b3af-8c1747653711"],
+
+Cell["\<\
+Applied Mathematica: Getting Started, Getting It Done: \
+https://www.wolfram.com/books/profile.cgi?id=3218\
+\>", "Item",
+ CellID->1414959940,ExpressionUUID->"d8ad4799-c736-4683-8967-8a3bad010aab"],
+
+Cell["\<\
+Complex Analysis with Mathematica: \
+https://www.wolfram.com/books/profile.cgi?id=6225\
+\>", "Item",
+ CellID->766146753,ExpressionUUID->"c5819496-ac42-44b3-9299-d8b188dde7a8"],
+
+Cell["\<\
+Essential Mathematica for Students of Science: Tutorial Approach to Mastery \
+of Mathematica: https://library.wolfram.com/infocenter/Courseware/4301/\
+\>", "Item",
+ CellID->320498061,ExpressionUUID->"0afd9edc-dbcc-4eea-8de9-05fcdad0e30c"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
@@ -1226,7 +1314,35 @@ Cell[51267, 1055, 121, 1, 69, "MoreExploreSection",ExpressionUUID->"4dd8ee34-763
 Cell[51391, 1058, 561, 11, 66, "MoreExplore",ExpressionUUID->"0e20ebfa-a9c7-4127-a9ba-5c6d8cb2be69",
  CellID->54718286],
 Cell[51955, 1071, 406, 9, 29, "MoreExplore",ExpressionUUID->"08117c8d-c035-412a-9441-201beb8ebe88",
- CellID->102051047]
+ CellID->102051047],
+Cell[52364, 1082, 455, 11, 60, "Text",ExpressionUUID->"677cb8f3-4876-470a-b906-9003257ee742",
+ CellID->581506883],
+Cell[CellGroupData[{
+Cell[52844, 1097, 260, 5, 50, "Item",ExpressionUUID->"55681b26-5c26-4dfb-a0f9-c7da6976d3e2",
+ CellID->1042846099],
+Cell[53107, 1104, 232, 4, 50, "Item",ExpressionUUID->"57b936a8-fdf9-41e6-86d2-f3b5a5f04213",
+ CellID->1914335295],
+Cell[53342, 1110, 199, 4, 50, "Item",ExpressionUUID->"aca2e4eb-6487-4ad9-98b1-f8883fd4b540",
+ CellID->170995964],
+Cell[53544, 1116, 229, 4, 50, "Item",ExpressionUUID->"8efadcd5-62f1-4eb7-9cc4-0ef37515bb69",
+ CellID->1014192752],
+Cell[53776, 1122, 211, 4, 50, "Item",ExpressionUUID->"6f17ba26-d753-4e2d-b3ac-eacf780bd894",
+ CellID->306719569],
+Cell[53990, 1128, 185, 4, 30, "Item",ExpressionUUID->"59270060-2233-4c19-90b5-a4be88817811",
+ CellID->1627291651],
+Cell[54178, 1134, 215, 4, 50, "Item",ExpressionUUID->"260d0792-1ecb-47a0-8041-ee76f3247042",
+ CellID->556504419],
+Cell[54396, 1140, 175, 3, 30, "Item",ExpressionUUID->"d00005e8-312b-44e4-aa3d-497777884fd0",
+ CellID->1764060687],
+Cell[54574, 1145, 232, 4, 50, "Item",ExpressionUUID->"83d10adc-ec70-4fe0-b3af-8c1747653711",
+ CellID->1658344130],
+Cell[54809, 1151, 206, 4, 50, "Item",ExpressionUUID->"d8ad4799-c736-4683-8967-8a3bad010aab",
+ CellID->1414959940],
+Cell[55018, 1157, 185, 4, 30, "Item",ExpressionUUID->"c5819496-ac42-44b3-9299-d8b188dde7a8",
+ CellID->766146753],
+Cell[55206, 1163, 248, 4, 50, "Item",ExpressionUUID->"0afd9edc-dbcc-4eea-8de9-05fcdad0e30c",
+ CellID->320498061]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
