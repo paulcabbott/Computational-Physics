@@ -1,0 +1,452 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     14815,        444]
+NotebookOptionsPosition[     11657,        373]
+NotebookOutlinePosition[     12124,        390]
+CellTagsIndexPosition[     12081,        387]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ 
+ CounterBox["Section"],
+ StyleBox[" | Generating Functions", "SectionBar"]
+}], "Section",
+ CounterAssignments->{{"Section", 0}},
+ CellID->1420349858,ExpressionUUID->"0bbd6bb0-5174-463d-8e2c-7f610c9316f4"],
+
+Cell[TextData[{
+ "All orthogonal polynomials have simple generating functions. For example, \
+here is a generating function for the Legendre polynomials ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[{"n", "x"},
+    "LegendreP"], TraditionalForm]],
+  CellChangeTimes->{{3.515719830741181*^9, 3.51571988626711*^9}, {
+   3.5157199351242456`*^9, 3.515719969089204*^9}},ExpressionUUID->
+  "cfb3ece0-e2e7-40ef-8253-20422a81a87d"],
+ ":"
+}], "Text",
+ CellChangeTimes->{{3.515719763227953*^9, 3.515719807099934*^9}, {
+   3.51571998107241*^9, 3.5157200117025967`*^9}, {3.516344241252431*^9, 
+   3.516344247523794*^9}, 
+   3.516344454840398*^9},ExpressionUUID->"490b850e-f602-472b-8d11-\
+d99f7fba8a42"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"g", "(", 
+    RowBox[{"x", ",", "s"}], ")"}], "=", 
+   RowBox[{
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"1", "-", 
+       RowBox[{"2", "x", " ", "s"}], "+", 
+       SuperscriptBox["s", "2"]}], ")"}], 
+     RowBox[{
+      RowBox[{"-", "1"}], "/", "2"}]], "\[LongEqual]", 
+    RowBox[{
+     UnderoverscriptBox["\[Sum]", 
+      RowBox[{"n", "=", "0"}], "\[Infinity]"], 
+     RowBox[{
+      SuperscriptBox["s", "n"], 
+      FormBox[
+       TemplateBox[{"n", "x"},
+        "LegendreP"],
+       TraditionalForm]}]}]}]}], TraditionalForm]], "DisplayFormula",
+ CellChangeTimes->{{3.515719830741181*^9, 3.51571988626711*^9}, {
+  3.5157199351242456`*^9, 3.515719969089204*^9}, {3.5157200923359756`*^9, 
+  3.515720096183776*^9}},ExpressionUUID->"1faf69de-dd1e-4c9c-83b2-\
+a068feee16e4"],
+
+Cell[TextData[{
+ "Expand the left-hand side in a power series up to ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"O", "(", 
+    SuperscriptBox["s", "5"], ")"}], TraditionalForm]],ExpressionUUID->
+  "8423f0a9-92f3-4401-ac19-395468e84d1e"],
+ ":"
+}], "CodeText",
+ CellChangeTimes->{{3.515720019431573*^9, 3.515720047397743*^9}},
+ CellID->243067072,ExpressionUUID->"a027364d-cf90-4b81-8ee0-9b7c04c5a2f0"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   SuperscriptBox[
+    RowBox[{"(", 
+     RowBox[{"1", "-", 
+      RowBox[{"2", "x", " ", "s"}], "+", 
+      SuperscriptBox["s", "2"]}], ")"}], 
+    RowBox[{
+     RowBox[{"-", "1"}], "/", "2"}]], "+", 
+   SuperscriptBox[
+    RowBox[{"O", "[", "s", "]"}], "5"]}], TraditionalForm]], "Input",
+ CellChangeTimes->{{3.515719891491934*^9, 3.515719913042366*^9}},
+ CellID->714382510,ExpressionUUID->"6cb5e7a4-8514-4676-9b83-167fb6b8309f"],
+
+Cell[BoxData[
+ FormBox[
+  InterpretationBox[
+   RowBox[{"1", "+", 
+    RowBox[{"s", " ", "x"}], "+", 
+    RowBox[{
+     SuperscriptBox["s", "2"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       FractionBox[
+        RowBox[{"3", " ", 
+         SuperscriptBox["x", "2"]}], "2"], "-", 
+       FractionBox["1", "2"]}], ")"}]}], "+", 
+    RowBox[{
+     SuperscriptBox["s", "3"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       FractionBox[
+        RowBox[{"5", " ", 
+         SuperscriptBox["x", "3"]}], "2"], "-", 
+       FractionBox[
+        RowBox[{"3", " ", "x"}], "2"]}], ")"}]}], "+", 
+    RowBox[{
+     FractionBox["1", "8"], " ", 
+     SuperscriptBox["s", "4"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"35", " ", 
+        SuperscriptBox["x", "4"]}], "-", 
+       RowBox[{"30", " ", 
+        SuperscriptBox["x", "2"]}], "+", "3"}], ")"}]}], "+", 
+    InterpretationBox[
+     RowBox[{"O", "(", 
+      SuperscriptBox["s", "5"], ")"}],
+     SeriesData[$CellContext`s, 0, {}, 0, 5, 1],
+     Editable->False]}],
+   SeriesData[$CellContext`s, 0, {
+    1, $CellContext`x, Rational[-1, 2] + Rational[3, 2] $CellContext`x^2, 
+     Rational[-3, 2] $CellContext`x + Rational[5, 2] $CellContext`x^3, 
+     Rational[1, 8] (3 - 30 $CellContext`x^2 + 35 $CellContext`x^4)}, 0, 5, 1],
+   Editable->False], TraditionalForm]], "Output",
+ CellChangeTimes->{{3.515719895527556*^9, 3.515719913371784*^9}, {
+   3.515719958834125*^9, 3.5157199719444437`*^9}, 3.515720048872365*^9, 
+   3.515884456530418*^9},
+ CellID->45775193,ExpressionUUID->"1156344a-3e5f-43e4-83aa-1a0460ea61cf"]
+}, Open  ]],
+
+Cell["Subtract off the right-hand side sum up to the same order:", "CodeText",
+ CellChangeTimes->{{3.515720055686819*^9, 3.51572007320462*^9}},
+ CellID->544523125,ExpressionUUID->"0f43d910-eade-4372-a062-4f61e683a60c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"%", "-", 
+   RowBox[{
+    UnderoverscriptBox["\[Sum]", 
+     RowBox[{"n", "=", "0"}], "4"], 
+    RowBox[{
+     SuperscriptBox["s", "n"], 
+     FormBox[
+      TemplateBox[{"n", "x"},
+       "LegendreP"],
+      TraditionalForm]}]}]}], TraditionalForm]], "Input",
+ CellChangeTimes->{{3.5157199009361143`*^9, 3.5157199398496523`*^9}},
+ CellID->1372342008,ExpressionUUID->"e13e8c0f-f12a-4f96-99fa-0577a426479a"],
+
+Cell[BoxData[
+ FormBox[
+  InterpretationBox[
+   RowBox[{"O", "(", 
+    SuperscriptBox["s", "5"], ")"}],
+   SeriesData[$CellContext`s, 0, {}, 5, 5, 1],
+   Editable->False], TraditionalForm]], "Output",
+ CellChangeTimes->{{3.515719916608902*^9, 3.515719940783268*^9}, 
+   3.515719973206914*^9, 3.515884486640888*^9},
+ CellID->977759676,ExpressionUUID->"b733b070-2e70-4d04-9bae-0ec70c5af509"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Use ",
+ ButtonBox["GeneratingFunction",
+  BaseStyle->"Link"],
+ " to compute the generating function for the Legendre polynomials ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[{"n", "x"},
+    "LegendreP"], TraditionalForm]],
+  CellChangeTimes->{{3.515719830741181*^9, 3.51571988626711*^9}, {
+   3.5157199351242456`*^9, 3.515719969089204*^9}},ExpressionUUID->
+  "6cd19f42-e4ac-4752-80ee-4f436250868b"],
+ ": "
+}], "CodeText",
+ CellID->856920760,ExpressionUUID->"b16483fe-b9e1-40a0-accb-1bf6e54eefa8"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    SubscriptBox["\[ScriptCapitalG]", "n"], "[", 
+    TemplateBox[{"n", "x"},
+     "LegendreP"], "]"}], 
+   RowBox[{"(", "s", ")"}]}], TraditionalForm]], "Input",
+ CellLabel->"In[9]:=",
+ CellID->1640870555,ExpressionUUID->"3b3fbd1b-c076-43b7-ac53-5803ee111386"],
+
+Cell[BoxData[
+ FractionBox["1", 
+  SqrtBox[
+   RowBox[{"1", "+", 
+    SuperscriptBox["s", "2"], "-", 
+    RowBox[{"2", " ", "s", " ", "x"}]}]]]], "Output",
+ CellLabel->"Out[9]=",
+ CellID->271844957,ExpressionUUID->"7770bbe2-d9e2-4ecb-9710-373bad428796"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Use ",
+ ButtonBox["ExponentialGeneratingFunction",
+  BaseStyle->"Link"],
+ " to compute the generating function for the Hermite polynomials ",
+ Cell[BoxData[
+  FormBox[Cell[TextData[Cell[BoxData[
+    FormBox[
+     TemplateBox[{"n", "x"},
+      "HermiteH"], TraditionalForm]],ExpressionUUID->
+    "9b5e3e15-75c0-47b6-a388-ec6f925d46dd"]],ExpressionUUID->
+    "997dc358-2f00-4b55-9f6f-4ccc3753784f"], TraditionalForm]],
+  CellChangeTimes->{{3.515719830741181*^9, 3.51571988626711*^9}, {
+   3.5157199351242456`*^9, 3.515719969089204*^9}},ExpressionUUID->
+  "8bfbf8cc-c671-48ee-a31b-044d5b8bd98e"],
+ ": "
+}], "CodeText",
+ CellID->1200475130,ExpressionUUID->"22e8ddf6-b704-48f0-b868-1f1baa19dafc"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ExponentialGeneratingFunction", "[", 
+  RowBox[{
+   RowBox[{"HermiteH", "[", 
+    RowBox[{"n", ",", "x"}], "]"}], ",", "n", ",", "s"}], "]"}]], "Input",
+ CellLabel->"In[10]:=",
+ CellID->1707197674,ExpressionUUID->"2eff4138-c9f3-4dd6-bd2f-b4ee1163b6b8"],
+
+Cell[BoxData[
+ SuperscriptBox["\[ExponentialE]", 
+  RowBox[{
+   RowBox[{"-", 
+    SuperscriptBox["s", "2"]}], "+", 
+   RowBox[{"2", " ", "s", " ", "x"}]}]]], "Output",
+ CellLabel->"Out[10]=",
+ CellID->2072593873,ExpressionUUID->"f1099bc8-2449-4b9e-a8b6-efc44c43c3da"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Generating functions can be used to compute many properties of orthogonal \
+polynomials, including sums and integrals for ",
+ StyleBox["arbitrary",
+  FontSlant->"Italic"],
+ " ",
+ Cell[BoxData[
+  FormBox["n", TraditionalForm]],ExpressionUUID->
+  "3653fb4c-2d9c-4048-b57e-f4b8b112ed9a"],
+ ". See Wilf\[CloseCurlyQuote]s excellent (free) book ",
+ ButtonBox["generatingfunctionology",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.math.upenn.edu/~wilf/DownldGF.html"], None},
+  ButtonNote->"http://www.math.upenn.edu/~wilf/DownldGF.html"],
+ "."
+}], "Text",ExpressionUUID->"62427b30-0a3a-4385-98e0-9230aca2bf78"],
+
+Cell["\<\
+***Need to give some examples here\[LongDash]and look up questions I\
+\[CloseCurlyQuote]ve given that used generating functions.\
+\>", "Text",
+ CellChangeTimes->{{3.9277307013080997`*^9, 
+  3.9277307320854807`*^9}},ExpressionUUID->"bf060586-4fca-47fd-9f68-\
+13d9af666a73"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"Assuming", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "1"}], "\[LessEqual]", "s", "<=", "1"}], ",", 
+    RowBox[{
+     SubsuperscriptBox["\[Integral]", 
+      RowBox[{"-", "1"}], "1"], 
+     RowBox[{
+      SuperscriptBox["x", "3"], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"1", "-", 
+         RowBox[{"2", "x", " ", "s"}], "+", 
+         SuperscriptBox["s", "2"]}], ")"}], 
+       RowBox[{
+        RowBox[{"-", "1"}], "/", "2"}]], 
+      RowBox[{"\[DifferentialD]", "x"}]}]}]}], "]"}], 
+  TraditionalForm]], "Input",
+ CellChangeTimes->{{3.9277304177362623`*^9, 3.9277304649520617`*^9}, {
+  3.927730501243774*^9, 3.9277305747501383`*^9}},
+ CellLabel->"In[14]:=",ExpressionUUID->"be013a3a-db2e-4371-bc44-067d8a700574"],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox["2", "35"], " ", "s", " ", 
+  RowBox[{"(", 
+   RowBox[{"7", "+", 
+    RowBox[{"2", " ", 
+     SuperscriptBox["s", "2"]}]}], ")"}]}]], "Output",
+ CellLabel->"Out[14]=",
+ CellID->1346940774,ExpressionUUID->"188cea88-2ea2-44d5-89c2-0795b7538ca0"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CoefficientList", "[", 
+  RowBox[{"%", ",", "s"}], "]"}]], "Input",
+ CellLabel->"In[15]:=",
+ CellID->189523888,ExpressionUUID->"9b3891d7-c1f1-4f44-a32d-f9b92512f1e0"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0", ",", 
+   FractionBox["2", "5"], ",", "0", ",", 
+   FractionBox["4", "35"]}], "}"}]], "Output",
+ CellLabel->"Out[15]=",
+ CellID->1107881303,ExpressionUUID->"dfe1ca6d-145c-457b-a605-adbd18068fd9"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{
+     SubsuperscriptBox["\[Integral]", 
+      RowBox[{"-", "1"}], "1"], 
+     RowBox[{
+      SuperscriptBox["x", "3"], " ", 
+      FormBox[
+       TemplateBox[{"n", "x"},
+        "LegendreP"],
+       TraditionalForm], 
+      RowBox[{"\[DifferentialD]", "x"}]}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"n", ",", "0", ",", "6"}], "}"}]}], "]"}], 
+  TraditionalForm]], "Input",
+ CellLabel->"In[16]:=",ExpressionUUID->"9972e1a7-ec67-41aa-94f8-6e6e12a509c3"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0", ",", 
+   FractionBox["2", "5"], ",", "0", ",", 
+   FractionBox["4", "35"], ",", "0", ",", "0", ",", "0"}], "}"}]], "Output",
+ CellLabel->"Out[16]=",
+ CellID->1843881008,ExpressionUUID->"9b22547a-47da-4937-9842-5aff9dfbf223"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 796},
+WindowMargins->{{Automatic, 253}, {11, Automatic}},
+FrontEndVersion->"14.1 for Mac OS X ARM (64-bit) (July 16, 2024)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "BookToolsStyles.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"8c099ee7-24d1-43bf-a4d2-276e02cfa4a4"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 222, 6, 108, "Section",ExpressionUUID->"0bbd6bb0-5174-463d-8e2c-7f610c9316f4",
+ CounterAssignments->{{"Section", 0}},
+ CellID->1420349858],
+Cell[801, 30, 689, 16, 60, "Text",ExpressionUUID->"490b850e-f602-472b-8d11-d99f7fba8a42"],
+Cell[1493, 48, 835, 25, 56, "DisplayFormula",ExpressionUUID->"1faf69de-dd1e-4c9c-83b2-a068feee16e4"],
+Cell[2331, 75, 395, 10, 39, "CodeText",ExpressionUUID->"a027364d-cf90-4b81-8ee0-9b7c04c5a2f0",
+ CellID->243067072],
+Cell[CellGroupData[{
+Cell[2751, 89, 466, 13, 27, "Input",ExpressionUUID->"6cb5e7a4-8514-4676-9b83-167fb6b8309f",
+ CellID->714382510],
+Cell[3220, 104, 1573, 44, 60, "Output",ExpressionUUID->"1156344a-3e5f-43e4-83aa-1a0460ea61cf",
+ CellID->45775193]
+}, Open  ]],
+Cell[4808, 151, 218, 2, 38, "CodeText",ExpressionUUID->"0f43d910-eade-4372-a062-4f61e683a60c",
+ CellID->544523125],
+Cell[CellGroupData[{
+Cell[5051, 157, 441, 13, 56, "Input",ExpressionUUID->"e13e8c0f-f12a-4f96-99fa-0577a426479a",
+ CellID->1372342008],
+Cell[5495, 172, 389, 9, 39, "Output",ExpressionUUID->"b733b070-2e70-4d04-9bae-0ec70c5af509",
+ CellID->977759676]
+}, Open  ]],
+Cell[5899, 184, 513, 14, 59, "CodeText",ExpressionUUID->"b16483fe-b9e1-40a0-accb-1bf6e54eefa8",
+ CellID->856920760],
+Cell[CellGroupData[{
+Cell[6437, 202, 308, 9, 25, "Input",ExpressionUUID->"3b3fbd1b-c076-43b7-ac53-5803ee111386",
+ CellID->1640870555],
+Cell[6748, 213, 253, 7, 62, "Output",ExpressionUUID->"7770bbe2-d9e2-4ecb-9710-373bad428796",
+ CellID->271844957]
+}, Open  ]],
+Cell[7016, 223, 709, 17, 59, "CodeText",ExpressionUUID->"22e8ddf6-b704-48f0-b868-1f1baa19dafc",
+ CellID->1200475130],
+Cell[CellGroupData[{
+Cell[7750, 244, 276, 6, 25, "Input",ExpressionUUID->"2eff4138-c9f3-4dd6-bd2f-b4ee1163b6b8",
+ CellID->1707197674],
+Cell[8029, 252, 267, 7, 41, "Output",ExpressionUUID->"f1099bc8-2449-4b9e-a8b6-efc44c43c3da",
+ CellID->2072593873]
+}, Open  ]],
+Cell[8311, 262, 641, 16, 83, "Text",ExpressionUUID->"62427b30-0a3a-4385-98e0-9230aca2bf78"],
+Cell[8955, 280, 282, 6, 60, "Text",ExpressionUUID->"bf060586-4fca-47fd-9f68-13d9af666a73"],
+Cell[CellGroupData[{
+Cell[9262, 290, 781, 22, 45, "Input",ExpressionUUID->"be013a3a-db2e-4371-bc44-067d8a700574"],
+Cell[10046, 314, 281, 8, 54, "Output",ExpressionUUID->"188cea88-2ea2-44d5-89c2-0795b7538ca0",
+ CellID->1346940774]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10364, 327, 190, 4, 25, "Input",ExpressionUUID->"9b3891d7-c1f1-4f44-a32d-f9b92512f1e0",
+ CellID->189523888],
+Cell[10557, 333, 238, 6, 54, "Output",ExpressionUUID->"dfe1ca6d-145c-457b-a605-adbd18068fd9",
+ CellID->1107881303]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10832, 344, 526, 17, 45, "Input",ExpressionUUID->"9972e1a7-ec67-41aa-94f8-6e6e12a509c3"],
+Cell[11361, 363, 268, 6, 54, "Output",ExpressionUUID->"9b22547a-47da-4937-9842-5aff9dfbf223",
+ CellID->1843881008]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
