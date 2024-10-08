@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     63975,       1344]
-NotebookOptionsPosition[     55506,       1173]
-NotebookOutlinePosition[     55973,       1190]
-CellTagsIndexPosition[     55930,       1187]
+NotebookDataLength[     68687,       1473]
+NotebookOptionsPosition[     58752,       1278]
+NotebookOutlinePosition[     59219,       1295]
+CellTagsIndexPosition[     59176,       1292]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -28,24 +28,18 @@ Cell[TextData[{
  CounterAssignments->{{"Section", 0}},
  CellID->96559290,ExpressionUUID->"58a0b3c4-2337-4f1e-ad50-625ec3b8f5cf"],
 
+Cell[TextData[{
+ StyleBox["The purpose of computing is insight not numbers",
+  FontSlant->"Italic"],
+ "\[LongDash]Richard Hamming"
+}], "Abstract",
+ CellID->1235445145,ExpressionUUID->"92b83e4e-7d46-45bb-ab4a-54a12925a3b7"],
+
 Cell[CellGroupData[{
 
 Cell[TextData[StyleBox["What is Computational Physics?", "SectionBar"]], \
 "Subsection",
  CellID->1416147266,ExpressionUUID->"56ea412e-669d-4040-8064-86f6c8c2181d"],
-
-Cell[TextData[{
- StyleBox["The purpose of computing is insight not numbers",
-  FontSlant->"Italic"],
- "\[LongDash]Richard Hamming"
-}], "Note",
- CellID->926367859,ExpressionUUID->"8189041a-d3e4-4984-aeb9-c2d22ffbeb48"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["Definition", "Subsection",
- CellID->208165463,ExpressionUUID->"118df922-28ea-4996-9ddb-aaca226dc83e"],
 
 Cell[TextData[{
  "Wikipedia\[CloseCurlyQuote]s definition of ",
@@ -112,10 +106,24 @@ details on post-processing to recover published results."
 }], "Note",
  CellID->143571955,ExpressionUUID->"178e6c71-2bd4-4a7e-9915-3d30161618a7"],
 
-Cell["\<\
-Importantly, using the Wolfram Language and Notebooks makes reproducible \
-computation straightforward.\
-\>", "Text",
+Cell[TextData[{
+ "Importantly, using the ",
+ ButtonBox["Wolfram Language",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://www.wolfram.com/language/"], None},
+  ButtonNote->"https://www.wolfram.com/language/"],
+ " and ",
+ ButtonBox["Notebooks",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://www.wolfram.com/wolfram-u/courses/content-authoring/\
+introduction-to-notebooks/"], None},
+  ButtonNote->
+   "https://www.wolfram.com/wolfram-u/courses/content-authoring/introduction-\
+to-notebooks/"],
+ " makes reproducible computation straightforward."
+}], "Text",
  CellID->1389712104,ExpressionUUID->"9079395a-b05b-45e2-94aa-ff7c332243b7"]
 }, Open  ]],
 
@@ -849,9 +857,14 @@ Cell[TextData[{
   FontSlant->"Italic"],
  " implementation of symbolic formulas involving hypergeometric functions, \
 taking advantage of their implicit symmetries, leading to fast and efficient ",
- StyleBox["numerical",
+ StyleBox["numeric",
   FontSlant->"Italic"],
- " implementations, now built-in as ",
+ " ",
+ "and ",
+ StyleBox["symbolic",
+  FontSlant->"Italic"],
+ " ",
+ "code, now built-in as ",
  ButtonBox["ClebschGordan",
   BaseStyle->"Link"],
  ", ",
@@ -897,6 +910,99 @@ Cell[TextData[{
  ". "
 }], "Text",
  CellID->1067092615,ExpressionUUID->"bd7ae805-a7e5-4ddc-b623-b203d7650935"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Why Choose the Wolfram Language?", "Subsection",
+ CellID->570444071,ExpressionUUID->"9c292f57-cf18-48d5-a8e6-85cd3d6856de"],
+
+Cell["Here is my answer:", "Text",
+ CellID->1585922798,ExpressionUUID->"a2f59c87-b693-4a07-878a-cdf687386d0b"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Notebooks provide a ",
+ StyleBox["unified environment",
+  FontSlant->"Italic"],
+ " for computation (see ",
+ ButtonBox["What Is a Computational Essay?",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://writings.stephenwolfram.com/2017/11/what-is-a-computational-\
+essay/"], None},
+  ButtonNote->
+   "https://writings.stephenwolfram.com/2017/11/what-is-a-computational-essay/\
+"],
+ ")"
+}], "Item",
+ CellID->1086501089,ExpressionUUID->"daf1047b-67e3-45a7-bb13-c74c60637bf7"],
+
+Cell[TextData[{
+ ButtonBox["Demonstrations",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com"], None},
+  ButtonNote->"http://demonstrations.wolfram.com"],
+ " require minimal instruction: focus entirely on the ",
+ StyleBox["concepts",
+  FontSlant->"Italic"],
+ " rather than the code"
+}], "Item",
+ CellID->770352382,ExpressionUUID->"b0126d4d-b9e9-476f-bfc6-b9026fd920e6"],
+
+Cell[TextData[{
+ ButtonBox["Chat Notebooks",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://writings.stephenwolfram.com/2023/06/introducing-chat-\
+notebooks-integrating-llms-into-the-notebook-paradigm/"], None},
+  ButtonNote->
+   "https://writings.stephenwolfram.com/2023/06/introducing-chat-notebooks-\
+integrating-llms-into-the-notebook-paradigm/"],
+ " are a very useful research and teaching tool"
+}], "Item",
+ CellID->133576511,ExpressionUUID->"4d1181bb-9cbc-42dc-860a-0b1ff1d0f5b5"],
+
+Cell["It is a very high-level programming language", "Item",
+ CellID->900009262,ExpressionUUID->"985d194d-de46-406c-8571-ba9e01d7eedb"],
+
+Cell[TextData[{
+ "It provides multiple approaches to consistency checking: numerical ",
+ StyleBox["and",
+  FontSlant->"Italic"],
+ " symbolic ",
+ StyleBox["and ",
+  FontSlant->"Italic"],
+ StyleBox["graphical",
+  FontSlant->"Plain"]
+}], "Item",
+ CellID->1728340613,ExpressionUUID->"431b681a-12c3-4539-bfeb-561e54a8dc46"],
+
+Cell[TextData[{
+ "If only teaching one programming tool, teach the most ",
+ StyleBox["generic",
+  FontSlant->"Italic"],
+ " "
+}], "Item",
+ CellID->1356873369,ExpressionUUID->"0a9233c3-66e0-468f-a9d2-e5dbe2a58a4c"],
+
+Cell[TextData[{
+ "It is an excellent tool for ",
+ StyleBox["exploration",
+  FontSlant->"Italic"]
+}], "Item",
+ CellID->841865290,ExpressionUUID->"602b8476-6688-4e22-8809-7059e088ea6f"],
+
+Cell[TextData[{
+ "One can use standard ",
+ StyleBox["mathematical notation",
+  FontSlant->"Italic"],
+ " and easily add new notations"
+}], "Item",
+ CellID->1607662594,ExpressionUUID->"197d438b-9e77-4261-991a-4590d677e2fa"]
+}, Open  ]]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -966,7 +1072,7 @@ Cell["handling of units and unit conversions", "Subitem",
 Cell[CellGroupData[{
 
 Cell["\<\
-symbolic transforms, including Laplace, Fourier, and z-Transform\
+symbolic transforms, including Laplace, Fourier, wavelet and z-Transform\
 \>", "Subitem",
  CellID->56119254,ExpressionUUID->"b43a6dba-9a08-46f6-9cd0-300057281c6e"],
 
@@ -989,6 +1095,9 @@ Cell["perturbation methods", "Subitem",
 Cell["variational methods", "Subitem",
  CellID->1973992367,ExpressionUUID->"13fc9113-5c5a-48da-aa4a-70835fb5ab96"],
 
+Cell["matrix methods", "Subitem",
+ CellID->444929834,ExpressionUUID->"bb36662b-660f-433e-93c4-5b779fae6f4e"],
+
 Cell["function approximation", "Subitem",
  CellID->414849666,ExpressionUUID->"7f956d5b-88ec-4a78-bab9-3c2c1f87dae4"],
 
@@ -996,7 +1105,7 @@ Cell["code generation", "Subitem",
  CellID->1646418300,ExpressionUUID->"bb580ecc-be96-46c4-a838-e26cf733a398"],
 
 Cell[TextData[{
- "exact symbolic and arbitrary precision numeric computation of  ",
+ "exact symbolic and arbitrary precision numeric computation of ",
  ButtonBox["special functions",
   BaseStyle->"Link",
   ButtonData->"guide/SpecialFunctions"],
@@ -1007,7 +1116,37 @@ Cell[TextData[{
     "Complexes"], TraditionalForm]],ExpressionUUID->
   "8136fade-4a9d-4d3b-9c2e-ce1a81ec1c56"]
 }], "Subitem",
- CellID->1025576505,ExpressionUUID->"5e3a2d0f-da74-41e8-bb6c-ab4ff9e1b493"]
+ CellID->1025576505,ExpressionUUID->"5e3a2d0f-da74-41e8-bb6c-ab4ff9e1b493"],
+
+Cell[CellGroupData[{
+
+Cell["More to Explore", "MoreExploreSection",
+ CellID->1961449169,ExpressionUUID->"4dd8ee34-7630-4f6b-a3e0-759e85119c16"],
+
+Cell[TextData[{
+ ButtonBox["The Mathematica GuideBooks",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.mathematicaguidebooks.org"], None},
+  ButtonNote->"http://www.mathematicaguidebooks.org"],
+ "\[LongDash]a four-volume exploration of Mathematica\[CloseCurlyQuote]s \
+application to classic and current problems in science, computer science, and \
+visualization\[LongDash]is a tremendous resource for a wide range of \
+computational physics problems."
+}], "MoreExplore",
+ CellID->54718286,ExpressionUUID->"0e20ebfa-a9c7-4127-a9ba-5c6d8cb2be69"],
+
+Cell[TextData[{
+ "Michael Trott\[CloseCurlyQuote]s ",
+ ButtonBox["blog posts",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://blog.wolfram.com/author/michael-trott/"], None},
+  ButtonNote->"https://blog.wolfram.com/author/michael-trott/"],
+ " on physics contain valuable insights."
+}], "MoreExplore",
+ CellID->102051047,ExpressionUUID->"08117c8d-c035-412a-9441-201beb8ebe88"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]],
 
@@ -1015,6 +1154,9 @@ Cell[CellGroupData[{
 
 Cell["References", "Subsection",
  CellID->678261337,ExpressionUUID->"1515b188-05e5-45d4-a710-e8c05a9578f0"],
+
+Cell["Historical comments:", "Text",
+ CellID->431082098,ExpressionUUID->"bd3b6d94-8879-43c0-8929-808a490261a1"],
 
 Cell[TextData[{
  "Stephen Wolfram\[CloseCurlyQuote]s blog post on ",
@@ -1051,128 +1193,91 @@ Cell[TextData[{
 }], "Reference",
  CellID->1489548549,ExpressionUUID->"0f663568-3d52-4255-bf16-1d89c829eaca"],
 
-Cell[CellGroupData[{
+Cell["I have found the following books particularly useful:", "Text",
+ CellID->1213811350,ExpressionUUID->"0cfef89f-e992-4e1b-bd98-cdbcb8dff25d"],
 
-Cell["More to Explore", "MoreExploreSection",
- CellID->1961449169,ExpressionUUID->"4dd8ee34-7630-4f6b-a3e0-759e85119c16"],
+Cell["\<\
+Using Mathematica for Quantum Mechanics: A Student\[CloseCurlyQuote]s Manual: \
+https://www.wolfram.com/books/profile.cgi?id=9759\
+\>", "Reference",
+ CellID->672193493,ExpressionUUID->"65222cba-f3e1-4b85-9336-c4630b47efab"],
 
-Cell[TextData[{
- ButtonBox["The Mathematica GuideBooks",
-  BaseStyle->"Hyperlink",
-  ButtonData->{
-    URL["http://www.mathematicaguidebooks.org"], None},
-  ButtonNote->"http://www.mathematicaguidebooks.org"],
- "\[LongDash]a four-volume exploration of Mathematica\[CloseCurlyQuote]s \
-application to classic and current problems in science, computer science, and \
-visualization\[LongDash]is a tremendous resource for a wide range of \
-computational physics problems."
-}], "MoreExplore",
- CellID->54718286,ExpressionUUID->"0e20ebfa-a9c7-4127-a9ba-5c6d8cb2be69"],
+Cell["\<\
+ElectroDynamics: A Novel Computational Approach: \
+https://www.wolfram.com/books/profile.cgi?id=9805\
+\>", "Reference",
+ CellID->1580196597,ExpressionUUID->"d9dd3df2-47a5-4ffb-b18b-cc831116b89a"],
 
-Cell[TextData[{
- "Michael Trott\[CloseCurlyQuote]s ",
- ButtonBox["blog posts",
-  BaseStyle->"Hyperlink",
-  ButtonData->{
-    URL["https://blog.wolfram.com/author/michael-trott/"], None},
-  ButtonNote->"https://blog.wolfram.com/author/michael-trott/"],
- ", many of which are on physics, are always worth reading."
-}], "MoreExplore",
- CellID->102051047,ExpressionUUID->"08117c8d-c035-412a-9441-201beb8ebe88"],
+Cell["\<\
+Numerical and Analytical Methods for Scientists and Engineers Using \
+Mathematica: https://www.wolfram.com/books/profile.cgi?id=4804\
+\>", "Reference",
+ CellID->1014776713,ExpressionUUID->"82cf1db4-59a4-4fb5-b47a-f4f677274976"],
 
-Cell[TextData[{
- "I have found the following selected books\[LongDash]from the longer list \
-available ",
- ButtonBox["here",
-  BaseStyle->"Hyperlink",
-  ButtonData->{
-    URL["https://www.wolfram.com/books/topics.html?query=&start=1&limit=200&\
-topic=Physics&language=English"], None},
-  ButtonNote->"https://www.wolfram.com/books"],
- "\[LongDash]particularly useful:"
-}], "Text",
- CellID->581506883,ExpressionUUID->"677cb8f3-4876-470a-b906-9003257ee742"],
-
-Cell[CellGroupData[{
+Cell["\<\
+Nonlinear Physics with Mathematica for Scientists and Engineers: \
+https://www.wolfram.com/books/profile.cgi?id=3240\
+\>", "Reference",
+ CellID->1945359196,ExpressionUUID->"8eb0206d-1db1-40ef-b59d-7798e7828223"],
 
 Cell["\<\
 Mathematica for Theoretical Physics: Electrodynamics, Quantum Mechanics, \
 General Relativity, and Fractals: \
 https://www.wolfram.com/books/profile.cgi?id=6008\
-\>", "Item",
- CellID->1042846099,ExpressionUUID->"55681b26-5c26-4dfb-a0f9-c7da6976d3e2"],
+\>", "Reference",
+ CellID->1764496958,ExpressionUUID->"9b0e305b-1310-4e37-b6bf-3a7ec5e49684"],
 
 Cell["\<\
 Mathematica for Theoretical Physics: Classical Mechanics and Nonlinear \
 Dynamics: https://www.wolfram.com/books/profile.cgi?id=5753\
-\>", "Item",
- CellID->1914335295,ExpressionUUID->"57b936a8-fdf9-41e6-86d2-f3b5a5f04213"],
-
-Cell["\<\
-ElectroDynamics: A Novel Computational Approach: \
-https://www.wolfram.com/books/profile.cgi?id=9805\
-\>", "Item",
- CellID->170995964,ExpressionUUID->"aca2e4eb-6487-4ad9-98b1-f8883fd4b540"],
-
-Cell["\<\
-Using Mathematica for Quantum Mechanics: A Student\[CloseCurlyQuote]s Manual: \
-https://www.wolfram.com/books/profile.cgi?id=9759\
-\>", "Item",
- CellID->1014192752,ExpressionUUID->"8efadcd5-62f1-4eb7-9cc4-0ef37515bb69"],
+\>", "Reference",
+ CellID->1548415637,ExpressionUUID->"3f0b9fbd-5f3e-4967-b65f-16ecfd808cc7"],
 
 Cell["\<\
 Graduate Mathematical Physics: With Mathematica Supplements: \
 https://www.wolfram.com/books/profile.cgi?id=6657\
-\>", "Item",
- CellID->306719569,ExpressionUUID->"6f17ba26-d753-4e2d-b3ac-eacf780bd894"],
+\>", "Reference",
+ CellID->728428818,ExpressionUUID->"3e38859a-3639-40bb-ab87-288225fae680"],
 
 Cell["\<\
 Quantum Methods with Mathematica: \
 https://www.wolfram.com/books/profile.cgi?id=3555\
-\>", "Item",
- CellID->1627291651,ExpressionUUID->"59270060-2233-4c19-90b5-a4be88817811"],
-
-Cell["\<\
-Nonlinear Physics with Mathematica for Scientists and Engineers: \
-https://www.wolfram.com/books/profile.cgi?id=3240\
-\>", "Item",
- CellID->556504419,ExpressionUUID->"260d0792-1ecb-47a0-8041-ee76f3247042"],
+\>", "Reference",
+ CellID->657497939,ExpressionUUID->"0d083626-42dd-475d-ab7d-a981867275a0"],
 
 Cell["\<\
 Visual Quantum Mechanics: https://www.wolfram.com/books/profile.cgi?id=2205\
-\>", "Item",
- CellID->1764060687,ExpressionUUID->"d00005e8-312b-44e4-aa3d-497777884fd0"],
-
-Cell["\<\
-Numerical and Analytical Methods for Scientists and Engineers Using \
-Mathematica: https://www.wolfram.com/books/profile.cgi?id=4804\
-\>", "Item",
- CellID->1658344130,ExpressionUUID->"83d10adc-ec70-4fe0-b3af-8c1747653711"],
-
-Cell["\<\
-Applied Mathematica: Getting Started, Getting It Done: \
-https://www.wolfram.com/books/profile.cgi?id=3218\
-\>", "Item",
- CellID->1414959940,ExpressionUUID->"d8ad4799-c736-4683-8967-8a3bad010aab"],
+\>", "Reference",
+ CellID->2051509079,ExpressionUUID->"33a0a6b8-e745-4e97-8b71-55beea85c77d"],
 
 Cell["\<\
 Complex Analysis with Mathematica: \
 https://www.wolfram.com/books/profile.cgi?id=6225\
-\>", "Item",
- CellID->766146753,ExpressionUUID->"c5819496-ac42-44b3-9299-d8b188dde7a8"],
+\>", "Reference",
+ CellID->13921565,ExpressionUUID->"8a45b013-9ce6-4d73-95a6-e9441d8c8570"],
 
 Cell["\<\
-Essential Mathematica for Students of Science: Tutorial Approach to Mastery \
-of Mathematica: https://library.wolfram.com/infocenter/Courseware/4301/\
-\>", "Item",
- CellID->320498061,ExpressionUUID->"0afd9edc-dbcc-4eea-8de9-05fcdad0e30c"]
-}, Open  ]]
-}, Open  ]]
+Topics in Advanced Scientific Computation: \
+https://www.wolfram.com/books/profile.cgi?id=3499\
+\>", "Reference",
+ CellID->1347070612,ExpressionUUID->"1b517b41-d4fc-490a-8f5e-4b9195954bd7"],
+
+Cell["\<\
+Projects in Scientific Computation: \
+https://www.wolfram.com/books/profile.cgi?id=3594\
+\>", "Reference",
+ CellID->1443169210,ExpressionUUID->"0fd5617e-f6ea-494e-a774-4e631f10db0b"],
+
+Cell["\<\
+Applied Mathematica: Getting Started, Getting It Done: \
+https://www.wolfram.com/books/profile.cgi?id=3218\
+\>", "Reference",
+ CellID->1339666601,ExpressionUUID->"8751bc4d-1b24-4a15-b81c-88dca6142395"]
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{808, 796},
-WindowMargins->{{112, Automatic}, {Automatic, 41}},
+WindowSize->{970, 768},
+WindowMargins->{{Automatic, 123}, {Automatic, 41}},
 FrontEndVersion->"14.1 for Mac OS X ARM (64-bit) (July 16, 2024)",
 StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "BookToolsStyles.nb", 
   CharacterEncoding -> "UTF-8"],
@@ -1193,157 +1298,181 @@ Cell[CellGroupData[{
 Cell[576, 22, 212, 6, 108, "Section",ExpressionUUID->"58a0b3c4-2337-4f1e-ad50-625ec3b8f5cf",
  CounterAssignments->{{"Section", 0}},
  CellID->96559290],
+Cell[791, 30, 222, 5, 60, "Abstract",ExpressionUUID->"92b83e4e-7d46-45bb-ab4a-54a12925a3b7",
+ CellID->1235445145],
 Cell[CellGroupData[{
-Cell[813, 32, 164, 2, 56, "Subsection",ExpressionUUID->"56ea412e-669d-4040-8064-86f6c8c2181d",
+Cell[1038, 39, 164, 2, 56, "Subsection",ExpressionUUID->"56ea412e-669d-4040-8064-86f6c8c2181d",
  CellID->1416147266],
-Cell[980, 36, 217, 5, 57, "Note",ExpressionUUID->"8189041a-d3e4-4984-aeb9-c2d22ffbeb48",
- CellID->926367859]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[1234, 46, 107, 1, 55, "Subsection",ExpressionUUID->"118df922-28ea-4996-9ddb-aaca226dc83e",
- CellID->208165463],
-Cell[1344, 49, 412, 9, 36, "Text",ExpressionUUID->"8ea16192-5804-4c7a-8153-8c7242391f2e",
+Cell[1205, 43, 412, 9, 36, "Text",ExpressionUUID->"8ea16192-5804-4c7a-8153-8c7242391f2e",
  CellID->386075678],
-Cell[1759, 60, 749, 16, 175, "Note",ExpressionUUID->"05737596-a770-4b02-b8b2-b9c392d3a9a8",
+Cell[1620, 54, 749, 16, 175, "Note",ExpressionUUID->"05737596-a770-4b02-b8b2-b9c392d3a9a8",
  CellID->1225822559],
-Cell[2511, 78, 761, 19, 83, "Text",ExpressionUUID->"258a68f0-fe98-4ec1-b55f-4f56fd12f90a",
+Cell[2372, 72, 761, 19, 83, "Text",ExpressionUUID->"258a68f0-fe98-4ec1-b55f-4f56fd12f90a",
  CellID->1589123442],
-Cell[3275, 99, 825, 13, 223, "Note",ExpressionUUID->"178e6c71-2bd4-4a7e-9915-3d30161618a7",
+Cell[3136, 93, 825, 13, 223, "Note",ExpressionUUID->"178e6c71-2bd4-4a7e-9915-3d30161618a7",
  CellID->143571955],
-Cell[4103, 114, 203, 4, 60, "Text",ExpressionUUID->"9079395a-b05b-45e2-94aa-ff7c332243b7",
+Cell[3964, 108, 656, 18, 60, "Text",ExpressionUUID->"9079395a-b05b-45e2-94aa-ff7c332243b7",
  CellID->1389712104]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[4343, 123, 114, 1, 55, "Subsection",ExpressionUUID->"b1d4995a-bc64-470d-8da7-feae0bceb0ce",
+Cell[4657, 131, 114, 1, 55, "Subsection",ExpressionUUID->"b1d4995a-bc64-470d-8da7-feae0bceb0ce",
  CellID->178662139],
-Cell[4460, 126, 546, 15, 60, "Text",ExpressionUUID->"6fe1c280-3a3c-4017-a743-f4b7c7f78c3a",
+Cell[4774, 134, 546, 15, 60, "Text",ExpressionUUID->"6fe1c280-3a3c-4017-a743-f4b7c7f78c3a",
  CellID->859187156],
-Cell[5009, 143, 447, 12, 46, "ChatInput",ExpressionUUID->"ecc5ed7d-6201-415f-8b62-499aaf7f851d",
+Cell[5323, 151, 447, 12, 46, "ChatInput",ExpressionUUID->"ecc5ed7d-6201-415f-8b62-499aaf7f851d",
  CellID->1097613892],
-Cell[5459, 157, 8644, 137, 295, "ChatOutput",ExpressionUUID->"893ceaca-2182-4d20-8dce-88677ce5d9be",
+Cell[5773, 165, 8644, 137, 295, "ChatOutput",ExpressionUUID->"893ceaca-2182-4d20-8dce-88677ce5d9be",
  CellID->712155114],
-Cell[14106, 296, 472, 12, 46, "ChatInput",ExpressionUUID->"4961afc3-bdfc-4dcb-8c2f-a915992446fd",
+Cell[14420, 304, 472, 12, 46, "ChatInput",ExpressionUUID->"4961afc3-bdfc-4dcb-8c2f-a915992446fd",
  CellID->2088755669],
-Cell[14581, 310, 11687, 189, 689, "ChatOutput",ExpressionUUID->"263b921f-412d-434e-8e11-1d923c5d8fc9",
+Cell[14895, 318, 11687, 189, 689, "ChatOutput",ExpressionUUID->"263b921f-412d-434e-8e11-1d923c5d8fc9",
  CellID->801351374],
-Cell[26271, 501, 541, 15, 66, "ChatInput",ExpressionUUID->"854fa1b5-44ae-4b7d-b9d2-d9d4d442b0be",
+Cell[26585, 509, 541, 15, 66, "ChatInput",ExpressionUUID->"854fa1b5-44ae-4b7d-b9d2-d9d4d442b0be",
  CellID->1442592481],
-Cell[26815, 518, 14055, 233, 876, "ChatOutput",ExpressionUUID->"2bcaaac4-daab-4dba-a21e-da9573bbbdda",
+Cell[27129, 526, 14055, 233, 876, "ChatOutput",ExpressionUUID->"2bcaaac4-daab-4dba-a21e-da9573bbbdda",
  CellID->561453537]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[40907, 756, 117, 1, 55, "Subsection",ExpressionUUID->"0002e0b1-4e03-4148-a610-d57438e65dd0",
+Cell[41221, 764, 117, 1, 55, "Subsection",ExpressionUUID->"0002e0b1-4e03-4148-a610-d57438e65dd0",
  CellID->958493254],
-Cell[41027, 759, 526, 11, 83, "Text",ExpressionUUID->"709a3caa-e965-41ca-944d-063c0b09fb03",
+Cell[41341, 767, 526, 11, 83, "Text",ExpressionUUID->"709a3caa-e965-41ca-944d-063c0b09fb03",
  CellID->1121283831],
-Cell[41556, 772, 1002, 21, 199, "Note",ExpressionUUID->"47cf4fdd-321e-417f-839b-e751f21feace",
+Cell[41870, 780, 1002, 21, 199, "Note",ExpressionUUID->"47cf4fdd-321e-417f-839b-e751f21feace",
  CellID->1248345192],
-Cell[42561, 795, 361, 12, 60, "Text",ExpressionUUID->"41681a22-4971-457c-affd-34128d2327e0",
+Cell[42875, 803, 361, 12, 60, "Text",ExpressionUUID->"41681a22-4971-457c-affd-34128d2327e0",
  CellID->22410754]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[42959, 812, 119, 1, 55, "Subsection",ExpressionUUID->"95c9bb49-d530-4993-80e3-7fa2784b34c3",
+Cell[43273, 820, 119, 1, 55, "Subsection",ExpressionUUID->"95c9bb49-d530-4993-80e3-7fa2784b34c3",
  CellID->847904253],
-Cell[43081, 815, 670, 19, 83, "Text",ExpressionUUID->"69b4b16a-6328-4bdb-b2f2-6558cdd2b2eb",
+Cell[43395, 823, 670, 19, 83, "Text",ExpressionUUID->"69b4b16a-6328-4bdb-b2f2-6558cdd2b2eb",
  CellID->25298679],
-Cell[43754, 836, 934, 28, 154, "Text",ExpressionUUID->"28e00328-756b-4bf9-b6d6-546564b6790a",
+Cell[44068, 844, 987, 33, 154, "Text",ExpressionUUID->"28e00328-756b-4bf9-b6d6-546564b6790a",
  CellID->2140619494],
-Cell[44691, 866, 778, 18, 83, "Text",ExpressionUUID->"3426d248-662c-4268-83ad-b4c152e0e70b",
+Cell[45058, 879, 778, 18, 83, "Text",ExpressionUUID->"3426d248-662c-4268-83ad-b4c152e0e70b",
  CellID->598297467],
-Cell[45472, 886, 415, 12, 60, "Text",ExpressionUUID->"bd7ae805-a7e5-4ddc-b623-b203d7650935",
+Cell[45839, 899, 415, 12, 60, "Text",ExpressionUUID->"bd7ae805-a7e5-4ddc-b623-b203d7650935",
  CellID->1067092615]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[45924, 903, 128, 1, 55, "Subsection",ExpressionUUID->"c8263f51-1181-4432-a785-eb80e1d900eb",
+Cell[46291, 916, 129, 1, 55, "Subsection",ExpressionUUID->"9c292f57-cf18-48d5-a8e6-85cd3d6856de",
+ CellID->570444071],
+Cell[46423, 919, 110, 1, 36, "Text",ExpressionUUID->"a2f59c87-b693-4a07-878a-cdf687386d0b",
+ CellID->1585922798],
+Cell[CellGroupData[{
+Cell[46558, 924, 499, 15, 30, "Item",ExpressionUUID->"daf1047b-67e3-45a7-bb13-c74c60637bf7",
+ CellID->1086501089],
+Cell[47060, 941, 406, 11, 30, "Item",ExpressionUUID->"b0126d4d-b9e9-476f-bfc6-b9026fd920e6",
+ CellID->770352382],
+Cell[47469, 954, 499, 11, 30, "Item",ExpressionUUID->"4d1181bb-9cbc-42dc-860a-0b1ff1d0f5b5",
+ CellID->133576511],
+Cell[47971, 967, 135, 1, 30, "Item",ExpressionUUID->"985d194d-de46-406c-8571-ba9e01d7eedb",
+ CellID->900009262],
+Cell[48109, 970, 318, 10, 30, "Item",ExpressionUUID->"431b681a-12c3-4539-bfeb-561e54a8dc46",
+ CellID->1728340613],
+Cell[48430, 982, 212, 6, 30, "Item",ExpressionUUID->"0a9233c3-66e0-468f-a9d2-e5dbe2a58a4c",
+ CellID->1356873369],
+Cell[48645, 990, 183, 5, 30, "Item",ExpressionUUID->"602b8476-6688-4e22-8809-7059e088ea6f",
+ CellID->841865290],
+Cell[48831, 997, 221, 6, 30, "Item",ExpressionUUID->"197d438b-9e77-4261-991a-4590d677e2fa",
+ CellID->1607662594]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[49101, 1009, 128, 1, 55, "Subsection",ExpressionUUID->"c8263f51-1181-4432-a785-eb80e1d900eb",
  CellID->138065479],
-Cell[46055, 906, 489, 11, 107, "Text",ExpressionUUID->"30353ea9-450f-4158-ad14-383922a6e5eb",
+Cell[49232, 1012, 489, 11, 107, "Text",ExpressionUUID->"30353ea9-450f-4158-ad14-383922a6e5eb",
  CellID->1184166793],
-Cell[46547, 919, 278, 7, 60, "Text",ExpressionUUID->"697a1827-008a-491b-8110-2d743b426331",
+Cell[49724, 1025, 278, 7, 60, "Text",ExpressionUUID->"697a1827-008a-491b-8110-2d743b426331",
  CellID->1560333202],
 Cell[CellGroupData[{
-Cell[46850, 930, 111, 1, 52, "Subsubsection",ExpressionUUID->"e98c5fcc-882c-441a-ba69-543f7d24c59d",
+Cell[50027, 1036, 111, 1, 52, "Subsubsection",ExpressionUUID->"e98c5fcc-882c-441a-ba69-543f7d24c59d",
  CellID->1597312497],
-Cell[46964, 933, 250, 6, 30, "ItemNumbered",ExpressionUUID->"a9980448-f868-4eee-b6a2-5bb7bc8e950c",
+Cell[50141, 1039, 250, 6, 30, "ItemNumbered",ExpressionUUID->"a9980448-f868-4eee-b6a2-5bb7bc8e950c",
  CellID->338065932],
-Cell[47217, 941, 203, 4, 25, "Subitem",ExpressionUUID->"94ea9af2-f158-4238-b5aa-c72793b9e76d",
+Cell[50394, 1047, 203, 4, 25, "Subitem",ExpressionUUID->"94ea9af2-f158-4238-b5aa-c72793b9e76d",
  CellID->1779872809],
-Cell[47423, 947, 135, 1, 25, "Subitem",ExpressionUUID->"f9b3d7f3-855e-411c-9fa5-e1b727750134",
+Cell[50600, 1053, 135, 1, 25, "Subitem",ExpressionUUID->"f9b3d7f3-855e-411c-9fa5-e1b727750134",
  CellID->2022581800],
-Cell[47561, 950, 232, 4, 25, "Subitem",ExpressionUUID->"29b51bdf-0cb6-4c39-9a93-8f3178384fb7",
+Cell[50738, 1056, 232, 4, 25, "Subitem",ExpressionUUID->"29b51bdf-0cb6-4c39-9a93-8f3178384fb7",
  CellID->1013664237],
-Cell[47796, 956, 127, 1, 25, "Subitem",ExpressionUUID->"a1d01f21-a909-422a-95a4-6d53cc7cdea5",
+Cell[50973, 1062, 127, 1, 25, "Subitem",ExpressionUUID->"a1d01f21-a909-422a-95a4-6d53cc7cdea5",
  CellID->667059608],
-Cell[47926, 959, 129, 1, 25, "Subitem",ExpressionUUID->"6881d86e-53e7-44b3-88e6-337949ffe97d",
+Cell[51103, 1065, 129, 1, 25, "Subitem",ExpressionUUID->"6881d86e-53e7-44b3-88e6-337949ffe97d",
  CellID->1406194316],
-Cell[48058, 962, 132, 1, 25, "Subitem",ExpressionUUID->"c9863673-da1c-448d-b08f-39af2b981c5a",
+Cell[51235, 1068, 132, 1, 25, "Subitem",ExpressionUUID->"c9863673-da1c-448d-b08f-39af2b981c5a",
  CellID->850333777],
 Cell[CellGroupData[{
-Cell[48215, 967, 165, 3, 25, "Subitem",ExpressionUUID->"b43a6dba-9a08-46f6-9cd0-300057281c6e",
+Cell[51392, 1073, 173, 3, 25, "Subitem",ExpressionUUID->"b43a6dba-9a08-46f6-9cd0-300057281c6e",
  CellID->56119254],
-Cell[48383, 972, 235, 4, 50, "ItemNumbered",ExpressionUUID->"940b31b9-c62a-4603-b9b5-d98ca70b013d",
+Cell[51568, 1078, 235, 4, 50, "ItemNumbered",ExpressionUUID->"940b31b9-c62a-4603-b9b5-d98ca70b013d",
  CellID->450980945]
 }, Open  ]],
-Cell[48633, 979, 111, 1, 25, "Subitem",ExpressionUUID->"220f87ef-2eba-43a1-a012-2ce188b2e065",
+Cell[51818, 1085, 111, 1, 25, "Subitem",ExpressionUUID->"220f87ef-2eba-43a1-a012-2ce188b2e065",
  CellID->1166952352],
-Cell[48747, 982, 109, 1, 25, "Subitem",ExpressionUUID->"e40efc1b-3a15-4610-8359-fb490c4c93b2",
+Cell[51932, 1088, 109, 1, 25, "Subitem",ExpressionUUID->"e40efc1b-3a15-4610-8359-fb490c4c93b2",
  CellID->32013],
-Cell[48859, 985, 114, 1, 25, "Subitem",ExpressionUUID->"b867b3fa-b279-4cc1-8aaf-2991c0c70668",
+Cell[52044, 1091, 114, 1, 25, "Subitem",ExpressionUUID->"b867b3fa-b279-4cc1-8aaf-2991c0c70668",
  CellID->538042491],
-Cell[48976, 988, 114, 1, 25, "Subitem",ExpressionUUID->"13fc9113-5c5a-48da-aa4a-70835fb5ab96",
+Cell[52161, 1094, 114, 1, 25, "Subitem",ExpressionUUID->"13fc9113-5c5a-48da-aa4a-70835fb5ab96",
  CellID->1973992367],
-Cell[49093, 991, 116, 1, 25, "Subitem",ExpressionUUID->"7f956d5b-88ec-4a78-bab9-3c2c1f87dae4",
+Cell[52278, 1097, 108, 1, 25, "Subitem",ExpressionUUID->"bb36662b-660f-433e-93c4-5b779fae6f4e",
+ CellID->444929834],
+Cell[52389, 1100, 116, 1, 25, "Subitem",ExpressionUUID->"7f956d5b-88ec-4a78-bab9-3c2c1f87dae4",
  CellID->414849666],
-Cell[49212, 994, 110, 1, 25, "Subitem",ExpressionUUID->"bb580ecc-be96-46c4-a838-e26cf733a398",
+Cell[52508, 1103, 110, 1, 25, "Subitem",ExpressionUUID->"bb580ecc-be96-46c4-a838-e26cf733a398",
  CellID->1646418300],
-Cell[49325, 997, 419, 12, 25, "Subitem",ExpressionUUID->"5e3a2d0f-da74-41e8-bb6c-ab4ff9e1b493",
- CellID->1025576505]
+Cell[52621, 1106, 418, 12, 25, "Subitem",ExpressionUUID->"5e3a2d0f-da74-41e8-bb6c-ab4ff9e1b493",
+ CellID->1025576505],
+Cell[CellGroupData[{
+Cell[53064, 1122, 121, 1, 69, "MoreExploreSection",ExpressionUUID->"4dd8ee34-7630-4f6b-a3e0-759e85119c16",
+ CellID->1961449169],
+Cell[53188, 1125, 561, 11, 66, "MoreExplore",ExpressionUUID->"0e20ebfa-a9c7-4127-a9ba-5c6d8cb2be69",
+ CellID->54718286],
+Cell[53752, 1138, 387, 9, 29, "MoreExplore",ExpressionUUID->"08117c8d-c035-412a-9441-201beb8ebe88",
+ CellID->102051047]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[49793, 1015, 107, 1, 55, "Subsection",ExpressionUUID->"1515b188-05e5-45d4-a710-e8c05a9578f0",
+Cell[54200, 1154, 107, 1, 55, "Subsection",ExpressionUUID->"1515b188-05e5-45d4-a710-e8c05a9578f0",
  CellID->678261337],
-Cell[49903, 1018, 550, 12, 24, "Reference",ExpressionUUID->"1111507d-0268-462a-966e-985f40f8ab56",
+Cell[54310, 1157, 111, 1, 36, "Text",ExpressionUUID->"bd3b6d94-8879-43c0-8929-808a490261a1",
+ CellID->431082098],
+Cell[54424, 1160, 550, 12, 24, "Reference",ExpressionUUID->"1111507d-0268-462a-966e-985f40f8ab56",
  CellID->111683501],
-Cell[50456, 1032, 402, 9, 24, "Reference",ExpressionUUID->"a9232581-f765-4fe8-89e7-72fe5bd8f36f",
+Cell[54977, 1174, 402, 9, 24, "Reference",ExpressionUUID->"a9232581-f765-4fe8-89e7-72fe5bd8f36f",
  CellID->163893829],
-Cell[50861, 1043, 381, 8, 24, "Reference",ExpressionUUID->"0f663568-3d52-4255-bf16-1d89c829eaca",
+Cell[55382, 1185, 381, 8, 24, "Reference",ExpressionUUID->"0f663568-3d52-4255-bf16-1d89c829eaca",
  CellID->1489548549],
-Cell[CellGroupData[{
-Cell[51267, 1055, 121, 1, 69, "MoreExploreSection",ExpressionUUID->"4dd8ee34-7630-4f6b-a3e0-759e85119c16",
- CellID->1961449169],
-Cell[51391, 1058, 561, 11, 66, "MoreExplore",ExpressionUUID->"0e20ebfa-a9c7-4127-a9ba-5c6d8cb2be69",
- CellID->54718286],
-Cell[51955, 1071, 406, 9, 29, "MoreExplore",ExpressionUUID->"08117c8d-c035-412a-9441-201beb8ebe88",
- CellID->102051047],
-Cell[52364, 1082, 455, 11, 60, "Text",ExpressionUUID->"677cb8f3-4876-470a-b906-9003257ee742",
- CellID->581506883],
-Cell[CellGroupData[{
-Cell[52844, 1097, 260, 5, 50, "Item",ExpressionUUID->"55681b26-5c26-4dfb-a0f9-c7da6976d3e2",
- CellID->1042846099],
-Cell[53107, 1104, 232, 4, 50, "Item",ExpressionUUID->"57b936a8-fdf9-41e6-86d2-f3b5a5f04213",
- CellID->1914335295],
-Cell[53342, 1110, 199, 4, 50, "Item",ExpressionUUID->"aca2e4eb-6487-4ad9-98b1-f8883fd4b540",
- CellID->170995964],
-Cell[53544, 1116, 229, 4, 50, "Item",ExpressionUUID->"8efadcd5-62f1-4eb7-9cc4-0ef37515bb69",
- CellID->1014192752],
-Cell[53776, 1122, 211, 4, 50, "Item",ExpressionUUID->"6f17ba26-d753-4e2d-b3ac-eacf780bd894",
- CellID->306719569],
-Cell[53990, 1128, 185, 4, 30, "Item",ExpressionUUID->"59270060-2233-4c19-90b5-a4be88817811",
- CellID->1627291651],
-Cell[54178, 1134, 215, 4, 50, "Item",ExpressionUUID->"260d0792-1ecb-47a0-8041-ee76f3247042",
- CellID->556504419],
-Cell[54396, 1140, 175, 3, 30, "Item",ExpressionUUID->"d00005e8-312b-44e4-aa3d-497777884fd0",
- CellID->1764060687],
-Cell[54574, 1145, 232, 4, 50, "Item",ExpressionUUID->"83d10adc-ec70-4fe0-b3af-8c1747653711",
- CellID->1658344130],
-Cell[54809, 1151, 206, 4, 50, "Item",ExpressionUUID->"d8ad4799-c736-4683-8967-8a3bad010aab",
- CellID->1414959940],
-Cell[55018, 1157, 185, 4, 30, "Item",ExpressionUUID->"c5819496-ac42-44b3-9299-d8b188dde7a8",
- CellID->766146753],
-Cell[55206, 1163, 248, 4, 50, "Item",ExpressionUUID->"0afd9edc-dbcc-4eea-8de9-05fcdad0e30c",
- CellID->320498061]
-}, Open  ]]
-}, Open  ]]
+Cell[55766, 1195, 145, 1, 36, "Text",ExpressionUUID->"0cfef89f-e992-4e1b-bd98-cdbcb8dff25d",
+ CellID->1213811350],
+Cell[55914, 1198, 233, 4, 44, "Reference",ExpressionUUID->"65222cba-f3e1-4b85-9336-c4630b47efab",
+ CellID->672193493],
+Cell[56150, 1204, 205, 4, 44, "Reference",ExpressionUUID->"d9dd3df2-47a5-4ffb-b18b-cc831116b89a",
+ CellID->1580196597],
+Cell[56358, 1210, 237, 4, 44, "Reference",ExpressionUUID->"82cf1db4-59a4-4fb5-b47a-f4f677274976",
+ CellID->1014776713],
+Cell[56598, 1216, 221, 4, 44, "Reference",ExpressionUUID->"8eb0206d-1db1-40ef-b59d-7798e7828223",
+ CellID->1945359196],
+Cell[56822, 1222, 265, 5, 44, "Reference",ExpressionUUID->"9b0e305b-1310-4e37-b6bf-3a7ec5e49684",
+ CellID->1764496958],
+Cell[57090, 1229, 237, 4, 44, "Reference",ExpressionUUID->"3f0b9fbd-5f3e-4967-b65f-16ecfd808cc7",
+ CellID->1548415637],
+Cell[57330, 1235, 216, 4, 44, "Reference",ExpressionUUID->"3e38859a-3639-40bb-ab87-288225fae680",
+ CellID->728428818],
+Cell[57549, 1241, 189, 4, 24, "Reference",ExpressionUUID->"0d083626-42dd-475d-ab7d-a981867275a0",
+ CellID->657497939],
+Cell[57741, 1247, 180, 3, 24, "Reference",ExpressionUUID->"33a0a6b8-e745-4e97-8b71-55beea85c77d",
+ CellID->2051509079],
+Cell[57924, 1252, 189, 4, 24, "Reference",ExpressionUUID->"8a45b013-9ce6-4d73-95a6-e9441d8c8570",
+ CellID->13921565],
+Cell[58116, 1258, 199, 4, 24, "Reference",ExpressionUUID->"1b517b41-d4fc-490a-8f5e-4b9195954bd7",
+ CellID->1347070612],
+Cell[58318, 1264, 192, 4, 24, "Reference",ExpressionUUID->"0fd5617e-f6ea-494e-a774-4e631f10db0b",
+ CellID->1443169210],
+Cell[58513, 1270, 211, 4, 44, "Reference",ExpressionUUID->"8751bc4d-1b24-4a15-b81c-88dca6142395",
+ CellID->1339666601]
 }, Open  ]]
 }, Open  ]]
 }
