@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     29561,        668]
-NotebookOptionsPosition[     15144,        422]
-NotebookOutlinePosition[     15536,        438]
-CellTagsIndexPosition[     15493,        435]
+NotebookDataLength[     30093,        681]
+NotebookOptionsPosition[     15450,        431]
+NotebookOutlinePosition[     15846,        447]
+CellTagsIndexPosition[     15803,        444]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -417,12 +417,21 @@ Cell["Anharmonic Oscillator", "Section",ExpressionUUID->"e126e6e1-a21d-44f4-b665
 
 Cell["Eckart Potential", "Section",ExpressionUUID->"14ac18cd-6f1f-484c-bf7a-8612605b55fe"],
 
-Cell["Greens Function Solution to an Inverse Problem", "Section",ExpressionUUID->"2e1021e7-be9f-4b45-be47-5af2face4d2b"]
+Cell["Greens Function Solution to an Inverse Problem", "Section",ExpressionUUID->"2e1021e7-be9f-4b45-be47-5af2face4d2b"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+The rotational dynamics of space station Mir with Euler methods\
+\>", "Section",ExpressionUUID->"b997dc6a-4a21-4ff2-96f8-7fa85328d5c5"],
+
+Cell["https://community.wolfram.com/groups/-/m/t/2594213", "Text",ExpressionUUID->"4c0caf68-acd2-486a-af85-30473196bea7"]
+}, Open  ]]
 }, Open  ]]
 },
 WindowSize->{808, 896},
 WindowMargins->{{88, Automatic}, {Automatic, 7}},
-FrontEndVersion->"14.1 for Mac OS X ARM (64-bit) (July 16, 2024)",
+FrontEndVersion->"14.2 for Mac OS X ARM (64-bit) (December 26, 2024)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"52ed2189-8c90-44d9-9cc4-9460aa603fd1"
 ]
@@ -668,7 +677,11 @@ Cell[14617, 411, 101, 0, 66, "Section",ExpressionUUID->"2563891d-6771-4570-a3d0-
 Cell[14721, 413, 93, 0, 52, "Section",ExpressionUUID->"cd023412-6ed4-45e6-9398-930a0f3efe00"],
 Cell[14817, 415, 95, 0, 52, "Section",ExpressionUUID->"e126e6e1-a21d-44f4-b665-81c00ed16e1f"],
 Cell[14915, 417, 90, 0, 52, "Section",ExpressionUUID->"14ac18cd-6f1f-484c-bf7a-8612605b55fe"],
-Cell[15008, 419, 120, 0, 52, "Section",ExpressionUUID->"2e1021e7-be9f-4b45-be47-5af2face4d2b"]
+Cell[15008, 419, 120, 0, 52, "Section",ExpressionUUID->"2e1021e7-be9f-4b45-be47-5af2face4d2b"],
+Cell[CellGroupData[{
+Cell[15153, 423, 145, 2, 89, "Section",ExpressionUUID->"b997dc6a-4a21-4ff2-96f8-7fa85328d5c5"],
+Cell[15301, 427, 121, 0, 33, "Text",ExpressionUUID->"4c0caf68-acd2-486a-af85-30473196bea7"]
+}, Open  ]]
 }, Open  ]]
 }
 ]
