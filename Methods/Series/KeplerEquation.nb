@@ -1,0 +1,891 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     32767,        883]
+NotebookOptionsPosition[     27086,        778]
+NotebookOutlinePosition[     30321,        843]
+CellTagsIndexPosition[     29902,        828]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Computational Physics", "SectionTitle",
+ CellTags->
+  "SectionTitle",ExpressionUUID->"c5ac0f43-344e-4fa2-a411-23ae6d7e89c2"],
+
+Cell[CellGroupData[{
+
+Cell["Kepler Equation", "NumberedSection",
+ CellChangeTimes->{3.927728505140964*^9, 3.928307053849681*^9, 
+  3.928399358208455*^9},
+ CounterAssignments->{{"Subsection", 0}, {"Subsubsection", 0}, {
+   "Exercise", 0}, {
+   "Section", 0}},ExpressionUUID->"76bfdc3c-6745-4fb4-8956-6aa87e47ac03"],
+
+Cell[TextData[{
+ "The ",
+ StyleBox["Kepler equation",
+  FontSlant->"Italic"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"s", "=", 
+    RowBox[{"u", "+", 
+     RowBox[{"e", " ", 
+      RowBox[{"sin", "(", "s", ")"}]}]}]}], TraditionalForm]],ExpressionUUID->
+  "791239d4-8610-4301-ac1a-214768f7095b"],
+ " \[LongDash] critical in celestial mechanics \[LongDash] relates the mean \
+anomaly ",
+ Cell[BoxData[
+  FormBox["u", TraditionalForm]],ExpressionUUID->
+  "1b50ed8e-2347-46aa-8f75-31f35053f0a8"],
+ " (a parameterization of time) of a body in an elliptical orbit of \
+eccentricity ",
+ Cell[BoxData[
+  FormBox["e", TraditionalForm]],ExpressionUUID->
+  "424ef581-c52c-40e6-8850-09d372a02605"],
+ " to the body's eccentric anomaly ",
+ Cell[BoxData[
+  FormBox["s", TraditionalForm]],ExpressionUUID->
+  "97de5ac9-3d16-4f87-b82e-cde29fe8bb3c"],
+ " (a parameterization of polar angle) (see ",
+ ButtonBox["http://mathworld.wolfram.com/KeplersEquation.html",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["http://mathworld.wolfram.com/KeplersEquation.html"], None}],
+ "). Computing ",
+ Cell[BoxData[
+  FormBox["s", TraditionalForm]],ExpressionUUID->
+  "15eb1b87-4de5-423b-9cc3-f5b7a4d189e0"],
+ " is a commonly-used intermediate step to the calculation of planetary \
+position as a function of time. "
+}], "Text",
+ CellTags->{
+  "Kepler equation", "celestial mechanics", "eccentricity", 
+   "eccentric anomaly", "mean anomaly", 
+   "ellipse"},ExpressionUUID->"2e6b63cb-00c7-4e39-93d8-108cf42f5167"],
+
+Cell[TextData[{
+ "Consider the following related geometrical example: Pick an arbitrary point \
+",
+ Cell[BoxData[
+  FormBox["F", TraditionalForm]],ExpressionUUID->
+  "1e74e476-a0e4-428f-9f1b-46f144523041"],
+ " inside the unit circle centered at ",
+ Cell[BoxData[
+  FormBox["O", TraditionalForm]],ExpressionUUID->
+  "bcfdd9bb-8537-4de5-a929-4e27b139d21a"],
+ ". Let ",
+ Cell[BoxData[
+  FormBox["P", TraditionalForm]],ExpressionUUID->
+  "64d48db8-081f-4871-b947-130f61b45bed"],
+ " be the point on the circle closest to ",
+ Cell[BoxData[
+  FormBox["F", TraditionalForm]],ExpressionUUID->
+  "b8bbe396-18d1-4e69-827c-24a930c92bf3"],
+ " and pick another point ",
+ Cell[BoxData[
+  FormBox["Q", TraditionalForm]],ExpressionUUID->
+  "9c44b961-9806-4e1d-8cf6-cb0ca4ee219e"],
+ " elsewhere on the circle. Define ",
+ Cell[BoxData[
+  FormBox["s", TraditionalForm]],ExpressionUUID->
+  "906b7e18-ad74-4f8d-95e6-faaceb02409a"],
+ " and ",
+ Cell[BoxData[
+  FormBox["e", TraditionalForm]],ExpressionUUID->
+  "2b061c39-d535-4957-ae21-0e718e213631"],
+ " as pictured below and let ",
+ Cell[BoxData[
+  FormBox["u", TraditionalForm]],ExpressionUUID->
+  "0e0675a6-d989-4cf0-96f8-1cbb0cf1dd7a"],
+ " be twice the area of the shaded sector ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox["PFQ",
+    FontSlant->"Italic"], TraditionalForm]],ExpressionUUID->
+  "c503e0ae-2a18-47dd-9eed-cc76a3f07723"],
+ ":"
+}], "Text",ExpressionUUID->"265e0b21-d0e5-4ac3-9a42-4c582270e23b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DynamicModule", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\[ScriptCapitalO]", "=", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0"}], "}"}]}], ",", 
+     RowBox[{"pt1", "=", 
+      RowBox[{"{", 
+       RowBox[{"0.3", ",", 
+        SqrtBox[
+         RowBox[{"1", "-", 
+          SuperscriptBox["0.3", "2"]}]]}], "}"}]}], ",", 
+     RowBox[{"pt2", "=", 
+      RowBox[{"{", 
+       RowBox[{
+        SqrtBox[
+         RowBox[{"1", "-", 
+          SuperscriptBox["0.6", "2"]}]], ",", "0"}], "}"}]}]}], "}"}], ",", 
+   RowBox[{"LocatorPane", "[", 
+    RowBox[{
+     RowBox[{"Dynamic", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"pt1", ",", "pt2"}], "}"}], ",", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"pt1", ",", "pt2"}], "}"}], "=", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Normalize", "[", 
+             RowBox[{"First", "@", "#"}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"First", "[", 
+               RowBox[{"Last", "@", "#"}], "]"}], ",", "0"}], "}"}]}], 
+           "}"}]}], ")"}], "&"}]}], "]"}], ",", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\[ScriptS]", "=", 
+         RowBox[{"Dynamic", "@", 
+          RowBox[{"Mod", "[", 
+           RowBox[{
+            RowBox[{"ArcTan", "@@", "pt1"}], ",", "\[Pi]"}], "]"}]}]}], "}"}],
+        ",", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Circle", "[", 
+            RowBox[{"\[ScriptCapitalO]", ",", "1", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"-", "0.1"}], ",", 
+               RowBox[{"\[Pi]", "+", "0.05"}]}], "}"}]}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Hue", "[", "0.5", "]"}], ",", 
+             RowBox[{"Disk", "[", 
+              RowBox[{"\[ScriptCapitalO]", ",", 
+               RowBox[{"1", "-", "0.002"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"0.001", ",", 
+                 RowBox[{"Max", "[", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"\[ScriptS]", "-", "0.001"}]}], "]"}]}], "}"}]}], 
+              "]"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"GrayLevel", "[", "1", "]"}], ",", 
+             RowBox[{"Dynamic", "@", 
+              RowBox[{"Polygon", "[", 
+               RowBox[{"{", 
+                RowBox[{"\[ScriptCapitalO]", ",", "pt1", ",", "pt2"}], "}"}], 
+               "]"}]}]}], "}"}], ",", 
+           RowBox[{"PointSize", "[", "0.02", "]"}], ",", 
+           RowBox[{"Point", "[", "\[ScriptCapitalO]", "]"}], ",", 
+           RowBox[{"Point", "[", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", "0"}], "}"}], "]"}], ",", 
+           RowBox[{"Line", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"-", "1"}], ",", "0"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"1", ",", "0"}], "}"}]}], "}"}], "]"}], ",", 
+           RowBox[{"Dynamic", "@", 
+            RowBox[{"Line", "[", 
+             RowBox[{"{", 
+              RowBox[{"\[ScriptCapitalO]", ",", "pt1", ",", "pt2"}], "}"}], 
+             "]"}]}], ",", 
+           RowBox[{"Circle", "[", 
+            RowBox[{"\[ScriptCapitalO]", ",", "0.15", ",", 
+             RowBox[{"{", 
+              RowBox[{"0", ",", 
+               RowBox[{"Max", "[", 
+                RowBox[{"0", ",", 
+                 RowBox[{"\[ScriptS]", "-", "0.001"}]}], "]"}]}], "}"}]}], 
+            "]"}], ",", 
+           RowBox[{"Text", "[", 
+            RowBox[{"O", ",", 
+             RowBox[{"\[ScriptCapitalO]", "-", "0.05"}]}], "]"}], ",", 
+           RowBox[{"Dynamic", "@", 
+            RowBox[{"Text", "[", 
+             RowBox[{"F", ",", 
+              RowBox[{"pt2", "-", "0.05"}]}], "]"}]}], ",", 
+           RowBox[{"Text", "[", 
+            RowBox[{"P", ",", 
+             RowBox[{"{", 
+              RowBox[{"1.07", ",", "0"}], "}"}]}], "]"}], ",", 
+           RowBox[{"Dynamic", "@", 
+            RowBox[{"Text", "[", 
+             RowBox[{"Q", ",", 
+              RowBox[{"pt1", "+", 
+               RowBox[{"{", 
+                RowBox[{"0", ",", "0.1"}], "}"}]}]}], "]"}]}], ",", 
+           RowBox[{"Dynamic", "@", 
+            RowBox[{"Text", "[", 
+             RowBox[{"s", ",", 
+              RowBox[{"0.1", 
+               RowBox[{"Normalize", "[", 
+                RowBox[{"pt1", "+", 
+                 RowBox[{"{", 
+                  RowBox[{"1", ",", "0"}], "}"}]}], "]"}]}]}], "]"}]}], ",", 
+           RowBox[{"Dynamic", "@", 
+            RowBox[{"Text", "[", 
+             RowBox[{"1", ",", 
+              RowBox[{"0.6", 
+               RowBox[{
+                RowBox[{"RotationTransform", "[", "0.1", "]"}], "[", 
+                RowBox[{"Normalize", "[", "pt1", "]"}], "]"}]}]}], "]"}]}], 
+           ",", 
+           RowBox[{"Dynamic", "@", 
+            RowBox[{"Text", "[", 
+             RowBox[{"e", ",", 
+              RowBox[{
+               FractionBox["pt2", "2"], "-", 
+               RowBox[{"{", 
+                RowBox[{"0", ",", "0.1"}], "}"}]}]}], "]"}]}], ",", 
+           RowBox[{"Dynamic", "@", 
+            RowBox[{"Text", "[", 
+             RowBox[{
+              RowBox[{"1", "-", "e"}], ",", 
+              RowBox[{
+               FractionBox[
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"1", ",", "0"}], "}"}], "+", "pt2"}], "2"], "-", 
+               RowBox[{"{", 
+                RowBox[{"0", ",", "0.1"}], "}"}]}]}], "]"}]}], ",", 
+           RowBox[{"Dynamic", "@", 
+            RowBox[{"Text", "[", 
+             RowBox[{
+              RowBox[{
+               FractionBox["u", "2"], "\[LongEqual]", 
+               RowBox[{
+                RowBox[{
+                 FractionBox["1", "2"], 
+                 RowBox[{"Mod", "[", 
+                  RowBox[{
+                   RowBox[{"ArcTan", "@@", "pt1"}], ",", "\[Pi]"}], "]"}]}], 
+                "-", 
+                RowBox[{
+                 FractionBox["1", "2"], 
+                 RowBox[{"(", 
+                  RowBox[{"First", "@", "pt2"}], ")"}], " ", 
+                 RowBox[{"Sin", "[", 
+                  RowBox[{"Mod", "[", 
+                   RowBox[{
+                    RowBox[{"ArcTan", "@@", "pt1"}], ",", "\[Pi]"}], "]"}], 
+                  "]"}]}]}]}], ",", 
+              RowBox[{"0.9", 
+               RowBox[{"Normalize", "[", 
+                RowBox[{"pt1", "+", 
+                 RowBox[{"{", 
+                  RowBox[{"1", ",", "0"}], "}"}]}], "]"}]}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"-", "1"}], ",", "0"}], "}"}]}], "]"}]}]}], "}"}], 
+         ",", 
+         RowBox[{"PlotRange", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "1.05"}], ",", "1.05"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "0.2"}], ",", "1.2"}], "}"}]}], "}"}]}], ",", 
+         RowBox[{"ImageSize", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"600", ",", "400"}], "}"}]}]}], "]"}]}], "]"}]}], "]"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.397182096694676*^9, 3.397182155444556*^9}, {
+   3.397182248206005*^9, 3.397182356653878*^9}, {3.397182478168625*^9, 
+   3.397182479037211*^9}, 3.397182549099573*^9, {3.397182638349593*^9, 
+   3.3971826896326323`*^9}, {3.3971827352010307`*^9, 3.39718275430694*^9}, {
+   3.397182867655151*^9, 3.397182874677074*^9}, {3.397182905683466*^9, 
+   3.3971829268991423`*^9}, {3.39718301173155*^9, 3.39718304117451*^9}, {
+   3.397183078274242*^9, 3.397183299843966*^9}, {3.397183371132901*^9, 
+   3.397183403532598*^9}, {3.3971834349370747`*^9, 3.397183500143942*^9}, {
+   3.397191676150469*^9, 3.3971918282373667`*^9}, {3.397191886384139*^9, 
+   3.397191948422121*^9}, {3.3971919927999973`*^9, 3.397192158880888*^9}, {
+   3.397192215797696*^9, 3.397192229484268*^9}, {3.397192294609543*^9, 
+   3.397192317352837*^9}, {3.3971923591305037`*^9, 3.397192537703258*^9}, 
+   3.397192572604794*^9, {3.397192688537053*^9, 3.397192701739955*^9}, {
+   3.397192734320664*^9, 3.39719279485608*^9}, 3.3971928265418997`*^9, {
+   3.397192866551038*^9, 3.397192998982009*^9}, {3.3971930344054413`*^9, 
+   3.397193035842924*^9}, {3.397193088185479*^9, 3.3971931003241673`*^9}, {
+   3.397193131541937*^9, 3.397193143131339*^9}, {3.397193173719946*^9, 
+   3.397193355684659*^9}, {3.39719338858491*^9, 3.39719345902256*^9}, {
+   3.397193561278078*^9, 3.39719357446692*^9}, {3.397193630362557*^9, 
+   3.3971936402692966`*^9}, {3.3971936822874823`*^9, 3.397193741608274*^9}, {
+   3.397193818058251*^9, 3.397193842303041*^9}, {3.397193928052066*^9, 
+   3.3971939296320467`*^9}, {3.39719396616566*^9, 3.39719396885567*^9}, {
+   3.3971940508871326`*^9, 3.397194074735882*^9}, {3.397194122436227*^9, 
+   3.397194127705658*^9}, {3.397194160734761*^9, 3.397194197000731*^9}, {
+   3.397194289173449*^9, 3.397194324863983*^9}, {3.397194385332922*^9, 
+   3.397194576385013*^9}, {3.397194608570856*^9, 3.397194624893968*^9}, {
+   3.3971946567203293`*^9, 3.397194801435467*^9}, {3.39719484112516*^9, 
+   3.39719494366875*^9}, 3.397194986694879*^9, {3.397195051645835*^9, 
+   3.3971950526017513`*^9}, {3.397195084016979*^9, 
+   3.397195091449339*^9}},ExpressionUUID->"3019c41f-2fcf-4b3f-a596-\
+3a9359d1c1f7"],
+
+Cell[BoxData[
+ FormBox[
+  DynamicModuleBox[{$CellContext`\[ScriptCapitalO]$$ = {0, 
+   0}, $CellContext`pt1$$ = {0.15115565139152906`, 
+   0.9885099741795237}, $CellContext`pt2$$ = {0.651, 0}}, 
+   LocatorPaneBox[
+    Dynamic[{$CellContext`pt1$$, $CellContext`pt2$$}, ({$CellContext`pt1$$, \
+$CellContext`pt2$$} = {
+       Normalize[
+        First[#]], {
+        First[
+         Last[#]], 0}})& ], 
+    GraphicsBox[{CircleBox[{0, 0}, 1, {-0.1, 3.191592653589793}], 
+      {Hue[0.5], 
+       DiskBox[{0, 0}, 0.998, {
+        0.001, Max[
+         0, -0.001 + 
+          Dynamic[Mod[Apply[ArcTan, $CellContext`pt1$$], Pi]]]}]}, 
+      {GrayLevel[1], 
+       DynamicBox[Typeset`ToBoxes[
+         Polygon[{$CellContext`\[ScriptCapitalO]$$, $CellContext`pt1$$, \
+$CellContext`pt2$$}], TraditionalForm, Graphics],
+        ImageSizeCache->{{300., 486.}, {-143.17339943075675`, 
+         139.25802176339286`}}]}, 
+      {PointSize[0.02], PointBox[{0, 0}], PointBox[{1, 0}], 
+       LineBox[{{-1, 0}, {1, 0}}], 
+       DynamicBox[Typeset`ToBoxes[
+         Line[{$CellContext`\[ScriptCapitalO]$$, $CellContext`pt1$$, \
+$CellContext`pt2$$}], TraditionalForm, Graphics],
+        ImageSizeCache->{{298.38034665450505`, 
+         487.61965334549495`}, {-144.7930527762517, 140.87767510888781`}}], 
+       CircleBox[{0, 0}, 0.15, {
+        0, Max[0, -0.001 + 
+          Dynamic[Mod[Apply[ArcTan, $CellContext`pt1$$], Pi]]]}], 
+       InsetBox["O", {-0.05, -0.05}], 
+       DynamicBox[Typeset`ToBoxes[
+         Text[$CellContext`F, $CellContext`pt2$$ - 0.05], TraditionalForm, 
+         Graphics],
+        ImageSizeCache->{{468.4135044642857, 475.0150669642857}, {
+         147.95779854910714`, 159.12967354910714`}}], 
+       InsetBox["P", {1.07, 0}], 
+       DynamicBox[Typeset`ToBoxes[
+         Text[$CellContext`Q, $CellContext`pt1$$ + {0, 0.1}], TraditionalForm,
+          Graphics],
+        ImageSizeCache->{{339.2981688127583, 
+         347.0764891252583}, {-177.33076550218536`, -166.15889050218536`}}], 
+       DynamicBox[Typeset`ToBoxes[
+         Text[$CellContext`s, 0.1 Normalize[$CellContext`pt1$$ + {1, 0}]], 
+         TraditionalForm, Graphics],
+        ImageSizeCache->{{319.1689173730842, 324.1835658105842}, {
+         115.05845804320991`, 126.23033304320991`}}], 
+       DynamicBox[Typeset`ToBoxes[
+         Text[1, 0.6 RotationTransform[0.1][
+            Normalize[$CellContext`pt1$$]]], TraditionalForm, Graphics],
+        ImageSizeCache->{{306.08452536034855`, 
+         311.64604879784855`}, {-37.52710319684593, -26.35522819684593}}], 
+       DynamicBox[Typeset`ToBoxes[
+         Text[$CellContext`e, $CellContext`pt2$$/2 - {0, 0.1}], 
+         TraditionalForm, Graphics],
+        ImageSizeCache->{{390.21923828125, 395.78076171875}, {
+         162.24351283482144`, 173.41538783482144`}}], 
+       DynamicBox[Typeset`ToBoxes[
+         Text[1 - $CellContext`e, ({1, 0} + $CellContext`pt2$$)/2 - {0, 0.1}],
+          TraditionalForm, Graphics],
+        ImageSizeCache->{{525.5245690724207, 546.1897166418651}, {
+         162.24351283482144`, 173.41538783482144`}}], 
+       DynamicBox[Typeset`ToBoxes[
+         Text[$CellContext`u/2 == (1/2) Mod[
+              Apply[ArcTan, $CellContext`pt1$$], Pi] - (1/2) 
+           First[$CellContext`pt2$$] Sin[
+             Mod[
+              Apply[ArcTan, $CellContext`pt1$$], Pi]], 0.9 
+          Normalize[$CellContext`pt1$$ + {1, 0}], {-1, 0}], TraditionalForm, 
+         Graphics],
+        ImageSizeCache->{{495.08617432650783`, 
+         552.1928366528967}, {-41.09944820262865, -15.429780233878656`}}]}},
+     ImageSize->{600, 400},
+     PlotRange->{{-1.05, 1.05}, {-0.2, 1.2}}]],
+   DynamicModuleValues:>{}], TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.3971946372381372`*^9, {3.397194672711103*^9, 3.397194691542573*^9}, {
+   3.39719472870269*^9, 3.397194773590589*^9}, 3.3971948056073723`*^9, {
+   3.397194851062068*^9, 3.3971949441324987`*^9}, 3.397194987467923*^9, 
+   3.39719505304676*^9, {3.397195086553905*^9, 
+   3.397195091699407*^9}},ExpressionUUID->"61a020e9-bafa-4aad-bff2-\
+fde584ef6f48"]
+}, {2}]],
+
+Cell[TextData[{
+ "Then ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     FractionBox["1", "2"], "u"}], "=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Area", "(", 
+       RowBox[{"sector", " ", 
+        StyleBox["P0Q",
+         FontSlant->"Italic"]}], ")"}], "-", 
+      RowBox[{"Area", "(", 
+       StyleBox[
+        RowBox[{"\[CapitalDelta]", 
+         StyleBox["F0Q",
+          FontSlant->"Italic"]}]], ")"}]}], "=", 
+     RowBox[{
+      RowBox[{
+       FractionBox["1", "2"], "s"}], "-", 
+      RowBox[{
+       FractionBox["1", "2"], "e", " ", 
+       RowBox[{"sin", "(", "s", ")"}]}]}]}]}], TraditionalForm]],
+  ExpressionUUID->"cfe7af59-2f35-4f37-8033-1509aa9e0201"],
+ "."
+}], "Text",ExpressionUUID->"c422b747-6ba5-467a-b049-a233b34669d2"],
+
+Cell[TextData[{
+ "Computing ",
+ Cell[BoxData[
+  FormBox["s", TraditionalForm]],ExpressionUUID->
+  "383a0e1b-62a9-451a-a2cc-b6d1b9ab7ca8"],
+ " is a commonly-used intermediate step to the calculation of planetary \
+position as a function of time. For ",
+ Cell[BoxData[
+  FormBox["e", TraditionalForm]],ExpressionUUID->
+  "afd995a8-7481-41b3-a1cd-ae545d9a9ec3"],
+ " a small quantity, this transcendental equation can be solved using power \
+series. Defining ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"s", "=", 
+    RowBox[{"u", "+", "a"}]}], TraditionalForm]],ExpressionUUID->
+  "54a1cff7-be3d-4b20-91e9-de427e5233c6"],
+ " reduces the equation to ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"a", "=", 
+    RowBox[{"e", " ", 
+     RowBox[{"sin", "(", 
+      RowBox[{"u", "+", "a"}], ")"}]}]}], TraditionalForm]],ExpressionUUID->
+  "3d47c223-64eb-418b-93a4-0fe66741a59b"],
+ " which can be solved formally by introducing the recurrence relation ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["a", "k"], "=", 
+    RowBox[{"e", " ", 
+     RowBox[{"sin", "(", 
+      RowBox[{"u", "+", 
+       SubscriptBox["a", 
+        RowBox[{"k", "-", "1"}]]}], ")"}]}]}], TraditionalForm]],
+  ExpressionUUID->"05508e0f-3172-49ca-91df-6fb7a5c0afb5"],
+ ". Since ",
+ Cell[BoxData[
+  FormBox["e", TraditionalForm]],ExpressionUUID->
+  "2c0a6b84-e02c-4163-87b1-db343ed100cb"],
+ " is a small parameter, as ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"k", "\[Rule]", "\[Infinity]"}], TraditionalForm]],ExpressionUUID->
+  "da8201d0-0f35-47ca-a99a-a0df34d1f9f4"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["a", 
+     RowBox[{"k", "-", "1"}]], "\[Rule]", 
+    RowBox[{
+     SubscriptBox["a", "k"], "\[Rule]", "a"}]}], TraditionalForm]],
+  ExpressionUUID->"2f093940-03ec-4532-9d26-b69683731b8f"],
+ ", and hence the Kepler equation is formally satisfied."
+}], "Text",
+ CellTags->{
+  "power series solution", 
+   "formal solution"},ExpressionUUID->"00eb4730-985e-4584-854a-7100be5f13db"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ 
+ CounterBox["Title"],
+ ".",
+ 
+ CounterBox["Section"],
+ ".",
+ 
+ CounterBox["Exercise"],
+ ". Use series expansion and dynamic programming (",
+ StyleBox["i.e.",
+  FontSlant->"Italic"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["a", 
+     RowBox[{"k", "_"}]], ":=", 
+    RowBox[{
+     SubscriptBox["a", "k"], "=", "\[Ellipsis]"}]}], TraditionalForm]],
+  ExpressionUUID->"e84850cd-e902-43ed-bf6e-fb183bdae2b0"],
+ ") to solve the Kepler equation recursively up to sixth order. Use ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox["TrigReduce", "Input"], TraditionalForm]],ExpressionUUID->
+  "6686d6e3-04d5-45b5-97d2-be74fc9edc82"],
+ " to express the result as a Fourier series expansion. Note that you need to \
+define a suitable initial condition (",
+ StyleBox["i.e.",
+  FontSlant->"Italic"],
+ ",  ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["a", "0"], TraditionalForm]],ExpressionUUID->
+  "3b1550fb-a1a9-4582-8e8d-b01b8ecc7fa4"],
+ "). ",
+ StyleBox["[5]", "Marks"]
+}], "Subsubsection",
+ PageBreakBelow->Automatic,
+ CellTags->
+  "dynamic programming",ExpressionUUID->"5d209fe4-7eae-4c80-9d02-\
+b018db12f6f4"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"Clear", "[", "a", "]"}], TraditionalForm]], "Input",ExpressionUUID->\
+"670b78f5-099e-4f22-b7b2-414982659c6c"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"a", "/:", 
+    SubscriptBox["a", "0"], "=", "0"}], ";"}], TraditionalForm]], "Input",Expr\
+essionUUID->"e96a495a-3cb1-4ccd-bcf3-1ed737195a1d"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"a", "/:", 
+   SubscriptBox["a", "k_"], ":=", 
+   RowBox[{
+    SubscriptBox["a", "k"], "=", 
+    RowBox[{
+     RowBox[{"e", " ", 
+      FormBox[
+       RowBox[{"sin", "(", 
+        RowBox[{"u", "+", 
+         SubscriptBox["a", 
+          RowBox[{"k", "-", "1"}]]}], ")"}],
+       TraditionalForm]}], "+", 
+     SuperscriptBox[
+      RowBox[{"O", "[", "e", "]"}], 
+      RowBox[{"k", "+", "1"}]]}]}]}], TraditionalForm]], "Input",ExpressionUUI\
+D->"7c6ce2ad-0928-439f-b627-1fb818d6281b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"TrigReduce", "/@", 
+   SubscriptBox["a", "5"]}], TraditionalForm]], "Input",ExpressionUUID->\
+"08f5fde9-f989-475d-8db2-964286ab7dda"],
+
+Cell[BoxData[
+ FormBox[
+  InterpretationBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{"sin", "(", "u", ")"}], " ", "e"}], "+", 
+    RowBox[{
+     FractionBox["1", "2"], " ", 
+     RowBox[{"sin", "(", 
+      RowBox[{"2", " ", "u"}], ")"}], " ", 
+     SuperscriptBox["e", "2"]}], "+", 
+    RowBox[{
+     FractionBox["1", "8"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"3", " ", 
+        RowBox[{"sin", "(", 
+         RowBox[{"3", " ", "u"}], ")"}]}], "-", 
+       RowBox[{"sin", "(", "u", ")"}]}], ")"}], " ", 
+     SuperscriptBox["e", "3"]}], "+", 
+    RowBox[{
+     FractionBox["1", "6"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"2", " ", 
+        RowBox[{"sin", "(", 
+         RowBox[{"4", " ", "u"}], ")"}]}], "-", 
+       RowBox[{"sin", "(", 
+        RowBox[{"2", " ", "u"}], ")"}]}], ")"}], " ", 
+     SuperscriptBox["e", "4"]}], "+", 
+    RowBox[{
+     FractionBox["1", "384"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"2", " ", 
+        RowBox[{"sin", "(", "u", ")"}]}], "-", 
+       RowBox[{"81", " ", 
+        RowBox[{"sin", "(", 
+         RowBox[{"3", " ", "u"}], ")"}]}], "+", 
+       RowBox[{"125", " ", 
+        RowBox[{"sin", "(", 
+         RowBox[{"5", " ", "u"}], ")"}]}]}], ")"}], " ", 
+     SuperscriptBox["e", "5"]}], "+", 
+    InterpretationBox[
+     RowBox[{"O", "(", 
+      SuperscriptBox["e", "6"], ")"}],
+     SeriesData[e, 0, {}, 1, 6, 1],
+     Editable->False]}],
+   SeriesData[e, 0, {
+     Sin[u], Rational[1, 2] Sin[2 u], Rational[1, 8] (-Sin[u] + 3 Sin[3 u]), 
+     Rational[1, 6] (-Sin[2 u] + 2 Sin[4 u]), 
+     Rational[1, 384] (2 Sin[u] - 81 Sin[3 u] + 125 Sin[5 u])}, 1, 6, 1],
+   Editable->False], TraditionalForm]], "Output",ExpressionUUID->"44439803-\
+2af2-4c74-b2b9-16448ec217e3"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"Collect", "[", 
+   RowBox[{"%", ",", 
+    RowBox[{"sin", "(", "_", ")"}], ",", "Simplify"}], "]"}], 
+  TraditionalForm]], "Input",ExpressionUUID->"e023bc70-cd72-48a5-8c77-\
+11f5daadd555"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    FractionBox["125", "384"], " ", 
+    RowBox[{"sin", "(", 
+     RowBox[{"5", " ", "u"}], ")"}], " ", 
+    SuperscriptBox["e", "5"]}], "+", 
+   RowBox[{
+    FractionBox["1", "3"], " ", 
+    RowBox[{"sin", "(", 
+     RowBox[{"4", " ", "u"}], ")"}], " ", 
+    SuperscriptBox["e", "4"]}], "+", 
+   RowBox[{
+    FractionBox["3", "128"], " ", 
+    RowBox[{"(", 
+     RowBox[{"16", "-", 
+      RowBox[{"9", " ", 
+       SuperscriptBox["e", "2"]}]}], ")"}], " ", 
+    RowBox[{"sin", "(", 
+     RowBox[{"3", " ", "u"}], ")"}], " ", 
+    SuperscriptBox["e", "3"]}], "-", 
+   RowBox[{
+    FractionBox["1", "6"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["e", "2"], "-", "3"}], ")"}], " ", 
+    RowBox[{"sin", "(", 
+     RowBox[{"2", " ", "u"}], ")"}], " ", 
+    SuperscriptBox["e", "2"]}], "+", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      FractionBox[
+       SuperscriptBox["e", "5"], "192"], "-", 
+      FractionBox[
+       SuperscriptBox["e", "3"], "8"], "+", "e"}], ")"}], " ", 
+    RowBox[{"sin", "(", "u", ")"}]}]}], TraditionalForm]], "Output",Expression\
+UUID->"2ff928e9-dfda-4c5a-8856-446acc7fe351"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ 
+ CounterBox["Title"],
+ ".",
+ 
+ CounterBox["Section"],
+ ".",
+ 
+ CounterBox["Exercise"],
+ ". ",
+ "Check the ",
+ StyleBox["self-consistency ",
+  FontSlant->"Italic"],
+ "of your solution to the Kepler equation (",
+ StyleBox["i.e.",
+  FontSlant->"Italic"],
+ ", substitute your series solution back into the Kepler equation). ",
+ StyleBox["[1]", "Marks"]
+}], "Subsubsection",
+ CellTags->
+  "self-consistency ",ExpressionUUID->"9154797a-f224-46d7-a207-a327d0b9165d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    SubscriptBox["a", "5"], "-", 
+    RowBox[{"e", " ", 
+     RowBox[{"sin", "(", 
+      RowBox[{"u", "+", 
+       SubscriptBox["a", "5"]}], ")"}]}]}], "//", "Simplify"}], 
+  TraditionalForm]], "Input",ExpressionUUID->"beeb1d79-414b-4a69-af4f-\
+8db684ab789b"],
+
+Cell[BoxData[
+ FormBox[
+  InterpretationBox[
+   RowBox[{"O", "(", 
+    SuperscriptBox["e", "6"], ")"}],
+   SeriesData[e, 0, {}, 6, 6, 1],
+   Editable->False], TraditionalForm]], "Output",ExpressionUUID->"60f5ba25-\
+deba-45d7-9179-5f31ead94752"]
+}, Open  ]],
+
+Cell["***And the relation to the BesselJ function expansion***", "Text",
+ CellChangeTimes->{{3.928399409887677*^9, 
+  3.928399422180954*^9}},ExpressionUUID->"c6e85f9e-0369-446e-83e0-\
+a973fe2ec88f"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 796},
+WindowMargins->{{Automatic, 306}, {Automatic, 44}},
+FrontEndVersion->"14.1 for Mac OS X ARM (64-bit) (May 2, 2024)",
+StyleDefinitions->FrontEnd`FileName[{$RootDirectory, "Users", "paul", 
+   "Documents", "Projects", "Wolfram Research", "Wolfram U"}, 
+  "MyCourseStyle.nb", CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"9821720b-9e08-45cb-9d32-0138fd577aa3"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "SectionTitle"->{
+  Cell[576, 22, 130, 2, 44, "SectionTitle",ExpressionUUID->"c5ac0f43-344e-4fa2-a411-23ae6d7e89c2",
+   CellTags->"SectionTitle"]},
+ "Kepler equation"->{
+  Cell[1025, 35, 1492, 41, 130, "Text",ExpressionUUID->"2e6b63cb-00c7-4e39-93d8-108cf42f5167",
+   CellTags->{"Kepler equation", "celestial mechanics", "eccentricity", "eccentric anomaly", "mean anomaly", "ellipse"}]},
+ "celestial mechanics"->{
+  Cell[1025, 35, 1492, 41, 130, "Text",ExpressionUUID->"2e6b63cb-00c7-4e39-93d8-108cf42f5167",
+   CellTags->{"Kepler equation", "celestial mechanics", "eccentricity", "eccentric anomaly", "mean anomaly", "ellipse"}]},
+ "eccentricity"->{
+  Cell[1025, 35, 1492, 41, 130, "Text",ExpressionUUID->"2e6b63cb-00c7-4e39-93d8-108cf42f5167",
+   CellTags->{"Kepler equation", "celestial mechanics", "eccentricity", "eccentric anomaly", "mean anomaly", "ellipse"}]},
+ "eccentric anomaly"->{
+  Cell[1025, 35, 1492, 41, 130, "Text",ExpressionUUID->"2e6b63cb-00c7-4e39-93d8-108cf42f5167",
+   CellTags->{"Kepler equation", "celestial mechanics", "eccentricity", "eccentric anomaly", "mean anomaly", "ellipse"}]},
+ "mean anomaly"->{
+  Cell[1025, 35, 1492, 41, 130, "Text",ExpressionUUID->"2e6b63cb-00c7-4e39-93d8-108cf42f5167",
+   CellTags->{"Kepler equation", "celestial mechanics", "eccentricity", "eccentric anomaly", "mean anomaly", "ellipse"}]},
+ "ellipse"->{
+  Cell[1025, 35, 1492, 41, 130, "Text",ExpressionUUID->"2e6b63cb-00c7-4e39-93d8-108cf42f5167",
+   CellTags->{"Kepler equation", "celestial mechanics", "eccentricity", "eccentric anomaly", "mean anomaly", "ellipse"}]},
+ "power series solution"->{
+  Cell[18353, 470, 1972, 58, 130, "Text",ExpressionUUID->"00eb4730-985e-4584-854a-7100be5f13db",
+   CellTags->{"power series solution", "formal solution"}]},
+ "formal solution"->{
+  Cell[18353, 470, 1972, 58, 130, "Text",ExpressionUUID->"00eb4730-985e-4584-854a-7100be5f13db",
+   CellTags->{"power series solution", "formal solution"}]},
+ "dynamic programming"->{
+  Cell[20350, 532, 1133, 41, 125, "Subsubsection",ExpressionUUID->"5d209fe4-7eae-4c80-9d02-b018db12f6f4",
+   PageBreakBelow->Automatic,
+   CellTags->"dynamic programming"]},
+ "self-consistency "->{
+  Cell[25778, 724, 477, 20, 73, "Subsubsection",ExpressionUUID->"9154797a-f224-46d7-a207-a327d0b9165d",
+   CellTags->"self-consistency "]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"SectionTitle", 27587, 791},
+ {"Kepler equation", 27739, 794},
+ {"celestial mechanics", 27983, 797},
+ {"eccentricity", 28220, 800},
+ {"eccentric anomaly", 28462, 803},
+ {"mean anomaly", 28699, 806},
+ {"ellipse", 28931, 809},
+ {"power series solution", 29177, 812},
+ {"formal solution", 29357, 815},
+ {"dynamic programming", 29541, 818},
+ {"self-consistency ", 29739, 822}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 130, 2, 44, "SectionTitle",ExpressionUUID->"c5ac0f43-344e-4fa2-a411-23ae6d7e89c2",
+ CellTags->"SectionTitle"],
+Cell[CellGroupData[{
+Cell[731, 28, 291, 5, 93, "NumberedSection",ExpressionUUID->"76bfdc3c-6745-4fb4-8956-6aa87e47ac03",
+ CounterAssignments->{{"Subsection", 0}, {"Subsubsection", 0}, {"Exercise", 0}, {"Section", 0}}],
+Cell[1025, 35, 1492, 41, 130, "Text",ExpressionUUID->"2e6b63cb-00c7-4e39-93d8-108cf42f5167",
+ CellTags->{"Kepler equation", "celestial mechanics", "eccentricity", "eccentric anomaly", "mean anomaly", "ellipse"}],
+Cell[2520, 78, 1433, 41, 107, "Text",ExpressionUUID->"265e0b21-d0e5-4ac3-9a42-4c582270e23b"],
+Cell[CellGroupData[{
+Cell[3978, 123, 9541, 229, 269, "Input",ExpressionUUID->"3019c41f-2fcf-4b3f-a596-3a9359d1c1f7"],
+Cell[13522, 354, 4062, 85, 427, "Output",ExpressionUUID->"61a020e9-bafa-4aad-bff2-fde584ef6f48"]
+}, {2}]],
+Cell[17596, 442, 754, 26, 39, "Text",ExpressionUUID->"c422b747-6ba5-467a-b049-a233b34669d2"],
+Cell[18353, 470, 1972, 58, 130, "Text",ExpressionUUID->"00eb4730-985e-4584-854a-7100be5f13db",
+ CellTags->{"power series solution", "formal solution"}],
+Cell[CellGroupData[{
+Cell[20350, 532, 1133, 41, 125, "Subsubsection",ExpressionUUID->"5d209fe4-7eae-4c80-9d02-b018db12f6f4",
+ PageBreakBelow->Automatic,
+ CellTags->"dynamic programming"],
+Cell[21486, 575, 144, 3, 25, "Input",ExpressionUUID->"670b78f5-099e-4f22-b7b2-414982659c6c"],
+Cell[21633, 580, 189, 5, 25, "Input",ExpressionUUID->"e96a495a-3cb1-4ccd-bcf3-1ed737195a1d"],
+Cell[21825, 587, 520, 17, 27, "Input",ExpressionUUID->"7c6ce2ad-0928-439f-b627-1fb818d6281b"],
+Cell[CellGroupData[{
+Cell[22370, 608, 168, 4, 25, "Input",ExpressionUUID->"08f5fde9-f989-475d-8db2-964286ab7dda"],
+Cell[22541, 614, 1756, 53, 94, "Output",ExpressionUUID->"44439803-2af2-4c74-b2b9-16448ec217e3"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[24334, 672, 222, 6, 25, "Input",ExpressionUUID->"e023bc70-cd72-48a5-8c77-11f5daadd555"],
+Cell[24559, 680, 1170, 38, 60, "Output",ExpressionUUID->"2ff928e9-dfda-4c5a-8856-446acc7fe351"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[25778, 724, 477, 20, 73, "Subsubsection",ExpressionUUID->"9154797a-f224-46d7-a207-a327d0b9165d",
+ CellTags->"self-consistency "],
+Cell[CellGroupData[{
+Cell[26280, 748, 306, 10, 25, "Input",ExpressionUUID->"beeb1d79-414b-4a69-af4f-8db684ab789b"],
+Cell[26589, 760, 244, 7, 39, "Output",ExpressionUUID->"60f5ba25-deba-45d7-9179-5f31ead94752"]
+}, Open  ]],
+Cell[26848, 770, 198, 3, 36, "Text",ExpressionUUID->"c6e85f9e-0369-446e-83e0-a973fe2ec88f"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

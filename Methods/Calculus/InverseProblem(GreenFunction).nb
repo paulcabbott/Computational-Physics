@@ -1,0 +1,5882 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[    158799,       5874]
+NotebookOptionsPosition[    132362,       5362]
+NotebookOutlinePosition[    150392,       5755]
+CellTagsIndexPosition[    149693,       5735]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Green Function Solution to an Inverse Problem", "Section",
+ CellChangeTimes->{{3.9264878618064613`*^9, 
+  3.9264878644900017`*^9}},ExpressionUUID->"af2de4d0-c4dc-4604-85bf-\
+e55692c99e3b"],
+
+Cell[TextData[{
+ "Ref: I ",
+ StyleBox["think",
+  FontSlant->"Italic"],
+ " that the idea for this example /exercise was taken from the Green\
+\[CloseCurlyQuote]s Functions chapter in Partial Differential Equations: \
+https://link.springer.com/chapter/10.1007/978-94-009-5209-6_15"
+}], "Text",ExpressionUUID->"0f8d29ad-371b-4e11-90a8-35113331b271"],
+
+Cell[TextData[{
+ "A powerful and general method for solving inhomogenous differential \
+equations such as ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"L", "[", 
+     RowBox[{"f", "(", "x", ")"}], "]"}], "=", 
+    RowBox[{"g", "(", "x", ")"}]}], TraditionalForm]],ExpressionUUID->
+  "7cd0eb28-874d-403d-b0c0-7fa18d86ee9e"],
+ ", where ",
+ Cell[BoxData[
+  FormBox["L", TraditionalForm]],ExpressionUUID->
+  "8bae12e4-44cd-4ffc-a5ae-8216bf9d7747"],
+ " is a differential operator with homogenous boundary conditions, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{"f", "(", "a", ")"}], "=", "0"}], ",", " ", 
+    RowBox[{
+     RowBox[{"f", "(", "b", ")"}], "=", "0"}]}], TraditionalForm]],
+  ExpressionUUID->"a553f949-b070-4c7f-8659-201eef0e0205"],
+ ", is provided by the ",
+ StyleBox["Green function",
+  FontSlant->"Italic"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"G", "(", 
+    RowBox[{"x", ",", "y"}], ")"}], TraditionalForm]],ExpressionUUID->
+  "480f709d-3a7b-4bec-9470-bc2cb7c71b52"],
+ ", which formally satisfies ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"L", "[", 
+     RowBox[{"G", "(", 
+      RowBox[{"x", ",", "y"}], ")"}], "]"}], "=", 
+    RowBox[{"\[Delta]", "(", 
+     RowBox[{"x", "-", "y"}], ")"}]}], TraditionalForm]],ExpressionUUID->
+  "e75598f2-32f0-4143-8c09-567192b1433e"],
+ ", where \[Delta] is the ",
+ StyleBox["Dirac delta function",
+  FontSlant->"Italic"],
+ " (distribution), and the (homogenous) boundary conditions"
+}], "Text",
+ CellTags->{
+  "Green function", "Dirac delta function", 
+   "distribution"},ExpressionUUID->"87aad90b-6622-41c8-9f8c-8fbec4a99f3e"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{" ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"G", "(", 
+      RowBox[{"a", ",", "y"}], ")"}], "=", "0"}], ",", " ", 
+    RowBox[{
+     RowBox[{"G", "(", 
+      RowBox[{"b", ",", "y"}], ")"}], "=", "0"}], ",", " ", 
+    RowBox[{
+     RowBox[{"G", "(", 
+      RowBox[{"x", ",", "a"}], ")"}], "=", "0"}], ",", " ", 
+    RowBox[{
+     RowBox[{"G", "(", 
+      RowBox[{"x", ",", "b"}], ")"}], "=", "0."}]}]}], 
+  TraditionalForm]], "DisplayFormulaNumbered",
+ CellTags->
+  "homogenous boundary \
+conditions",ExpressionUUID->"513dfcaa-b1d7-4374-9758-10749ab0a154"],
+
+Cell["\<\
+Green functions are due to George Green (1793-1841), an English mathematician \
+whose work was not appreciated during his lifetime\[ThinSpace]\[LongDash]\
+\[ThinSpace]largely due to his unusual methodology.\
+\>", "Text",ExpressionUUID->"f4a63864-5866-4d60-9792-3e359392d55a"],
+
+Cell[TextData[{
+ "The strength of the method is that ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"G", "(", 
+    RowBox[{"x", ",", "y"}], ")"}], TraditionalForm]],ExpressionUUID->
+  "506dce4f-1ca0-4465-b1fa-afa39a114f9c"],
+ " is ",
+ StyleBox["independent",
+  FontSlant->"Italic"],
+ " of the inhomogenous part of the differential equation, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"g", "(", "x", ")"}], TraditionalForm]],ExpressionUUID->
+  "5d9a1665-f301-4d93-9fae-660dccd0e047"],
+ ". The solution to the differential equation is"
+}], "Text",ExpressionUUID->"d2db8dc3-3ae8-4576-bcac-a7b100fd9135"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"f", "(", "x", ")"}], "=", 
+   RowBox[{
+    SubsuperscriptBox["\[Integral]", "a", "b"], " ", 
+    RowBox[{
+     RowBox[{"G", "(", 
+      RowBox[{"x", ",", "y"}], ")"}], 
+     RowBox[{"g", "(", "y", ")"}], 
+     RowBox[{
+      RowBox[{"\[DifferentialD]", "y"}], "."}]}]}]}], 
+  TraditionalForm]], "DisplayFormulaNumbered",
+ CellTags->"solution",ExpressionUUID->"a6e88c7f-72a2-43e8-ab33-1c7290aa76d5"],
+
+Cell["\<\
+Consider the differential equation describing a forced simple harmonic \
+oscillator:\
+\>", "Text",ExpressionUUID->"2495db21-d7fa-427b-93d4-31604ef476f9"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      SuperscriptBox["x", "\[DoublePrime]"], "(", "t", ")"}], "+", 
+     RowBox[{"x", "(", "t", ")"}]}], "=", 
+    RowBox[{"g", "(", "t", ")"}]}], ","}], 
+  TraditionalForm]], "DisplayFormulaNumbered",
+ CellTags->
+  "forced simple harmonic \
+oscillator",ExpressionUUID->"41c050d3-ca41-467c-bec9-c5ca8f96d1cb"],
+
+Cell["along with the boundary conditions", "Text",ExpressionUUID->"1fcbea3b-3400-4b67-bdc4-56ecb4d7e14c"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"x", "(", "0", ")"}], "=", 
+   RowBox[{
+    RowBox[{"x", "(", 
+     FractionBox["\[Pi]", "2"], ")"}], "=", "0."}]}], 
+  TraditionalForm]], "DisplayFormulaNumbered",
+ CellTags->
+  "boundary \
+conditions",ExpressionUUID->"caff2947-621a-4813-8a03-8c352ccfc9e7"],
+
+Cell[TextData[{
+ "The (region-dependent) Green function, independent of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"g", "(", "t", ")"}], TraditionalForm]],ExpressionUUID->
+  "ff7b8daa-a6fe-4f5d-a9f8-2233ec80119d"],
+ ", is"
+}], "Text",
+ CellTags->
+  "region-dependent \
+function",ExpressionUUID->"32bec7a9-2d83-4140-bf5c-4a25f82a4784"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{" ", 
+   RowBox[{
+    RowBox[{"G", "(", 
+     RowBox[{"t", ",", "\[Tau]"}], ")"}], "=", 
+    RowBox[{
+     RowBox[{
+      StyleBox["{",
+       SpanMaxSize->Infinity], GridBox[{
+        {
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "cos"}], 
+           RowBox[{"(", "\[Tau]", ")"}], " ", 
+           RowBox[{"sin", "(", "t", ")"}]}], ",", " ", 
+          RowBox[{
+          "0", "\[LessEqual]", "t", "\[LessEqual]", "\[Tau]", "\[LessEqual]", 
+           
+           FractionBox["\[Pi]", "2"]}]}]},
+        {
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "cos"}], 
+           RowBox[{"(", "t", ")"}], " ", 
+           RowBox[{"sin", "(", "\[Tau]", ")"}]}], ",", " ", 
+          RowBox[{
+          "0", "\[LessEqual]", "\[Tau]", "\[LessEqual]", "t", "\[LessEqual]", 
+           
+           FractionBox["\[Pi]", "2"]}]}]}
+       }], "\[AutoRightMatch]"}], "."}]}]}], 
+  TraditionalForm]], "DisplayFormulaNumbered",ExpressionUUID->"92fe24fc-f922-\
+4822-9e8a-2e9f090ae1a4"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ 
+ CounterBox["Section"],
+ ".",
+ 
+ CounterBox["Exercise"],
+ ". Implement the Green function. Show that it is continuous. ",
+ StyleBox["[3]", "Marks"]
+}], "Item",ExpressionUUID->"652607da-ba27-4911-ba83-10455acaa4ee"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     SubscriptBox["G", "1"], "(", 
+     RowBox[{"t_", ",", "\[Tau]_"}], ")"}], "=", 
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{"cos", "(", "\[Tau]", ")"}]}], " ", 
+     RowBox[{"sin", "(", "t", ")"}]}]}], ";"}], TraditionalForm]], "Input",Exp\
+ressionUUID->"c7876a6a-3671-42a7-8cb2-2b0dc03f00a3"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     SubscriptBox["G", "2"], "(", 
+     RowBox[{"t_", ",", "\[Tau]_"}], ")"}], "=", 
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{"cos", "(", "t", ")"}]}], " ", 
+     RowBox[{"sin", "(", "\[Tau]", ")"}]}]}], ";"}], 
+  TraditionalForm]], "Input",ExpressionUUID->"f90ebf1f-66c3-4185-be15-\
+ccd008577899"]
+}, Closed]],
+
+Cell["The Green function is continuous,", "Text",ExpressionUUID->"931bc423-f3b7-4aec-b027-8371d76b2893"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     SubscriptBox["G", "1"], "(", 
+     RowBox[{"t", ",", "\[Tau]"}], ")"}], "\[Equal]", 
+    RowBox[{
+     SubscriptBox["G", "2"], "(", 
+     RowBox[{"t", ",", "\[Tau]"}], ")"}]}], "/.", 
+   RowBox[{"t", "\[Rule]", "\[Tau]"}]}], TraditionalForm]], "Input",Expression\
+UUID->"732c5d65-431a-48ea-9a74-ce5573385eeb"],
+
+Cell[BoxData[
+ FormBox["True", TraditionalForm]], "Output",ExpressionUUID->"f88e6e51-04e3-4e6e-9d60-1319017fac19"]
+}, Open  ]],
+
+Cell[TextData[{
+ "so we can include the equality ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"t", "=", "\[Tau]"}], TraditionalForm]],ExpressionUUID->
+  "235b63e2-ec56-46fb-bf30-cbf8b92a0ae5"],
+ ":"
+}], "Text",ExpressionUUID->"659f579f-a738-415c-bbc8-d2309708b81f"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"G", "(", 
+     RowBox[{"t_", ",", "\[Tau]_"}], ")"}], "/;", 
+    RowBox[{
+    "0", "\[LessEqual]", "t", "\[LessEqual]", "\[Tau]", "\[LessEqual]", 
+     FractionBox["\[Pi]", "2"]}]}], ":=", 
+   RowBox[{
+    SubscriptBox["G", "1"], "(", 
+    RowBox[{"t", ",", "\[Tau]"}], ")"}]}], TraditionalForm]], "Input",Expressi\
+onUUID->"8fc02d2d-1601-483a-9460-7024177e6b38"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"G", "(", 
+     RowBox[{"t_", ",", "\[Tau]_"}], ")"}], "/;", 
+    RowBox[{
+    "0", "\[LessEqual]", "\[Tau]", "\[LessEqual]", "t", "\[LessEqual]", 
+     FractionBox["\[Pi]", "2"]}]}], ":=", 
+   RowBox[{
+    SubscriptBox["G", "2"], "(", 
+    RowBox[{"t", ",", "\[Tau]"}], ")"}]}], TraditionalForm]], "Input",Expressi\
+onUUID->"687acc44-cade-4442-8334-1df7168d1020"],
+
+Cell[TextData[{
+ 
+ CounterBox["Section"],
+ ".",
+ 
+ CounterBox["Exercise"],
+ ". ",
+ "Verify that the Green function satisfies the homogenous boundary conditions \
+(",
+ 
+ CounterBox["Section"],
+ ".",
+ 
+ CounterBox["Equation", "homogenous boundary conditions"],
+ ") and the homogenous differential equation, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"L", "[", 
+     RowBox[{"G", "(", 
+      RowBox[{"t", ",", "\[Tau]"}], ")"}], "]"}], "\[Equal]", "0"}], 
+   TraditionalForm]],ExpressionUUID->"5e29cf74-a5a1-456f-b28d-dd8e17fa5c79"],
+ ", in each region (",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"0", "\[LessEqual]", "t", "<", "\[Tau]", "\[LessEqual]", 
+    FractionBox["\[Pi]", "2"]}], TraditionalForm]],ExpressionUUID->
+  "bd24c0b6-31ab-42b9-bbe4-58dff5e94a90"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"0", "\[LessEqual]", "\[Tau]", "<", "t", "\[LessEqual]", 
+    FractionBox["\[Pi]", "2"]}], TraditionalForm]],ExpressionUUID->
+  "103c11fd-f850-45c5-91e2-4ca1f58435f9"],
+ "). ",
+ StyleBox["[3]", "Marks"]
+}], "Item",ExpressionUUID->"1c0a7fc9-8995-4681-befc-ef8dae01c13f"],
+
+Cell["Writing the differential operator as", "Text",ExpressionUUID->"4f8cc81b-f9bd-4e08-9c99-385e2013fef9"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"L", "(", "x_", ")"}], ":=", 
+   RowBox[{
+    FractionBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "2"], "x"}], 
+     RowBox[{"\[PartialD]", 
+      SuperscriptBox["t", "2"]}],
+     MultilineFunction->None], "+", "x"}]}], TraditionalForm]], "Input",Expres\
+sionUUID->"95aeb4fb-3096-4599-a49e-98416a8be684"],
+
+Cell["\<\
+it is easily verified that the Green function satisfies the homogenous \
+differential equation in each region,\
+\>", "Text",ExpressionUUID->"075e8455-619d-4d24-90b2-0f5cb440d453"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"L", "(", 
+    RowBox[{
+     SubscriptBox["G", "1"], "(", 
+     RowBox[{"t", ",", "\[Tau]"}], ")"}], ")"}], "==", 
+   RowBox[{"L", "(", 
+    RowBox[{
+     SubscriptBox["G", "2"], "(", 
+     RowBox[{"t", ",", "\[Tau]"}], ")"}], ")"}], "==", "0"}], 
+  TraditionalForm]], "Input",ExpressionUUID->"aaf07c1d-fdfd-4d10-8c5e-\
+c303c7fe258e"],
+
+Cell[BoxData[
+ FormBox["True", TraditionalForm]], "Output",ExpressionUUID->"6144c93a-01af-4e10-bd61-6759ca360702"]
+}, Open  ]],
+
+Cell["and vanishes along the boundaries:", "Text",ExpressionUUID->"988bf5bf-f7bb-4cd0-9ebf-5dd82cdec99a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    SubscriptBox["G", "1"], "(", 
+    RowBox[{"0", ",", "\[Tau]"}], ")"}], "\[Equal]", 
+   RowBox[{
+    SubscriptBox["G", "2"], "(", 
+    RowBox[{
+     FractionBox["\[Pi]", "2"], ",", "\[Tau]"}], ")"}], "\[Equal]", 
+   RowBox[{
+    SubscriptBox["G", "2"], "(", 
+    RowBox[{"t", ",", "0"}], ")"}], "\[Equal]", 
+   RowBox[{
+    SubscriptBox["G", "1"], "(", 
+    RowBox[{"t", ",", 
+     FractionBox["\[Pi]", "2"]}], ")"}], "\[Equal]", "0"}], 
+  TraditionalForm]], "Input",ExpressionUUID->"152b8421-2954-4f58-b35a-\
+5fb189056249"],
+
+Cell[BoxData[
+ FormBox["True", TraditionalForm]], "Output",ExpressionUUID->"efee96cb-0faa-4a6f-9429-9ac61c19683b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ 
+ CounterBox["Section"],
+ ".",
+ 
+ CounterBox["Exercise"],
+ ". Visualize the Green function to reveal its behaviour on the boundaries \
+and determine its symmetry about the diagonal line ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"t", "=", "\[Tau]"}], TraditionalForm]],ExpressionUUID->
+  "5a769792-09ed-4b91-a619-d7398729b1b6"],
+ ". ",
+ StyleBox["[2]", "Marks"]
+}], "Item",ExpressionUUID->"2383cb15-cb69-4fca-a69f-d5ca448f9855"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"Plot3D", "(", 
+    RowBox[{
+     RowBox[{"G", "(", 
+      RowBox[{"t", ",", "\[Tau]"}], ")"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", 
+       FractionBox["\[Pi]", "2"]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Tau]", ",", "0", ",", 
+       FractionBox["\[Pi]", "2"]}], "}"}]}], ")"}], ";"}], 
+  TraditionalForm]], "Input",ExpressionUUID->"8cbc4089-2985-4ae9-816f-\
+264bf92340cb"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .81114 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% SurfaceGraphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+4.2768e-17 1.04977 -0.0679587 1.04977 [
+[.02757 .24618 -9 -11.6037 ]
+[.02757 .24618 0 .39632 ]
+[.2187 .17096 -15.9885 -12 ]
+[.2187 .17096 .51154 0 ]
+[.42503 .08982 -8.12369 -12 ]
+[.42503 .08982 .87631 0 ]
+[.64842 .00203 -13.7984 -12 ]
+[.64842 .00203 2.70158 0 ]
+[.70096 -0.00478 0 -8.34941 ]
+[.70096 -0.00478 9 3.65059 ]
+[.80399 .15298 0 -8.14372 ]
+[.80399 .15298 16.5 3.85628 ]
+[.89336 .28984 0 -7.97115 ]
+[.89336 .28984 9 4.02885 ]
+[.97161 .40968 0 -7.82429 ]
+[.97161 .40968 16.5 4.17571 ]
+[.01739 .30724 -23.4375 -3.7039 ]
+[.01739 .30724 0 8.2961 ]
+[.00338 .39505 -23.4375 -3.80327 ]
+[.00338 .39505 0 8.19673 ]
+[-0.01144 .48795 -9 -3.90901 ]
+[-0.01144 .48795 0 8.09099 ]
+[ 0 0 0 0 ]
+[ 1 .81114 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 g
+.25 Mabswid
+[ ] 0 setdash
+.03716 .25514 m
+.68874 0 L
+s
+.03716 .25514 m
+.04196 .25962 L
+s
+gsave
+.02757 .24618 -70 -15.6037 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(0) show
+1.000 setlinewidth
+grestore
+.22768 .18054 m
+.23217 .18532 L
+s
+gsave
+.2187 .17096 -76.9885 -16 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(0.5) show
+1.000 setlinewidth
+grestore
+.43326 .10004 m
+.43737 .10515 L
+s
+gsave
+.42503 .08982 -69.1237 -16 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(1) show
+1.000 setlinewidth
+grestore
+.65575 .01292 m
+.65941 .01836 L
+s
+gsave
+.64842 .00203 -74.7984 -16 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(1.5) show
+1.000 setlinewidth
+grestore
+.125 Mabswid
+.07414 .24066 m
+.07698 .24338 L
+s
+.11167 .22596 m
+.11448 .22872 L
+s
+.14976 .21105 m
+.15253 .21384 L
+s
+.18843 .19591 m
+.19116 .19874 L
+s
+.26753 .16493 m
+.27019 .16784 L
+s
+.30801 .14908 m
+.31061 .15203 L
+s
+.34911 .13299 m
+.35167 .13598 L
+s
+.39085 .11664 m
+.39337 .11967 L
+s
+.47634 .08317 m
+.47875 .08628 L
+s
+.52011 .06603 m
+.52247 .06918 L
+s
+.56459 .04861 m
+.5669 .0518 L
+s
+.60979 .03091 m
+.61205 .03414 L
+s
+.25 Mabswid
+.68874 0 m
+.96935 .42924 L
+s
+.68874 0 m
+.68263 .00239 L
+s
+gsave
+.70096 -0.00478 -61 -12.3494 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(0) show
+1.000 setlinewidth
+grestore
+.79163 .1574 m
+.78546 .15961 L
+s
+gsave
+.80399 .15298 -61 -12.1437 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(0.5) show
+1.000 setlinewidth
+grestore
+.88089 .29393 m
+.87466 .29598 L
+s
+gsave
+.89336 .28984 -61 -11.9711 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(1) show
+1.000 setlinewidth
+grestore
+.95906 .4135 m
+.95278 .41541 L
+s
+gsave
+.97161 .40968 -61 -11.8243 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(1.5) show
+1.000 setlinewidth
+grestore
+.125 Mabswid
+.71056 .03337 m
+.70688 .03479 L
+s
+.73173 .06576 m
+.72804 .06715 L
+s
+.75228 .0972 m
+.74859 .09856 L
+s
+.77224 .12773 m
+.76854 .12908 L
+s
+.81049 .18623 m
+.80677 .18754 L
+s
+.82882 .21427 m
+.8251 .21556 L
+s
+.84665 .24155 m
+.84292 .24282 L
+s
+.864 .26809 m
+.86027 .26934 L
+s
+.89734 .3191 m
+.8936 .32031 L
+s
+.91337 .34361 m
+.90962 .34481 L
+s
+.92899 .3675 m
+.92523 .36868 L
+s
+.94421 .39079 m
+.94045 .39195 L
+s
+.25 Mabswid
+.03716 .25514 m
+0 .48963 L
+s
+.02965 .30255 m
+.03577 .3002 L
+s
+gsave
+.01739 .30724 -84.4375 -7.7039 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Math1
+%%IncludeFont: Math1
+/Math1 findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(-) show
+69.938 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(0.4) show
+1.000 setlinewidth
+grestore
+.0157 .39054 m
+.02186 .38828 L
+s
+gsave
+.00338 .39505 -84.4375 -7.80327 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Math1
+%%IncludeFont: Math1
+/Math1 findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(-) show
+69.938 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(0.2) show
+1.000 setlinewidth
+grestore
+.00095 .48363 m
+.00715 .48147 L
+s
+gsave
+-0.01144 .48795 -70 -7.90901 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(0) show
+1.000 setlinewidth
+grestore
+.125 Mabswid
+.02623 .32409 m
+.02991 .3227 L
+s
+.02277 .34593 m
+.02646 .34455 L
+s
+.01926 .36808 m
+.02295 .36671 L
+s
+.01209 .41332 m
+.01579 .41198 L
+s
+.00843 .43642 m
+.01214 .4351 L
+s
+.00472 .45986 m
+.00843 .45855 L
+s
+.03301 .2813 m
+.03669 .27988 L
+s
+.03634 .26033 m
+.04 .2589 L
+s
+.25 Mabswid
+.03716 .25514 m
+0 .48963 L
+s
+0 .48963 m
+.39787 .81114 L
+s
+.39787 .81114 m
+.40529 .59895 L
+s
+.40529 .59895 m
+.03716 .25514 L
+s
+.68874 0 m
+.96935 .42924 L
+s
+.96935 .42924 m
+1 .6535 L
+s
+1 .6535 m
+.70298 .24544 L
+s
+.70298 .24544 m
+.68874 0 L
+s
+.03716 .25514 m
+0 .48963 L
+s
+0 .48963 m
+.70298 .24544 L
+s
+.70298 .24544 m
+.68874 0 L
+s
+.68874 0 m
+.03716 .25514 L
+s
+.40529 .59895 m
+.96935 .42924 L
+s
+.96935 .42924 m
+1 .6535 L
+s
+1 .6535 m
+.39787 .81114 L
+s
+.39787 .81114 m
+.40529 .59895 L
+s
+0 0 m
+1 0 L
+1 .81114 L
+0 .81114 L
+closepath
+clip
+newpath
+.5 Mabswid
+.699 .773 .909 r
+.37465 .78679 .39806 .80578 .43696 .79556 .41407 .77087 Metetra
+.694 .727 .875 r
+.41407 .77087 .43696 .79556 .47642 .78519 .45396 .75482 Metetra
+.686 .688 .846 r
+.45396 .75482 .47642 .78519 .51647 .77466 .49431 .73873 Metetra
+.678 .656 .821 r
+.49431 .73873 .51647 .77466 .55711 .76398 .53514 .72264 Metetra
+.67 .63 .8 r
+.53514 .72264 .55711 .76398 .59835 .75314 .57648 .70662 Metetra
+.663 .609 .783 r
+.57648 .70662 .59835 .75314 .64022 .74214 .61833 .69073 Metetra
+.657 .591 .769 r
+.61833 .69073 .64022 .74214 .68272 .73097 .66073 .67503 Metetra
+.651 .577 .758 r
+.66073 .67503 .68272 .73097 .72586 .71964 .7037 .65955 Metetra
+.646 .565 .749 r
+.7037 .65955 .72586 .71964 .76967 .70812 .74727 .64435 Metetra
+.641 .555 .742 r
+.74727 .64435 .76967 .70812 .81416 .69643 .79148 .62947 Metetra
+.637 .547 .736 r
+.79148 .62947 .81416 .69643 .85934 .68456 .83636 .61494 Metetra
+.634 .541 .732 r
+.83636 .61494 .85934 .68456 .90523 .6725 .88195 .60078 Metetra
+.631 .536 .729 r
+.88195 .60078 .90523 .6725 .95186 .66025 .9283 .58702 Metetra
+.406 .398 .738 r
+.9283 .58702 .95186 .66025 .99922 .6478 .98216 .62429 Metetra
+.739 .778 .885 r
+.35061 .76729 .37465 .78679 .41407 .77087 .39063 .74564 Metetra
+.728 .735 .856 r
+.39063 .74564 .41407 .77087 .45396 .75482 .431 .72395 Metetra
+.716 .698 .831 r
+.431 .72395 .45396 .75482 .49431 .73873 .47173 .70233 Metetra
+.705 .667 .81 r
+.47173 .70233 .49431 .73873 .53514 .72264 .51283 .68091 Metetra
+.694 .641 .792 r
+.51283 .68091 .53514 .72264 .57648 .70662 .55432 .65982 Metetra
+.684 .619 .778 r
+.55432 .65982 .57648 .70662 .61833 .69073 .59622 .63916 Metetra
+.674 .601 .765 r
+.59622 .63916 .61833 .69073 .66073 .67503 .63858 .61904 Metetra
+.666 .586 .755 r
+.63858 .61904 .66073 .67503 .7037 .65955 .68142 .59957 Metetra
+.659 .573 .747 r
+.68142 .59957 .7037 .65955 .74727 .64435 .72481 .58081 Metetra
+.652 .562 .741 r
+.72481 .58081 .74727 .64435 .79148 .62947 .76878 .56286 Metetra
+.645 .553 .736 r
+.76878 .56286 .79148 .62947 .83636 .61494 .81339 .54577 Metetra
+.64 .546 .732 r
+.81339 .54577 .83636 .61494 .88195 .60078 .85871 .5296 Metetra
+.404 .4 .741 r
+.85871 .5296 .88195 .60078 .9283 .58702 .91043 .56374 Metetra
+0 .316 .8 r
+.91043 .56374 .9283 .58702 .98216 .62429 .96458 .60007 Metetra
+.769 .78 .862 r
+.3259 .74724 .35061 .76729 .39063 .74564 .3666 .71994 Metetra
+.755 .74 .839 r
+.3666 .71994 .39063 .74564 .431 .72395 .40754 .69267 Metetra
+.741 .706 .818 r
+.40754 .69267 .431 .72395 .47173 .70233 .44872 .66564 Metetra
+.727 .677 .801 r
+.44872 .66564 .47173 .70233 .51283 .68091 .49015 .63903 Metetra
+.714 .652 .786 r
+.49015 .63903 .51283 .68091 .55432 .65982 .53186 .61302 Metetra
+.702 .63 .773 r
+.53186 .61302 .55432 .65982 .59622 .63916 .57388 .58777 Metetra
+.691 .611 .762 r
+.57388 .58777 .59622 .63916 .63858 .61904 .61625 .56342 Metetra
+.681 .595 .753 r
+.61625 .56342 .63858 .61904 .68142 .59957 .65904 .54011 Metetra
+.671 .582 .746 r
+.65904 .54011 .68142 .59957 .72481 .58081 .70228 .51797 Metetra
+.662 .57 .741 r
+.70228 .51797 .72481 .58081 .76878 .56286 .74607 .49709 Metetra
+.654 .56 .736 r
+.74607 .49709 .76878 .56286 .81339 .54577 .79046 .47757 Metetra
+.405 .407 .748 r
+.79046 .47757 .81339 .54577 .85871 .5296 .84012 .50771 Metetra
+0 .326 .801 r
+.84012 .50771 .85871 .5296 .91043 .56374 .89207 .54035 Metetra
+0 .331 .809 r
+.89207 .54035 .91043 .56374 .96458 .60007 .94646 .5751 Metetra
+.791 .78 .842 r
+.3005 .72663 .3259 .74724 .3666 .71994 .34196 .69379 Metetra
+.777 .744 .823 r
+.34196 .69379 .3666 .71994 .40754 .69267 .38355 .66111 Metetra
+.762 .713 .807 r
+.38355 .66111 .40754 .69267 .44872 .66564 .42525 .62885 Metetra
+.747 .686 .792 r
+.42525 .62885 .44872 .66564 .49015 .63903 .46709 .59724 Metetra
+.733 .662 .78 r
+.46709 .59724 .49015 .63903 .53186 .61302 .50909 .56652 Metetra
+.72 .641 .769 r
+.50909 .56652 .53186 .61302 .57388 .58777 .55129 .53688 Metetra
+.707 .622 .76 r
+.55129 .53688 .57388 .58777 .61625 .56342 .59375 .50852 Metetra
+.695 .606 .753 r
+.59375 .50852 .61625 .56342 .65904 .54011 .63653 .48159 Metetra
+.683 .592 .747 r
+.63653 .48159 .65904 .54011 .70228 .51797 .67971 .45626 Metetra
+.673 .579 .742 r
+.67971 .45626 .70228 .51797 .74607 .49709 .72337 .43263 Metetra
+.412 .42 .759 r
+.72337 .43263 .74607 .49709 .79046 .47757 .77115 .45811 Metetra
+0 .344 .801 r
+.77115 .45811 .79046 .47757 .84012 .50771 .82104 .48629 Metetra
+0 .346 .811 r
+.82104 .48629 .84012 .50771 .89207 .54035 .8732 .51684 Metetra
+0 .355 .824 r
+.8732 .51684 .89207 .54035 .94646 .5751 .92776 .54934 Metetra
+.809 .778 .825 r
+.27438 .70544 .3005 .72663 .34196 .69379 .31668 .66724 Metetra
+.794 .747 .81 r
+.31668 .66724 .34196 .69379 .38355 .66111 .35898 .62936 Metetra
+.779 .719 .796 r
+.35898 .62936 .38355 .66111 .42525 .62885 .40128 .5921 Metetra
+.764 .694 .785 r
+.40128 .5921 .42525 .62885 .46709 .59724 .4436 .55574 Metetra
+.75 .672 .775 r
+.4436 .55574 .46709 .59724 .50909 .56652 .48597 .52057 Metetra
+.736 .652 .766 r
+.48597 .52057 .50909 .56652 .55129 .53688 .52843 .48681 Metetra
+.722 .633 .759 r
+.52843 .48681 .55129 .53688 .59375 .50852 .57105 .45468 Metetra
+.709 .617 .753 r
+.57105 .45468 .59375 .50852 .63653 .48159 .6139 .42437 Metetra
+.696 .602 .748 r
+.6139 .42437 .63653 .48159 .67971 .45626 .65707 .39605 Metetra
+.424 .44 .773 r
+.65707 .39605 .67971 .45626 .72337 .43263 .70323 .41644 Metetra
+0 .369 .793 r
+.70323 .41644 .72337 .43263 .77115 .45811 .75129 .43962 Metetra
+0 .369 .81 r
+.75129 .43962 .77115 .45811 .82104 .48629 .80142 .46529 Metetra
+0 .376 .828 r
+.80142 .46529 .82104 .48629 .8732 .51684 .85377 .49314 Metetra
+0 .387 .844 r
+.85377 .49314 .8732 .51684 .92776 .54934 .90848 .52276 Metetra
+.822 .777 .81 r
+.2475 .68364 .27438 .70544 .31668 .66724 .29072 .64034 Metetra
+.808 .75 .798 r
+.29072 .64034 .31668 .66724 .35898 .62936 .33381 .59752 Metetra
+.794 .725 .787 r
+.33381 .59752 .35898 .62936 .40128 .5921 .37679 .55555 Metetra
+.78 .702 .778 r
+.37679 .55555 .40128 .5921 .4436 .55574 .41966 .51474 Metetra
+.765 .682 .77 r
+.41966 .51474 .4436 .55574 .48597 .52057 .46247 .47541 Metetra
+.751 .663 .764 r
+.46247 .47541 .48597 .52057 .52843 .48681 .50526 .43781 Metetra
+.736 .645 .758 r
+.50526 .43781 .52843 .48681 .57105 .45468 .54811 .40219 Metetra
+.722 .629 .754 r
+.54811 .40219 .57105 .45468 .6139 .42437 .5911 .36876 Metetra
+.442 .468 .791 r
+.5911 .36876 .6139 .42437 .65707 .39605 .63594 .38382 Metetra
+0 .402 .773 r
+.63594 .38382 .65707 .39605 .70323 .41644 .68246 .40165 Metetra
+0 .4 .8 r
+.68246 .40165 .70323 .41644 .75129 .43962 .73083 .42201 Metetra
+0 .406 .827 r
+.73083 .42201 .75129 .43962 .80142 .46529 .78121 .44463 Metetra
+0 .416 .85 r
+.78121 .44463 .80142 .46529 .85377 .49314 .83375 .4692 Metetra
+.038 .428 .868 r
+.83375 .4692 .85377 .49314 .90848 .52276 .88857 .49533 Metetra
+.833 .775 .797 r
+.21984 .6612 .2475 .68364 .29072 .64034 .26403 .61312 Metetra
+.82 .752 .788 r
+.26403 .61312 .29072 .64034 .33381 .59752 .30799 .5657 Metetra
+.807 .73 .78 r
+.30799 .5657 .33381 .59752 .37679 .55555 .35171 .51934 Metetra
+.793 .71 .773 r
+.35171 .51934 .37679 .55555 .41966 .51474 .39521 .47442 Metetra
+.779 .691 .767 r
+.39521 .47442 .41966 .51474 .46247 .47541 .43853 .43125 Metetra
+.765 .674 .762 r
+.43853 .43125 .46247 .47541 .50526 .43781 .48173 .39014 Metetra
+.75 .658 .758 r
+.48173 .39014 .50526 .43781 .54811 .40219 .52489 .35133 Metetra
+.466 .504 .813 r
+.52489 .35133 .54811 .40219 .5911 .36876 .56873 .361 Metetra
+0 .436 .733 r
+.56873 .361 .5911 .36876 .63594 .38382 .61404 .37334 Metetra
+0 .437 .773 r
+.61404 .37334 .63594 .38382 .68246 .40165 .66098 .38814 Metetra
+0 .444 .814 r
+.66098 .38814 .68246 .40165 .73083 .42201 .7097 .4052 Metetra
+0 .454 .851 r
+.7097 .4052 .73083 .42201 .78121 .44463 .76035 .42424 Metetra
+.033 .466 .878 r
+.76035 .42424 .78121 .44463 .83375 .4692 .81308 .44495 Metetra
+.098 .476 .895 r
+.81308 .44495 .83375 .4692 .88857 .49533 .868 .46699 Metetra
+.841 .773 .787 r
+.19135 .63809 .21984 .6612 .26403 .61312 .23659 .5856 Metetra
+.829 .753 .78 r
+.23659 .5856 .26403 .61312 .30799 .5657 .28148 .53395 Metetra
+.817 .735 .774 r
+.28148 .53395 .30799 .5657 .35171 .51934 .32601 .4836 Metetra
+.805 .718 .769 r
+.32601 .4836 .35171 .51934 .39521 .47442 .3702 .43493 Metetra
+.792 .701 .765 r
+.3702 .43493 .39521 .47442 .43853 .43125 .41411 .38829 Metetra
+.778 .686 .762 r
+.41411 .38829 .43853 .43125 .48173 .39014 .45778 .344 Metetra
+.496 .546 .837 r
+.45778 .344 .48173 .39014 .52489 .35133 .50098 .34839 Metetra
+.127 0 0 r
+.50098 .34839 .52489 .35133 .56873 .361 .54542 .35526 Metetra
+0 .472 .725 r
+.54542 .35526 .56873 .361 .61404 .37334 .59128 .36446 Metetra
+0 .484 .782 r
+.59128 .36446 .61404 .37334 .66098 .38814 .6387 .3758 Metetra
+0 .5 .837 r
+.6387 .3758 .66098 .38814 .7097 .4052 .68782 .38907 Metetra
+.033 .514 .881 r
+.68782 .38907 .7097 .4052 .76035 .42424 .73878 .404 Metetra
+.101 .524 .909 r
+.73878 .404 .76035 .42424 .81308 .44495 .79172 .42032 Metetra
+.168 .53 .922 r
+.79172 .42032 .81308 .44495 .868 .46699 .84674 .4377 Metetra
+.847 .771 .778 r
+.16201 .61429 .19135 .63809 .23659 .5856 .20834 .55781 Metetra
+.837 .755 .773 r
+.20834 .55781 .23659 .5856 .28148 .53395 .25421 .50237 Metetra
+.827 .74 .769 r
+.25421 .50237 .28148 .53395 .32601 .4836 .29961 .44843 Metetra
+.815 .725 .766 r
+.29961 .44843 .32601 .4836 .3702 .43493 .34456 .39642 Metetra
+.803 .711 .763 r
+.34456 .39642 .3702 .43493 .41411 .38829 .38912 .34669 Metetra
+.53 .592 .861 r
+.38912 .34669 .41411 .38829 .45778 .344 .43199 .34608 Metetra
+.099 0 0 r
+.43199 .34608 .45778 .344 .50098 .34839 .47592 .34769 Metetra
+.09 0 0 r
+.47592 .34769 .50098 .34839 .54542 .35526 .52107 .35139 Metetra
+0 .52 .729 r
+.52107 .35139 .54542 .35526 .59128 .36446 .56755 .35704 Metetra
+0 .544 .8 r
+.56755 .35704 .59128 .36446 .6387 .3758 .61553 .36447 Metetra
+.042 .566 .866 r
+.61553 .36447 .6387 .3758 .68782 .38907 .66511 .37347 Metetra
+.111 .582 .914 r
+.66511 .37347 .68782 .38907 .73878 .404 .71644 .38381 Metetra
+.182 .588 .94 r
+.71644 .38381 .73878 .404 .79172 .42032 .76962 .39522 Metetra
+.247 .586 .946 r
+.76962 .39522 .79172 .42032 .84674 .4377 .82477 .40742 Metetra
+.852 .77 .771 r
+.13177 .58976 .16201 .61429 .20834 .55781 .17923 .52978 Metetra
+.844 .757 .768 r
+.17923 .52978 .20834 .55781 .25421 .50237 .22612 .471 Metetra
+.835 .745 .765 r
+.22612 .471 .25421 .50237 .29961 .44843 .27245 .41393 Metetra
+.825 .733 .763 r
+.27245 .41393 .29961 .44843 .34456 .39642 .31822 .359 Metetra
+.566 .64 .883 r
+.31822 .359 .34456 .39642 .38912 .34669 .36106 .35382 Metetra
+.063 0 0 r
+.36106 .35382 .38912 .34669 .43199 .34608 .40481 .35053 Metetra
+.058 0 0 r
+.40481 .35053 .43199 .34608 .47592 .34769 .44959 .34902 Metetra
+.036 0 0 r
+.44959 .34902 .47592 .34769 .52107 .35139 .49553 .34918 Metetra
+.004 .579 .744 r
+.49553 .34918 .52107 .35139 .56755 .35704 .54275 .35089 Metetra
+.061 .613 .826 r
+.54275 .35089 .56755 .35704 .61553 .36447 .59137 .35397 Metetra
+.13 .64 .898 r
+.59137 .35397 .61553 .36447 .66511 .37347 .64149 .35826 Metetra
+.203 .654 .946 r
+.64149 .35826 .66511 .37347 .71644 .38381 .69325 .36353 Metetra
+.272 .654 .968 r
+.69325 .36353 .71644 .38381 .76962 .39522 .74673 .36955 Metetra
+.332 .642 .966 r
+.74673 .36955 .76962 .39522 .82477 .40742 .80203 .37608 Metetra
+.855 .769 .766 r
+.10059 .56446 .13177 .58976 .17923 .52978 .1492 .5015 Metetra
+.849 .759 .764 r
+.1492 .5015 .17923 .52978 .22612 .471 .19715 .4399 Metetra
+.841 .75 .763 r
+.19715 .4399 .22612 .471 .27245 .41393 .24444 .38017 Metetra
+.598 .684 .902 r
+.24444 .38017 .27245 .41393 .31822 .359 .2875 .37104 Metetra
+.025 0 0 r
+.2875 .37104 .31822 .359 .36106 .35382 .33135 .36338 Metetra
+.021 0 0 r
+.33135 .36338 .36106 .35382 .40481 .35053 .3761 .35711 Metetra
+.001 0 0 r
+.3761 .35711 .40481 .35053 .44959 .34902 .42185 .35216 Metetra
+.42185 .35216 .44959 .34902 .49553 .34918 .4687 .34842 Metetra
+.089 .647 .768 r
+.4687 .34842 .49553 .34918 .54275 .35089 .51675 .34578 Metetra
+.157 .688 .856 r
+.51675 .34578 .54275 .35089 .59137 .35397 .56611 .3441 Metetra
+.232 .717 .929 r
+.56611 .3441 .59137 .35397 .64149 .35826 .61688 .34323 Metetra
+.305 .726 .974 r
+.61688 .34323 .64149 .35826 .69325 .36353 .66914 .343 Metetra
+.368 .716 .987 r
+.66914 .343 .69325 .36353 .74673 .36955 .72298 .3432 Metetra
+.417 .694 .977 r
+.72298 .3432 .74673 .36955 .80203 .37608 .77849 .34365 Metetra
+.857 .768 .763 r
+.06842 .53837 .10059 .56446 .1492 .5015 .11819 .47299 Metetra
+.853 .761 .761 r
+.11819 .47299 .1492 .5015 .19715 .4399 .16723 .40909 Metetra
+.624 .721 .916 r
+.16723 .40909 .19715 .4399 .24444 .38017 .21068 .39681 Metetra
+.21068 .39681 .24444 .38017 .2875 .37104 .25486 .38548 Metetra
+.25486 .38548 .2875 .37104 .33135 .36338 .29984 .37508 Metetra
+.29984 .37508 .33135 .36338 .3761 .35711 .34571 .36555 Metetra
+.34571 .36555 .3761 .35711 .42185 .35216 .39255 .35683 Metetra
+.121 .669 .704 r
+.39255 .35683 .42185 .35216 .4687 .34842 .44043 .34882 Metetra
+.188 .72 .798 r
+.44043 .34882 .4687 .34842 .51675 .34578 .48944 .34146 Metetra
+.264 .764 .887 r
+.48944 .34146 .51675 .34578 .56611 .3441 .53966 .33462 Metetra
+.341 .789 .955 r
+.53966 .33462 .56611 .3441 .61688 .34323 .59117 .32819 Metetra
+.409 .791 .991 r
+.59117 .32819 .61688 .34323 .66914 .343 .64403 .32205 Metetra
+.462 .772 .997 r
+.64403 .32205 .66914 .343 .72298 .3432 .69832 .31605 Metetra
+.499 .74 .981 r
+.69832 .31605 .72298 .3432 .77849 .34365 .7541 .31005 Metetra
+.859 .767 .76 r
+.03523 .51144 .06842 .53837 .11819 .47299 .08615 .44423 Metetra
+.641 .748 .926 r
+.08615 .44423 .11819 .47299 .16723 .40909 .13006 .42977 Metetra
+.13006 .42977 .16723 .40909 .21068 .39681 .17469 .4157 Metetra
+.17469 .4157 .21068 .39681 .25486 .38548 .22011 .40199 Metetra
+.22011 .40199 .25486 .38548 .29984 .37508 .26635 .38861 Metetra
+.26635 .38861 .29984 .37508 .34571 .36555 .31348 .37553 Metetra
+.31348 .37553 .34571 .36555 .39255 .35683 .36154 .3627 Metetra
+.219 .738 .737 r
+.36154 .3627 .39255 .35683 .44043 .34882 .4106 .35009 Metetra
+.295 .793 .83 r
+.4106 .35009 .44043 .34882 .48944 .34146 .4607 .33763 Metetra
+.376 .834 .913 r
+.4607 .33763 .48944 .34146 .53966 .33462 .51191 .32526 Metetra
+.45 .852 .971 r
+.51191 .32526 .53966 .33462 .59117 .32819 .56427 .31291 Metetra
+.508 .844 .997 r
+.56427 .31291 .59117 .32819 .64403 .32205 .61785 .30051 Metetra
+.549 .816 .995 r
+.61785 .30051 .64403 .32205 .69832 .31605 .67268 .28798 Metetra
+.575 .778 .975 r
+.67268 .28798 .69832 .31605 .7541 .31005 .72883 .27522 Metetra
+.646 .762 .934 r
+.00095 .48363 .03523 .51144 .08615 .44423 .04527 .46819 Metetra
+.04527 .46819 .08615 .44423 .13006 .42977 .09038 .45247 Metetra
+.09038 .45247 .13006 .42977 .17469 .4157 .13631 .43646 Metetra
+.13631 .43646 .17469 .4157 .22011 .40199 .18308 .42016 Metetra
+.18308 .42016 .22011 .40199 .26635 .38861 .23072 .40356 Metetra
+.23072 .40356 .26635 .38861 .31348 .37553 .27924 .38665 Metetra
+.248 .749 .687 r
+.27924 .38665 .31348 .37553 .36154 .3627 .32868 .36942 Metetra
+.324 .807 .774 r
+.32868 .36942 .36154 .3627 .4106 .35009 .37905 .35186 Metetra
+.406 .859 .86 r
+.37905 .35186 .4106 .35009 .4607 .33763 .43039 .33397 Metetra
+.484 .892 .93 r
+.43039 .33397 .4607 .33763 .51191 .32526 .48273 .31573 Metetra
+.55 .9 .975 r
+.48273 .31573 .51191 .32526 .56427 .31291 .53609 .29714 Metetra
+.597 .883 .992 r
+.53609 .29714 .56427 .31291 .61785 .30051 .5905 .27817 Metetra
+.626 .849 .984 r
+.5905 .27817 .61785 .30051 .67268 .28798 .646 .25883 Metetra
+.641 .806 .963 r
+.646 .25883 .67268 .28798 .72883 .27522 .70262 .2391 Metetra
+0 g
+.25 Mabswid
+.68874 0 m
+.96935 .42924 L
+s
+.96935 .42924 m
+1 .6535 L
+s
+1 .6535 m
+.70298 .24544 L
+s
+.70298 .24544 m
+.68874 0 L
+s
+.03716 .25514 m
+0 .48963 L
+s
+0 .48963 m
+.70298 .24544 L
+s
+.70298 .24544 m
+.68874 0 L
+s
+.68874 0 m
+.03716 .25514 L
+s
+.03716 .25514 m
+.68874 0 L
+s
+.03716 .25514 m
+.04196 .25962 L
+s
+gsave
+.02757 .24618 -70 -15.6037 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(0) show
+1.000 setlinewidth
+grestore
+.22768 .18054 m
+.23217 .18532 L
+s
+gsave
+.2187 .17096 -76.9885 -16 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(0.5) show
+1.000 setlinewidth
+grestore
+.43326 .10004 m
+.43737 .10515 L
+s
+gsave
+.42503 .08982 -69.1237 -16 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(1) show
+1.000 setlinewidth
+grestore
+.65575 .01292 m
+.65941 .01836 L
+s
+gsave
+.64842 .00203 -74.7984 -16 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(1.5) show
+1.000 setlinewidth
+grestore
+.125 Mabswid
+.07414 .24066 m
+.07698 .24338 L
+s
+.11167 .22596 m
+.11448 .22872 L
+s
+.14976 .21105 m
+.15253 .21384 L
+s
+.18843 .19591 m
+.19116 .19874 L
+s
+.26753 .16493 m
+.27019 .16784 L
+s
+.30801 .14908 m
+.31061 .15203 L
+s
+.34911 .13299 m
+.35167 .13598 L
+s
+.39085 .11664 m
+.39337 .11967 L
+s
+.47634 .08317 m
+.47875 .08628 L
+s
+.52011 .06603 m
+.52247 .06918 L
+s
+.56459 .04861 m
+.5669 .0518 L
+s
+.60979 .03091 m
+.61205 .03414 L
+s
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{288, 233.562},
+ ImageMargins->{{35, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 
+  1}},ImageCache->GraphicsData["CompressedBitmap", "\<\
+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
+GA==\
+\>", "ImageResolution" -> 72.],ImageRangeCache->{{{0., 359.}, {290.938, 0.}} -> \
+{-0.0842111, -0.00443609, 0.00373019, \
+0.00373019}},ExpressionUUID->"e5ceee96-6415-4fa8-b327-b5c86dbde201"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"ContourPlot", "(", 
+    RowBox[{
+     RowBox[{"G", "(", 
+      RowBox[{"t", ",", "\[Tau]"}], ")"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", 
+       FractionBox["\[Pi]", "2"]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Tau]", ",", "0", ",", 
+       FractionBox["\[Pi]", "2"]}], "}"}], ",", 
+     RowBox[{"Axes", "\[Rule]", "True"}], ",", 
+     RowBox[{"AxesLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"t", ",", "\[Tau]"}], "}"}]}]}], ")"}], ";"}], 
+  TraditionalForm]], "Input",ExpressionUUID->"16024b2a-7521-4d86-8a07-\
+4b4ee3f9c8f9"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: 1 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% ContourGraphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+0.0192308 0.612134 0.0192308 0.612134 [
+[.01923 -0.0125 -4.5 -12 ]
+[.01923 -0.0125 4.5 0 ]
+[.17226 -0.0125 -10.75 -12 ]
+[.17226 -0.0125 10.75 0 ]
+[.3253 -0.0125 -8.25 -12 ]
+[.3253 -0.0125 8.25 0 ]
+[.47833 -0.0125 -10.75 -12 ]
+[.47833 -0.0125 10.75 0 ]
+[.63137 -0.0125 -4.5 -12 ]
+[.63137 -0.0125 4.5 0 ]
+[.7844 -0.0125 -10.75 -12 ]
+[.7844 -0.0125 10.75 0 ]
+[.93743 -0.0125 -8.25 -12 ]
+[.93743 -0.0125 8.25 0 ]
+[ 0 0 -0.125 0 ]
+[-0.0125 .01923 -9 -6 ]
+[-0.0125 .01923 0 6 ]
+[-0.0125 .17226 -21.5 -6 ]
+[-0.0125 .17226 0 6 ]
+[-0.0125 .3253 -16.5 -6 ]
+[-0.0125 .3253 0 6 ]
+[-0.0125 .47833 -21.5 -6 ]
+[-0.0125 .47833 0 6 ]
+[-0.0125 .63137 -9 -6 ]
+[-0.0125 .63137 0 6 ]
+[-0.0125 .7844 -21.5 -6 ]
+[-0.0125 .7844 0 6 ]
+[-0.0125 .93743 -16.5 -6 ]
+[-0.0125 .93743 0 6 ]
+[ 0 0 -0.125 0 ]
+[ 0 1 .125 0 ]
+[ 1 0 .125 0 ]
+[1.025 0 0 -6 ]
+[1.025 0 7 6 ]
+[0 1.025 -4.375 0 ]
+[0 1.025 4.375 12 ]
+[ 0 0 0 0 ]
+[ 1 1 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 g
+.25 Mabswid
+[ ] 0 setdash
+.01923 0 m
+.01923 .00625 L
+s
+gsave
+.01923 -0.0125 -65.5 -16 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(0) show
+1.000 setlinewidth
+grestore
+.17226 0 m
+.17226 .00625 L
+s
+gsave
+.17226 -0.0125 -71.75 -16 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(0.25) show
+1.000 setlinewidth
+grestore
+.3253 0 m
+.3253 .00625 L
+s
+gsave
+.3253 -0.0125 -69.25 -16 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(0.5) show
+1.000 setlinewidth
+grestore
+.47833 0 m
+.47833 .00625 L
+s
+gsave
+.47833 -0.0125 -71.75 -16 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(0.75) show
+1.000 setlinewidth
+grestore
+.63137 0 m
+.63137 .00625 L
+s
+gsave
+.63137 -0.0125 -65.5 -16 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(1) show
+1.000 setlinewidth
+grestore
+.7844 0 m
+.7844 .00625 L
+s
+gsave
+.7844 -0.0125 -71.75 -16 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(1.25) show
+1.000 setlinewidth
+grestore
+.93743 0 m
+.93743 .00625 L
+s
+gsave
+.93743 -0.0125 -69.25 -16 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(1.5) show
+1.000 setlinewidth
+grestore
+.125 Mabswid
+.04984 0 m
+.04984 .00375 L
+s
+.08044 0 m
+.08044 .00375 L
+s
+.11105 0 m
+.11105 .00375 L
+s
+.14166 0 m
+.14166 .00375 L
+s
+.20287 0 m
+.20287 .00375 L
+s
+.23348 0 m
+.23348 .00375 L
+s
+.26408 0 m
+.26408 .00375 L
+s
+.29469 0 m
+.29469 .00375 L
+s
+.3559 0 m
+.3559 .00375 L
+s
+.38651 0 m
+.38651 .00375 L
+s
+.41712 0 m
+.41712 .00375 L
+s
+.44772 0 m
+.44772 .00375 L
+s
+.50894 0 m
+.50894 .00375 L
+s
+.53955 0 m
+.53955 .00375 L
+s
+.57015 0 m
+.57015 .00375 L
+s
+.60076 0 m
+.60076 .00375 L
+s
+.66197 0 m
+.66197 .00375 L
+s
+.69258 0 m
+.69258 .00375 L
+s
+.72319 0 m
+.72319 .00375 L
+s
+.75379 0 m
+.75379 .00375 L
+s
+.81501 0 m
+.81501 .00375 L
+s
+.84561 0 m
+.84561 .00375 L
+s
+.87622 0 m
+.87622 .00375 L
+s
+.90683 0 m
+.90683 .00375 L
+s
+.96804 0 m
+.96804 .00375 L
+s
+.99865 0 m
+.99865 .00375 L
+s
+.25 Mabswid
+0 0 m
+1 0 L
+s
+0 .01923 m
+.00625 .01923 L
+s
+gsave
+-0.0125 .01923 -70 -10 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(0) show
+1.000 setlinewidth
+grestore
+0 .17226 m
+.00625 .17226 L
+s
+gsave
+-0.0125 .17226 -82.5 -10 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(0.25) show
+1.000 setlinewidth
+grestore
+0 .3253 m
+.00625 .3253 L
+s
+gsave
+-0.0125 .3253 -77.5 -10 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(0.5) show
+1.000 setlinewidth
+grestore
+0 .47833 m
+.00625 .47833 L
+s
+gsave
+-0.0125 .47833 -82.5 -10 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(0.75) show
+1.000 setlinewidth
+grestore
+0 .63137 m
+.00625 .63137 L
+s
+gsave
+-0.0125 .63137 -70 -10 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(1) show
+1.000 setlinewidth
+grestore
+0 .7844 m
+.00625 .7844 L
+s
+gsave
+-0.0125 .7844 -82.5 -10 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(1.25) show
+1.000 setlinewidth
+grestore
+0 .93743 m
+.00625 .93743 L
+s
+gsave
+-0.0125 .93743 -77.5 -10 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(1.5) show
+1.000 setlinewidth
+grestore
+.125 Mabswid
+0 .04984 m
+.00375 .04984 L
+s
+0 .08044 m
+.00375 .08044 L
+s
+0 .11105 m
+.00375 .11105 L
+s
+0 .14166 m
+.00375 .14166 L
+s
+0 .20287 m
+.00375 .20287 L
+s
+0 .23348 m
+.00375 .23348 L
+s
+0 .26408 m
+.00375 .26408 L
+s
+0 .29469 m
+.00375 .29469 L
+s
+0 .3559 m
+.00375 .3559 L
+s
+0 .38651 m
+.00375 .38651 L
+s
+0 .41712 m
+.00375 .41712 L
+s
+0 .44772 m
+.00375 .44772 L
+s
+0 .50894 m
+.00375 .50894 L
+s
+0 .53955 m
+.00375 .53955 L
+s
+0 .57015 m
+.00375 .57015 L
+s
+0 .60076 m
+.00375 .60076 L
+s
+0 .66197 m
+.00375 .66197 L
+s
+0 .69258 m
+.00375 .69258 L
+s
+0 .72319 m
+.00375 .72319 L
+s
+0 .75379 m
+.00375 .75379 L
+s
+0 .81501 m
+.00375 .81501 L
+s
+0 .84561 m
+.00375 .84561 L
+s
+0 .87622 m
+.00375 .87622 L
+s
+0 .90683 m
+.00375 .90683 L
+s
+0 .96804 m
+.00375 .96804 L
+s
+0 .99865 m
+.00375 .99865 L
+s
+.25 Mabswid
+0 0 m
+0 1 L
+s
+.01923 .99375 m
+.01923 1 L
+s
+.17226 .99375 m
+.17226 1 L
+s
+.3253 .99375 m
+.3253 1 L
+s
+.47833 .99375 m
+.47833 1 L
+s
+.63137 .99375 m
+.63137 1 L
+s
+.7844 .99375 m
+.7844 1 L
+s
+.93743 .99375 m
+.93743 1 L
+s
+.125 Mabswid
+.04984 .99625 m
+.04984 1 L
+s
+.08044 .99625 m
+.08044 1 L
+s
+.11105 .99625 m
+.11105 1 L
+s
+.14166 .99625 m
+.14166 1 L
+s
+.20287 .99625 m
+.20287 1 L
+s
+.23348 .99625 m
+.23348 1 L
+s
+.26408 .99625 m
+.26408 1 L
+s
+.29469 .99625 m
+.29469 1 L
+s
+.3559 .99625 m
+.3559 1 L
+s
+.38651 .99625 m
+.38651 1 L
+s
+.41712 .99625 m
+.41712 1 L
+s
+.44772 .99625 m
+.44772 1 L
+s
+.50894 .99625 m
+.50894 1 L
+s
+.53955 .99625 m
+.53955 1 L
+s
+.57015 .99625 m
+.57015 1 L
+s
+.60076 .99625 m
+.60076 1 L
+s
+.66197 .99625 m
+.66197 1 L
+s
+.69258 .99625 m
+.69258 1 L
+s
+.72319 .99625 m
+.72319 1 L
+s
+.75379 .99625 m
+.75379 1 L
+s
+.81501 .99625 m
+.81501 1 L
+s
+.84561 .99625 m
+.84561 1 L
+s
+.87622 .99625 m
+.87622 1 L
+s
+.90683 .99625 m
+.90683 1 L
+s
+.96804 .99625 m
+.96804 1 L
+s
+.99865 .99625 m
+.99865 1 L
+s
+.25 Mabswid
+0 1 m
+1 1 L
+s
+.99375 .01923 m
+1 .01923 L
+s
+.99375 .17226 m
+1 .17226 L
+s
+.99375 .3253 m
+1 .3253 L
+s
+.99375 .47833 m
+1 .47833 L
+s
+.99375 .63137 m
+1 .63137 L
+s
+.99375 .7844 m
+1 .7844 L
+s
+.99375 .93743 m
+1 .93743 L
+s
+.125 Mabswid
+.99625 .04984 m
+1 .04984 L
+s
+.99625 .08044 m
+1 .08044 L
+s
+.99625 .11105 m
+1 .11105 L
+s
+.99625 .14166 m
+1 .14166 L
+s
+.99625 .20287 m
+1 .20287 L
+s
+.99625 .23348 m
+1 .23348 L
+s
+.99625 .26408 m
+1 .26408 L
+s
+.99625 .29469 m
+1 .29469 L
+s
+.99625 .3559 m
+1 .3559 L
+s
+.99625 .38651 m
+1 .38651 L
+s
+.99625 .41712 m
+1 .41712 L
+s
+.99625 .44772 m
+1 .44772 L
+s
+.99625 .50894 m
+1 .50894 L
+s
+.99625 .53955 m
+1 .53955 L
+s
+.99625 .57015 m
+1 .57015 L
+s
+.99625 .60076 m
+1 .60076 L
+s
+.99625 .66197 m
+1 .66197 L
+s
+.99625 .69258 m
+1 .69258 L
+s
+.99625 .72319 m
+1 .72319 L
+s
+.99625 .75379 m
+1 .75379 L
+s
+.99625 .81501 m
+1 .81501 L
+s
+.99625 .84561 m
+1 .84561 L
+s
+.99625 .87622 m
+1 .87622 L
+s
+.99625 .90683 m
+1 .90683 L
+s
+.99625 .96804 m
+1 .96804 L
+s
+.99625 .99865 m
+1 .99865 L
+s
+.25 Mabswid
+1 0 m
+1 1 L
+s
+0 0 m
+1 0 L
+s
+gsave
+1.025 0 -61 -10 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Italic
+%%IncludeFont: Times-Italic
+/Times-Italic findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(t) show
+1.000 setlinewidth
+grestore
+0 0 m
+0 1 L
+s
+gsave
+0 1.025 -65.375 -4 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Math1
+%%IncludeFont: Math1
+/Math1 findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(t) show
+1.000 setlinewidth
+grestore
+0 0 m
+1 0 L
+1 1 L
+0 1 L
+closepath
+clip
+newpath
+1 g
+.01923 .98077 m
+.98077 .98077 L
+.98077 .01923 L
+.01923 .01923 L
+F
+0 g
+.5 Mabswid
+.9 g
+.08791 .03235 m
+.15659 .04584 L
+.22527 .04209 L
+.29396 .04318 L
+.36264 .04471 L
+.43132 .04683 L
+.5 .04974 L
+.56868 .05384 L
+.63736 .0598 L
+.70604 .06899 L
+.77473 .08465 L
+.78485 .08791 L
+.84341 .11654 L
+.88346 .15659 L
+.91209 .21515 L
+.91535 .22527 L
+.93101 .29396 L
+.9402 .36264 L
+.94616 .43132 L
+.95026 .5 L
+.95317 .56868 L
+.95529 .63736 L
+.95682 .70604 L
+.95791 .77473 L
+.95416 .84341 L
+.96765 .91209 L
+.91209 .96765 L
+.84341 .95416 L
+.77473 .95791 L
+.70604 .95682 L
+.63736 .95529 L
+.56868 .95317 L
+.5 .95026 L
+.43132 .94616 L
+.36264 .9402 L
+.29396 .93101 L
+.22527 .91535 L
+.21515 .91209 L
+.15659 .88346 L
+.11654 .84341 L
+.08791 .78485 L
+.08465 .77473 L
+.06899 .70604 L
+.0598 .63736 L
+.05384 .56868 L
+.04974 .5 L
+.04683 .43132 L
+.04471 .36264 L
+.04318 .29396 L
+.04209 .22527 L
+.04584 .15659 L
+.03235 .08791 L
+F
+0 g
+.08791 .03235 m
+.15659 .04584 L
+.22527 .04209 L
+.29396 .04318 L
+.36264 .04471 L
+.43132 .04683 L
+.5 .04974 L
+.56868 .05384 L
+.63736 .0598 L
+.70604 .06899 L
+.77473 .08465 L
+.78485 .08791 L
+.84341 .11654 L
+.88346 .15659 L
+.91209 .21515 L
+.91535 .22527 L
+.93101 .29396 L
+.9402 .36264 L
+.94616 .43132 L
+.95026 .5 L
+.95317 .56868 L
+.95529 .63736 L
+.95682 .70604 L
+.95791 .77473 L
+.95416 .84341 L
+.96765 .91209 L
+.91209 .96765 L
+.84341 .95416 L
+.77473 .95791 L
+.70604 .95682 L
+.63736 .95529 L
+.56868 .95317 L
+.5 .95026 L
+.43132 .94616 L
+.36264 .9402 L
+.29396 .93101 L
+.22527 .91535 L
+.21515 .91209 L
+.15659 .88346 L
+.11654 .84341 L
+.08791 .78485 L
+.08465 .77473 L
+.06899 .70604 L
+.0598 .63736 L
+.05384 .56868 L
+.04974 .5 L
+.04683 .43132 L
+.04471 .36264 L
+.04318 .29396 L
+.04209 .22527 L
+Mistroke
+.04584 .15659 L
+.03235 .08791 L
+.08791 .03235 L
+Mfstroke
+.8 g
+.08791 .05773 m
+.15659 .07371 L
+.22527 .0731 L
+.29396 .07567 L
+.36264 .0793 L
+.43132 .0843 L
+.47007 .08791 L
+.5 .09121 L
+.56868 .10091 L
+.63736 .11506 L
+.70604 .13699 L
+.74693 .15659 L
+.77473 .17464 L
+.82536 .22527 L
+.84341 .25307 L
+.86301 .29396 L
+.88494 .36264 L
+.89909 .43132 L
+.90879 .5 L
+.91209 .52993 L
+.9157 .56868 L
+.9207 .63736 L
+.92433 .70604 L
+.9269 .77473 L
+.92629 .84341 L
+.94227 .91209 L
+.91209 .94227 L
+.84341 .92629 L
+.77473 .9269 L
+.70604 .92433 L
+.63736 .9207 L
+.56868 .9157 L
+.52993 .91209 L
+.5 .90879 L
+.43132 .89909 L
+.36264 .88494 L
+.29396 .86301 L
+.25307 .84341 L
+.22527 .82536 L
+.17464 .77473 L
+.15659 .74693 L
+.13699 .70604 L
+.11506 .63736 L
+.10091 .56868 L
+.09121 .5 L
+.08791 .47007 L
+.0843 .43132 L
+.0793 .36264 L
+.07567 .29396 L
+.0731 .22527 L
+.07371 .15659 L
+.05773 .08791 L
+F
+0 g
+.08791 .05773 m
+.15659 .07371 L
+.22527 .0731 L
+.29396 .07567 L
+.36264 .0793 L
+.43132 .0843 L
+.47007 .08791 L
+.5 .09121 L
+.56868 .10091 L
+.63736 .11506 L
+.70604 .13699 L
+.74693 .15659 L
+.77473 .17464 L
+.82536 .22527 L
+.84341 .25307 L
+.86301 .29396 L
+.88494 .36264 L
+.89909 .43132 L
+.90879 .5 L
+.91209 .52993 L
+.9157 .56868 L
+.9207 .63736 L
+.92433 .70604 L
+.9269 .77473 L
+.92629 .84341 L
+.94227 .91209 L
+.91209 .94227 L
+.84341 .92629 L
+.77473 .9269 L
+.70604 .92433 L
+.63736 .9207 L
+.56868 .9157 L
+.52993 .91209 L
+.5 .90879 L
+.43132 .89909 L
+.36264 .88494 L
+.29396 .86301 L
+.25307 .84341 L
+.22527 .82536 L
+.17464 .77473 L
+.15659 .74693 L
+.13699 .70604 L
+.11506 .63736 L
+.10091 .56868 L
+.09121 .5 L
+.08791 .47007 L
+.0843 .43132 L
+.0793 .36264 L
+.07567 .29396 L
+.0731 .22527 L
+Mistroke
+.07371 .15659 L
+.05773 .08791 L
+.08791 .05773 L
+Mfstroke
+.7 g
+.15659 .09958 m
+.22527 .10425 L
+.29396 .10833 L
+.36264 .11408 L
+.43132 .12203 L
+.5 .13301 L
+.56868 .14849 L
+.59656 .15659 L
+.63736 .17114 L
+.70604 .2065 L
+.73176 .22527 L
+.77473 .26824 L
+.7935 .29396 L
+.82886 .36264 L
+.84341 .40344 L
+.85151 .43132 L
+.86699 .5 L
+.87797 .56868 L
+.88592 .63736 L
+.89167 .70604 L
+.89575 .77473 L
+.90042 .84341 L
+.84341 .90042 L
+.77473 .89575 L
+.70604 .89167 L
+.63736 .88592 L
+.56868 .87797 L
+.5 .86699 L
+.43132 .85151 L
+.40344 .84341 L
+.36264 .82886 L
+.29396 .7935 L
+.26824 .77473 L
+.22527 .73176 L
+.2065 .70604 L
+.17114 .63736 L
+.15659 .59656 L
+.14849 .56868 L
+.13301 .5 L
+.12203 .43132 L
+.11408 .36264 L
+.10833 .29396 L
+.10425 .22527 L
+.09958 .15659 L
+F
+0 g
+.15659 .09958 m
+.22527 .10425 L
+.29396 .10833 L
+.36264 .11408 L
+.43132 .12203 L
+.5 .13301 L
+.56868 .14849 L
+.59656 .15659 L
+.63736 .17114 L
+.70604 .2065 L
+.73176 .22527 L
+.77473 .26824 L
+.7935 .29396 L
+.82886 .36264 L
+.84341 .40344 L
+.85151 .43132 L
+.86699 .5 L
+.87797 .56868 L
+.88592 .63736 L
+.89167 .70604 L
+.89575 .77473 L
+.90042 .84341 L
+.84341 .90042 L
+.77473 .89575 L
+.70604 .89167 L
+.63736 .88592 L
+.56868 .87797 L
+.5 .86699 L
+.43132 .85151 L
+.40344 .84341 L
+.36264 .82886 L
+.29396 .7935 L
+.26824 .77473 L
+.22527 .73176 L
+.2065 .70604 L
+.17114 .63736 L
+.15659 .59656 L
+.14849 .56868 L
+.13301 .5 L
+.12203 .43132 L
+.11408 .36264 L
+.10833 .29396 L
+.10425 .22527 L
+.09958 .15659 L
+.15659 .09958 L
+s
+.6 g
+.15659 .1273 m
+.22527 .13563 L
+.29396 .14125 L
+.36264 .14918 L
+.41144 .15659 L
+.43132 .16016 L
+.5 .17536 L
+.56868 .19687 L
+.63146 .22527 L
+.63736 .22856 L
+.70604 .27862 L
+.72138 .29396 L
+.77144 .36264 L
+.77473 .36854 L
+.80313 .43132 L
+.82464 .5 L
+.83984 .56868 L
+.84341 .58856 L
+.85082 .63736 L
+.85875 .70604 L
+.86437 .77473 L
+.8727 .84341 L
+.84341 .8727 L
+.77473 .86437 L
+.70604 .85875 L
+.63736 .85082 L
+.58856 .84341 L
+.56868 .83984 L
+.5 .82464 L
+.43132 .80313 L
+.36854 .77473 L
+.36264 .77144 L
+.29396 .72138 L
+.27862 .70604 L
+.22856 .63736 L
+.22527 .63146 L
+.19687 .56868 L
+.17536 .5 L
+.16016 .43132 L
+.15659 .41144 L
+.14918 .36264 L
+.14125 .29396 L
+.13563 .22527 L
+.1273 .15659 L
+F
+0 g
+.15659 .1273 m
+.22527 .13563 L
+.29396 .14125 L
+.36264 .14918 L
+.41144 .15659 L
+.43132 .16016 L
+.5 .17536 L
+.56868 .19687 L
+.63146 .22527 L
+.63736 .22856 L
+.70604 .27862 L
+.72138 .29396 L
+.77144 .36264 L
+.77473 .36854 L
+.80313 .43132 L
+.82464 .5 L
+.83984 .56868 L
+.84341 .58856 L
+.85082 .63736 L
+.85875 .70604 L
+.86437 .77473 L
+.8727 .84341 L
+.84341 .8727 L
+.77473 .86437 L
+.70604 .85875 L
+.63736 .85082 L
+.58856 .84341 L
+.56868 .83984 L
+.5 .82464 L
+.43132 .80313 L
+.36854 .77473 L
+.36264 .77144 L
+.29396 .72138 L
+.27862 .70604 L
+.22856 .63736 L
+.22527 .63146 L
+.19687 .56868 L
+.17536 .5 L
+.16016 .43132 L
+.15659 .41144 L
+.14918 .36264 L
+.14125 .29396 L
+.13563 .22527 L
+.1273 .15659 L
+.15659 .1273 L
+s
+.5 g
+.22527 .1657 m
+.29396 .17453 L
+.36264 .18472 L
+.43132 .19884 L
+.5 .21849 L
+.51915 .22527 L
+.56868 .24642 L
+.63736 .28796 L
+.64518 .29396 L
+.70604 .35482 L
+.71204 .36264 L
+.75358 .43132 L
+.77473 .48085 L
+.78151 .5 L
+.80116 .56868 L
+.81528 .63736 L
+.82547 .70604 L
+.8343 .77473 L
+.77473 .8343 L
+.70604 .82547 L
+.63736 .81528 L
+.56868 .80116 L
+.5 .78151 L
+.48085 .77473 L
+.43132 .75358 L
+.36264 .71204 L
+.35482 .70604 L
+.29396 .64518 L
+.28796 .63736 L
+.24642 .56868 L
+.22527 .51915 L
+.21849 .5 L
+.19884 .43132 L
+.18472 .36264 L
+.17453 .29396 L
+.1657 .22527 L
+F
+0 g
+.22527 .1657 m
+.29396 .17453 L
+.36264 .18472 L
+.43132 .19884 L
+.5 .21849 L
+.51915 .22527 L
+.56868 .24642 L
+.63736 .28796 L
+.64518 .29396 L
+.70604 .35482 L
+.71204 .36264 L
+.75358 .43132 L
+.77473 .48085 L
+.78151 .5 L
+.80116 .56868 L
+.81528 .63736 L
+.82547 .70604 L
+.8343 .77473 L
+.77473 .8343 L
+.70604 .82547 L
+.63736 .81528 L
+.56868 .80116 L
+.5 .78151 L
+.48085 .77473 L
+.43132 .75358 L
+.36264 .71204 L
+.35482 .70604 L
+.29396 .64518 L
+.28796 .63736 L
+.24642 .56868 L
+.22527 .51915 L
+.21849 .5 L
+.19884 .43132 L
+.18472 .36264 L
+.17453 .29396 L
+.1657 .22527 L
+.22527 .1657 L
+s
+.4 g
+.22527 .19458 m
+.29396 .20829 L
+.36264 .22084 L
+.38242 .22527 L
+.43132 .23829 L
+.5 .26267 L
+.56264 .29396 L
+.56868 .2976 L
+.63736 .35021 L
+.64979 .36264 L
+.7024 .43132 L
+.70604 .43736 L
+.73733 .5 L
+.76171 .56868 L
+.77473 .61758 L
+.77916 .63736 L
+.79171 .70604 L
+.80542 .77473 L
+.77473 .80542 L
+.70604 .79171 L
+.63736 .77916 L
+.61758 .77473 L
+.56868 .76171 L
+.5 .73733 L
+.43736 .70604 L
+.43132 .7024 L
+.36264 .64979 L
+.35021 .63736 L
+.2976 .56868 L
+.29396 .56264 L
+.26267 .5 L
+.23829 .43132 L
+.22527 .38242 L
+.22084 .36264 L
+.20829 .29396 L
+.19458 .22527 L
+F
+0 g
+.22527 .19458 m
+.29396 .20829 L
+.36264 .22084 L
+.38242 .22527 L
+.43132 .23829 L
+.5 .26267 L
+.56264 .29396 L
+.56868 .2976 L
+.63736 .35021 L
+.64979 .36264 L
+.7024 .43132 L
+.70604 .43736 L
+.73733 .5 L
+.76171 .56868 L
+.77473 .61758 L
+.77916 .63736 L
+.79171 .70604 L
+.80542 .77473 L
+.77473 .80542 L
+.70604 .79171 L
+.63736 .77916 L
+.61758 .77473 L
+.56868 .76171 L
+.5 .73733 L
+.43736 .70604 L
+.43132 .7024 L
+.36264 .64979 L
+.35021 .63736 L
+.2976 .56868 L
+.29396 .56264 L
+.26267 .5 L
+.23829 .43132 L
+.22527 .38242 L
+.22084 .36264 L
+.20829 .29396 L
+.19458 .22527 L
+.22527 .19458 L
+s
+.3 g
+.29396 .2399 m
+.36264 .2577 L
+.43132 .27872 L
+.4698 .29396 L
+.5 .30824 L
+.56868 .35096 L
+.58346 .36264 L
+.63736 .41654 L
+.64904 .43132 L
+.69176 .5 L
+.70604 .5302 L
+.72128 .56868 L
+.7423 .63736 L
+.7601 .70604 L
+.70604 .7601 L
+.63736 .7423 L
+.56868 .72128 L
+.5302 .70604 L
+.5 .69176 L
+.43132 .64904 L
+.41654 .63736 L
+.36264 .58346 L
+.35096 .56868 L
+.30824 .5 L
+.29396 .4698 L
+.27872 .43132 L
+.2577 .36264 L
+.2399 .29396 L
+F
+0 g
+.29396 .2399 m
+.36264 .2577 L
+.43132 .27872 L
+.4698 .29396 L
+.5 .30824 L
+.56868 .35096 L
+.58346 .36264 L
+.63736 .41654 L
+.64904 .43132 L
+.69176 .5 L
+.70604 .5302 L
+.72128 .56868 L
+.7423 .63736 L
+.7601 .70604 L
+.70604 .7601 L
+.63736 .7423 L
+.56868 .72128 L
+.5302 .70604 L
+.5 .69176 L
+.43132 .64904 L
+.41654 .63736 L
+.36264 .58346 L
+.35096 .56868 L
+.30824 .5 L
+.29396 .4698 L
+.27872 .43132 L
+.2577 .36264 L
+.2399 .29396 L
+.29396 .2399 L
+s
+.2 g
+.29396 .27276 m
+.35964 .29396 L
+.36264 .29523 L
+.43132 .32037 L
+.5 .35562 L
+.51113 .36264 L
+.56868 .40728 L
+.59272 .43132 L
+.63736 .48887 L
+.64438 .5 L
+.67963 .56868 L
+.70477 .63736 L
+.70604 .64036 L
+.72724 .70604 L
+.70604 .72724 L
+.64036 .70604 L
+.63736 .70477 L
+.56868 .67963 L
+.5 .64438 L
+.48887 .63736 L
+.43132 .59272 L
+.40728 .56868 L
+.36264 .51113 L
+.35562 .5 L
+.32037 .43132 L
+.29523 .36264 L
+.29396 .35964 L
+.27276 .29396 L
+F
+0 g
+.29396 .27276 m
+.35964 .29396 L
+.36264 .29523 L
+.43132 .32037 L
+.5 .35562 L
+.51113 .36264 L
+.56868 .40728 L
+.59272 .43132 L
+.63736 .48887 L
+.64438 .5 L
+.67963 .56868 L
+.70477 .63736 L
+.70604 .64036 L
+.72724 .70604 L
+.70604 .72724 L
+.64036 .70604 L
+.63736 .70477 L
+.56868 .67963 L
+.5 .64438 L
+.48887 .63736 L
+.43132 .59272 L
+.40728 .56868 L
+.36264 .51113 L
+.35562 .5 L
+.32037 .43132 L
+.29523 .36264 L
+.29396 .35964 L
+.27276 .29396 L
+.29396 .27276 L
+s
+.1 g
+.36264 .32867 m
+.42998 .36264 L
+.43132 .36344 L
+.5 .40534 L
+.53229 .43132 L
+.56868 .46771 L
+.59466 .5 L
+.63656 .56868 L
+.63736 .57002 L
+.67133 .63736 L
+.63736 .67133 L
+.57002 .63736 L
+.56868 .63656 L
+.5 .59466 L
+.46771 .56868 L
+.43132 .53229 L
+.40534 .5 L
+.36344 .43132 L
+.36264 .42998 L
+.32867 .36264 L
+F
+0 g
+.36264 .32867 m
+.42998 .36264 L
+.43132 .36344 L
+.5 .40534 L
+.53229 .43132 L
+.56868 .46771 L
+.59466 .5 L
+.63656 .56868 L
+.63736 .57002 L
+.67133 .63736 L
+.63736 .67133 L
+.57002 .63736 L
+.56868 .63656 L
+.5 .59466 L
+.46771 .56868 L
+.43132 .53229 L
+.40534 .5 L
+.36344 .43132 L
+.36264 .42998 L
+.32867 .36264 L
+.36264 .32867 L
+s
+.43132 .40195 m
+.47456 .43132 L
+.5 .45234 L
+.54766 .5 L
+.56868 .52544 L
+.59805 .56868 L
+.56868 .59805 L
+.52544 .56868 L
+.5 .54766 L
+.45234 .5 L
+.43132 .47456 L
+.40195 .43132 L
+F
+.43132 .40195 m
+.47456 .43132 L
+.5 .45234 L
+.54766 .5 L
+.56868 .52544 L
+.59805 .56868 L
+.56868 .59805 L
+.52544 .56868 L
+.5 .54766 L
+.45234 .5 L
+.43132 .47456 L
+.40195 .43132 L
+.43132 .40195 L
+s
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{288, 288},
+ ImageMargins->{{35, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 
+  1}},ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJztnUtzHNd1xyEMMO9Xz/uJATB4EwRIgiBNMqIo0jItmVLZVkqOXbFlWhYt
+VeSy41hZJE7khXd5OUuukoVdrmSrpb+Cvkb0NRTcg+4z6MG/B6dxb7+GVBnX
+zdszfc/5/c8593ZPz/TbT3/90Yc/f/rrjz94uvr4V09/+dHHH/zd6jd+8auT
+rtQrCwuvfKT+VhfU9lcLC07z1cn/vvpYNarH/Pa6+r8lNdQGb6VoV2rh1ACy
+Y4F2LKp/LqutlYtfPP2SZX6J83f6UueQY7VFx9nkLYElo4tfPDr959rUfvW3
+CPpWha+T9i2Bvp7wvRmN9y6DvjToQ1w2hX5I/R2CvhzoGwQj1XRoqL/snMiC
+jod8i1gCFBU6GOMkAXovsi9iCaRuhyEBGhfZJ5UA2YLGiFgC7PbJf8guzwnG
+1zs8h9wQokXFhA6AnJ7M54HOungxgcr8ivC4Ou9Nz7BpW0h5yadfiCtKoNUX
+RwbvviVXX3xUQatvCiZ69SSXhu69nn2T6kBHXlRbW7yVAUdece+d9C3MPn14
+yu9LT/eecVX9t3xm/088EZ8OSu+4q5r8Ba8UhI10StB5XRhjxP11cbIlTgzQ
+vOkzhK8K+/YNv9fycpHqje1EnTuQ99TeAjvQauvU94Ua2CU9l4jNeJVLHJu6
+6N83+Z9WzGyck2N3OWrp313vUWbHd+dM35dffkl/i6pd5mM3vI+NCkAbHDHr
+PmLF3xFb4IhlPmJJ7W3RPn+HbYLDNlRbUj0ttXVFbf3Z32Eb4LAfqJZs/OMF
+B6O1CDrEP6i2qXr+g19neVtRA4f4vWqrque3/lyywMGWVUtdz9VWQW196u+w
+Va/D2gvdL774wvmjjv9W+3Jq6xN/A1U8B0q5BkqrloLqD2pvRm196G+osnCo
+Inv1Jx7qR/6GKgmHsnio/+Wk+b6/oYrCoVqqXVc9/8ZD/aW/oQrCoe6ollLq
+N2ov+fdtSXJJB/i2ainh/oYH+JYk9XLCAZ6ptqx6njKsx/5gZYVDfaratOr5
+MfvyyN9QGeFQv1FtVvX8tdpLsF4PZqjf8VDv8VCvBTPUv6qWkvQ7PNSrwWjV
+Z63+lgd9woPeC2bQHrWnfZ9//jn9LamW6vrP2ZDHbMidYAzpAkOqqqV566dc
+oL/OhtwOxpAOMGSNDfk+G/I6G3IsqT554fAtMPwNFuRdHv4+D3/DZG1qguHv
+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
+nJZc+6dMoDtllrn3m+HgWHjl/wFjDwwS\
+\>", "ImageResolution" -> 72.],ImageRangeCache->{{{0., 359.}, {359., 0.}} -> \
+{-0.192705, -0.145206, 0.00655163, \
+0.00655163}},ExpressionUUID->"6c51fe0c-fcd4-4593-8c65-e7c649ee3e39"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[TextData[{
+ "This is clearly symmetric about the line ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"t", "=", "\[Tau]"}], TraditionalForm]],ExpressionUUID->
+  "514a477b-a4eb-42fd-8ef4-8579fb706324"],
+ "."
+}], "Text",ExpressionUUID->"2615ad4e-8b83-4714-90b8-6eb472337fc8"],
+
+Cell[TextData[{
+ 
+ CounterBox["Section"],
+ ".",
+ 
+ CounterBox["Exercise"],
+ ". The Green function has a discontinuous derivative along the line ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"t", "=", "\[Tau]"}], TraditionalForm]],ExpressionUUID->
+  "e665a110-b0cb-48f2-8b27-9130256c8164"],
+ ". Compute the difference in the derivative across this line. \
+Differentiation of this step-function discontinuity leads to the Dirac delta \
+function (distribution), ",
+ StyleBox["i.e.",
+  FontSlant->"Italic"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"L", "[", 
+     RowBox[{"G", "(", 
+      RowBox[{"t", ",", "\[Tau]"}], ")"}], "]"}], "=", 
+    RowBox[{"\[Delta]", "(", 
+     RowBox[{"t", "-", "\[Tau]"}], ")"}]}], TraditionalForm]],ExpressionUUID->
+  "6b60534e-4d29-4767-aea0-83faa855beee"],
+ ". ",
+ StyleBox["[1]", "Marks"]
+}], "Item",
+ CellTags->
+  "discontinuous \
+derivative",ExpressionUUID->"8bafadc2-1741-4752-8ee6-ac3103477ace"],
+
+Cell["The difference across this line is", "Text",ExpressionUUID->"d6de4d5d-3da6-4189-8f91-cae7b82c9511"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"Simplify", "(", 
+   RowBox[{
+    RowBox[{
+     FractionBox[
+      RowBox[{
+       RowBox[{"\[PartialD]", 
+        SubscriptBox["G", "2"]}], 
+       RowBox[{"(", 
+        RowBox[{"t", ",", "\[Tau]"}], ")"}]}], 
+      RowBox[{"\[PartialD]", "t"}],
+      MultilineFunction->None], "-", 
+     FractionBox[
+      RowBox[{
+       RowBox[{"\[PartialD]", 
+        SubscriptBox["G", "1"]}], 
+       RowBox[{"(", 
+        RowBox[{"t", ",", "\[Tau]"}], ")"}]}], 
+      RowBox[{"\[PartialD]", "t"}],
+      MultilineFunction->None]}], "/.", 
+    RowBox[{"\[Tau]", "\[Rule]", "t"}]}], ")"}], TraditionalForm]], "Input",Ex\
+pressionUUID->"08339591-9a4b-4325-8766-d6beac9f6d66"],
+
+Cell[BoxData[
+ FormBox["1", TraditionalForm]], "Output",ExpressionUUID->"3e17bb65-c2d6-48cb-92bb-5c3d0f002642"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ 
+ CounterBox["Section"],
+ ".",
+ 
+ CounterBox["Exercise"],
+ ". For the forcing term ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"g", "(", "t", ")"}], "=", 
+    RowBox[{
+     SuperscriptBox["\[ExponentialE]", "t"], " ", 
+     RowBox[{"sin", "(", 
+      RowBox[{"10", " ", "t"}], ")"}]}]}], TraditionalForm]],ExpressionUUID->
+  "b03bacb7-f9de-4edf-b53d-bfd6044008e0"],
+ " compute the ",
+ StyleBox["exact",
+  FontSlant->"Italic"],
+ " solution, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"x", "(", "t", ")"}], TraditionalForm]],ExpressionUUID->
+  "da9cbfb0-cdca-4481-ba1b-1cca0fb8d1a4"],
+ ", to the differential equation using the Green function and equation (",
+ 
+ CounterBox["Section"],
+ ".",
+ 
+ CounterBox["Equation", "solution"],
+ "). Verify that your solution ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"x", "(", "t", ")"}], TraditionalForm]],ExpressionUUID->
+  "7484f95c-d79c-4a01-9b74-6f1c8e95e16d"],
+ " is correct (",
+ StyleBox["i.e.",
+  FontSlant->"Italic"],
+ ", it satisfies (",
+ 
+ CounterBox["Section"],
+ ".",
+ 
+ CounterBox["Equation", "forced simple harmonic oscillator"],
+ ") and takes into account the boundary conditions). ",
+ StyleBox["[4]", "Marks"]
+}], "Item",
+ CellTags->
+  "exact solution",ExpressionUUID->"76b83984-665b-4a77-a16e-c81b290be668"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"g", "(", "t_", ")"}], "=", 
+    RowBox[{
+     SuperscriptBox["\[ExponentialE]", "t"], " ", 
+     RowBox[{"sin", "(", 
+      RowBox[{"10", " ", "t"}], ")"}]}]}], ";"}], TraditionalForm]], "Input",E\
+xpressionUUID->"5ff86f74-775a-4750-b6ac-29d8f65438ca"]
+}, Open  ]],
+
+Cell["We compute the exact solution by integration:", "Text",ExpressionUUID->"d47e50b7-b712-49fb-bbd5-053abfa27ada"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"x", "(", "t_", ")"}], "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      SubsuperscriptBox["\[Integral]", "0", "t"], " ", 
+      RowBox[{
+       RowBox[{
+        SubscriptBox["G", "2"], "(", 
+        RowBox[{"t", ",", "\[Tau]"}], ")"}], 
+       RowBox[{"g", "(", "\[Tau]", ")"}], 
+       RowBox[{"\[DifferentialD]", "\[Tau]"}]}]}], "+", 
+     RowBox[{
+      SubsuperscriptBox["\[Integral]", "t", 
+       FractionBox["\[Pi]", "2"]], " ", 
+      RowBox[{
+       RowBox[{
+        SubscriptBox["G", "1"], "(", 
+        RowBox[{"t", ",", "\[Tau]"}], ")"}], 
+       RowBox[{"g", "(", "\[Tau]", ")"}], 
+       RowBox[{"\[DifferentialD]", "\[Tau]"}]}]}]}], "//", "Simplify"}]}], 
+  TraditionalForm]], "Input",ExpressionUUID->"1c07cb57-3fd7-47bb-9394-\
+9cfcf9bb90f9"],
+
+Cell[BoxData[
+ FormBox[
+  FractionBox[
+   RowBox[{
+    RowBox[{"10", " ", 
+     RowBox[{"cos", "(", "t", ")"}]}], "-", 
+    RowBox[{"10", " ", 
+     SuperscriptBox["\[ExponentialE]", "t"], " ", 
+     RowBox[{"cos", "(", 
+      RowBox[{"10", " ", "t"}], ")"}]}], "-", 
+    RowBox[{"10", " ", 
+     SuperscriptBox["\[ExponentialE]", 
+      RowBox[{"\[Pi]", "/", "2"}]], " ", 
+     RowBox[{"sin", "(", "t", ")"}]}], "-", 
+    RowBox[{"49", " ", 
+     SuperscriptBox["\[ExponentialE]", "t"], " ", 
+     RowBox[{"sin", "(", 
+      RowBox[{"10", " ", "t"}], ")"}]}]}], "5002"], 
+  TraditionalForm]], "Output",ExpressionUUID->"094f8fb6-46dc-4b34-9c68-\
+2c0a4f1c3238"]
+}, Open  ]],
+
+Cell["It satisfies the original differential equation,", "Text",ExpressionUUID->"22ab51be-ace3-4ecc-9a73-d3ac937e7ca8"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      SuperscriptBox["x", "\[DoublePrime]"], "(", "t", ")"}], "+", 
+     RowBox[{"x", "(", "t", ")"}]}], "\[Equal]", 
+    RowBox[{"g", "(", "t", ")"}]}], "//", "Simplify"}], 
+  TraditionalForm]], "Input",ExpressionUUID->"92cc05e9-de85-44bb-af8e-\
+d6b3459504b1"],
+
+Cell[BoxData[
+ FormBox["True", TraditionalForm]], "Output",ExpressionUUID->"2929ffe9-1f8a-4b21-a251-1ad19b21f797"]
+}, Open  ]],
+
+Cell["and the boundary conditions,", "Text",ExpressionUUID->"81e0794f-8076-4cad-a255-8806c4af18b9"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"x", "(", "0", ")"}], "\[Equal]", 
+   RowBox[{"x", "(", 
+    FractionBox["\[Pi]", "2"], ")"}], "\[Equal]", "0"}], 
+  TraditionalForm]], "Input",ExpressionUUID->"342d86a2-8976-4acc-99cd-\
+f793957026a8"],
+
+Cell[BoxData[
+ FormBox["True", TraditionalForm]], "Output",ExpressionUUID->"375f8b21-d54d-4ceb-bfc5-fe3eac9dcf2f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Consider the ",
+ StyleBox["inverse problem",
+  FontSlant->"Italic"],
+ " of determining the inhomogenous part, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"g", "(", "t", ")"}], TraditionalForm]],ExpressionUUID->
+  "b5041a47-5ab1-4310-b392-3047c8829c9c"],
+ ", of the differential equation by measuring ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"x", "(", "t", ")"}], TraditionalForm]],ExpressionUUID->
+  "46a3899a-07c0-41f2-96d0-6c76145d961b"],
+ " at a finite number of times. Discretizing the equation, we obtain the \
+following matrix equation:"
+}], "Text",
+ CellGroupingRules->{"SectionGrouping", 55},
+ CellTags->{
+  "discretizing equations", 
+   "inverse problem"},ExpressionUUID->"51878a0d-07b6-47c4-a1e3-8806b20fc18d"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"x", "(", "t", ")"}], "=", 
+    RowBox[{
+     RowBox[{
+      SubsuperscriptBox["\[Integral]", "0", 
+       RowBox[{"\[Pi]", "/", "2"}]], " ", 
+      RowBox[{
+       RowBox[{"G", "(", 
+        RowBox[{"t", ",", "\[Tau]"}], ")"}], 
+       RowBox[{"g", "(", "\[Tau]", ")"}], 
+       RowBox[{"\[DifferentialD]", 
+        RowBox[{"\[Tau]", "\[LongRightArrow]", 
+         RowBox[{"x", "(", 
+          SubscriptBox["t", "i"], ")"}]}]}]}]}], "=", 
+     RowBox[{
+      RowBox[{
+       UnderoverscriptBox["\[Sum]", 
+        RowBox[{"j", "=", "0"}], "m"], " ", 
+       RowBox[{
+        RowBox[{"G", "(", 
+         RowBox[{
+          SubscriptBox["t", "i"], ",", 
+          SubscriptBox["\[Tau]", "j"]}], ")"}], 
+        RowBox[{"g", "(", 
+         SubscriptBox["\[Tau]", "j"], ")"}], 
+        RowBox[{
+         SubscriptBox["\[Delta]\[Tau]", "j"], "\[LongRightArrow]", 
+         SubscriptBox["x", "i"]}]}]}], "=", 
+      RowBox[{
+       UnderscriptBox["\[Sum]", "j"], 
+       RowBox[{
+        SubscriptBox["G", 
+         RowBox[{"i", "\[InvisibleComma]", "j"}]], 
+        SubscriptBox["g", "j"]}]}]}]}]}], ","}], 
+  TraditionalForm]], "DisplayFormulaNumbered",ExpressionUUID->"202ac570-99b9-\
+4704-b86f-27a938424dd1"],
+
+Cell[TextData[{
+ "where ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["G", 
+     RowBox[{"i", "\[InvisibleComma]", "j"}]], "=", 
+    RowBox[{
+     RowBox[{"G", "(", 
+      RowBox[{
+       SubscriptBox["t", "i"], ",", 
+       SubscriptBox["\[Tau]", "j"]}], ")"}], 
+     SubscriptBox["\[Delta]\[Tau]", "j"]}]}], TraditionalForm]],
+  ExpressionUUID->"a48aa869-854a-4e2d-accf-cc2607232fdb"],
+ ". The discretized forcing term ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["g", "j"], "\[Congruent]", 
+    RowBox[{"g", "(", 
+     SubscriptBox["\[Tau]", "j"], ")"}]}], TraditionalForm]],ExpressionUUID->
+  "900f3047-9eb8-4478-822e-60e298bf0a3c"],
+ " can be computed from the inverse of the (discretized) Green function,"
+}], "Text",ExpressionUUID->"f0a39ea4-09a6-4f28-8357-f11ba03d952d"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   SubscriptBox["x", "i"], "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      UnderscriptBox["\[Sum]", "j"], 
+      RowBox[{
+       SubscriptBox["G", 
+        RowBox[{"i", "\[InvisibleComma]", "j"}]], 
+       SubscriptBox["g", "j"]}]}], "\[Implies]", 
+     SubscriptBox["g", "j"]}], "=", 
+    RowBox[{
+     UnderscriptBox["\[Sum]", "i"], 
+     RowBox[{
+      SuperscriptBox[
+       SubscriptBox["G", 
+        RowBox[{"i", "\[InvisibleComma]", "j"}]], 
+       RowBox[{"-", "1"}]], 
+      RowBox[{
+       SubscriptBox["x", "i"], "\[CenterDot]"}]}]}]}]}], 
+  TraditionalForm]], "DisplayFormulaNumbered",ExpressionUUID->"f63ee81f-ecfc-\
+4193-bf80-693b7d9f9f40"],
+
+Cell[TextData[{
+ "For a list of",
+ StyleBox[" equally-spaced",
+  FontSlant->"Italic"],
+ " data points, this discretization corresponds to the ",
+ StyleBox["trapezoid approximation",
+  FontSlant->"Italic"],
+ " because the Green function vanishes along the boundaries. "
+}], "Text",
+ CellTags->{
+  "equally spaced data points", 
+   "trapezoid \
+approximation"},ExpressionUUID->"b2fe4e22-eced-491d-91b1-ae670c6565b1"],
+
+Cell[TextData[{
+ "Note that, in general, the matrix ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["G", 
+    RowBox[{"i", "\[InvisibleComma]", "j"}]], TraditionalForm]],
+  ExpressionUUID->"daf92d02-f6e2-4f6b-9423-1113ea8a2e3f"],
+ " is ",
+ StyleBox["rectangular",
+  FontSlant->"Italic"],
+ " because there can be a ",
+ StyleBox["different",
+  FontSlant->"Italic"],
+ " number of ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["t", "i"], TraditionalForm]],ExpressionUUID->
+  "76e113cc-864b-4c10-a949-ee8e1a0b4231"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Tau]", "j"], TraditionalForm]],ExpressionUUID->
+  "8797e875-5da4-4317-bde7-4b665c86c684"],
+ " samples. Hence no inverse matrix exists in the usual sense. However, \
+values of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["g", "j"], "=", 
+    RowBox[{"g", "(", 
+     SubscriptBox["\[Tau]", "j"], ")"}]}], TraditionalForm]],ExpressionUUID->
+  "b8ba26b1-af0c-458a-84b6-02d82cf784c0"],
+ " can be computed using the pseudo or Moore-Penrose inverse (",
+ Cell[BoxData[
+  FormBox[
+   StyleBox["PseudoInverse", "Input"], TraditionalForm]],ExpressionUUID->
+  "15797b72-6a0f-4d80-ba9e-a0a615ed00d5"],
+ ")."
+}], "Text",
+ CellTags->{
+  "Moore-Penrose inverse", 
+   "PseudoInverse"},ExpressionUUID->"eed45735-e9bd-4a34-b501-2cc5ccadf6f8"],
+
+Cell[TextData[{
+ 
+ CounterBox["Section"],
+ ".",
+ 
+ CounterBox["Exercise"],
+ ". Suppose that, at the times ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SubscriptBox["t", "i"], "=", "0"}], ",", 
+    FractionBox["\[Pi]", "30"], ",", 
+    FractionBox[
+     RowBox[{"2", "\[Pi]"}], "30"], ",", "\[Ellipsis]", ",", 
+    FractionBox["\[Pi]", "2"]}], TraditionalForm]],ExpressionUUID->
+  "8dd530db-08ad-4fca-9ed4-28ffe7ecfd8f"],
+ ", we make measurements of the displacements ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["x", "i"], "=", 
+    RowBox[{"x", "(", 
+     SubscriptBox["t", "i"], ")"}]}], TraditionalForm]],ExpressionUUID->
+  "929b8a67-2e36-41d3-9042-e812b7f3a80f"],
+ ". Using the exact solution found in question ",
+ 
+ CounterBox["Section"],
+ ".",
+ 
+ CounterBox["Exercise", "exact solution"],
+ ", the displacements at these times can be computed. Compute the driving \
+term, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["g", "j"], "=", 
+    RowBox[{"g", "(", 
+     SubscriptBox["\[Tau]", "j"], ")"}]}], TraditionalForm]],ExpressionUUID->
+  "c8f85cfb-a9f6-4358-abe9-3176fdd03ff1"],
+ ", at the times ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SubscriptBox["\[Tau]", "j"], "=", "0"}], ",", 
+    FractionBox["\[Pi]", "40"], ",", 
+    FractionBox[
+     RowBox[{"2", "\[Pi]"}], "40"], ",", "\[Ellipsis]", ",", 
+    FractionBox["\[Pi]", "2"]}], TraditionalForm]],ExpressionUUID->
+  "008cc1da-f19b-4f5c-9508-7634917e22b3"],
+ ", by (matrix) multiplying the pseudo-inverse of the discretized product ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["G", 
+    RowBox[{"i", "\[InvisibleComma]", "j"}]], TraditionalForm]],
+  ExpressionUUID->"a501b82b-2db7-4ae6-a138-4393eef03d44"],
+ " with the ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["x", "i"], TraditionalForm]],ExpressionUUID->
+  "4be76f41-324f-4433-b7aa-8ef41676559d"],
+ ". ",
+ StyleBox["[5]", "Marks"]
+}], "Item",ExpressionUUID->"f08dad84-adbf-4ef6-971e-226bcacddc69"],
+
+Cell[TextData[{
+ "For the times ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["t", "i"], TraditionalForm]],ExpressionUUID->
+  "7fbf20ed-8928-4923-b20d-21a662e29e37"]
+}], "Text",ExpressionUUID->"8ba7a02b-6b2e-458a-91d7-dea07aff9768"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    SubscriptBox["t", "i"], "=", 
+    RowBox[{
+     RowBox[{"Range", "(", 
+      RowBox[{"0", ",", 
+       FractionBox["\[Pi]", "2"], ",", 
+       FractionBox["\[Pi]", "30"]}], ")"}], "//", "N"}]}], ";"}], 
+  TraditionalForm]], "Input",ExpressionUUID->"2e6f1bff-722d-4a41-9212-\
+086c38713566"],
+
+Cell[TextData[{
+ "the displacements ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["x", "i"], TraditionalForm]],ExpressionUUID->
+  "29741b62-afe5-481a-b014-c2e3c3fbe6b4"],
+ " are"
+}], "Text",ExpressionUUID->"a8700a20-4b1a-4495-9f32-5aacb934db0f"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    SubscriptBox["x", "i"], "=", 
+    RowBox[{"x", "/@", 
+     SubscriptBox["t", "i"]}]}], ";"}], TraditionalForm]], "Input",ExpressionU\
+UID->"b44c3ce5-ca58-4e85-bf8a-aa47380ad612"],
+
+Cell[TextData[{
+ "At the times ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Tau]", "j"], TraditionalForm]],ExpressionUUID->
+  "2ed67530-0906-4995-9cbf-2c97afe57c4f"]
+}], "Text",ExpressionUUID->"40a9d678-4dc9-48da-9934-eae4964cb04f"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    SubscriptBox["\[Delta]\[Tau]", "j"], "=", 
+    FractionBox["\[Pi]", "40"]}], ";", 
+   RowBox[{
+    SubscriptBox["\[Tau]", "j"], "=", 
+    RowBox[{
+     RowBox[{"Range", "(", 
+      RowBox[{"0", ",", 
+       FractionBox["\[Pi]", "2"], ",", 
+       SubscriptBox["\[Delta]\[Tau]", "j"]}], ")"}], "//", "N"}]}], ";"}], 
+  TraditionalForm]], "Input",ExpressionUUID->"23e9f301-2ee2-4040-8cd8-\
+0e933c9533a4"],
+
+Cell[TextData[{
+ "the discretized product matrix ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["G", 
+    RowBox[{"i", "\[InvisibleComma]", "j"}]], TraditionalForm]],
+  ExpressionUUID->"ca9ac27e-b68d-48e1-b922-d02df37e7ecb"],
+ " is"
+}], "Text",ExpressionUUID->"4ae9c4dd-6126-4cff-a82a-4de72280392a"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    SubscriptBox["G", 
+     RowBox[{"i", ",", "j"}]], "=", 
+    RowBox[{
+     RowBox[{"Outer", "(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"G", "(", "##", ")"}], "&"}], ",", 
+       SubscriptBox["t", "i"], ",", 
+       SubscriptBox["\[Tau]", "j"]}], ")"}], 
+     SubscriptBox["\[Delta]\[Tau]", "j"]}]}], ";"}], 
+  TraditionalForm]], "Input",ExpressionUUID->"cd54f6e8-460a-4562-8602-\
+a0410f283100"],
+
+Cell["\<\
+Computing the pseudo-inverse yields the solution to the inverse problem:\
+\>", "Text",ExpressionUUID->"63eda6ea-63ca-4cb1-ae91-e7baf7a8b205"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   SubscriptBox["g", "j"], "=", 
+   RowBox[{
+    RowBox[{"PseudoInverse", "(", 
+     SubscriptBox["G", 
+      RowBox[{"i", ",", "j"}]], ")"}], ".", 
+    SubscriptBox["x", "i"]}]}], TraditionalForm]], "Input",ExpressionUUID->\
+"7a422dcf-4232-42f7-9a64-656416a8e164"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+   "0.`", ",", "0.8027634512242069`", ",", "1.1607787603139728`", ",", 
+    "0.9396003771378685`", ",", "0.008745718936771228`", ",", 
+    RowBox[{"-", "1.09856142217759`"}], ",", 
+    RowBox[{"-", "1.5899931705755632`"}], ",", 
+    RowBox[{"-", "1.2859059207544403`"}], ",", 
+    RowBox[{"-", "0.012099196982212545`"}], ",", "1.5040413248123503`", ",", 
+    "2.1768834807167563`", ",", "1.760536133597679`", ",", 
+    "0.016560639652046738`", ",", 
+    RowBox[{"-", "2.0591691811112196`"}], ",", 
+    RowBox[{"-", "2.980426293406199`"}], ",", 
+    RowBox[{"-", "2.4103382169441745`"}], ",", 
+    RowBox[{"-", "0.022236610419835254`"}], ",", "2.8174552744278594`", ",", 
+    "4.083177160970603`", ",", "3.2982435301895827`", ",", 
+    "2.574069548332587`*^-15"}], "}"}], TraditionalForm]], "Output",Expression\
+UUID->"5bb989b6-4f88-49b4-9fbc-55e20458f78f"]
+}, Open  ]],
+
+Cell[TextData[{
+ 
+ CounterBox["Section"],
+ ".",
+ 
+ CounterBox["Exercise"],
+ ". Compare the forcing term, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"g", "(", "t", ")"}], TraditionalForm]],ExpressionUUID->
+  "7218377c-f21b-4281-b119-59bd28272549"],
+ ", and the discretized (inverse) solution, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"g", "(", 
+    SubscriptBox["\[Tau]", "j"], ")"}], TraditionalForm]],ExpressionUUID->
+  "a021f099-69dd-498b-80f2-22223eb181e0"],
+ ", and comment. ",
+ StyleBox["[2]", "Marks"]
+}], "Item",ExpressionUUID->"017412e7-93dc-4561-9e4b-e43f32a9a598"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Here is the comparison between the exact and discretized solutions:\
+\>", "Text",
+ CellGroupingRules->{
+  "SectionGrouping", 
+   55},ExpressionUUID->"6e5a5437-7c72-4585-94ef-1459eb8424be"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"Plot", "(", 
+    RowBox[{
+     RowBox[{"g", "(", "t", ")"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", 
+       FractionBox["\[Pi]", "2"]}], "}"}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"RGBColor", "(", 
+       RowBox[{"1", ",", "0", ",", "0"}], ")"}]}], ",", 
+     RowBox[{"Epilog", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"PointSize", "[", "0.02", "]"}], ",", 
+        RowBox[{"Point", "/@", 
+         SuperscriptBox[
+          RowBox[{"{", 
+           RowBox[{
+            SubscriptBox["\[Tau]", "j"], ",", 
+            SubscriptBox["g", "j"]}], "}"}], "T"]}]}], "}"}]}]}], ")"}], 
+   ";"}], TraditionalForm]], "Input",ExpressionUUID->"d3c00c69-2fe7-4067-a0c3-\
+9d851f4f893f"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .61803 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+0.0238095 0.606305 0.263166 0.0823292 [
+[.17539 .25067 -10.75 -12 ]
+[.17539 .25067 10.75 0 ]
+[.32696 .25067 -8.25 -12 ]
+[.32696 .25067 8.25 0 ]
+[.47854 .25067 -10.75 -12 ]
+[.47854 .25067 10.75 0 ]
+[.63011 .25067 -4.5 -12 ]
+[.63011 .25067 4.5 0 ]
+[.78169 .25067 -10.75 -12 ]
+[.78169 .25067 10.75 0 ]
+[.93327 .25067 -8.25 -12 ]
+[.93327 .25067 8.25 0 ]
+[.01131 .01618 -15.9375 -6 ]
+[.01131 .01618 0 6 ]
+[.01131 .09851 -15.9375 -6 ]
+[.01131 .09851 0 6 ]
+[.01131 .18084 -15.9375 -6 ]
+[.01131 .18084 0 6 ]
+[.01131 .3455 -9 -6 ]
+[.01131 .3455 0 6 ]
+[.01131 .42782 -9 -6 ]
+[.01131 .42782 0 6 ]
+[.01131 .51015 -9 -6 ]
+[.01131 .51015 0 6 ]
+[.01131 .59248 -9 -6 ]
+[.01131 .59248 0 6 ]
+[ 0 0 0 0 ]
+[ 1 .61803 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 g
+.25 Mabswid
+[ ] 0 setdash
+.17539 .26317 m
+.17539 .26942 L
+s
+gsave
+.17539 .25067 -71.75 -16 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(0.25) show
+1.000 setlinewidth
+grestore
+.32696 .26317 m
+.32696 .26942 L
+s
+gsave
+.32696 .25067 -69.25 -16 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(0.5) show
+1.000 setlinewidth
+grestore
+.47854 .26317 m
+.47854 .26942 L
+s
+gsave
+.47854 .25067 -71.75 -16 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(0.75) show
+1.000 setlinewidth
+grestore
+.63011 .26317 m
+.63011 .26942 L
+s
+gsave
+.63011 .25067 -65.5 -16 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(1) show
+1.000 setlinewidth
+grestore
+.78169 .26317 m
+.78169 .26942 L
+s
+gsave
+.78169 .25067 -71.75 -16 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(1.25) show
+1.000 setlinewidth
+grestore
+.93327 .26317 m
+.93327 .26942 L
+s
+gsave
+.93327 .25067 -69.25 -16 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(1.5) show
+1.000 setlinewidth
+grestore
+.125 Mabswid
+.05412 .26317 m
+.05412 .26692 L
+s
+.08444 .26317 m
+.08444 .26692 L
+s
+.11476 .26317 m
+.11476 .26692 L
+s
+.14507 .26317 m
+.14507 .26692 L
+s
+.2057 .26317 m
+.2057 .26692 L
+s
+.23602 .26317 m
+.23602 .26692 L
+s
+.26633 .26317 m
+.26633 .26692 L
+s
+.29665 .26317 m
+.29665 .26692 L
+s
+.35728 .26317 m
+.35728 .26692 L
+s
+.38759 .26317 m
+.38759 .26692 L
+s
+.41791 .26317 m
+.41791 .26692 L
+s
+.44822 .26317 m
+.44822 .26692 L
+s
+.50885 .26317 m
+.50885 .26692 L
+s
+.53917 .26317 m
+.53917 .26692 L
+s
+.56948 .26317 m
+.56948 .26692 L
+s
+.5998 .26317 m
+.5998 .26692 L
+s
+.66043 .26317 m
+.66043 .26692 L
+s
+.69074 .26317 m
+.69074 .26692 L
+s
+.72106 .26317 m
+.72106 .26692 L
+s
+.75138 .26317 m
+.75138 .26692 L
+s
+.81201 .26317 m
+.81201 .26692 L
+s
+.84232 .26317 m
+.84232 .26692 L
+s
+.87264 .26317 m
+.87264 .26692 L
+s
+.90295 .26317 m
+.90295 .26692 L
+s
+.96358 .26317 m
+.96358 .26692 L
+s
+.9939 .26317 m
+.9939 .26692 L
+s
+.25 Mabswid
+0 .26317 m
+1 .26317 L
+s
+.02381 .01618 m
+.03006 .01618 L
+s
+gsave
+.01131 .01618 -76.9375 -10 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Math1
+%%IncludeFont: Math1
+/Math1 findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(-) show
+69.938 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(3) show
+1.000 setlinewidth
+grestore
+.02381 .09851 m
+.03006 .09851 L
+s
+gsave
+.01131 .09851 -76.9375 -10 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Math1
+%%IncludeFont: Math1
+/Math1 findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(-) show
+69.938 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(2) show
+1.000 setlinewidth
+grestore
+.02381 .18084 m
+.03006 .18084 L
+s
+gsave
+.01131 .18084 -76.9375 -10 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Math1
+%%IncludeFont: Math1
+/Math1 findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(-) show
+69.938 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(1) show
+1.000 setlinewidth
+grestore
+.02381 .3455 m
+.03006 .3455 L
+s
+gsave
+.01131 .3455 -70 -10 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(1) show
+1.000 setlinewidth
+grestore
+.02381 .42782 m
+.03006 .42782 L
+s
+gsave
+.01131 .42782 -70 -10 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(2) show
+1.000 setlinewidth
+grestore
+.02381 .51015 m
+.03006 .51015 L
+s
+gsave
+.01131 .51015 -70 -10 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(3) show
+1.000 setlinewidth
+grestore
+.02381 .59248 m
+.03006 .59248 L
+s
+gsave
+.01131 .59248 -70 -10 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+/MISOfy
+{
+    /newfontname exch def
+    /oldfontname exch def
+
+    oldfontname findfont
+    dup length dict begin
+        {1 index /FID ne {def} {pop pop} ifelse} forall
+        /Encoding ISOLatin1Encoding def
+        currentdict
+    end
+
+    newfontname exch definefont pop
+} def
+
+0 20 translate 1 -1 scale
+63.000 13.000 moveto
+%%IncludeResource: font Times-Roman
+%%IncludeFont: Times-Roman
+/Times-Roman findfont 10.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(4) show
+1.000 setlinewidth
+grestore
+.125 Mabswid
+.02381 .03264 m
+.02756 .03264 L
+s
+.02381 .04911 m
+.02756 .04911 L
+s
+.02381 .06558 m
+.02756 .06558 L
+s
+.02381 .08204 m
+.02756 .08204 L
+s
+.02381 .11497 m
+.02756 .11497 L
+s
+.02381 .13144 m
+.02756 .13144 L
+s
+.02381 .14791 m
+.02756 .14791 L
+s
+.02381 .16437 m
+.02756 .16437 L
+s
+.02381 .1973 m
+.02756 .1973 L
+s
+.02381 .21377 m
+.02756 .21377 L
+s
+.02381 .23023 m
+.02756 .23023 L
+s
+.02381 .2467 m
+.02756 .2467 L
+s
+.02381 .27963 m
+.02756 .27963 L
+s
+.02381 .2961 m
+.02756 .2961 L
+s
+.02381 .31256 m
+.02756 .31256 L
+s
+.02381 .32903 m
+.02756 .32903 L
+s
+.02381 .36196 m
+.02756 .36196 L
+s
+.02381 .37843 m
+.02756 .37843 L
+s
+.02381 .39489 m
+.02756 .39489 L
+s
+.02381 .41136 m
+.02756 .41136 L
+s
+.02381 .44429 m
+.02756 .44429 L
+s
+.02381 .46076 m
+.02756 .46076 L
+s
+.02381 .47722 m
+.02756 .47722 L
+s
+.02381 .49369 m
+.02756 .49369 L
+s
+.02381 .52662 m
+.02756 .52662 L
+s
+.02381 .54309 m
+.02756 .54309 L
+s
+.02381 .55955 m
+.02756 .55955 L
+s
+.02381 .57602 m
+.02756 .57602 L
+s
+.02381 .60895 m
+.02756 .60895 L
+s
+.25 Mabswid
+.02381 0 m
+.02381 .61803 L
+s
+0 0 m
+1 0 L
+1 .61803 L
+0 .61803 L
+closepath
+clip
+newpath
+1 0 0 r
+.5 Mabswid
+.02381 .26317 m
+.04262 .28909 L
+.06244 .31537 L
+.08255 .33793 L
+.09396 .34779 L
+.09905 .35135 L
+.10458 .35456 L
+.11004 .35703 L
+.11243 .35789 L
+.11508 .35866 L
+.11756 .35923 L
+.11989 .35962 L
+.12118 .35978 L
+.12235 .35988 L
+.123 .35992 L
+.12371 .35996 L
+.125 .35998 L
+.12626 .35996 L
+.12744 .35991 L
+.12851 .35982 L
+.12966 .3597 L
+.13092 .35953 L
+.13225 .35929 L
+.13463 .35876 L
+.13889 .35742 L
+.14357 .35538 L
+.14881 .3524 L
+.15378 .34889 L
+.16308 .34061 L
+.184 .31453 L
+.22233 .24806 L
+.24171 .21162 L
+.26311 .17508 L
+.27286 .16104 L
+.28336 .14843 L
+.28819 .14363 L
+.29328 .13934 L
+.29796 .13612 L
+.30238 .13373 L
+.30477 .13271 L
+.30738 .13183 L
+.30852 .13151 L
+.30974 .13123 L
+.31088 .13101 L
+.31192 .13086 L
+.31313 .13072 L
+.31443 .13064 L
+.31563 .13062 L
+.31678 .13064 L
+.31742 .13068 L
+Mistroke
+.3181 .13073 L
+.31933 .13088 L
+.32008 .13099 L
+.32079 .13112 L
+.32212 .1314 L
+.32436 .13203 L
+.32672 .1329 L
+.33095 .13497 L
+.3355 .13794 L
+.34048 .14207 L
+.35072 .15335 L
+.36003 .16675 L
+.38096 .2064 L
+.42086 .30474 L
+.43911 .35083 L
+.45924 .39526 L
+.46878 .41244 L
+.47905 .4273 L
+.48472 .43368 L
+.4899 .4383 L
+.49486 .44157 L
+.49735 .44278 L
+.49877 .44333 L
+.50007 .44376 L
+.50129 .44408 L
+.50262 .44435 L
+.50331 .44446 L
+.50396 .44453 L
+.50464 .44459 L
+.50538 .44463 L
+.50602 .44464 L
+.50672 .44463 L
+.50799 .44455 L
+.50923 .44439 L
+.51038 .44417 L
+.51148 .4439 L
+.51253 .44359 L
+.51491 .44267 L
+.51722 .4415 L
+.51972 .43992 L
+.52505 .43552 L
+.53066 .42934 L
+.54069 .4144 L
+.55022 .39581 L
+.5604 .37158 L
+.57876 .31835 L
+.62023 .17496 L
+.64101 .10705 L
+.65013 .08121 L
+.66018 .05675 L
+Mistroke
+.66982 .03797 L
+.67444 .03077 L
+.67884 .0251 L
+.68122 .02252 L
+.68382 .02012 L
+.6862 .01829 L
+.68837 .01695 L
+.69094 .01576 L
+.69235 .0153 L
+.693 .01513 L
+.69368 .01498 L
+.69492 .0148 L
+.69605 .01472 L
+.69727 .01473 L
+.69797 .01478 L
+.69861 .01486 L
+.69988 .01509 L
+.70051 .01525 L
+.70122 .01546 L
+.70362 .01644 L
+.70498 .01717 L
+.70644 .01809 L
+.70907 .02014 L
+.71424 .02556 L
+.71898 .03216 L
+.72802 .04899 L
+.73754 .07252 L
+.7573 .13848 L
+.77567 .21624 L
+.81473 .40293 L
+.83466 .48971 L
+.84515 .5282 L
+.85625 .56153 L
+.86617 .58371 L
+.8718 .59278 L
+.8745 .59617 L
+.87707 .59879 L
+.87938 .60065 L
+.8806 .60144 L
+.8819 .60213 L
+.88311 .60263 L
+.8842 .60297 L
+.88529 .6032 L
+.88632 .60331 L
+.88753 .60332 L
+.88881 .60318 L
+.8899 .60294 L
+.8911 .60254 L
+.89239 .60197 L
+.89377 .60118 L
+Mistroke
+.89625 .59929 L
+.89883 .59672 L
+.90156 .59331 L
+.90646 .58539 L
+.91174 .57434 L
+.91755 .55917 L
+.92795 .52445 L
+.93769 .48365 L
+.97619 .26317 L
+Mfstroke
+0 g
+.02 w
+.02381 .26317 Mdot
+.07143 .32926 Mdot
+.11905 .35873 Mdot
+.16667 .34052 Mdot
+.21429 .26389 Mdot
+.2619 .17272 Mdot
+.30952 .13226 Mdot
+.35714 .1573 Mdot
+.40476 .26217 Mdot
+.45238 .38699 Mdot
+.5 .44239 Mdot
+.54762 .40811 Mdot
+.59524 .26453 Mdot
+.64286 .09364 Mdot
+.69048 .01779 Mdot
+.7381 .06472 Mdot
+.78571 .26134 Mdot
+.83333 .49512 Mdot
+.88095 .59933 Mdot
+.92857 .53471 Mdot
+.97619 .26317 Mdot
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{288, 177.938},
+ ImageMargins->{{35, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 
+  1}},ImageCache->GraphicsData["CompressedBitmap", "\<\
+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
+NWR5zvlF5qjrf499LT8=\
+\>", "ImageResolution" -> 72.],ImageRangeCache->{{{0., 359.}, {221.375, 0.}} -> \
+{-0.116432, -3.39786, 0.00601151, \
+0.0442712}},ExpressionUUID->"bfae9e70-413d-40d4-b51c-48e590ae645f"]
+}, Open  ]],
+
+Cell["The agreement is excellent!", "Text",ExpressionUUID->"2453c27f-85dc-428d-b85e-5444d8e62769"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 796},
+WindowMargins->{{Automatic, 258}, {Automatic, 24}},
+FrontEndVersion->"14.2 for Mac OS X ARM (64-bit) (December 26, 2024)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[StyleDefinitions -> "Default.nb"]], 
+   Cell[
+    StyleData["Notebook"], PageWidth -> WindowWidth, CellLabelAutoDelete -> 
+    True, ShowSyntaxStyles -> True, 
+    StyleHints -> <|"CodeFont" -> "Source Code Pro"|>, MenuSortingValue -> 
+    None], 
+   Cell[
+    CellGroupData[{
+      Cell["Custom Styles", "Section"], 
+      Cell[
+       CellGroupData[{
+         Cell["General", "Subsection"], 
+         Cell[
+          StyleData["Title"], CellMargins -> {{27, Inherited}, {10, 30}}, 
+          FontColor -> RGBColor[1, 0.43, 0.13]], 
+         Cell[
+          StyleData["SectionTitle", StyleDefinitions -> StyleData["Title"]], 
+          CellFrame -> {{False, False}, {1, 0}}, 
+          CellMargins -> {{27, Inherited}, {0, 10}}, CellFrameColor -> 
+          RGBColor[0.85, 0.85, 0.85], CounterIncrements -> "SectionTitle", 
+          FontSize -> 20, FontWeight -> "Light", FontColor -> 
+          RGBColor[0.65, 0.65, 0.65]], 
+         Cell[
+          StyleData["Subtitle"], FontWeight -> "Light", FontColor -> 
+          RGBColor[0.65, 0.65, 0.65]], 
+         Cell[
+          StyleData["Subsubtitle"], FontWeight -> "Light", FontColor -> 
+          RGBColor[0.65, 0.65, 0.65]], 
+         Cell[
+          StyleData["Chapter"], CellMargins -> {{27, Inherited}, {10, 30}}, 
+          PageBreakAbove -> True, FontSize -> 40, FontSlant -> "Italic", 
+          FontColor -> GrayLevel[0.5]], 
+         Cell[
+          StyleData["Subchapter"], CellDingbat -> 
+          StyleBox[
+           "\[FilledSmallCircle]", Alignment -> Baseline, FontColor -> 
+            RGBColor[1, 0.43, 0.13]], FontSlant -> "Plain", FontColor -> 
+          GrayLevel[0.5]], 
+         Cell[
+          StyleData["Section"], CellFrame -> False, 
+          CellMargins -> {{27, Inherited}, {34, 14}}, PageBreakAbove -> False,
+           PageBreakBelow -> False, ShowCellLabel -> False, 
+          CellFrameLabelMargins -> {{2, Inherited}, {Inherited, Inherited}}, 
+          FontSize -> 36, FontColor -> RGBColor[1, 0.43, 0.13]], 
+         Cell[
+          StyleData[
+          "SectionNumber", StyleDefinitions -> StyleData["Section"]], 
+          FontSize -> 38, FontWeight -> "Light", FontColor -> 
+          RGBColor[0.65, 0.65, 0.65]], 
+         Cell[
+          StyleData[
+          "NumberedSection", StyleDefinitions -> StyleData["Section"]], 
+          CellDingbat -> Cell[
+            TextData[{
+              CounterBox["Section"], " |\[ThinSpace]"}], "SectionNumber"], 
+          CellMargins -> {{96, Inherited}, {34, 14}}], 
+         Cell[
+          StyleData[
+          "SectionTitleWithSection", StyleDefinitions -> 
+           StyleData["Section"]], CellDingbat -> Cell[
+            TextData[{
+              CounterBox["SectionTitle"], ".", 
+              CounterBox["Section"], " |\[ThinSpace]"}], "SectionNumber"], 
+          CellMargins -> {{96, Inherited}, {34, 14}}], 
+         Cell[
+          StyleData["SectionInline"], FontColor -> RGBColor[0.9, 0.4, 0.]], 
+         Cell[
+          StyleData["Subsection"], CellMargins -> {{27, Inherited}, {12, 32}},
+           CellElementSpacings -> {"ClosedGroupTopMargin" -> 32}, FontSize -> 
+          25, FontColor -> RGBColor[0.9, 0.4, 0.]], 
+         Cell[
+          StyleData["Subsubsection"], 
+          CellMargins -> {{27, Inherited}, {6, 16}}, 
+          CellElementSpacings -> {"ClosedGroupTopMargin" -> 16}, FontSize -> 
+          20, FontColor -> RGBColor[0.9, 0.4, 0.]], 
+         Cell[
+          StyleData["Subsubsubsection"], 
+          CellMargins -> {{27, Inherited}, {6, 16}}, FontSize -> 15, 
+          FontColor -> RGBColor[0.9, 0.4, 0.]], 
+         Cell[
+          StyleData["Subsubsubsubsection"], 
+          CellMargins -> {{27, Inherited}, {6, 16}}, FontSize -> 14, 
+          FontColor -> RGBColor[0.9, 0.4, 0.]], 
+         Cell[
+          StyleData["Text"], CellMargins -> {{66, 10}, {7, 8}}, FontSize -> 
+          15, FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["CodeText"], CellMargins -> {{66, 10}, {7, 8}}, FontSize -> 
+          15], 
+         Cell[
+          StyleData["Author"], CellMargins -> {{27, Inherited}, {6, 16}}], 
+         Cell[
+          StyleData["Affiliation"], 
+          CellMargins -> {{27, Inherited}, {6, 16}}], 
+         Cell[
+          StyleData["Link"], FontColor -> RGBColor[0, 0.6, 1]], 
+         Cell[
+          StyleData["HyperLink"], FontColor -> RGBColor[0, 0.6, 1]], 
+         Cell[
+          StyleData["Hyperlink"], FontColor -> RGBColor[0, 0.6, 1]], 
+         Cell[
+          StyleData["FunctionLink"], FontColor -> RGBColor[0, 0.6, 1]], 
+         Cell[
+          StyleData["HyperlinkActionNew"], FontColor -> RGBColor[0, 0.6, 1]], 
+         
+         Cell[
+          StyleData["HyperlinkActive"], FontColor -> RGBColor[1, 0.4, 0]]}, 
+        Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell["Items", "Subsection"], 
+         Cell[
+          StyleData["Item"], CellDingbat -> 
+          StyleBox["\[FilledSmallSquare]", Alignment -> Baseline, 
+            RGBColor[0.9, 0.4, 0.]], FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["Subitem"], CellDingbat -> 
+          StyleBox["\[FilledSmallSquare]", Alignment -> Baseline, 
+            RGBColor[0.9, 0.4, 0.]], FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["Subsubitem"], CellDingbat -> 
+          StyleBox["\[FilledSmallSquare]", Alignment -> Baseline, 
+            RGBColor[0.65, 0.65, 0.65]], FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["ItemNumbered"], FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["SubitemNumbered"], FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["SubsubitemNumbered"], FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData[
+          "ItemRomanNumbered", StyleDefinitions -> StyleData["ItemNumbered"]],
+           CellDingbat -> Cell[
+            TextData[{
+              CounterBox[
+              "ItemRomanNumbered", CounterFunction -> RomanNumeral], "."}], 
+            FontWeight -> Bold], CounterIncrements -> "ItemRomanNumbered", 
+          FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["ItemParagraph"], FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["SubitemParagraph"], FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["SubsubitemParagraph"], FontColor -> GrayLevel[0]]}, 
+        Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell["Inline and Special Formatting", "Subsection"], 
+         Cell[
+          StyleData["TimeCode", StyleDefinitions -> StyleData["Text"]], 
+          MenuSortingValue -> 1401, FontSize -> 14, FontColor -> 
+          GrayLevel[0.5]], 
+         Cell[
+          StyleData["Input"], ShowCellBracket -> True, 
+          CellMargins -> {{70, Inherited}, {25, 0}}, FontWeight -> "SemiBold",
+           FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["Output"], ShowCellBracket -> True, 
+          CellMargins -> {{70, Inherited}, {25, 0}}, FontColor -> 
+          GrayLevel[0]], 
+         Cell[
+          StyleData["InputOnly"], ShowCellBracket -> True, 
+          CellMargins -> {{70, Inherited}, {25, 0}}, FontWeight -> "SemiBold",
+           FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["InputHidden", StyleDefinitions -> StyleData["Input"]], 
+          CellEpilog :> (SelectionMove[
+             EvaluationNotebook[], All, GeneratedCell]; 
+           FrontEndTokenExecute["SelectionCloseUnselectedCells"]), 
+          InitializationCell -> True, MenuSortingValue -> 1510, 
+          MenuCommandKey :> "8"], 
+         Cell[
+          StyleData["Code"], ShowCellBracket -> True, 
+          CellMargins -> {{70, Inherited}, {25, 0}}], 
+         Cell[
+          StyleData["Separator"], CellFrame -> {{False, False}, {1.5, False}},
+           CellMargins -> {{70, Inherited}, {25, 0}}, CellFrameColor -> 
+          GrayLevel[0.66], MenuSortingValue -> 10000], 
+         Cell[
+          StyleData["Print"], CellMargins -> {{70, Inherited}, {25, 0}}], 
+         Cell[
+          StyleData["InlineCode"], SpanMaxSize -> 0, FontWeight -> "SemiBold",
+           FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData[
+          "InlineCodeText", StyleDefinitions -> StyleData["InlineCode"]]], 
+         Cell[
+          StyleData[
+          "InlineInput", StyleDefinitions -> StyleData["InlineCode"]]], 
+         Cell[
+          StyleData["InlineFormula"], ShowStringCharacters -> True, 
+          SpanMaxSize -> 0, FontWeight -> "SemiBold", FontColor -> 
+          GrayLevel[0]], 
+         Cell[
+          StyleData["InlineMath"], SpanMaxSize -> 0, FontColor -> 
+          GrayLevel[0]], 
+         Cell[
+          StyleData[
+          "NotebookDownload", StyleDefinitions -> StyleData["Text"]], 
+          CellFrame -> {{0, 0}, {0, 1}}, ShowCellBracket -> False, 
+          CellMargins -> {{27, Inherited}, {100, 20}}, 
+          CellGroupingRules -> {"SectionGrouping", 10}, CloudRenderingMethod -> 
+          "InteractiveBoxes", 
+          CellFrameMargins -> {{Inherited, Inherited}, {Inherited, 20}}, 
+          FontColor -> RGBColor[1, 0.43, 0.13]], 
+         Cell[
+          StyleData[
+          "ExperimentalInput", StyleDefinitions -> StyleData["Input"]], 
+          CellFrame -> True, 
+          StyleKeyMapping -> {"=" -> "WolframAlphaShort", "*" -> "Item"}, 
+          CellFrameColor -> RGBColor[0.9, 0.4, 0.], CellFrameLabels -> {{
+             Cell[
+              BoxData[
+               InterpretationBox[
+                Cell[
+                 BoxData[
+                  RotationBox[
+                  "Experimental", BoxRotation -> 1.5707963267948966`]], 
+                 "Text", LineColor -> RGBColor[0.9, 0.4, 0.], FrontFaceColor -> 
+                 RGBColor[0.9, 0.4, 0.], $CellContext`BackFaceColor -> 
+                 RGBColor[0.9, 0.4, 0.], GraphicsColor -> 
+                 RGBColor[0.9, 0.4, 0.], FontSize -> 10, FontColor -> 
+                 RGBColor[0.9, 0.4, 0.]], 
+                TextCell[
+                 Rotate["Experimental", 90 Degree], "Text", 10, 
+                 RGBColor[0.9, 0.4, 0.]]]]], None}, {None, None}}, 
+          MenuSortingValue -> 1510, FontSize -> 13], 
+         Cell[
+          StyleData["WolframAlphaShort"], ShowCellBracket -> True, 
+          CellMargins -> {{70, Inherited}, {25, 0}}, MenuSortingValue -> 
+          10000], 
+         Cell[
+          StyleData["WolframAlphaLong"], ShowCellBracket -> True, 
+          CellMargins -> {{70, Inherited}, {25, 0}}, MenuSortingValue -> 
+          10000], 
+         Cell[
+          StyleData["ExternalLanguage"], ShowCellBracket -> True, 
+          CellMargins -> {{70, Inherited}, {25, 0}}], 
+         Cell[
+          StyleData["HintHeader", StyleDefinitions -> StyleData["Text"]], 
+          ShowGroupOpener -> True, GroupOpenerInsideFrame -> False, 
+          CellGroupingRules -> {"SectionGrouping", 80}, PageBreakBelow -> 
+          False, FontColor -> RGBColor[1., 0.42745098039215684`, 0.]], 
+         Cell[
+          StyleData["Hint", StyleDefinitions -> StyleData["Text"]], CellFrame -> 
+          True, Background -> RGBColor[1., 0.6, 0.1]], 
+         Cell[
+          StyleData["KeyEvent"], CellFrame -> {{1, 1}, {1, 1}}, 
+          CellFrameMargins -> {{2, 2}, {2, 2}}, CellFrameColor -> 
+          GrayLevel[0.8], MenuSortingValue -> 1402, FontColor -> 
+          GrayLevel[0.36], Background -> GrayLevel[0.96]], 
+         Cell[
+          StyleData["Keyword", StyleDefinitions -> StyleData["Text"]], 
+          MenuSortingValue -> 10000, FontColor -> RGBColor[0.9, 0.4, 0.]], 
+         Cell[
+          StyleData["AuthorNote", StyleDefinitions -> StyleData["Text"]], 
+          CellDingbat -> 
+          StyleBox[
+           "Author note:", "Text", Italic, FontColor -> 
+            RGBColor[0.9, 0.4, 0.], Alignment -> Baseline], 
+          CellMargins -> {{100, 10}, {7, 8}}, FontSlant -> Italic, FontColor -> 
+          GrayLevel[0.4]], 
+         Cell[
+          StyleData["Note"], 
+          CellMargins -> {{
+            0.15 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 0.03 
+             FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {10, 10}}, 
+          CellOpen -> True, LineSpacing -> {1, 3}, CounterIncrements -> 
+          "Note", MenuSortingValue -> 1590, FontSize -> 12, FontSlant -> 
+          "Italic", Background -> GrayLevel[0.85]], 
+         Cell[
+          StyleData["WolframLanguageLogo"], FontColor -> 
+          RGBColor[0.09, 0.16, 0.25]], 
+         Cell[
+          StyleData["Message"], ShowCellBracket -> True]}, Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell["Ungraded Exercise", "Subsection"], 
+         Cell[
+          StyleData[
+          "ExerciseSection", StyleDefinitions -> StyleData["Section"]], 
+          CellMargins -> {{27, Inherited}, {7, 14}}], 
+         Cell[
+          StyleData[
+          "NumberedExerciseSection", StyleDefinitions -> 
+           StyleData["NumberedSection"]], 
+          CellMargins -> {{96, Inherited}, {7, 14}}], 
+         Cell[
+          StyleData[
+          "ExerciseSectionTitleWithSection", StyleDefinitions -> 
+           StyleData["SectionTitleWithSection"]], 
+          CellMargins -> {{96, Inherited}, {7, 14}}], 
+         Cell[
+          StyleData[
+          "ExerciseSubsection", StyleDefinitions -> StyleData["Subsection"]]], 
+         Cell[
+          StyleData[
+          "ExerciseFirstSubsection", StyleDefinitions -> 
+           StyleData["ExerciseSubsection"]], 
+          CellMargins -> {{27, Inherited}, {Inherited, Inherited}}], 
+         Cell[
+          StyleData[
+          "ExerciseSubsubsection", StyleDefinitions -> 
+           StyleData["Subsubsection"]], ShowGroupOpener -> "Inline", 
+          CellMargins -> {{66, Inherited}, {Inherited, Inherited}}, FontColor -> 
+          RGBColor[0.65, 0.65, 0.65]]}, Closed]]}, Open]]}, Visible -> False, 
+  FrontEndVersion -> "14.2 for Mac OS X ARM (64-bit) (December 26, 2024)", 
+  StyleDefinitions -> "PrivateStylesheetFormatting.nb"],
+ExpressionUUID->"52a6381c-a400-4b8c-b498-6cf2030a3019"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Green function"->{
+  Cell[1122, 36, 1626, 49, 99, "Text",ExpressionUUID->"87aad90b-6622-41c8-9f8c-8fbec4a99f3e",
+   CellTags->{"Green function", "Dirac delta function", "distribution"}]},
+ "Dirac delta function"->{
+  Cell[1122, 36, 1626, 49, 99, "Text",ExpressionUUID->"87aad90b-6622-41c8-9f8c-8fbec4a99f3e",
+   CellTags->{"Green function", "Dirac delta function", "distribution"}]},
+ "distribution"->{
+  Cell[1122, 36, 1626, 49, 99, "Text",ExpressionUUID->"87aad90b-6622-41c8-9f8c-8fbec4a99f3e",
+   CellTags->{"Green function", "Dirac delta function", "distribution"}]},
+ "homogenous boundary conditions"->{
+  Cell[2751, 87, 590, 19, 25, "DisplayFormulaNumbered",ExpressionUUID->"513dfcaa-b1d7-4374-9758-10749ab0a154",
+   CellTags->"homogenous boundary conditions"]},
+ "solution"->{
+  Cell[4225, 132, 445, 13, 39, "DisplayFormulaNumbered",ExpressionUUID->"a6e88c7f-72a2-43e8-ab33-1c7290aa76d5",
+   CellTags->"solution"]},
+ "forced simple harmonic oscillator"->{
+  Cell[4839, 152, 383, 12, 25, "DisplayFormulaNumbered",ExpressionUUID->"41c050d3-ca41-467c-bec9-c5ca8f96d1cb",
+   CellTags->"forced simple harmonic oscillator"]},
+ "boundary conditions"->{
+  Cell[5333, 168, 304, 10, 36, "DisplayFormulaNumbered",ExpressionUUID->"caff2947-621a-4813-8a03-8c352ccfc9e7",
+   CellTags->"boundary conditions"]},
+ "region-dependent function"->{
+  Cell[5640, 180, 331, 10, 33, "Text",ExpressionUUID->"32bec7a9-2d83-4140-bf5c-4a25f82a4784",
+   CellTags->"region-dependent function"]},
+ "discontinuous derivative"->{
+  Cell[94647, 3790, 941, 31, 70, "Item",ExpressionUUID->"8bafadc2-1741-4752-8ee6-ac3103477ace",
+   CellTags->"discontinuous derivative"]},
+ "exact solution"->{
+  Cell[96569, 3857, 1280, 48, 70, "Item",ExpressionUUID->"76b83984-665b-4a77-a16e-c81b290be668",
+   CellTags->"exact solution"]},
+ "discretizing equations"->{
+  Cell[100939, 4010, 733, 20, 55, "Text",ExpressionUUID->"51878a0d-07b6-47c4-a1e3-8806b20fc18d",
+   CellGroupingRules->{"SectionGrouping", 55},
+   CellTags->{"discretizing equations", "inverse problem"}]},
+ "inverse problem"->{
+  Cell[100939, 4010, 733, 20, 55, "Text",ExpressionUUID->"51878a0d-07b6-47c4-a1e3-8806b20fc18d",
+   CellGroupingRules->{"SectionGrouping", 55},
+   CellTags->{"discretizing equations", "inverse problem"}]},
+ "equally spaced data points"->{
+  Cell[104444, 4122, 414, 12, 55, "Text",ExpressionUUID->"b2fe4e22-eced-491d-91b1-ae670c6565b1",
+   CellTags->{"equally spaced data points", "trapezoid approximation"}]},
+ "trapezoid approximation"->{
+  Cell[104444, 4122, 414, 12, 55, "Text",ExpressionUUID->"b2fe4e22-eced-491d-91b1-ae670c6565b1",
+   CellTags->{"equally spaced data points", "trapezoid approximation"}]},
+ "Moore-Penrose inverse"->{
+  Cell[104861, 4136, 1299, 41, 79, "Text",ExpressionUUID->"eed45735-e9bd-4a34-b501-2cc5ccadf6f8",
+   CellTags->{"Moore-Penrose inverse", "PseudoInverse"}]},
+ "PseudoInverse"->{
+  Cell[104861, 4136, 1299, 41, 79, "Text",ExpressionUUID->"eed45735-e9bd-4a34-b501-2cc5ccadf6f8",
+   CellTags->{"Moore-Penrose inverse", "PseudoInverse"}]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Green function", 146665, 5682},
+ {"Dirac delta function", 146861, 5685},
+ {"distribution", 147049, 5688},
+ {"homogenous boundary conditions", 147255, 5691},
+ {"solution", 147430, 5694},
+ {"forced simple harmonic oscillator", 147609, 5697},
+ {"boundary conditions", 147799, 5700},
+ {"region-dependent function", 147981, 5703},
+ {"discontinuous derivative", 148150, 5706},
+ {"exact solution", 148310, 5709},
+ {"discretizing equations", 148469, 5712},
+ {"inverse problem", 148697, 5716},
+ {"equally spaced data points", 148936, 5720},
+ {"trapezoid approximation", 149137, 5723},
+ {"Moore-Penrose inverse", 149336, 5726},
+ {"PseudoInverse", 149513, 5729}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 194, 3, 93, "Section",ExpressionUUID->"af2de4d0-c4dc-4604-85bf-e55692c99e3b"],
+Cell[773, 27, 346, 7, 55, "Text",ExpressionUUID->"0f8d29ad-371b-4e11-90a8-35113331b271"],
+Cell[1122, 36, 1626, 49, 99, "Text",ExpressionUUID->"87aad90b-6622-41c8-9f8c-8fbec4a99f3e",
+ CellTags->{"Green function", "Dirac delta function", "distribution"}],
+Cell[2751, 87, 590, 19, 25, "DisplayFormulaNumbered",ExpressionUUID->"513dfcaa-b1d7-4374-9758-10749ab0a154",
+ CellTags->"homogenous boundary conditions"],
+Cell[3344, 108, 285, 4, 55, "Text",ExpressionUUID->"f4a63864-5866-4d60-9792-3e359392d55a"],
+Cell[3632, 114, 590, 16, 55, "Text",ExpressionUUID->"d2db8dc3-3ae8-4576-bcac-a7b100fd9135"],
+Cell[4225, 132, 445, 13, 39, "DisplayFormulaNumbered",ExpressionUUID->"a6e88c7f-72a2-43e8-ab33-1c7290aa76d5",
+ CellTags->"solution"],
+Cell[4673, 147, 163, 3, 33, "Text",ExpressionUUID->"2495db21-d7fa-427b-93d4-31604ef476f9"],
+Cell[4839, 152, 383, 12, 25, "DisplayFormulaNumbered",ExpressionUUID->"41c050d3-ca41-467c-bec9-c5ca8f96d1cb",
+ CellTags->"forced simple harmonic oscillator"],
+Cell[5225, 166, 105, 0, 33, "Text",ExpressionUUID->"1fcbea3b-3400-4b67-bdc4-56ecb4d7e14c"],
+Cell[5333, 168, 304, 10, 36, "DisplayFormulaNumbered",ExpressionUUID->"caff2947-621a-4813-8a03-8c352ccfc9e7",
+ CellTags->"boundary conditions"],
+Cell[5640, 180, 331, 10, 33, "Text",ExpressionUUID->"32bec7a9-2d83-4140-bf5c-4a25f82a4784",
+ CellTags->"region-dependent function"],
+Cell[5974, 192, 1033, 32, 50, "DisplayFormulaNumbered",ExpressionUUID->"92fe24fc-f922-4822-9e8a-2e9f090ae1a4"],
+Cell[CellGroupData[{
+Cell[7032, 228, 232, 8, 30, "Item",ExpressionUUID->"652607da-ba27-4911-ba83-10455acaa4ee"],
+Cell[7267, 238, 360, 11, 26, "Input",ExpressionUUID->"c7876a6a-3671-42a7-8cb2-2b0dc03f00a3"],
+Cell[7630, 251, 363, 12, 26, "Input",ExpressionUUID->"f90ebf1f-66c3-4185-be15-ccd008577899"]
+}, Closed]],
+Cell[8008, 266, 104, 0, 29, "Text",ExpressionUUID->"931bc423-f3b7-4aec-b027-8371d76b2893"],
+Cell[CellGroupData[{
+Cell[8137, 270, 374, 11, 38, "Input",ExpressionUUID->"732c5d65-431a-48ea-9a74-ce5573385eeb"],
+Cell[8514, 283, 114, 1, 38, "Output",ExpressionUUID->"f88e6e51-04e3-4e6e-9d60-1319017fac19"]
+}, Open  ]],
+Cell[8643, 287, 260, 7, 33, "Text",ExpressionUUID->"659f579f-a738-415c-bbc8-d2309708b81f"],
+Cell[8906, 296, 423, 12, 53, "Input",ExpressionUUID->"8fc02d2d-1601-483a-9460-7024177e6b38"],
+Cell[9332, 310, 423, 12, 53, "Input",ExpressionUUID->"687acc44-cade-4442-8334-1df7168d1020"],
+Cell[9758, 324, 1086, 36, 54, "Item",ExpressionUUID->"1c0a7fc9-8995-4681-befc-ef8dae01c13f"],
+Cell[10847, 362, 107, 0, 33, "Text",ExpressionUUID->"4f8cc81b-f9bd-4e08-9c99-385e2013fef9"],
+Cell[10957, 364, 361, 11, 59, "Input",ExpressionUUID->"95aeb4fb-3096-4599-a49e-98416a8be684"],
+Cell[11321, 377, 189, 3, 33, "Text",ExpressionUUID->"075e8455-619d-4d24-90b2-0f5cb440d453"],
+Cell[CellGroupData[{
+Cell[11535, 384, 380, 12, 38, "Input",ExpressionUUID->"aaf07c1d-fdfd-4d10-8c5e-c303c7fe258e"],
+Cell[11918, 398, 114, 1, 38, "Output",ExpressionUUID->"6144c93a-01af-4e10-bd61-6759ca360702"]
+}, Open  ]],
+Cell[12047, 402, 105, 0, 33, "Text",ExpressionUUID->"988bf5bf-f7bb-4cd0-9ebf-5dd82cdec99a"],
+Cell[CellGroupData[{
+Cell[12177, 406, 574, 18, 53, "Input",ExpressionUUID->"152b8421-2954-4f58-b35a-5fb189056249"],
+Cell[12754, 426, 114, 1, 38, "Output",ExpressionUUID->"efee96cb-0faa-4a6f-9429-9ac61c19683b"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12905, 432, 442, 14, 50, "Item",ExpressionUUID->"2383cb15-cb69-4fca-a69f-d5ca448f9855"],
+Cell[CellGroupData[{
+Cell[13372, 450, 456, 14, 53, "Input",ExpressionUUID->"8cbc4089-2985-4ae9-816f-264bf92340cb"],
+Cell[13831, 466, 44268, 1411, 241, 28980, 1158, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"e5ceee96-6415-4fa8-b327-b5c86dbde201"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[58136, 1882, 619, 18, 53, "Input",ExpressionUUID->"16024b2a-7521-4d86-8a07-4b4ee3f9c8f9"],
+Cell[58758, 1902, 35589, 1875, 296, 26444, 1723, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"6c51fe0c-fcd4-4593-8c65-e7c649ee3e39"]
+}, Open  ]]
+}, Open  ]],
+Cell[94374, 3781, 270, 7, 33, "Text",ExpressionUUID->"2615ad4e-8b83-4714-90b8-6eb472337fc8"],
+Cell[94647, 3790, 941, 31, 70, "Item",ExpressionUUID->"8bafadc2-1741-4752-8ee6-ac3103477ace",
+ CellTags->"discontinuous derivative"],
+Cell[95591, 3823, 105, 0, 33, "Text",ExpressionUUID->"d6de4d5d-3da6-4189-8f91-cae7b82c9511"],
+Cell[CellGroupData[{
+Cell[95721, 3827, 697, 22, 56, "Input",ExpressionUUID->"08339591-9a4b-4325-8766-d6beac9f6d66"],
+Cell[96421, 3851, 111, 1, 38, "Output",ExpressionUUID->"3e17bb65-c2d6-48cb-92bb-5c3d0f002642"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[96569, 3857, 1280, 48, 70, "Item",ExpressionUUID->"76b83984-665b-4a77-a16e-c81b290be668",
+ CellTags->"exact solution"],
+Cell[97852, 3907, 312, 9, 39, "Input",ExpressionUUID->"5ff86f74-775a-4750-b6ac-29d8f65438ca"]
+}, Open  ]],
+Cell[98179, 3919, 116, 0, 33, "Text",ExpressionUUID->"d47e50b7-b712-49fb-bbd5-053abfa27ada"],
+Cell[CellGroupData[{
+Cell[98320, 3923, 805, 24, 58, "Input",ExpressionUUID->"1c07cb57-3fd7-47bb-9394-9cfcf9bb90f9"],
+Cell[99128, 3949, 660, 19, 56, "Output",ExpressionUUID->"094f8fb6-46dc-4b34-9c68-2c0a4f1c3238"]
+}, Open  ]],
+Cell[99803, 3971, 119, 0, 33, "Text",ExpressionUUID->"22ab51be-ace3-4ecc-9a73-d3ac937e7ca8"],
+Cell[CellGroupData[{
+Cell[99947, 3975, 335, 10, 38, "Input",ExpressionUUID->"92cc05e9-de85-44bb-af8e-d6b3459504b1"],
+Cell[100285, 3987, 114, 1, 38, "Output",ExpressionUUID->"2929ffe9-1f8a-4b21-a251-1ad19b21f797"]
+}, Open  ]],
+Cell[100414, 3991, 99, 0, 33, "Text",ExpressionUUID->"81e0794f-8076-4cad-a255-8806c4af18b9"],
+Cell[CellGroupData[{
+Cell[100538, 3995, 247, 7, 53, "Input",ExpressionUUID->"342d86a2-8976-4acc-99cd-f793957026a8"],
+Cell[100788, 4004, 114, 1, 38, "Output",ExpressionUUID->"375f8b21-d54d-4ceb-bfc5-fe3eac9dcf2f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[100939, 4010, 733, 20, 55, "Text",ExpressionUUID->"51878a0d-07b6-47c4-a1e3-8806b20fc18d",
+ CellGroupingRules->{"SectionGrouping", 55},
+ CellTags->{"discretizing equations", "inverse problem"}],
+Cell[101675, 4032, 1265, 38, 50, "DisplayFormulaNumbered",ExpressionUUID->"202ac570-99b9-4704-b86f-27a938424dd1"],
+Cell[102943, 4072, 803, 23, 56, "Text",ExpressionUUID->"f0a39ea4-09a6-4f28-8357-f11ba03d952d"],
+Cell[103749, 4097, 692, 23, 41, "DisplayFormulaNumbered",ExpressionUUID->"f63ee81f-ecfc-4193-bf80-693b7d9f9f40"],
+Cell[104444, 4122, 414, 12, 55, "Text",ExpressionUUID->"b2fe4e22-eced-491d-91b1-ae670c6565b1",
+ CellTags->{"equally spaced data points", "trapezoid approximation"}],
+Cell[104861, 4136, 1299, 41, 79, "Text",ExpressionUUID->"eed45735-e9bd-4a34-b501-2cc5ccadf6f8",
+ CellTags->{"Moore-Penrose inverse", "PseudoInverse"}],
+Cell[106163, 4179, 1968, 64, 98, "Item",ExpressionUUID->"f08dad84-adbf-4ef6-971e-226bcacddc69"],
+Cell[108134, 4245, 231, 6, 33, "Text",ExpressionUUID->"8ba7a02b-6b2e-458a-91d7-dea07aff9768"],
+Cell[108368, 4253, 340, 11, 53, "Input",ExpressionUUID->"2e6f1bff-722d-4a41-9212-086c38713566"],
+Cell[108711, 4266, 244, 7, 33, "Text",ExpressionUUID->"a8700a20-4b1a-4495-9f32-5aacb934db0f"],
+Cell[108958, 4275, 229, 7, 38, "Input",ExpressionUUID->"b44c3ce5-ca58-4e85-bf8a-aa47380ad612"],
+Cell[109190, 4284, 235, 6, 34, "Text",ExpressionUUID->"40a9d678-4dc9-48da-9934-eae4964cb04f"],
+Cell[109428, 4292, 453, 14, 53, "Input",ExpressionUUID->"23e9f301-2ee2-4040-8cd8-0e933c9533a4"],
+Cell[109884, 4308, 297, 8, 34, "Text",ExpressionUUID->"4ae9c4dd-6126-4cff-a82a-4de72280392a"],
+Cell[110184, 4318, 454, 15, 38, "Input",ExpressionUUID->"cd54f6e8-460a-4562-8602-a0410f283100"],
+Cell[110641, 4335, 151, 2, 33, "Text",ExpressionUUID->"63eda6ea-63ca-4cb1-ae91-e7baf7a8b205"],
+Cell[CellGroupData[{
+Cell[110817, 4341, 300, 9, 38, "Input",ExpressionUUID->"7a422dcf-4232-42f7-9a64-656416a8e164"],
+Cell[111120, 4352, 908, 18, 60, "Output",ExpressionUUID->"5bb989b6-4f88-49b4-9fbc-55e20458f78f"]
+}, Open  ]],
+Cell[112043, 4373, 570, 19, 31, "Item",ExpressionUUID->"017412e7-93dc-4561-9e4b-e43f32a9a598"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[112650, 4397, 198, 5, 33, "Text",ExpressionUUID->"6e5a5437-7c72-4585-94ef-1459eb8424be",
+ CellGroupingRules->{"SectionGrouping", 55}],
+Cell[CellGroupData[{
+Cell[112873, 4406, 786, 23, 53, "Input",ExpressionUUID->"d3c00c69-2fe7-4067-a0c3-9d851f4f893f"],
+Cell[113662, 4431, 18559, 924, 185, 15094, 865, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"bfae9e70-413d-40d4-b51c-48e590ae645f"]
+}, Open  ]],
+Cell[132236, 5358, 98, 0, 33, "Text",ExpressionUUID->"2453c27f-85dc-428d-b85e-5444d8e62769"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

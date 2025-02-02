@@ -1,0 +1,4253 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[    169670,       4245]
+NotebookOptionsPosition[    145849,       3762]
+NotebookOutlinePosition[    160410,       4094]
+CellTagsIndexPosition[    160333,       4089]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Computational Physics", "SectionTitle",
+ CellChangeTimes->{{3.927090449719338*^9, 3.927090451995892*^9}},
+ CellTags->
+  "SectionTitle",ExpressionUUID->"5bd2fb71-0f36-497d-b0a5-1260a9b9d527"],
+
+Cell[CellGroupData[{
+
+Cell["Hermite Polynomials", "NumberedSection",
+ CellChangeTimes->{3.927090576982326*^9, 3.927106773610382*^9},
+ CounterAssignments->{{"Subsection", 0}, {"Subsubsection", 0}, {
+   "Exercise", 0}, {
+   "Section", 8}},ExpressionUUID->"7ab84585-c3ed-4260-bf3a-82938e2fbf21"],
+
+Cell["Definition", "Subsection",
+ CellChangeTimes->{{3.9271067843460827`*^9, 
+  3.9271067875197277`*^9}},ExpressionUUID->"0157f05a-1288-4271-9673-\
+712e26c80759"],
+
+Cell[CellGroupData[{
+
+Cell["Orthogonality", "Subsection",
+ CellChangeTimes->{{3.515720577962635*^9, 
+  3.515720581177205*^9}},ExpressionUUID->"5f0607af-0a45-4f3b-b222-\
+c1a077f98b15"],
+
+Cell[TextData[{
+ "The Hermite polynomials, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["H", "n"], "(", "x", ")"}], TraditionalForm]],ExpressionUUID->
+  "08eb041f-2c78-4e3d-b2ac-7eb6f9774530"],
+ " are orthogonal over ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"-", "\[Infinity]"}], "<", "x", "<", "\[Infinity]"}], 
+   TraditionalForm]],ExpressionUUID->"f4ab3d73-cfc5-4424-adbe-be5f2b53f32f"],
+ ", with weight function, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"w", "(", "x", ")"}], "=", 
+    SuperscriptBox["\[ExponentialE]", 
+     RowBox[{"-", 
+      SuperscriptBox["x", "2"]}]]}], TraditionalForm]],ExpressionUUID->
+  "a937772b-dd57-4b22-9522-4ef04d036bdf"],
+ ":"
+}], "MathCaption",
+ CellChangeTimes->{{3.515720336464624*^9, 3.5157203369834557`*^9}, {
+  3.515720422254448*^9, 
+  3.515720449655979*^9}},ExpressionUUID->"168d2f86-784b-480b-a987-\
+a45ee16e882e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{
+     SubsuperscriptBox["\[Integral]", 
+      RowBox[{"-", "\[Infinity]"}], "\[Infinity]"], 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["H", "m"], "(", "x", ")"}], 
+      RowBox[{
+       SubscriptBox["H", "n"], "(", "x", ")"}], 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{"-", 
+        SuperscriptBox["x", "2"]}]], 
+      RowBox[{"\[DifferentialD]", "x"}]}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"m", ",", "0", ",", "3"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"n", ",", "0", ",", "3"}], "}"}]}], "]"}], 
+  TraditionalForm]], "Input",ExpressionUUID->"7a212c7e-1539-4a46-bcbf-\
+5f373194afb7"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      SqrtBox["\[Pi]"], "0", "0", "0"},
+     {"0", 
+      RowBox[{"2", " ", 
+       SqrtBox["\[Pi]"]}], "0", "0"},
+     {"0", "0", 
+      RowBox[{"8", " ", 
+       SqrtBox["\[Pi]"]}], "0"},
+     {"0", "0", "0", 
+      RowBox[{"48", " ", 
+       SqrtBox["\[Pi]"]}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{3.419123882978971*^9, 
+  3.419745252483696*^9},ExpressionUUID->"a08712a2-24df-47bf-9a3c-\
+ca6f40f80093"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Generating Function", "Subsection",
+ CellChangeTimes->{{3.5157205473865223`*^9, 3.5157205659224367`*^9}, {
+  3.927106799900612*^9, 
+  3.927106800167556*^9}},ExpressionUUID->"3666c690-3c09-46b1-b594-\
+b80653d90db3"],
+
+Cell[TextData[{
+ "Generating function for the Hermite polynomials, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["H", "n"], "(", "x", ")"}], TraditionalForm]],ExpressionUUID->
+  "a46f14b6-2488-4045-b090-cdca7316218e"],
+ ":"
+}], "MathCaption",
+ CellChangeTimes->{{3.515720289080431*^9, 
+  3.515720294896245*^9}},ExpressionUUID->"f8e0149b-7cbe-4624-b37f-\
+29b8b307b4c5"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"g", "(", 
+     RowBox[{"s_", ",", "x_"}], ")"}], "=", 
+    SuperscriptBox["\[ExponentialE]", 
+     RowBox[{
+      RowBox[{"-", 
+       SuperscriptBox["s", "2"]}], "+", 
+      RowBox[{"2", " ", "s", " ", "x"}]}]]}], ";"}], 
+  TraditionalForm]], "Input",ExpressionUUID->"781a5e22-5e90-497c-b12a-\
+5c758048ea5b"],
+
+Cell["\<\
+Series expansion of the generating function gives the Hermite polynomials:\
+\>", "MathCaption",
+ CellChangeTimes->{
+  3.515720286347617*^9},ExpressionUUID->"1e09c212-fb19-4c8b-8bfa-\
+f7c8488a130b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"g", "(", 
+    RowBox[{"s", ",", "x"}], ")"}], "+", 
+   SuperscriptBox[
+    RowBox[{"O", "[", "s", "]"}], "5"]}], TraditionalForm]], "Input",
+ CellChangeTimes->{
+  3.515720312866457*^9},ExpressionUUID->"056c51e0-0828-440a-b68b-\
+516616bee451"],
+
+Cell[BoxData[
+ FormBox[
+  InterpretationBox[
+   RowBox[{"1", "+", 
+    RowBox[{"2", " ", "s", " ", "x"}], "+", 
+    RowBox[{
+     SuperscriptBox["s", "2"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"2", " ", 
+        SuperscriptBox["x", "2"]}], "-", "1"}], ")"}]}], "+", 
+    RowBox[{
+     SuperscriptBox["s", "3"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       FractionBox[
+        RowBox[{"4", " ", 
+         SuperscriptBox["x", "3"]}], "3"], "-", 
+       RowBox[{"2", " ", "x"}]}], ")"}]}], "+", 
+    RowBox[{
+     SuperscriptBox["s", "4"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       FractionBox[
+        RowBox[{"2", " ", 
+         SuperscriptBox["x", "4"]}], "3"], "-", 
+       RowBox[{"2", " ", 
+        SuperscriptBox["x", "2"]}], "+", 
+       FractionBox["1", "2"]}], ")"}]}], "+", 
+    InterpretationBox[
+     RowBox[{"O", "(", 
+      SuperscriptBox["s", "5"], ")"}],
+     SeriesData[$CellContext`s, 0, {}, 0, 5, 1],
+     Editable->False]}],
+   SeriesData[$CellContext`s, 0, {
+    1, 2 $CellContext`x, -1 + 2 $CellContext`x^2, (-2) $CellContext`x + 
+     Rational[4, 3] $CellContext`x^3, Rational[1, 2] - 2 $CellContext`x^2 + 
+     Rational[2, 3] $CellContext`x^4}, 0, 5, 1],
+   Editable->False], TraditionalForm]], "Output",
+ CellChangeTimes->{3.4191238708994637`*^9, 3.419745248555526*^9, 
+  3.515720315024067*^9, 
+  3.5158845510938663`*^9},ExpressionUUID->"3152689d-4569-4a68-b637-\
+a733453b6715"]
+}, Open  ]],
+
+Cell["Check:", "MathCaption",
+ CellChangeTimes->{{3.515720328078093*^9, 
+  3.5157203292789183`*^9}},ExpressionUUID->"3828bbaf-5e78-4052-a772-\
+7c730ef7764e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"%", "-", 
+   RowBox[{
+    UnderoverscriptBox["\[Sum]", 
+     RowBox[{"n", "=", "0"}], "4"], 
+    RowBox[{
+     FractionBox[
+      SuperscriptBox["s", "n"], 
+      RowBox[{"n", "!"}]], 
+     RowBox[{
+      SubscriptBox["H", "n"], "(", "x", ")"}]}]}]}], 
+  TraditionalForm]], "Input",
+ CellChangeTimes->{
+  3.419727565772119*^9, {3.515720318250712*^9, 3.515720323041278*^9}, {
+   3.515884572851221*^9, 
+   3.5158845743143873`*^9}},ExpressionUUID->"118cc194-ca58-4127-b63a-\
+ac16843fbc7f"],
+
+Cell[BoxData[
+ FormBox[
+  InterpretationBox[
+   RowBox[{"O", "(", 
+    SuperscriptBox["s", "5"], ")"}],
+   SeriesData[$CellContext`s, 0, {}, 5, 5, 1],
+   Editable->False], TraditionalForm]], "Output",
+ CellChangeTimes->{3.4191238718759947`*^9, 3.419727566734503*^9, 
+  3.419745248656891*^9, 3.51572032455035*^9, 
+  3.515884575134149*^9},ExpressionUUID->"e932b802-54e8-4231-8085-\
+073ea5fb96be"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["General Orthogonality Integral ", "Subsection",
+ CellChangeTimes->{{3.515720577962635*^9, 3.515720581177205*^9}, {
+  3.515720664967168*^9, 3.5157206834548883`*^9}, {3.5157212376433907`*^9, 
+  3.515721241145753*^9}, {3.9271068021074257`*^9, 
+  3.9271068051031103`*^9}},ExpressionUUID->"a4e27403-34c8-4512-addc-\
+9b24120d2764"],
+
+Cell[TextData[{
+ "Assuming that the interchange of integration and summation is justified, we \
+can use the generating function to show that the ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["H", "n"], "(", "x", ")"}], TraditionalForm]],ExpressionUUID->
+  "68ec9500-5ecd-4f36-a9e2-f98d6624253e"],
+ " are orhogonal as follows:"
+}], "Text",
+ CellChangeTimes->{{3.419123910491919*^9, 3.4191239278188057`*^9}, {
+  3.5157206322426243`*^9, 
+  3.515720659671915*^9}},ExpressionUUID->"cb725aef-de38-4abc-bb34-\
+c6bb2039a847"],
+
+Cell[BoxData[
+ FormBox[GridBox[{
+    {
+     RowBox[{
+      RowBox[{
+       SubsuperscriptBox["\[Integral]", 
+        RowBox[{"-", "\[Infinity]"}], "\[Infinity]"], 
+       RowBox[{
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          RowBox[{"-", 
+           SuperscriptBox["s", "2"]}], "+", 
+          RowBox[{"2", " ", "s", " ", "x"}]}]], 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          RowBox[{"-", 
+           SuperscriptBox["t", "2"]}], "+", 
+          RowBox[{"2", " ", "t", " ", "x"}]}]], 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"-", 
+          SuperscriptBox["x", "2"]}]], 
+        RowBox[{"\[DifferentialD]", "x"}]}]}], "\[LongEqual]", 
+      RowBox[{
+       UnderoverscriptBox["\[Sum]", 
+        RowBox[{"m", "=", "0"}], "\[Infinity]"], 
+       RowBox[{
+        UnderoverscriptBox["\[Sum]", 
+         RowBox[{"n", "=", "0"}], "\[Infinity]"], 
+        RowBox[{
+         FractionBox[
+          SuperscriptBox["s", "m"], 
+          RowBox[{"m", "!"}]], 
+         FractionBox[
+          SuperscriptBox["t", "n"], 
+          RowBox[{"n", "!"}]], " ", 
+         RowBox[{
+          SubsuperscriptBox["\[Integral]", 
+           RowBox[{"-", "\[Infinity]"}], "\[Infinity]"], 
+          RowBox[{
+           RowBox[{
+            SubscriptBox["H", "m"], "(", "x", ")"}], 
+           RowBox[{
+            SubscriptBox["H", "n"], "(", "x", ")"}], 
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{"-", 
+             SuperscriptBox["x", "2"]}]], 
+           RowBox[{"\[DifferentialD]", "x"}]}]}]}]}]}]}], 
+     RowBox[{"using", " ", 
+      RowBox[{"g", "(", 
+       RowBox[{"s", ",", "x"}], ")"}]}]},
+    {
+     RowBox[{"\[LongEqual]", 
+      RowBox[{
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{"2", "s", " ", "t"}]], 
+       RowBox[{
+        SubsuperscriptBox["\[Integral]", 
+         RowBox[{"-", "\[Infinity]"}], "\[Infinity]"], 
+        RowBox[{
+         SuperscriptBox["\[ExponentialE]", 
+          RowBox[{"-", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{"x", "-", 
+              RowBox[{"(", 
+               RowBox[{"s", "+", "t"}], ")"}]}], ")"}], "2"]}]], 
+         RowBox[{"\[DifferentialD]", "x"}]}]}]}]}], 
+     RowBox[{"completing", " ", "the", " ", "square"}]},
+    {
+     RowBox[{"\[LongEqual]", 
+      RowBox[{
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{"2", "s", " ", "t"}]], 
+       SqrtBox["\[Pi]"]}]}], 
+     RowBox[{
+      RowBox[{
+       SubsuperscriptBox["\[Integral]", 
+        RowBox[{"-", "\[Infinity]"}], "\[Infinity]"], 
+       RowBox[{
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"-", 
+          SuperscriptBox["x", "2"]}]], 
+        RowBox[{"\[DifferentialD]", "x"}]}]}], "=", 
+      SqrtBox["\[Pi]"]}]},
+    {
+     RowBox[{"\[LongEqual]", 
+      RowBox[{
+       SqrtBox["\[Pi]"], 
+       RowBox[{
+        UnderoverscriptBox["\[Sum]", 
+         RowBox[{"k", "=", "0"}], "\[Infinity]"], 
+        FractionBox[
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{"2", "s", " ", "t"}], ")"}], "k"], 
+         RowBox[{"k", "!"}]]}]}]}], 
+     RowBox[{"expanding", " ", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{"2", "s", " ", "t"}]]}]}
+   }], TraditionalForm]], "DisplayFormula",
+ CellChangeTimes->{{3.419744855224741*^9, 3.419744872950705*^9}},
+ GridBoxOptions->{
+ GridBoxAlignment->{
+  "Columns" -> {{"\[LongEqual]"}}, "ColumnsIndexed" -> {}, 
+   "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+ GridBoxDividers->{"Columns" -> {False, 
+     AbsoluteThickness[0.5], {False}, False}, "ColumnsIndexed" -> {}, 
+   "Rows" -> {{False}}, 
+   "RowsIndexed" -> \
+{}}},ExpressionUUID->"8dae6b1f-cb41-4bd3-8065-5cc8ce5c8bd0"],
+
+Cell[TextData[{
+ "Comparing the powers of ",
+ Cell[BoxData[
+  FormBox["s", TraditionalForm]],ExpressionUUID->
+  "d837ffec-474d-42ca-919b-1832857e1fff"],
+ " and ",
+ Cell[BoxData[
+  FormBox["t", TraditionalForm]],ExpressionUUID->
+  "875c0a71-c33d-4cb9-bf41-6c97dd178e94"],
+ " between the first and last lines of this derivation we see that"
+}], "Text",
+ CellChangeTimes->{{3.515720514150926*^9, 
+  3.515720522098783*^9}},ExpressionUUID->"9814b09e-32c2-4afe-9585-\
+3def014c3117"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    SubsuperscriptBox["\[Integral]", 
+     RowBox[{"-", "\[Infinity]"}], "\[Infinity]"], 
+    RowBox[{
+     RowBox[{
+      SubscriptBox["H", "m"], "(", "x", ")"}], 
+     RowBox[{
+      SubscriptBox["H", "n"], "(", "x", ")"}], 
+     SuperscriptBox["\[ExponentialE]", 
+      RowBox[{"-", 
+       SuperscriptBox["x", "2"]}]], 
+     RowBox[{"\[DifferentialD]", "x"}]}]}], "=", 
+   RowBox[{
+    SuperscriptBox["2", "n"], 
+    RowBox[{"n", "!"}], 
+    SqrtBox["\[Pi]"], 
+    FormBox[
+     SubscriptBox[
+      InterpretationBox["\[Delta]",
+       KroneckerDelta,
+       Editable->False,
+       Selectable->False], 
+      RowBox[{"m", ",", "n"}]],
+     TraditionalForm]}]}], TraditionalForm]], "DisplayFormula",ExpressionUUID->\
+"dac7e53e-c216-415b-a68e-f7ac615ce720"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Application: Matrix Elements", "Subsection",
+ CellChangeTimes->{{3.5157205473865223`*^9, 3.515720549405506*^9}, {
+  3.516344501070609*^9, 3.5163445035071087`*^9}, {3.5163446092647*^9, 
+  3.516344612052792*^9}},ExpressionUUID->"41dbb4ce-1dba-4725-ac6d-\
+b5c16ddbefbc"],
+
+Cell[TextData[{
+ StyleBox["Example",
+  FontWeight->"Bold"],
+ ": Compute the ",
+ StyleBox["matrix element ",
+  FontSlant->"Italic"],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{"\[LeftAngleBracket]", "m", "\[RightBracketingBar]"}], "x", 
+     RowBox[{"\[LeftBracketingBar]", "n", "\[RightAngleBracket]"}]}], "=", 
+    RowBox[{
+     SubsuperscriptBox["\[Integral]", 
+      RowBox[{"-", "\[Infinity]"}], "\[Infinity]"], 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["H", "m"], "(", "x", ")"}], "x", " ", 
+      RowBox[{
+       SubscriptBox["H", "n"], "(", "x", ")"}], 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{"-", 
+        SuperscriptBox["x", "2"]}]], 
+      RowBox[{"\[DifferentialD]", "x"}]}]}]}], TraditionalForm]],
+  ExpressionUUID->"c670a9b5-97b9-4392-95ad-be9c60130a08"],
+ " for general ",
+ Cell[BoxData[
+  FormBox["m", TraditionalForm]],ExpressionUUID->
+  "b42e3f1a-94e0-4bc8-a395-32baaae12a58"],
+ " and ",
+ Cell[BoxData[
+  FormBox["n", TraditionalForm]],ExpressionUUID->
+  "697bbae5-452f-45a5-9c44-588546c37bff"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.4197295032890673`*^9, 3.4197295036777897`*^9}, {
+  3.516344615996518*^9, 
+  3.516344632835538*^9}},ExpressionUUID->"1e8034f9-305e-4886-a451-\
+61723f09d5ec"],
+
+Cell["Compute a table of values:", "MathCaption",
+ CellChangeTimes->{{3.515721808245859*^9, 3.5157218085006647`*^9}, 
+   3.5163445244373198`*^9, {3.516344643770275*^9, 
+   3.516344647890019*^9}},ExpressionUUID->"a33f7fa8-07d7-4538-a040-\
+dcef8cb138fe"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{
+     SubsuperscriptBox["\[Integral]", 
+      RowBox[{"-", "\[Infinity]"}], "\[Infinity]"], 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["H", "m"], "(", "x", ")"}], "x", " ", 
+      RowBox[{
+       SubscriptBox["H", "n"], "(", "x", ")"}], 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{"-", 
+        SuperscriptBox["x", "2"]}]], 
+      RowBox[{"\[DifferentialD]", "x"}]}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"m", ",", "0", ",", "3"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"n", ",", "0", ",", "3"}], "}"}]}], "]"}], 
+  TraditionalForm]], "Input",ExpressionUUID->"9a318eca-67f0-4ba2-b278-\
+fc2e30c7a174"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"0", 
+      SqrtBox["\[Pi]"], "0", "0"},
+     {
+      SqrtBox["\[Pi]"], "0", 
+      RowBox[{"4", " ", 
+       SqrtBox["\[Pi]"]}], "0"},
+     {"0", 
+      RowBox[{"4", " ", 
+       SqrtBox["\[Pi]"]}], "0", 
+      RowBox[{"24", " ", 
+       SqrtBox["\[Pi]"]}]},
+     {"0", "0", 
+      RowBox[{"24", " ", 
+       SqrtBox["\[Pi]"]}], "0"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{3.419745253900037*^9, 
+  3.515884775134386*^9},ExpressionUUID->"2e062be0-45fa-4749-876a-\
+9c6ab4850ea2"]
+}, Open  ]],
+
+Cell["\<\
+We observe that, up to this order, the matrix is symmetric and tridiagonal.\
+\>", "Text",
+ CellChangeTimes->{{3.516344649977552*^9, 
+  3.516344676912383*^9}},ExpressionUUID->"02cb47b6-b821-4cef-b2b4-\
+0bb8ad70f190"],
+
+Cell[TextData[{
+ "Differentiate the generating function with respect to ",
+ Cell[BoxData[
+  FormBox["s", TraditionalForm]],ExpressionUUID->
+  "b89cf74b-b2b9-416c-a5e4-db3bf1092490"],
+ ":"
+}], "MathCaption",
+ CellChangeTimes->{{3.515721818334391*^9, 
+  3.5157218253321447`*^9}},ExpressionUUID->"c799f484-d704-4530-a1fb-\
+d657a7e7ddfc"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  FractionBox[
+   RowBox[{
+    SubscriptBox["\[PartialD]", "s"], 
+    RowBox[{"g", "(", 
+     RowBox[{"s", ",", "x"}], ")"}]}], 
+   RowBox[{"g", "(", 
+    RowBox[{"s", ",", "x"}], ")"}]], TraditionalForm]], "Input",ExpressionUUID\
+->"bb0fe69a-d952-44d4-b12e-1e70faa56e97"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"2", " ", "x"}], "-", 
+   RowBox[{"2", " ", "s"}]}], TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.4197452541927567`*^9},ExpressionUUID->"ed121113-6813-4ab6-b190-\
+3c3d18664422"]
+}, Open  ]],
+
+Cell["Formally,", "Text",
+ CellChangeTimes->{{3.515721830494025*^9, 3.515721831107877*^9}, {
+  3.927108133384094*^9, 
+  3.9271081369380817`*^9}},ExpressionUUID->"34fb56c4-ecdb-45a7-9137-\
+13341608b400"],
+
+Cell[BoxData[
+ FormBox[GridBox[{
+    {
+     RowBox[{
+      RowBox[{
+       SubscriptBox["\[PartialD]", "s"], 
+       RowBox[{
+        UnderoverscriptBox["\[Sum]", 
+         RowBox[{"m", "=", "0"}], "\[Infinity]"], 
+        RowBox[{
+         FractionBox[
+          SuperscriptBox["s", "m"], 
+          RowBox[{"m", "!"}]], 
+         RowBox[{
+          SubscriptBox["H", "m"], "(", "x", ")"}]}]}]}], "\[LongEqual]", 
+      RowBox[{
+       UnderoverscriptBox["\[Sum]", 
+        RowBox[{"m", "=", "1"}], "\[Infinity]"], 
+       RowBox[{
+        FractionBox[
+         SuperscriptBox["s", 
+          RowBox[{"m", "-", "1"}]], 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"m", "-", "1"}], ")"}], "!"}]], 
+        RowBox[{
+         SubscriptBox["H", "m"], "(", "x", ")"}]}]}]}]},
+    {
+     RowBox[{"\[LongEqual]", 
+      RowBox[{
+       UnderoverscriptBox["\[Sum]", 
+        RowBox[{"m", "=", "0"}], "\[Infinity]"], 
+       RowBox[{
+        FractionBox[
+         SuperscriptBox["s", "m"], 
+         RowBox[{"m", "!"}]], 
+        RowBox[{
+         SubscriptBox["H", 
+          RowBox[{"m", "+", "1"}]], "(", "x", ")"}]}]}]}]},
+    {
+     RowBox[{"\[LongEqual]", 
+      RowBox[{"2", " ", 
+       RowBox[{"(", 
+        RowBox[{"x", "-", "s"}], ")"}], 
+       RowBox[{
+        UnderoverscriptBox["\[Sum]", 
+         RowBox[{"m", "=", "0"}], "\[Infinity]"], 
+        RowBox[{
+         FractionBox[
+          SuperscriptBox["s", "m"], 
+          RowBox[{"m", "!"}]], 
+         RowBox[{
+          SubscriptBox["H", "m"], "(", "x", ")"}]}]}]}]}]},
+    {
+     RowBox[{"\[LongEqual]", 
+      RowBox[{
+       RowBox[{"2", " ", 
+        RowBox[{
+         UnderoverscriptBox["\[Sum]", 
+          RowBox[{"m", "=", "0"}], "\[Infinity]"], 
+         RowBox[{
+          FractionBox[
+           SuperscriptBox["s", "m"], 
+           RowBox[{"m", "!"}]], "x", " ", 
+          RowBox[{
+           SubscriptBox["H", "m"], "(", "x", ")"}]}]}]}], "-", 
+       RowBox[{"2", 
+        RowBox[{
+         UnderoverscriptBox["\[Sum]", 
+          RowBox[{"m", "=", "0"}], "\[Infinity]"], 
+         RowBox[{
+          FractionBox[
+           SuperscriptBox["s", 
+            RowBox[{"m", "+", "1"}]], 
+           RowBox[{"m", "!"}]], " ", 
+          RowBox[{
+           SubscriptBox["H", "m"], "(", "x", ")"}]}]}]}]}]}]},
+    {
+     RowBox[{"\[LongEqual]", " ", 
+      RowBox[{
+       RowBox[{
+        UnderoverscriptBox["\[Sum]", 
+         RowBox[{"m", "=", "0"}], "\[Infinity]"], 
+        RowBox[{
+         FractionBox[
+          SuperscriptBox["s", "m"], 
+          RowBox[{"m", "!"}]], "2", "x", " ", 
+         RowBox[{
+          SubscriptBox["H", "m"], "(", "x", ")"}]}]}], "-", 
+       RowBox[{
+        UnderoverscriptBox["\[Sum]", 
+         RowBox[{"m", "=", "1"}], "\[Infinity]"], 
+        RowBox[{
+         FractionBox[
+          SuperscriptBox["s", "m"], 
+          RowBox[{"m", "!"}]], " ", "2", "m", " ", 
+         RowBox[{
+          SubscriptBox["H", 
+           RowBox[{"m", "-", "1"}]], "(", "x", ")"}]}]}]}]}]}
+   }], TraditionalForm]], "DisplayFormula",
+ GridBoxOptions->{
+ GridBoxAlignment->{
+  "Columns" -> {{"\[LongEqual]"}}, "ColumnsIndexed" -> {}, 
+   "Rows" -> {{Baseline}}, 
+   "RowsIndexed" -> \
+{}}},ExpressionUUID->"0116ec93-9333-4433-b4e3-f2cc18e07754"],
+
+Cell[TextData[{
+ "leading to the ",
+ StyleBox["three-term recurrence relation",
+  FontWeight->"Bold"],
+ ","
+}], "Text",
+ CellChangeTimes->{{3.41974495550504*^9, 3.419744964423785*^9}, {
+  3.51634469044741*^9, 3.51634471541366*^9}, {3.516344789529058*^9, 
+  3.51634479120083*^9}, {3.927108141022434*^9, 
+  3.927108142427145*^9}},ExpressionUUID->"01cad952-bb93-4a8b-aa9a-\
+fe04f336cf53"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    SubscriptBox["H", 
+     RowBox[{"m", "+", "1"}]], "(", "x", ")"}], "\[LongEqual]", 
+   RowBox[{
+    RowBox[{"2", " ", "x", " ", 
+     RowBox[{
+      SubscriptBox["H", "m"], "(", "x", ")"}]}], "-", 
+    RowBox[{"2", "m", " ", 
+     RowBox[{
+      SubscriptBox["H", 
+       RowBox[{"m", "-", "1"}]], "(", "x", ")"}]}]}]}], 
+  TraditionalForm]], "DisplayFormula",
+ GridBoxOptions->{
+ GridBoxAlignment->{
+  "Columns" -> {{"\[LongEqual]"}}, "ColumnsIndexed" -> {}, 
+   "Rows" -> {{Baseline}}, 
+   "RowsIndexed" -> \
+{}}},ExpressionUUID->"0f399702-548f-420d-a9a5-f1e1f08efc69"],
+
+Cell["Check the recurrence relation:", "MathCaption",
+ CellChangeTimes->{{3.5163445616264544`*^9, 
+  3.5163445678924294`*^9}},ExpressionUUID->"385ca796-dbc8-409c-83a4-\
+7f26d0c8df19"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"m", ",", 
+       RowBox[{
+        RowBox[{
+         SubscriptBox["H", 
+          RowBox[{"m", "+", "1"}]], "(", "x", ")"}], "\[LongEqual]", 
+        RowBox[{
+         RowBox[{"2", " ", "x", " ", 
+          RowBox[{
+           SubscriptBox["H", "m"], "(", "x", ")"}]}], "-", 
+         RowBox[{"2", "m", " ", 
+          RowBox[{
+           SubscriptBox["H", 
+            RowBox[{"m", "-", "1"}]], "(", "x", ")"}]}]}]}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"m", ",", "0", ",", "3"}], "}"}]}], "]"}], "//", "Simplify"}], 
+  TraditionalForm]], "Input",ExpressionUUID->"c5d5e5a8-81a8-47fd-ae48-\
+838ab68ba937"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"0", "True"},
+     {"1", "True"},
+     {"2", "True"},
+     {"3", "True"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.419745254404701*^9},ExpressionUUID->"505c674e-1c8e-464e-a537-\
+48e942a24c2f"]
+}, Open  ]],
+
+Cell["Use the above recurrence relation in the form", "Text",
+ CellChangeTimes->{{3.516344772138599*^9, 3.516344782401256*^9}, {
+  3.927108101033668*^9, 
+  3.9271081085930643`*^9}},ExpressionUUID->"b6cf512c-5fab-4a22-a80b-\
+260c05a9bcc1"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"x", " ", 
+    RowBox[{
+     SubscriptBox["H", "m"], "(", "x", ")"}]}], "\[LongEqual]", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", "2"], 
+     RowBox[{
+      SubscriptBox["H", 
+       RowBox[{"m", "+", "1"}]], "(", "x", ")"}]}], "+", 
+    RowBox[{"m", " ", 
+     RowBox[{
+      SubscriptBox["H", 
+       RowBox[{"m", "-", "1"}]], "(", "x", ")"}]}]}]}], 
+  TraditionalForm]], "DisplayFormula",
+ CellChangeTimes->{{3.516344737756197*^9, 3.5163447527973843`*^9}, {
+  3.5163448255475883`*^9, 3.516344828256998*^9}},
+ GridBoxOptions->{
+ GridBoxAlignment->{
+  "Columns" -> {{"\[LongEqual]"}}, "ColumnsIndexed" -> {}, 
+   "Rows" -> {{Baseline}}, 
+   "RowsIndexed" -> \
+{}}},ExpressionUUID->"cb967703-c932-4d42-9b56-6773e73efccf"],
+
+Cell[" to simplify the matrix element integral", "Text",
+ CellChangeTimes->{{3.516344772138599*^9, 
+  3.5163447733153667`*^9}},ExpressionUUID->"695ff911-4f33-40fc-93a8-\
+24ea9902f113"],
+
+Cell[BoxData[
+ FormBox[GridBox[{
+    {
+     RowBox[{
+      RowBox[{
+       SubsuperscriptBox["\[Integral]", 
+        RowBox[{"-", "\[Infinity]"}], "\[Infinity]"], 
+       RowBox[{
+        RowBox[{
+         SubscriptBox["H", "m"], "(", "x", ")"}], "x", " ", 
+        RowBox[{
+         SubscriptBox["H", "n"], "(", "x", ")"}], 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"-", 
+          SuperscriptBox["x", "2"]}]], 
+        RowBox[{"\[DifferentialD]", "x"}]}]}], "\[LongEqual]", 
+      RowBox[{
+       RowBox[{
+        FractionBox["1", "2"], 
+        RowBox[{
+         SubsuperscriptBox["\[Integral]", 
+          RowBox[{"-", "\[Infinity]"}], "\[Infinity]"], 
+         RowBox[{
+          RowBox[{
+           SubscriptBox["H", 
+            RowBox[{"m", "+", "1"}]], "(", "x", ")"}], " ", 
+          RowBox[{
+           SubscriptBox["H", "n"], "(", "x", ")"}], 
+          SuperscriptBox["\[ExponentialE]", 
+           RowBox[{"-", 
+            SuperscriptBox["x", "2"]}]], 
+          RowBox[{"\[DifferentialD]", "x"}]}]}]}], "+", 
+       RowBox[{"m", 
+        RowBox[{
+         SubsuperscriptBox["\[Integral]", 
+          RowBox[{"-", "\[Infinity]"}], "\[Infinity]"], 
+         RowBox[{
+          RowBox[{
+           SubscriptBox["H", 
+            RowBox[{"m", "-", "1"}]], "(", "x", ")"}], " ", 
+          RowBox[{
+           SubscriptBox["H", "n"], "(", "x", ")"}], 
+          SuperscriptBox["\[ExponentialE]", 
+           RowBox[{"-", 
+            SuperscriptBox["x", "2"]}]], 
+          RowBox[{"\[DifferentialD]", "x"}]}]}]}]}]}]},
+    {
+     RowBox[{"\[LongEqual]", 
+      RowBox[{
+       SqrtBox["\[Pi]"], 
+       SuperscriptBox["2", 
+        RowBox[{"m", "-", "1"}]], 
+       RowBox[{"m", "!"}], 
+       RowBox[{"(", 
+        FormBox[
+         RowBox[{
+          RowBox[{"2", 
+           RowBox[{"(", 
+            RowBox[{"m", "+", "1"}], ")"}], " ", 
+           SubscriptBox[
+            InterpretationBox["\[Delta]",
+             KroneckerDelta,
+             Editable->False,
+             Selectable->False], 
+            RowBox[{
+             RowBox[{"m", "+", "1"}], ",", "n"}]]}], "+", " ", 
+          SubscriptBox[
+           InterpretationBox["\[Delta]",
+            KroneckerDelta,
+            Editable->False,
+            Selectable->False], 
+           RowBox[{
+            RowBox[{"m", "-", "1"}], ",", "n"}]]}],
+         TraditionalForm], ")"}]}]}]}
+   }], TraditionalForm]], "DisplayFormula",
+ GridBoxOptions->{
+ GridBoxAlignment->{
+  "Columns" -> {{"\[LongEqual]"}}, "ColumnsIndexed" -> {}, 
+   "Rows" -> {{Baseline}}, 
+   "RowsIndexed" -> \
+{}}},ExpressionUUID->"51bf4d84-fe1e-4194-b32b-92b81ae0d9bf"],
+
+Cell["Check the matrix elements:", "MathCaption",
+ CellChangeTimes->{{3.5163445616264544`*^9, 
+  3.516344593909412*^9}},ExpressionUUID->"fc4fd7f3-7daa-4e29-a70e-\
+1468d7874649"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{
+     SqrtBox["\[Pi]"], 
+     SuperscriptBox["2", 
+      RowBox[{"m", "-", "1"}]], 
+     RowBox[{"m", "!"}], 
+     RowBox[{"(", 
+      FormBox[
+       RowBox[{
+        RowBox[{"2", 
+         RowBox[{"(", 
+          RowBox[{"m", "+", "1"}], ")"}], " ", 
+         SubscriptBox[
+          InterpretationBox["\[Delta]",
+           KroneckerDelta,
+           Editable->False,
+           Selectable->False], 
+          RowBox[{
+           RowBox[{"m", "+", "1"}], ",", "n"}]]}], "+", " ", 
+        SubscriptBox[
+         InterpretationBox["\[Delta]",
+          KroneckerDelta,
+          Editable->False,
+          Selectable->False], 
+         RowBox[{
+          RowBox[{"m", "-", "1"}], ",", "n"}]]}],
+       TraditionalForm], ")"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"m", ",", "0", ",", "3"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"n", ",", "0", ",", "3"}], "}"}]}], "]"}], 
+  TraditionalForm]], "Input",ExpressionUUID->"4f40d668-ddb4-4485-a0d2-\
+9d829183eff9"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"0", 
+      SqrtBox["\[Pi]"], "0", "0"},
+     {
+      SqrtBox["\[Pi]"], "0", 
+      RowBox[{"4", " ", 
+       SqrtBox["\[Pi]"]}], "0"},
+     {"0", 
+      RowBox[{"4", " ", 
+       SqrtBox["\[Pi]"]}], "0", 
+      RowBox[{"24", " ", 
+       SqrtBox["\[Pi]"]}]},
+     {"0", "0", 
+      RowBox[{"24", " ", 
+       SqrtBox["\[Pi]"]}], "0"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{3.419745254550948*^9, 
+  3.515885023752146*^9},ExpressionUUID->"dea2f41b-574e-42d2-8cbb-\
+85d0761f4035"]
+}, Open  ]],
+
+Cell["Use freeform input to look-up the recurrence relations", "CodeText",
+ CellChangeTimes->{{3.927108068572163*^9, 3.927108076233119*^9}, {
+  3.9271081518709373`*^9, 
+  3.927108169917181*^9}},ExpressionUUID->"07a1b738-fe43-486f-9e40-\
+c816a56dff57"],
+
+Cell[BoxData[
+ NamespaceBox["LinguisticAssistant",
+  DynamicModuleBox[{Typeset`query$$ = 
+   "what are the recurrence relations for the Hermite polynomials?", 
+   Typeset`boxes$$ = RowBox[{
+     TemplateBox[{
+       TemplateBox[{"\"Hermite function\"", "\" \"", 
+         TemplateBox[{
+           SubscriptBox[
+            StyleBox["\"H\"", Italic, StripOnInput -> False], "\"\[Nu]\""], 
+           "\"(\"", 
+           StyleBox["\"z\"", Italic, StripOnInput -> False], "\")\""}, "Row", 
+          DisplayFunction -> (RowBox[{
+             TemplateSlotSequence[1, "\[InvisibleSpace]"]}]& ), 
+          InterpretationFunction -> (RowBox[{"Row", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 TemplateSlotSequence[1, ","], "}"}], ",", 
+               RowBox[{"BaseStyle", "\[Rule]", "\"TraditionalForm\""}]}], 
+             "]"}]& ), BaseStyle -> "TraditionalForm"]}, "RowDefault"], 
+       RowBox[{"Entity", "[", 
+         RowBox[{"\"MathematicalFunction\"", ",", "\"HermiteH\""}], "]"}], 
+       "\"Entity[\\\"MathematicalFunction\\\", \\\"HermiteH\\\"]\"", 
+       "\"mathematical function\""}, "Entity"], "[", 
+     TemplateBox[{"\"difference equations\"", 
+       RowBox[{"EntityProperty", "[", 
+         RowBox[{"\"MathematicalFunction\"", ",", "\"DifferenceEquations\""}],
+          "]"}], "\"EntityProperty[\\\"MathematicalFunction\\\", \
+\\\"DifferenceEquations\\\"]\""}, "EntityProperty"], "]"}], 
+   Typeset`allassumptions$$ = {}, Typeset`assumptions$$ = {}, 
+   Typeset`open$$ = {1}, Typeset`querystate$$ = {
+   "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+    1.687173`6.678704610224536, "Messages" -> {}}}, 
+   DynamicBox[ToBoxes[
+     AlphaIntegration`LinguisticAssistantBoxes["", 4, Automatic, 
+      Dynamic[Typeset`query$$], 
+      Dynamic[Typeset`boxes$$], 
+      Dynamic[Typeset`allassumptions$$], 
+      Dynamic[Typeset`assumptions$$], 
+      Dynamic[Typeset`open$$], 
+      Dynamic[Typeset`querystate$$]], StandardForm],
+    ImageSizeCache->{380.0623046875, {8.48974609375, 14.291915893554688`}},
+    TrackedSymbols:>{
+     Typeset`query$$, Typeset`boxes$$, Typeset`allassumptions$$, 
+      Typeset`assumptions$$, Typeset`open$$, Typeset`querystate$$}],
+   DynamicModuleValues:>{},
+   UndoTrackedVariables:>{Typeset`open$$}],
+  BaseStyle->"Deploy",
+  DeleteWithContents->True,
+  Editable->False,
+  SelectWithContents->True]], "Input",
+ CellChangeTimes->{3.927107941448421*^9},
+ CellID->1018866338,ExpressionUUID->"fa66e73e-c855-47c2-86e4-09af79b6e395"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  TemplateBox[{
+    TemplateBox[{"\"Hermite function\"", "\" \"", 
+      TemplateBox[{
+        SubscriptBox[
+         StyleBox["\"H\"", Italic, StripOnInput -> False], "\"\[Nu]\""], 
+        "\"(\"", 
+        StyleBox["\"z\"", Italic, StripOnInput -> False], "\")\""}, "Row", 
+       DisplayFunction -> (RowBox[{
+          TemplateSlotSequence[1, "\[InvisibleSpace]"]}]& ), 
+       InterpretationFunction -> (RowBox[{"Row", "[", 
+          RowBox[{
+            RowBox[{"{", 
+              TemplateSlotSequence[1, ","], "}"}], ",", 
+            RowBox[{"BaseStyle", "\[Rule]", "\"TraditionalForm\""}]}], 
+          "]"}]& ), BaseStyle -> "TraditionalForm"]}, "RowDefault"], 
+    RowBox[{"Entity", "[", 
+      RowBox[{"\"MathematicalFunction\"", ",", "\"HermiteH\""}], "]"}], 
+    "\"Entity[\\\"MathematicalFunction\\\", \\\"HermiteH\\\"]\"", 
+    "\"mathematical function\""},
+   "Entity"], "[", 
+  TemplateBox[{"\"difference equations\"", 
+    RowBox[{"EntityProperty", "[", 
+      RowBox[{"\"MathematicalFunction\"", ",", "\"DifferenceEquations\""}], 
+      "]"}], "\"EntityProperty[\\\"MathematicalFunction\\\", \
+\\\"DifferenceEquations\\\"]\""},
+   "EntityProperty"], "]"}]], "Input",
+ CellChangeTimes->{
+  3.927107941448421*^9, {3.927108031338529*^9, 3.9271080347943287`*^9}},
+ CellID->12965236,ExpressionUUID->"b8458558-b73f-48d6-b998-767668b5227d"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"Function", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[FormalNu]", ",", "\[FormalZ]"}], "}"}], ",", 
+     RowBox[{"Inactivate", "[", 
+      RowBox[{
+       RowBox[{"HermiteH", "[", 
+        RowBox[{"\[FormalNu]", ",", "\[FormalZ]"}], "]"}], "\[Equal]", 
+       RowBox[{
+        FractionBox[
+         RowBox[{"\[FormalZ]", " ", 
+          RowBox[{"HermiteH", "[", 
+           RowBox[{
+            RowBox[{"\[FormalNu]", "+", "1"}], ",", "\[FormalZ]"}], "]"}]}], 
+         RowBox[{"\[FormalNu]", "+", "1"}]], "-", 
+        FractionBox[
+         RowBox[{"HermiteH", "[", 
+          RowBox[{
+           RowBox[{"\[FormalNu]", "+", "2"}], ",", "\[FormalZ]"}], "]"}], 
+         RowBox[{"2", " ", 
+          RowBox[{"(", 
+           RowBox[{"\[FormalNu]", "+", "1"}], ")"}]}]]}]}], "]"}]}], "]"}], 
+   ",", 
+   RowBox[{"Function", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[FormalNu]", ",", "\[FormalZ]"}], "}"}], ",", 
+     RowBox[{"Inactivate", "[", 
+      RowBox[{
+       RowBox[{"HermiteH", "[", 
+        RowBox[{"\[FormalNu]", ",", "\[FormalZ]"}], "]"}], "\[Equal]", 
+       RowBox[{
+        RowBox[{"2", " ", "\[FormalZ]", " ", 
+         RowBox[{"HermiteH", "[", 
+          RowBox[{
+           RowBox[{"\[FormalNu]", "-", "1"}], ",", "\[FormalZ]"}], "]"}]}], 
+        "-", 
+        RowBox[{"2", " ", 
+         RowBox[{"(", 
+          RowBox[{"\[FormalNu]", "-", "1"}], ")"}], " ", 
+         RowBox[{"HermiteH", "[", 
+          RowBox[{
+           RowBox[{"\[FormalNu]", "-", "2"}], ",", "\[FormalZ]"}], 
+          "]"}]}]}]}], "]"}]}], "]"}], ",", 
+   RowBox[{"Function", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[FormalNu]", ",", "\[FormalZ]"}], "}"}], ",", 
+     RowBox[{"Inactivate", "[", 
+      RowBox[{
+       RowBox[{"HermiteH", "[", 
+        RowBox[{"\[FormalNu]", ",", "\[FormalZ]"}], "]"}], "\[Equal]", 
+       FractionBox[
+        RowBox[{
+         RowBox[{"2", " ", "\[FormalNu]", " ", 
+          RowBox[{"HermiteH", "[", 
+           RowBox[{
+            RowBox[{"\[FormalNu]", "-", "1"}], ",", "\[FormalZ]"}], "]"}]}], 
+         "+", 
+         RowBox[{"HermiteH", "[", 
+          RowBox[{
+           RowBox[{"\[FormalNu]", "+", "1"}], ",", "\[FormalZ]"}], "]"}]}], 
+        RowBox[{"2", " ", "\[FormalZ]"}]]}], "]"}]}], "]"}], ",", 
+   RowBox[{"Function", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "\[FormalNu]", ",", "\[FormalZ]", ",", "\[ScriptCapitalC]", ",", 
+       "\[FormalN]", ",", "\[FormalP]"}], "}"}], ",", 
+     RowBox[{"Inactivate", "[", 
+      TemplateBox[{
+        RowBox[{
+          RowBox[{"HermiteH", "[", 
+            RowBox[{"\[FormalNu]", ",", "\[FormalZ]"}], "]"}], "\[Equal]", 
+          RowBox[{
+            RowBox[{
+              RowBox[{
+                SubscriptBox["\[ScriptCapitalC]", "\[FormalN]"], "[", 
+                RowBox[{"\[FormalNu]", ",", "\[FormalZ]"}], "]"}], " ", 
+              RowBox[{"HermiteH", "[", 
+                RowBox[{
+                  RowBox[{"\[FormalNu]", "+", "\[FormalN]"}], ",", 
+                  "\[FormalZ]"}], "]"}]}], "-", 
+            FractionBox[
+             RowBox[{
+               RowBox[{
+                 SubscriptBox["\[ScriptCapitalC]", 
+                  RowBox[{"\[FormalN]", "-", "1"}]], "[", 
+                 RowBox[{"\[FormalNu]", ",", "\[FormalZ]"}], "]"}], " ", 
+               RowBox[{"HermiteH", "[", 
+                 RowBox[{
+                   RowBox[{"\[FormalNu]", "+", "\[FormalN]", "+", "1"}], ",", 
+                   "\[FormalZ]"}], "]"}]}], 
+             RowBox[{"2", " ", 
+               RowBox[{"(", 
+                 RowBox[{"\[FormalN]", "+", "\[FormalNu]"}], ")"}]}]]}]}], 
+        InterpretationBox[
+         DynamicModuleBox[{Typeset`open = False}, 
+          TemplateBox[{"Expression", 
+            StyleBox[
+             TagBox[
+              TooltipBox["\"condition\"", 
+               TagBox[
+                RowBox[{
+                  RowBox[{"\[FormalN]", "\[Element]", 
+                    TemplateBox[{}, "Integers"]}], "&&", 
+                  RowBox[{"\[FormalN]", ">", "0"}], "&&", 
+                  RowBox[{
+                    RowBox[{
+                    SubscriptBox["\[ScriptCapitalC]", "0"], "[", 
+                    RowBox[{"\[FormalNu]", ",", "\[FormalZ]"}], "]"}], 
+                    "\[Equal]", "1"}], "&&", 
+                  RowBox[{
+                    RowBox[{
+                    SubscriptBox["\[ScriptCapitalC]", "1"], "[", 
+                    RowBox[{"\[FormalNu]", ",", "\[FormalZ]"}], "]"}], 
+                    "\[Equal]", 
+                    FractionBox["\[FormalZ]", 
+                    RowBox[{"\[FormalNu]", "+", "1"}]]}], "&&", 
+                  RowBox[{
+                    RowBox[{
+                    SubscriptBox["\[ScriptCapitalC]", "\[FormalP]"], "[", 
+                    RowBox[{"\[FormalNu]", ",", "\[FormalZ]"}], "]"}], 
+                    "\[Equal]", 
+                    RowBox[{
+                    FractionBox[
+                    RowBox[{"\[FormalZ]", " ", 
+                    RowBox[{
+                    SubscriptBox["\[ScriptCapitalC]", 
+                    RowBox[{"\[FormalP]", "-", "1"}]], "[", 
+                    RowBox[{"\[FormalNu]", ",", "\[FormalZ]"}], "]"}]}], 
+                    RowBox[{"\[FormalP]", "+", "\[FormalNu]"}]], "-", 
+                    FractionBox[
+                    RowBox[{
+                    SubscriptBox["\[ScriptCapitalC]", 
+                    RowBox[{"\[FormalP]", "-", "2"}]], "[", 
+                    RowBox[{"\[FormalNu]", ",", "\[FormalZ]"}], "]"}], 
+                    RowBox[{"2", " ", 
+                    RowBox[{"(", 
+                    RowBox[{"\[FormalP]", "-", "1", "+", "\[FormalNu]"}], 
+                    ")"}]}]]}]}], "&&", 
+                  RowBox[{"\[FormalP]", "\[Element]", 
+                    TemplateBox[{}, "Integers"]}], "&&", 
+                  RowBox[{"\[FormalP]", ">", "1"}]}], Short[#, 7]& ]], 
+              Annotation[#, 
+               Short[
+                And[
+                 Element[\[FormalN], Integers], \[FormalN] > 0, 
+                 Subscript[$CellContext`\[ScriptCapitalC], 
+                   0][\[FormalNu], \[FormalZ]] == 1, 
+                 Subscript[$CellContext`\[ScriptCapitalC], 
+                   1][\[FormalNu], \[FormalZ]] == \[FormalZ]/(\[FormalNu] + 
+                  1), Subscript[$CellContext`\[ScriptCapitalC], \[FormalP]][\
+\[FormalNu], \[FormalZ]] == (\[FormalZ]/(\[FormalP] + \[FormalNu])) 
+                   Subscript[$CellContext`\[ScriptCapitalC], \[FormalP] - 
+                    1][\[FormalNu], \[FormalZ]] - (1/(
+                   2 (\[FormalP] - 1 + \[FormalNu]))) 
+                  Subscript[$CellContext`\[ScriptCapitalC], \[FormalP] - 
+                    2][\[FormalNu], \[FormalZ]], 
+                 Element[\[FormalP], Integers], \[FormalP] > 1], 7], 
+               "Tooltip"]& ], "IconizedCustomName", StripOnInput -> False], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Head: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+                 TagBox["And", "IconizedItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Byte count: \"", "IconizedLabel"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["2144", "IconizedItem"]}]}}, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+             "Column", 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+            Dynamic[Typeset`open]}, "IconizedObject"]], 
+         And[
+          Element[\[FormalN], Integers], \[FormalN] > 0, 
+          Subscript[$CellContext`\[ScriptCapitalC], 
+            0][\[FormalNu], \[FormalZ]] == 1, 
+          Subscript[$CellContext`\[ScriptCapitalC], 
+            1][\[FormalNu], \[FormalZ]] == \[FormalZ]/(\[FormalNu] + 1), 
+          Subscript[$CellContext`\[ScriptCapitalC], \[FormalP]][\[FormalNu], \
+\[FormalZ]] == (\[FormalZ]/(\[FormalP] + \[FormalNu])) 
+            Subscript[$CellContext`\[ScriptCapitalC], \[FormalP] - 
+              1][\[FormalNu], \[FormalZ]] - (1/(
+            2 (\[FormalP] - 1 + \[FormalNu]))) 
+           Subscript[$CellContext`\[ScriptCapitalC], \[FormalP] - 
+             2][\[FormalNu], \[FormalZ]], 
+          Element[\[FormalP], Integers], \[FormalP] > 1], SelectWithContents -> 
+         True, Selectable -> False]},
+       "ConditionalExpression"], "]"}]}], "]"}], ",", 
+   RowBox[{"Function", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "\[FormalNu]", ",", "\[FormalZ]", ",", "\[ScriptCapitalC]", ",", 
+       "\[FormalN]", ",", "\[FormalP]"}], "}"}], ",", 
+     RowBox[{"Inactivate", "[", 
+      TemplateBox[{
+        RowBox[{
+          RowBox[{"HermiteH", "[", 
+            RowBox[{"\[FormalNu]", ",", "\[FormalZ]"}], "]"}], "\[Equal]", 
+          RowBox[{
+            RowBox[{
+              RowBox[{
+                SubscriptBox["\[ScriptCapitalC]", "\[FormalN]"], "[", 
+                RowBox[{"\[FormalNu]", ",", "\[FormalZ]"}], "]"}], " ", 
+              RowBox[{"HermiteH", "[", 
+                RowBox[{
+                  RowBox[{"\[FormalNu]", "-", "\[FormalN]"}], ",", 
+                  "\[FormalZ]"}], "]"}]}], "-", 
+            RowBox[{"2", " ", 
+              RowBox[{"(", 
+                RowBox[{"\[FormalNu]", "-", "\[FormalN]"}], ")"}], " ", 
+              RowBox[{
+                SubscriptBox["\[ScriptCapitalC]", 
+                 RowBox[{"\[FormalN]", "-", "1"}]], "[", 
+                RowBox[{"\[FormalNu]", ",", "\[FormalZ]"}], "]"}], " ", 
+              RowBox[{"HermiteH", "[", 
+                RowBox[{
+                  RowBox[{"\[FormalNu]", "-", "\[FormalN]", "-", "1"}], ",", 
+                  "\[FormalZ]"}], "]"}]}]}]}], 
+        InterpretationBox[
+         DynamicModuleBox[{Typeset`open = False}, 
+          TemplateBox[{"Expression", 
+            StyleBox[
+             TagBox[
+              TooltipBox["\"condition\"", 
+               TagBox[
+                RowBox[{
+                  RowBox[{"\[FormalN]", "\[Element]", 
+                    TemplateBox[{}, "Integers"]}], "&&", 
+                  RowBox[{"\[FormalN]", ">", "0"}], "&&", 
+                  RowBox[{
+                    RowBox[{
+                    SubscriptBox["\[ScriptCapitalC]", "0"], "[", 
+                    RowBox[{"\[FormalNu]", ",", "\[FormalZ]"}], "]"}], 
+                    "\[Equal]", "1"}], "&&", 
+                  RowBox[{
+                    RowBox[{
+                    SubscriptBox["\[ScriptCapitalC]", "1"], "[", 
+                    RowBox[{"\[FormalNu]", ",", "\[FormalZ]"}], "]"}], 
+                    "\[Equal]", 
+                    RowBox[{"2", " ", "\[FormalZ]"}]}], "&&", 
+                  RowBox[{
+                    RowBox[{
+                    SubscriptBox["\[ScriptCapitalC]", "\[FormalP]"], "[", 
+                    RowBox[{"\[FormalNu]", ",", "\[FormalZ]"}], "]"}], 
+                    "\[Equal]", 
+                    RowBox[{
+                    RowBox[{"2", " ", "\[FormalZ]", " ", 
+                    RowBox[{
+                    SubscriptBox["\[ScriptCapitalC]", 
+                    RowBox[{"\[FormalP]", "-", "1"}]], "[", 
+                    RowBox[{"\[FormalNu]", ",", "\[FormalZ]"}], "]"}]}], "-", 
+                    
+                    RowBox[{"2", " ", 
+                    RowBox[{"(", 
+                    RowBox[{"1", "-", "\[FormalP]", "+", "\[FormalNu]"}], 
+                    ")"}], " ", 
+                    RowBox[{
+                    SubscriptBox["\[ScriptCapitalC]", 
+                    RowBox[{"\[FormalP]", "-", "2"}]], "[", 
+                    RowBox[{"\[FormalNu]", ",", "\[FormalZ]"}], "]"}]}]}]}], 
+                  "&&", 
+                  RowBox[{"\[FormalP]", "\[Element]", 
+                    TemplateBox[{}, "Integers"]}], "&&", 
+                  RowBox[{"\[FormalP]", ">", "1"}]}], Short[#, 7]& ]], 
+              Annotation[#, 
+               Short[
+                And[
+                 Element[\[FormalN], Integers], \[FormalN] > 0, 
+                 Subscript[$CellContext`\[ScriptCapitalC], 
+                   0][\[FormalNu], \[FormalZ]] == 1, 
+                 Subscript[$CellContext`\[ScriptCapitalC], 
+                   1][\[FormalNu], \[FormalZ]] == 2 \[FormalZ], 
+                 Subscript[$CellContext`\[ScriptCapitalC], \[FormalP]][\
+\[FormalNu], \[FormalZ]] == 
+                 2 \[FormalZ] 
+                   Subscript[$CellContext`\[ScriptCapitalC], \[FormalP] - 
+                    1][\[FormalNu], \[FormalZ]] - 
+                  2 (1 - \[FormalP] + \[FormalNu]) 
+                  Subscript[$CellContext`\[ScriptCapitalC], \[FormalP] - 
+                    2][\[FormalNu], \[FormalZ]], 
+                 Element[\[FormalP], Integers], \[FormalP] > 1], 7], 
+               "Tooltip"]& ], "IconizedCustomName", StripOnInput -> False], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Head: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+                 TagBox["And", "IconizedItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Byte count: \"", "IconizedLabel"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["1736", "IconizedItem"]}]}}, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+             "Column", 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+            Dynamic[Typeset`open]}, "IconizedObject"]], 
+         And[
+          Element[\[FormalN], Integers], \[FormalN] > 0, 
+          Subscript[$CellContext`\[ScriptCapitalC], 
+            0][\[FormalNu], \[FormalZ]] == 1, 
+          Subscript[$CellContext`\[ScriptCapitalC], 
+            1][\[FormalNu], \[FormalZ]] == 2 \[FormalZ], 
+          Subscript[$CellContext`\[ScriptCapitalC], \[FormalP]][\[FormalNu], \
+\[FormalZ]] == 
+          2 \[FormalZ] 
+            Subscript[$CellContext`\[ScriptCapitalC], \[FormalP] - 
+              1][\[FormalNu], \[FormalZ]] - 2 (1 - \[FormalP] + \[FormalNu]) 
+           Subscript[$CellContext`\[ScriptCapitalC], \[FormalP] - 
+             2][\[FormalNu], \[FormalZ]], 
+          Element[\[FormalP], Integers], \[FormalP] > 1], SelectWithContents -> 
+         True, Selectable -> False]},
+       "ConditionalExpression"], "]"}]}], "]"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.927108044655698*^9},ExpressionUUID->"ae8faa4a-12f9-417f-a422-\
+0344de52d88a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     TemplateBox[{"\[FormalNu]", "\[FormalZ]"},
+      "HermiteH"], "\[LongEqual]", 
+     FractionBox[
+      RowBox[{
+       RowBox[{"2", " ", "\[FormalNu]", " ", 
+        TemplateBox[{
+          RowBox[{"\[FormalNu]", "-", "1"}], "\[FormalZ]"},
+         "HermiteH"]}], "+", 
+       TemplateBox[{
+         RowBox[{"\[FormalNu]", "+", "1"}], "\[FormalZ]"},
+        "HermiteH"]}], 
+      RowBox[{"2", " ", "\[FormalZ]"}]]}], "/.", 
+    RowBox[{"\[FormalNu]", "->", 
+     RowBox[{"3", "/", "2"}]}]}], "//", "FullSimplify"}], 
+  TraditionalForm]], "Input",
+ CellChangeTimes->{3.9271082118366003`*^9, 
+  3.927108291121566*^9},ExpressionUUID->"02c1706c-4805-49cf-86e6-\
+c8e12aecc61f"],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{
+  3.92710829176775*^9},ExpressionUUID->"f2dd8818-e054-48db-9639-0262a7455f58"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"\[FormalZ]", " ", 
+      TemplateBox[{"\[FormalNu]", "\[FormalZ]"},
+       "HermiteH"]}], "\[LongEqual]", 
+     RowBox[{
+      RowBox[{
+       FractionBox["1", "2"], 
+       TemplateBox[{
+         RowBox[{"\[FormalNu]", "+", "1"}], "\[FormalZ]"},
+        "HermiteH"]}], "+", 
+      RowBox[{"\[FormalNu]", " ", 
+       TemplateBox[{
+         RowBox[{"\[FormalNu]", "-", "1"}], "\[FormalZ]"},
+        "HermiteH"]}]}]}], "/.", 
+    RowBox[{"\[FormalNu]", "->", 
+     RowBox[{"3", "/", "2"}]}]}], "//", "FullSimplify"}], 
+  TraditionalForm]], "Input",
+ CellChangeTimes->{{3.9271082118366003`*^9, 
+  3.9271082855685472`*^9}},ExpressionUUID->"f8399b4a-5e50-4a8d-ac5c-\
+1339083bb6e7"],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{{3.9271082721568947`*^9, 
+  3.9271082861406803`*^9}},ExpressionUUID->"c964b8e5-cb43-45a5-bcca-\
+b7c3e26ae152"]
+}, Open  ]],
+
+Cell[BoxData[
+ NamespaceBox["LinguisticAssistant",
+  DynamicModuleBox[{Typeset`query$$ = 
+   "what are the addition formulas for the Hermite polynomials?", 
+   Typeset`boxes$$ = RowBox[{
+     TemplateBox[{
+       TemplateBox[{"\"Hermite function\"", "\" \"", 
+         TemplateBox[{
+           SubscriptBox[
+            StyleBox["\"H\"", Italic, StripOnInput -> False], "\"\[Nu]\""], 
+           "\"(\"", 
+           StyleBox["\"z\"", Italic, StripOnInput -> False], "\")\""}, "Row", 
+          DisplayFunction -> (RowBox[{
+             TemplateSlotSequence[1, "\[InvisibleSpace]"]}]& ), 
+          InterpretationFunction -> (RowBox[{"Row", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 TemplateSlotSequence[1, ","], "}"}], ",", 
+               RowBox[{"BaseStyle", "\[Rule]", "\"TraditionalForm\""}]}], 
+             "]"}]& ), BaseStyle -> "TraditionalForm"]}, "RowDefault"], 
+       RowBox[{"Entity", "[", 
+         RowBox[{"\"MathematicalFunction\"", ",", "\"HermiteH\""}], "]"}], 
+       "\"Entity[\\\"MathematicalFunction\\\", \\\"HermiteH\\\"]\"", 
+       "\"mathematical function\""}, "Entity"], "[", 
+     TemplateBox[{"\"addition formulas\"", 
+       RowBox[{"EntityProperty", "[", 
+         RowBox[{"\"MathematicalFunction\"", ",", "\"AdditionFormulas\""}], 
+         "]"}], "\"EntityProperty[\\\"MathematicalFunction\\\", \
+\\\"AdditionFormulas\\\"]\""}, "EntityProperty"], "]"}], 
+   Typeset`allassumptions$$ = {}, Typeset`assumptions$$ = {}, 
+   Typeset`open$$ = {1}, Typeset`querystate$$ = {
+   "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+    3.056207`6.936727759601592, "Messages" -> {}}}, 
+   DynamicBox[ToBoxes[
+     AlphaIntegration`LinguisticAssistantBoxes["", 4, Automatic, 
+      Dynamic[Typeset`query$$], 
+      Dynamic[Typeset`boxes$$], 
+      Dynamic[Typeset`allassumptions$$], 
+      Dynamic[Typeset`assumptions$$], 
+      Dynamic[Typeset`open$$], 
+      Dynamic[Typeset`querystate$$]], StandardForm],
+    ImageSizeCache->{364.17412109375, {8.48974609375, 14.291915893554688`}},
+    TrackedSymbols:>{
+     Typeset`query$$, Typeset`boxes$$, Typeset`allassumptions$$, 
+      Typeset`assumptions$$, Typeset`open$$, Typeset`querystate$$}],
+   DynamicModuleValues:>{},
+   UndoTrackedVariables:>{Typeset`open$$}],
+  BaseStyle->"Deploy",
+  DeleteWithContents->True,
+  Editable->False,
+  SelectWithContents->True]], "Input",
+ CellChangeTimes->{3.927107941448421*^9},
+ CellID->529813619,ExpressionUUID->"56df7a6a-b0d7-4774-a3a8-16a0ed87db9d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  TemplateBox[{
+    TemplateBox[{"\"Hermite function\"", "\" \"", 
+      TemplateBox[{
+        SubscriptBox[
+         StyleBox["\"H\"", Italic, StripOnInput -> False], "\"\[Nu]\""], 
+        "\"(\"", 
+        StyleBox["\"z\"", Italic, StripOnInput -> False], "\")\""}, "Row", 
+       DisplayFunction -> (RowBox[{
+          TemplateSlotSequence[1, "\[InvisibleSpace]"]}]& ), 
+       InterpretationFunction -> (RowBox[{"Row", "[", 
+          RowBox[{
+            RowBox[{"{", 
+              TemplateSlotSequence[1, ","], "}"}], ",", 
+            RowBox[{"BaseStyle", "\[Rule]", "\"TraditionalForm\""}]}], 
+          "]"}]& ), BaseStyle -> "TraditionalForm"]}, "RowDefault"], 
+    RowBox[{"Entity", "[", 
+      RowBox[{"\"MathematicalFunction\"", ",", "\"HermiteH\""}], "]"}], 
+    "\"Entity[\\\"MathematicalFunction\\\", \\\"HermiteH\\\"]\"", 
+    "\"mathematical function\""},
+   "Entity"], "[", 
+  TemplateBox[{"\"addition formulas\"", 
+    RowBox[{"EntityProperty", "[", 
+      RowBox[{"\"MathematicalFunction\"", ",", "\"AdditionFormulas\""}], 
+      "]"}], "\"EntityProperty[\\\"MathematicalFunction\\\", \
+\\\"AdditionFormulas\\\"]\""},
+   "EntityProperty"], "]"}]], "Input",
+ CellChangeTimes->{
+  3.927107941448421*^9, {3.927108395552932*^9, 3.927108418807369*^9}},
+ CellID->1090258009,ExpressionUUID->"fe0ab0b4-2c7d-4ae5-bdb2-7d263e6f781b"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[FormalNu]", ",", "\[FormalZ]1", ",", "\[FormalZ]2"}], "}"}], 
+     "\[Function]", 
+     RowBox[{"Inactivate", "[", 
+      RowBox[{
+       TemplateBox[{"\[FormalNu]", 
+         RowBox[{"\[FormalZ]1", "-", "\[FormalZ]2"}]},
+        "HermiteH"], "\[LongEqual]", 
+       RowBox[{
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"\[FormalZ]2", " ", 
+          RowBox[{"(", 
+           RowBox[{"\[FormalZ]2", "-", 
+            RowBox[{"2", " ", "\[FormalZ]1"}]}], ")"}]}]], " ", 
+        RowBox[{
+         UnderoverscriptBox["\[Sum]", 
+          RowBox[{"\[FormalK]", "=", "0"}], "\[Infinity]"], 
+         FractionBox[
+          RowBox[{
+           SuperscriptBox["\[FormalZ]2", "\[FormalK]"], " ", 
+           TemplateBox[{
+             RowBox[{"\[FormalK]", "+", "\[FormalNu]"}], "\[FormalZ]1"},
+            "HermiteH"]}], 
+          RowBox[{"\[FormalK]", "!"}]]}]}]}], "]"}]}], ",", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[FormalNu]", ",", "\[FormalZ]1", ",", "\[FormalZ]2"}], "}"}], 
+     "\[Function]", 
+     RowBox[{"Inactivate", "[", 
+      RowBox[{
+       TemplateBox[{"\[FormalNu]", 
+         RowBox[{"\[FormalZ]1", "-", "\[FormalZ]2"}]},
+        "HermiteH"], "\[LongEqual]", 
+       RowBox[{
+        UnderoverscriptBox["\[Sum]", 
+         RowBox[{"\[FormalK]", "=", "0"}], "\[Infinity]"], 
+        FractionBox[
+         RowBox[{
+          TemplateBox[{
+            RowBox[{"\[FormalNu]", "-", "\[FormalK]"}], "\[FormalZ]1"},
+           "HermiteH"], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            SuperscriptBox["2", "\[FormalK]"], " ", 
+            SuperscriptBox["\[FormalZ]2", "\[FormalK]"], " ", 
+            TemplateBox[{
+              RowBox[{"-", "\[FormalNu]"}], "\[FormalK]"},
+             "Pochhammer"]}], ")"}]}], 
+         RowBox[{"\[FormalK]", "!"}]]}]}], "]"}]}], ",", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[FormalN]", ",", "\[FormalZ]1", ",", "\[FormalZ]2"}], "}"}], 
+     "\[Function]", 
+     RowBox[{"Inactivate", "[", 
+      TemplateBox[{
+        RowBox[{
+          TemplateBox[{"\[FormalN]", 
+            RowBox[{"\[FormalZ]1", "+", "\[FormalZ]2"}]}, "HermiteH"], 
+          "\[LongEqual]", 
+          FractionBox[
+           RowBox[{
+             UnderoverscriptBox["\[Sum]", 
+              RowBox[{"\[FormalK]", "=", "0"}], "\[FormalN]"], 
+             RowBox[{
+               TemplateBox[{"\[FormalN]", "\[FormalK]"}, "Binomial"], " ", 
+               TemplateBox[{"\[FormalK]", 
+                 RowBox[{"\[FormalZ]1", " ", 
+                   SqrtBox["2"]}]}, "HermiteH"], " ", 
+               TemplateBox[{
+                 RowBox[{"\[FormalN]", "-", "\[FormalK]"}], 
+                 RowBox[{"\[FormalZ]2", " ", 
+                   SqrtBox["2"]}]}, "HermiteH"]}]}], 
+           SuperscriptBox["2", 
+            RowBox[{"\[FormalN]", "/", "2"}]]]}], 
+        RowBox[{
+          RowBox[{"\[FormalN]", "\[Element]", 
+            TemplateBox[{}, "Integers"]}], "\[And]", 
+          RowBox[{"\[FormalN]", "\[GreaterEqual]", "0"}]}]},
+       "ConditionalExpression"], "]"}]}], ",", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[FormalN]", ",", "\[FormalZ]1", ",", "\[FormalZ]2"}], "}"}], 
+     "\[Function]", 
+     RowBox[{"Inactivate", "[", 
+      TemplateBox[{
+        RowBox[{
+          TemplateBox[{"\[FormalN]", 
+            RowBox[{"\[FormalZ]1", "+", "\[FormalZ]2"}]}, "HermiteH"], 
+          "\[LongEqual]", 
+          RowBox[{
+            UnderoverscriptBox["\[Sum]", 
+             RowBox[{"\[FormalK]", "=", "0"}], "\[FormalN]"], 
+            RowBox[{
+              TemplateBox[{"\[FormalN]", "\[FormalK]"}, "Binomial"], " ", 
+              SuperscriptBox["2", 
+               RowBox[{"\[FormalN]", "-", "\[FormalK]"}]], " ", 
+              SuperscriptBox["\[FormalZ]2", 
+               RowBox[{"\[FormalN]", "-", "\[FormalK]"}]], " ", 
+              TemplateBox[{"\[FormalK]", "\[FormalZ]1"}, "HermiteH"]}]}]}], 
+        RowBox[{
+          RowBox[{"\[FormalN]", "\[Element]", 
+            TemplateBox[{}, "Integers"]}], "\[And]", 
+          RowBox[{"\[FormalN]", "\[GreaterEqual]", "0"}]}]},
+       "ConditionalExpression"], "]"}]}], ",", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "\[FormalNu]", ",", "\[FormalZ]1", ",", "\[FormalAlpha]", ",", 
+       "\[FormalZ]2"}], "}"}], "\[Function]", 
+     RowBox[{"Inactivate", "[", 
+      RowBox[{
+       TemplateBox[{"\[FormalNu]", 
+         RowBox[{
+           RowBox[{"\[FormalZ]1", " ", 
+             RowBox[{"cos", "(", "\[FormalAlpha]", ")"}]}], "+", 
+           RowBox[{"\[FormalZ]2", " ", 
+             RowBox[{"sin", "(", "\[FormalAlpha]", ")"}]}]}]},
+        "HermiteH"], "\[LongEqual]", 
+       RowBox[{
+        RowBox[{
+         SuperscriptBox["cos", "\[FormalNu]"], "(", "\[FormalAlpha]", ")"}], 
+        " ", 
+        RowBox[{
+         UnderoverscriptBox["\[Sum]", 
+          RowBox[{"\[FormalK]", "=", "0"}], "\[Infinity]"], 
+         FractionBox[
+          RowBox[{
+           TemplateBox[{"\[FormalK]", "\[FormalZ]2"},
+            "HermiteH"], " ", 
+           TemplateBox[{
+             RowBox[{"\[FormalNu]", "-", "\[FormalK]"}], "\[FormalZ]1"},
+            "HermiteH"], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{"-", 
+                RowBox[{"tan", "(", "\[FormalAlpha]", ")"}]}], ")"}], 
+              "\[FormalK]"], " ", 
+             TemplateBox[{
+               RowBox[{"-", "\[FormalNu]"}], "\[FormalK]"},
+              "Pochhammer"]}], ")"}]}], 
+          RowBox[{"\[FormalK]", "!"}]]}]}]}], "]"}]}], ",", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "\[FormalN]", ",", "\[FormalZ]1", ",", "\[FormalAlpha]", ",", 
+       "\[FormalZ]2"}], "}"}], "\[Function]", 
+     RowBox[{"Inactivate", "[", 
+      TemplateBox[{
+        RowBox[{
+          TemplateBox[{"\[FormalN]", 
+            RowBox[{
+              RowBox[{"\[FormalZ]1", " ", 
+                RowBox[{"cos", "(", "\[FormalAlpha]", ")"}]}], "+", 
+              RowBox[{"\[FormalZ]2", " ", 
+                RowBox[{"sin", "(", "\[FormalAlpha]", ")"}]}]}]}, "HermiteH"],
+           "\[LongEqual]", 
+          RowBox[{
+            RowBox[{"\[FormalN]", "!"}], " ", 
+            RowBox[{
+              UnderoverscriptBox["\[Sum]", 
+               RowBox[{"\[FormalK]", "=", "0"}], "\[FormalN]"], 
+              FractionBox[
+               RowBox[{
+                 RowBox[{
+                   SuperscriptBox["cos", "\[FormalK]"], "(", "\[FormalAlpha]",
+                    ")"}], " ", 
+                 RowBox[{
+                   SuperscriptBox["sin", 
+                    RowBox[{"\[FormalN]", "-", "\[FormalK]"}]], "(", 
+                   "\[FormalAlpha]", ")"}], " ", 
+                 TemplateBox[{"\[FormalK]", "\[FormalZ]1"}, "HermiteH"], " ", 
+                 
+                 TemplateBox[{
+                   RowBox[{"\[FormalN]", "-", "\[FormalK]"}], "\[FormalZ]2"}, 
+                  "HermiteH"]}], 
+               RowBox[{
+                 RowBox[{"\[FormalK]", "!"}], " ", 
+                 RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"\[FormalN]", "-", "\[FormalK]"}], ")"}], 
+                   "!"}]}]]}]}]}], 
+        RowBox[{
+          RowBox[{"\[FormalN]", "\[Element]", 
+            TemplateBox[{}, "Integers"]}], "\[And]", 
+          RowBox[{"\[FormalN]", "\[GreaterEqual]", "0"}]}]},
+       "ConditionalExpression"], "]"}]}]}], "}"}], TraditionalForm]], "Output",\
+
+ CellChangeTimes->{{3.927108368265497*^9, 
+  3.927108421901993*^9}},ExpressionUUID->"7303621e-38b1-4ad0-bf7b-\
+8df26615f6b7"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["***Discovery using Built-in Data***", "Subsection",
+ CellChangeTimes->{{3.9271074867098627`*^9, 
+  3.9271075203933153`*^9}},ExpressionUUID->"f6e02a52-aec8-4759-918f-\
+440d89eaef10"],
+
+Cell["***can use built-in tools to determine ODE?", "Text",
+ CellChangeTimes->{{3.927106841303817*^9, 3.927106871008451*^9}, {
+  3.927106996163044*^9, 
+  3.9271069966469097`*^9}},ExpressionUUID->"008f0097-28b2-452a-a132-\
+80b0f64ca538"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DifferentialRootReduce", "[", 
+  RowBox[{
+   RowBox[{"HermiteH", "[", 
+    RowBox[{"n", ",", "x"}], "]"}], ",", "x"}], "]"}]], "Input",
+ CellChangeTimes->{{3.927106910142284*^9, 3.9271069148485823`*^9}, {
+  3.9271069537988033`*^9, 
+  3.9271069634264727`*^9}},ExpressionUUID->"00e04e44-8b63-4ca4-9e27-\
+35f06c14c040"],
+
+Cell[BoxData[
+ RowBox[{
+  InterpretationBox[
+   TemplateBox[<|"head" -> "DifferentialRoot", "big" -> GridBox[{{
+         RowBox[{
+           RowBox[{
+             RowBox[{"2", " ", "n", " ", 
+               RowBox[{"\[FormalY]", "[", "\[FormalX]", "]"}]}], "-", 
+             RowBox[{"2", " ", "\[FormalX]", " ", 
+               RowBox[{
+                 SuperscriptBox[
+                 "\[FormalY]", "\[Prime]", MultilineFunction -> None], "[", 
+                 "\[FormalX]", "]"}]}], "+", 
+             RowBox[{
+               SuperscriptBox[
+               "\[FormalY]", "\[Prime]\[Prime]", MultilineFunction -> None], 
+               "[", "\[FormalX]", "]"}]}], "\[Equal]", "0"}]}, {
+         RowBox[{
+           RowBox[{"\[FormalY]", "[", "0", "]"}], "\[Equal]", 
+           FractionBox[
+            RowBox[{
+              SuperscriptBox["2", "n"], " ", 
+              SqrtBox["\[Pi]"]}], 
+            RowBox[{"Gamma", "[", 
+              FractionBox[
+               RowBox[{"1", "-", "n"}], "2"], "]"}]]}]}, {
+         RowBox[{
+           RowBox[{
+             SuperscriptBox[
+             "\[FormalY]", "\[Prime]", MultilineFunction -> None], "[", "0", 
+             "]"}], "\[Equal]", 
+           FractionBox[
+            RowBox[{
+              SuperscriptBox["2", "n"], " ", "n", " ", 
+              SqrtBox["\[Pi]"]}], 
+            RowBox[{"Gamma", "[", 
+              FractionBox[
+               RowBox[{"2", "-", "n"}], "2"], "]"}]]}]}}, 
+       BaseStyle -> {"HolonomicInnerGrid"}], "small" -> RowBox[{
+        SuperscriptBox[
+        "\[FormalY]", "\[Prime]\[Prime]", MultilineFunction -> None], "[", 
+        "\[FormalX]", "]"}], "branchcuts" -> "None"|>,
+    "HolonomicDisplay"],
+   DifferentialRoot[
+    Function[{\[FormalY], \[FormalX]}, {
+     2 $CellContext`n \[FormalY][\[FormalX]] - 2 \[FormalX] 
+       Derivative[1][\[FormalY]][\[FormalX]] + 
+       Derivative[2][\[FormalY]][\[FormalX]] == 0, \[FormalY][0] == 
+      2^$CellContext`n Pi^Rational[1, 2]/Gamma[
+       Rational[1, 2] (1 - $CellContext`n)], Derivative[1][\[FormalY]][0] == 
+      2^$CellContext`n $CellContext`n Pi^Rational[1, 2]/Gamma[
+       Rational[1, 2] (2 - $CellContext`n)]}]]], "[", "x", "]"}]], "Output",
+ CellChangeTimes->{
+  3.927106964527443*^9},ExpressionUUID->"a5f4a23e-186e-4f71-a318-\
+7671efc44fa6"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MathematicalFunctionData", "[", 
+  RowBox[{"\"\<HermiteH\>\"", ",", "\"\<DifferentialEquations\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.9271072482681704`*^9, 
+  3.92710725471918*^9}},ExpressionUUID->"6f6d73be-97de-4078-8ada-\
+dec675fc9d7f"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "\[FormalW]", ",", "\[FormalZ]", ",", "\[FormalNu]", ",", "\[FormalC]1",
+        ",", "\[FormalC]2"}], "}"}], "\[Function]", 
+     RowBox[{"Inactivate", "[", 
+      TemplateBox[{
+        RowBox[{
+          RowBox[{
+            RowBox[{"2", " ", "\[FormalNu]", " ", 
+              RowBox[{"\[FormalW]", "(", "\[FormalZ]", ")"}]}], "-", 
+            RowBox[{"2", " ", "\[FormalZ]", " ", 
+              RowBox[{
+                SuperscriptBox[
+                "\[FormalW]", "\[Prime]", MultilineFunction -> None], "(", 
+                "\[FormalZ]", ")"}]}], "+", 
+            RowBox[{
+              SuperscriptBox[
+              "\[FormalW]", "\[Prime]\[Prime]", MultilineFunction -> None], 
+              "(", "\[FormalZ]", ")"}]}], "\[LongEqual]", "0"}], 
+        RowBox[{
+          RowBox[{"\[FormalW]", "(", "\[FormalZ]", ")"}], "\[LongEqual]", 
+          RowBox[{
+            RowBox[{"\[FormalC]2", " ", 
+              SuperscriptBox["\[ExponentialE]", 
+               SuperscriptBox["\[FormalZ]", "2"]], " ", 
+              TemplateBox[{
+                RowBox[{
+                  RowBox[{"-", "\[FormalNu]"}], "-", "1"}], 
+                RowBox[{"\[ImaginaryI]", " ", "\[FormalZ]"}]}, "HermiteH"]}], 
+            "+", 
+            RowBox[{"\[FormalC]1", " ", 
+              TemplateBox[{"\[FormalNu]", "\[FormalZ]"}, "HermiteH"]}]}]}]},
+       "ConditionalExpression"], "]"}]}], ",", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "\[FormalW]", ",", "\[FormalZ]", ",", "\[FormalNu]", ",", "\[FormalC]1",
+        ",", "\[FormalC]2"}], "}"}], "\[Function]", 
+     RowBox[{"Inactivate", "[", 
+      TemplateBox[{
+        RowBox[{
+          RowBox[{
+            RowBox[{"2", " ", "\[FormalNu]", " ", 
+              RowBox[{"\[FormalW]", "(", "\[FormalZ]", ")"}]}], "-", 
+            RowBox[{"2", " ", "\[FormalZ]", " ", 
+              RowBox[{
+                SuperscriptBox[
+                "\[FormalW]", "\[Prime]", MultilineFunction -> None], "(", 
+                "\[FormalZ]", ")"}]}], "+", 
+            RowBox[{
+              SuperscriptBox[
+              "\[FormalW]", "\[Prime]\[Prime]", MultilineFunction -> None], 
+              "(", "\[FormalZ]", ")"}]}], "\[LongEqual]", "0"}], 
+        InterpretationBox[
+         DynamicModuleBox[{Typeset`open = False}, 
+          TemplateBox[{"Expression", 
+            StyleBox[
+             TagBox[
+              TooltipBox["\"condition\"", 
+               TagBox[
+                RowBox[{
+                  RowBox[{"\[FormalW]", "(", "\[FormalZ]", ")"}], 
+                  "\[LongEqual]", 
+                  RowBox[{
+                    RowBox[{"\[FormalC]1", " ", 
+                    TemplateBox[{"\[FormalNu]", "\[FormalZ]"}, "HermiteH"]}], 
+                    "+", 
+                    RowBox[{"\[FormalC]2", " ", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"\[FormalZ]", " ", 
+                    TemplateBox[{
+                    FractionBox[
+                    RowBox[{"1", "-", "\[FormalNu]"}], "2"], 
+                    FractionBox["3", "2"], 
+                    SuperscriptBox["\[FormalZ]", "2"]}, 
+                    "Hypergeometric1F1"]}], "+", 
+                    TemplateBox[{
+                    RowBox[{"-", 
+                    FractionBox["\[FormalNu]", "2"]}], 
+                    FractionBox["1", "2"], 
+                    SuperscriptBox["\[FormalZ]", "2"]}, 
+                    "Hypergeometric1F1"]}], ")"}]}]}]}], Short[#, 7]& ]], 
+              Annotation[#, 
+               
+               Short[\[FormalW][\[FormalZ]] == $CellContext`\[FormalC]1 
+                  HermiteH[\[FormalNu], \[FormalZ]] + \
+$CellContext`\[FormalC]2 (\[FormalZ] 
+                    Hypergeometric1F1[(1 - \[FormalNu])/2, 3/2, \[FormalZ]^2] + 
+                   Hypergeometric1F1[-(\[FormalNu]/2), 1/2, \[FormalZ]^2]), 
+                7], "Tooltip"]& ], "IconizedCustomName", StripOnInput -> 
+             False], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Head: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+                 TagBox["Equal", "IconizedItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Byte count: \"", "IconizedLabel"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["1536", "IconizedItem"]}]}}, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+             "Column", 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+            Dynamic[Typeset`open]}, 
+           "IconizedObject"]], \[FormalW][\[FormalZ]] == $CellContext`\
+\[FormalC]1 
+           HermiteH[\[FormalNu], \[FormalZ]] + $CellContext`\[FormalC]2 (\
+\[FormalZ] Hypergeometric1F1[(1 - \[FormalNu])/2, 3/2, \[FormalZ]^2] + 
+            Hypergeometric1F1[-(\[FormalNu]/2), 1/2, \[FormalZ]^2]), 
+         SelectWithContents -> True, Selectable -> False]},
+       "ConditionalExpression"], "]"}]}], ",", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "\[FormalW]", ",", "\[FormalZ]", ",", "\[FormalNu]", ",", "\[FormalC]1",
+        ",", "\[FormalC]2"}], "}"}], "\[Function]", 
+     RowBox[{"Inactivate", "[", 
+      TemplateBox[{
+        RowBox[{
+          RowBox[{
+            RowBox[{"2", " ", "\[FormalNu]", " ", 
+              RowBox[{"\[FormalW]", "(", "\[FormalZ]", ")"}]}], "-", 
+            RowBox[{"2", " ", "\[FormalZ]", " ", 
+              RowBox[{
+                SuperscriptBox[
+                "\[FormalW]", "\[Prime]", MultilineFunction -> None], "(", 
+                "\[FormalZ]", ")"}]}], "+", 
+            RowBox[{
+              SuperscriptBox[
+              "\[FormalW]", "\[Prime]\[Prime]", MultilineFunction -> None], 
+              "(", "\[FormalZ]", ")"}]}], "\[LongEqual]", "0"}], 
+        InterpretationBox[
+         DynamicModuleBox[{Typeset`open = False}, 
+          TemplateBox[{"Expression", 
+            StyleBox[
+             TagBox[
+              TooltipBox["\"condition\"", 
+               TagBox[
+                RowBox[{
+                  RowBox[{
+                    RowBox[{"\[FormalW]", "(", "\[FormalZ]", ")"}], 
+                    "\[LongEqual]", 
+                    RowBox[{
+                    RowBox[{"\[FormalC]1", " ", 
+                    TemplateBox[{"\[FormalNu]", "\[FormalZ]"}, "HermiteH"]}], 
+                    "+", 
+                    RowBox[{"\[FormalC]2", " ", 
+                    TemplateBox[{
+                    RowBox[{"-", 
+                    FractionBox["\[FormalNu]", "2"]}], 
+                    FractionBox["1", "2"], 
+                    SuperscriptBox["\[FormalZ]", "2"]}, 
+                    "Hypergeometric1F1"]}]}]}], "\[And]", 
+                  RowBox[{"\[Not]", 
+                    RowBox[{"\[FormalNu]", "\[Element]", 
+                    TemplateBox[{}, "Integers"]}]}]}], Short[#, 7]& ]], 
+              Annotation[#, 
+               Short[
+                
+                And[\[FormalW][\[FormalZ]] == $CellContext`\[FormalC]1 
+                   HermiteH[\[FormalNu], \[FormalZ]] + \
+$CellContext`\[FormalC]2 
+                   Hypergeometric1F1[-(\[FormalNu]/2), 1/2, \[FormalZ]^2], 
+                 Not[
+                  Element[\[FormalNu], Integers]]], 7], "Tooltip"]& ], 
+             "IconizedCustomName", StripOnInput -> False], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Head: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+                 TagBox["And", "IconizedItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Byte count: \"", "IconizedLabel"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["1000", "IconizedItem"]}]}}, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+             "Column", 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+            Dynamic[Typeset`open]}, "IconizedObject"]], 
+         And[\[FormalW][\[FormalZ]] == $CellContext`\[FormalC]1 
+            HermiteH[\[FormalNu], \[FormalZ]] + $CellContext`\[FormalC]2 
+            Hypergeometric1F1[-(\[FormalNu]/2), 1/2, \[FormalZ]^2], 
+          Not[
+           Element[\[FormalNu], Integers]]], SelectWithContents -> True, 
+         Selectable -> False]},
+       "ConditionalExpression"], "]"}]}], ",", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "\[FormalW]", ",", "\[FormalZ]", ",", "\[FormalNu]", ",", "\[FormalC]1",
+        ",", "\[FormalC]2"}], "}"}], "\[Function]", 
+     RowBox[{"Inactivate", "[", 
+      TemplateBox[{
+        RowBox[{
+          RowBox[{
+            RowBox[{"2", " ", "\[FormalNu]", " ", 
+              RowBox[{"\[FormalW]", "(", "\[FormalZ]", ")"}]}], "-", 
+            RowBox[{"2", " ", "\[FormalZ]", " ", 
+              RowBox[{
+                SuperscriptBox[
+                "\[FormalW]", "\[Prime]", MultilineFunction -> None], "(", 
+                "\[FormalZ]", ")"}]}], "+", 
+            RowBox[{
+              SuperscriptBox[
+              "\[FormalW]", "\[Prime]\[Prime]", MultilineFunction -> None], 
+              "(", "\[FormalZ]", ")"}]}], "\[LongEqual]", "0"}], 
+        InterpretationBox[
+         DynamicModuleBox[{Typeset`open = False}, 
+          TemplateBox[{"Expression", 
+            StyleBox[
+             TagBox[
+              TooltipBox["\"condition\"", 
+               TagBox[
+                RowBox[{
+                  RowBox[{"\[FormalW]", "(", "\[FormalZ]", ")"}], 
+                  "\[LongEqual]", 
+                  RowBox[{
+                    RowBox[{"\[FormalC]1", " ", 
+                    TemplateBox[{"\[FormalNu]", "\[FormalZ]"}, "HermiteH"]}], 
+                    "+", 
+                    RowBox[{"\[FormalZ]", " ", "\[FormalC]2", " ", 
+                    TemplateBox[{
+                    FractionBox[
+                    RowBox[{"1", "-", "\[FormalNu]"}], "2"], 
+                    FractionBox["3", "2"], 
+                    SuperscriptBox["\[FormalZ]", "2"]}, 
+                    "Hypergeometric1F1"]}]}]}], Short[#, 7]& ]], Annotation[#, 
+               
+               Short[\[FormalW][\[FormalZ]] == $CellContext`\[FormalC]1 
+                  HermiteH[\[FormalNu], \[FormalZ]] + \
+$CellContext`\[FormalC]2 \[FormalZ] 
+                  Hypergeometric1F1[(1 - \[FormalNu])/2, 3/2, \[FormalZ]^2], 
+                7], "Tooltip"]& ], "IconizedCustomName", StripOnInput -> 
+             False], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Head: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+                 TagBox["Equal", "IconizedItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Byte count: \"", "IconizedLabel"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["920", "IconizedItem"]}]}}, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+             "Column", 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+            Dynamic[Typeset`open]}, 
+           "IconizedObject"]], \[FormalW][\[FormalZ]] == $CellContext`\
+\[FormalC]1 
+           HermiteH[\[FormalNu], \[FormalZ]] + $CellContext`\[FormalC]2 \
+\[FormalZ] Hypergeometric1F1[(1 - \[FormalNu])/2, 3/2, \[FormalZ]^2], 
+         SelectWithContents -> True, Selectable -> False]},
+       "ConditionalExpression"], "]"}]}], ",", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "\[FormalW]", ",", "\[FormalZ]", ",", "\[FormalNu]", ",", "\[FormalC]1",
+        ",", "\[FormalC]2"}], "}"}], "\[Function]", 
+     RowBox[{"Inactivate", "[", 
+      TemplateBox[{
+        RowBox[{
+          RowBox[{
+            RowBox[{"2", " ", 
+              RowBox[{"(", 
+                RowBox[{"\[FormalNu]", "+", "1"}], ")"}], " ", 
+              RowBox[{"\[FormalW]", "(", "\[FormalZ]", ")"}]}], "+", 
+            RowBox[{"2", " ", "\[FormalZ]", " ", 
+              RowBox[{
+                SuperscriptBox[
+                "\[FormalW]", "\[Prime]", MultilineFunction -> None], "(", 
+                "\[FormalZ]", ")"}]}], "+", 
+            RowBox[{
+              SuperscriptBox[
+              "\[FormalW]", "\[Prime]\[Prime]", MultilineFunction -> None], 
+              "(", "\[FormalZ]", ")"}]}], "\[LongEqual]", "0"}], 
+        InterpretationBox[
+         DynamicModuleBox[{Typeset`open = False}, 
+          TemplateBox[{"Expression", 
+            StyleBox[
+             TagBox[
+              TooltipBox["\"condition\"", 
+               TagBox[
+                RowBox[{
+                  RowBox[{"\[FormalW]", "(", "\[FormalZ]", ")"}], 
+                  "\[LongEqual]", 
+                  RowBox[{
+                    FractionBox[
+                    RowBox[{"\[FormalC]1", " ", 
+                    TemplateBox[{"\[FormalNu]", "\[FormalZ]"}, "HermiteH"]}], 
+                    
+                    SuperscriptBox["\[ExponentialE]", 
+                    SuperscriptBox["\[FormalZ]", "2"]]], "+", 
+                    FractionBox[
+                    RowBox[{"\[FormalC]2", " ", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"\[FormalZ]", " ", 
+                    TemplateBox[{
+                    FractionBox[
+                    RowBox[{"1", "-", "\[FormalNu]"}], "2"], 
+                    FractionBox["3", "2"], 
+                    SuperscriptBox["\[FormalZ]", "2"]}, 
+                    "Hypergeometric1F1"]}], "+", 
+                    TemplateBox[{
+                    RowBox[{"-", 
+                    FractionBox["\[FormalNu]", "2"]}], 
+                    FractionBox["1", "2"], 
+                    SuperscriptBox["\[FormalZ]", "2"]}, 
+                    "Hypergeometric1F1"]}], ")"}]}], 
+                    SuperscriptBox["\[ExponentialE]", 
+                    SuperscriptBox["\[FormalZ]", "2"]]]}]}], Short[#, 7]& ]], 
+              Annotation[#, 
+               
+               Short[\[FormalW][\[FormalZ]] == ($CellContext`\[FormalC]1 
+                   HermiteH[\[FormalNu], \[FormalZ]])/
+                  E^(\[FormalZ]^2) + ($CellContext`\[FormalC]2 (\[FormalZ] 
+                    Hypergeometric1F1[(1 - \[FormalNu])/2, 3/2, \[FormalZ]^2] + 
+                    Hypergeometric1F1[-(\[FormalNu]/2), 1/2, \[FormalZ]^2]))/
+                  E^(\[FormalZ]^2), 7], "Tooltip"]& ], "IconizedCustomName", 
+             StripOnInput -> False], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Head: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+                 TagBox["Equal", "IconizedItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Byte count: \"", "IconizedLabel"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["2048", "IconizedItem"]}]}}, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+             "Column", 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+            Dynamic[Typeset`open]}, 
+           "IconizedObject"]], \[FormalW][\[FormalZ]] == ($CellContext`\
+\[FormalC]1 HermiteH[\[FormalNu], \[FormalZ]])/
+           E^(\[FormalZ]^2) + ($CellContext`\[FormalC]2 (\[FormalZ] 
+              Hypergeometric1F1[(1 - \[FormalNu])/2, 3/2, \[FormalZ]^2] + 
+             Hypergeometric1F1[-(\[FormalNu]/2), 1/2, \[FormalZ]^2]))/
+           E^(\[FormalZ]^2), SelectWithContents -> True, Selectable -> False]},
+       "ConditionalExpression"], "]"}]}], ",", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "\[FormalW]", ",", "\[FormalZ]", ",", "\[FormalNu]", ",", "\[FormalC]1",
+        ",", "\[FormalC]2"}], "}"}], "\[Function]", 
+     RowBox[{"Inactivate", "[", 
+      TemplateBox[{
+        RowBox[{
+          RowBox[{
+            RowBox[{"2", " ", 
+              RowBox[{"(", 
+                RowBox[{"\[FormalNu]", "+", "1"}], ")"}], " ", 
+              RowBox[{"\[FormalW]", "(", "\[FormalZ]", ")"}]}], "+", 
+            RowBox[{"2", " ", "\[FormalZ]", " ", 
+              RowBox[{
+                SuperscriptBox[
+                "\[FormalW]", "\[Prime]", MultilineFunction -> None], "(", 
+                "\[FormalZ]", ")"}]}], "+", 
+            RowBox[{
+              SuperscriptBox[
+              "\[FormalW]", "\[Prime]\[Prime]", MultilineFunction -> None], 
+              "(", "\[FormalZ]", ")"}]}], "\[LongEqual]", "0"}], 
+        InterpretationBox[
+         DynamicModuleBox[{Typeset`open = False}, 
+          TemplateBox[{"Expression", 
+            StyleBox[
+             TagBox[
+              TooltipBox["\"condition\"", 
+               TagBox[
+                RowBox[{
+                  RowBox[{"\[FormalW]", "(", "\[FormalZ]", ")"}], 
+                  "\[LongEqual]", 
+                  RowBox[{
+                    FractionBox[
+                    RowBox[{"\[FormalC]1", " ", 
+                    TemplateBox[{"\[FormalNu]", "\[FormalZ]"}, "HermiteH"]}], 
+                    
+                    SuperscriptBox["\[ExponentialE]", 
+                    SuperscriptBox["\[FormalZ]", "2"]]], "+", 
+                    FractionBox[
+                    RowBox[{"\[FormalC]2", " ", 
+                    TemplateBox[{
+                    RowBox[{"-", 
+                    FractionBox["\[FormalNu]", "2"]}], 
+                    FractionBox["1", "2"], 
+                    SuperscriptBox["\[FormalZ]", "2"]}, 
+                    "Hypergeometric1F1"]}], 
+                    SuperscriptBox["\[ExponentialE]", 
+                    SuperscriptBox["\[FormalZ]", "2"]]]}]}], Short[#, 7]& ]], 
+              Annotation[#, 
+               
+               Short[\[FormalW][\[FormalZ]] == ($CellContext`\[FormalC]1 
+                   HermiteH[\[FormalNu], \[FormalZ]])/
+                  E^(\[FormalZ]^2) + ($CellContext`\[FormalC]2 
+                   Hypergeometric1F1[-(\[FormalNu]/2), 1/2, \[FormalZ]^2])/
+                  E^(\[FormalZ]^2), 7], "Tooltip"]& ], "IconizedCustomName", 
+             StripOnInput -> False], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Head: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+                 TagBox["Equal", "IconizedItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Byte count: \"", "IconizedLabel"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["1352", "IconizedItem"]}]}}, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+             "Column", 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+            Dynamic[Typeset`open]}, 
+           "IconizedObject"]], \[FormalW][\[FormalZ]] == ($CellContext`\
+\[FormalC]1 HermiteH[\[FormalNu], \[FormalZ]])/
+           E^(\[FormalZ]^2) + ($CellContext`\[FormalC]2 
+            Hypergeometric1F1[-(\[FormalNu]/2), 1/2, \[FormalZ]^2])/
+           E^(\[FormalZ]^2), SelectWithContents -> True, Selectable -> False]},
+       "ConditionalExpression"], "]"}]}], ",", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "\[FormalW]", ",", "\[FormalZ]", ",", "\[FormalNu]", ",", "\[FormalC]1",
+        ",", "\[FormalC]2"}], "}"}], "\[Function]", 
+     RowBox[{"Inactivate", "[", 
+      TemplateBox[{
+        RowBox[{
+          RowBox[{
+            RowBox[{
+              RowBox[{"(", 
+                RowBox[{
+                  RowBox[{"-", 
+                    SuperscriptBox["\[FormalZ]", "2"]}], "+", 
+                  RowBox[{"2", " ", "\[FormalNu]"}], "+", "1"}], ")"}], " ", 
+              RowBox[{"\[FormalW]", "(", "\[FormalZ]", ")"}]}], "+", 
+            RowBox[{
+              SuperscriptBox[
+              "\[FormalW]", "\[Prime]\[Prime]", MultilineFunction -> None], 
+              "(", "\[FormalZ]", ")"}]}], "\[LongEqual]", "0"}], 
+        InterpretationBox[
+         DynamicModuleBox[{Typeset`open = False}, 
+          TemplateBox[{"Expression", 
+            StyleBox[
+             TagBox[
+              TooltipBox["\"condition\"", 
+               TagBox[
+                RowBox[{
+                  RowBox[{"\[FormalW]", "(", "\[FormalZ]", ")"}], 
+                  "\[LongEqual]", 
+                  RowBox[{
+                    RowBox[{"\[FormalC]2", " ", 
+                    SuperscriptBox["\[ExponentialE]", 
+                    FractionBox[
+                    SuperscriptBox["\[FormalZ]", "2"], "2"]], " ", 
+                    TemplateBox[{
+                    RowBox[{
+                    RowBox[{"-", "\[FormalNu]"}], "-", "1"}], 
+                    RowBox[{"\[ImaginaryI]", " ", "\[FormalZ]"}]}, 
+                    "HermiteH"]}], "+", 
+                    FractionBox[
+                    RowBox[{"\[FormalC]1", " ", 
+                    TemplateBox[{"\[FormalNu]", "\[FormalZ]"}, "HermiteH"]}], 
+                    
+                    SuperscriptBox["\[ExponentialE]", 
+                    FractionBox[
+                    SuperscriptBox["\[FormalZ]", "2"], "2"]]]}]}], 
+                Short[#, 7]& ]], Annotation[#, 
+               
+               Short[\[FormalW][\[FormalZ]] == ($CellContext`\[FormalC]1 
+                   HermiteH[\[FormalNu], \[FormalZ]])/
+                  E^(\[FormalZ]^2/2) + $CellContext`\[FormalC]2 
+                  E^(\[FormalZ]^2/2) HermiteH[-1 - \[FormalNu], I \[FormalZ]],
+                 7], "Tooltip"]& ], "IconizedCustomName", StripOnInput -> 
+             False], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Head: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+                 TagBox["Equal", "IconizedItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Byte count: \"", "IconizedLabel"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["1264", "IconizedItem"]}]}}, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+             "Column", 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+            Dynamic[Typeset`open]}, 
+           "IconizedObject"]], \[FormalW][\[FormalZ]] == ($CellContext`\
+\[FormalC]1 HermiteH[\[FormalNu], \[FormalZ]])/
+           E^(\[FormalZ]^2/2) + $CellContext`\[FormalC]2 E^(\[FormalZ]^2/2) 
+           HermiteH[-1 - \[FormalNu], I \[FormalZ]], SelectWithContents -> 
+         True, Selectable -> False]},
+       "ConditionalExpression"], "]"}]}], ",", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "\[FormalW]", ",", "\[FormalZ]", ",", "\[FormalG]", ",", "\[FormalNu]", 
+       ",", "\[FormalC]1", ",", "\[FormalC]2"}], "}"}], "\[Function]", 
+     RowBox[{"Inactivate", "[", 
+      TemplateBox[{
+        RowBox[{
+          RowBox[{
+            RowBox[{"2", " ", "\[FormalNu]", " ", 
+              RowBox[{"\[FormalW]", "(", "\[FormalZ]", ")"}], " ", 
+              SuperscriptBox[
+               RowBox[{
+                 SuperscriptBox[
+                 "\[FormalG]", "\[Prime]", MultilineFunction -> None], "(", 
+                 "\[FormalZ]", ")"}], "2"]}], "-", 
+            RowBox[{
+              RowBox[{"(", 
+                RowBox[{
+                  RowBox[{"2", " ", 
+                    RowBox[{"\[FormalG]", "(", "\[FormalZ]", ")"}], " ", 
+                    RowBox[{
+                    SuperscriptBox[
+                    "\[FormalG]", "\[Prime]", MultilineFunction -> None], "(",
+                     "\[FormalZ]", ")"}]}], "+", 
+                  FractionBox[
+                   RowBox[{
+                    SuperscriptBox[
+                    "\[FormalG]", "\[Prime]\[Prime]", MultilineFunction -> 
+                    None], "(", "\[FormalZ]", ")"}], 
+                   RowBox[{
+                    SuperscriptBox[
+                    "\[FormalG]", "\[Prime]", MultilineFunction -> None], "(",
+                     "\[FormalZ]", ")"}]]}], ")"}], " ", 
+              RowBox[{
+                SuperscriptBox[
+                "\[FormalW]", "\[Prime]", MultilineFunction -> None], "(", 
+                "\[FormalZ]", ")"}]}], "+", 
+            RowBox[{
+              SuperscriptBox[
+              "\[FormalW]", "\[Prime]\[Prime]", MultilineFunction -> None], 
+              "(", "\[FormalZ]", ")"}]}], "\[LongEqual]", "0"}], 
+        RowBox[{
+          RowBox[{"\[FormalW]", "(", "\[FormalZ]", ")"}], "\[LongEqual]", 
+          RowBox[{
+            RowBox[{"\[FormalC]2", " ", 
+              SuperscriptBox["\[ExponentialE]", 
+               SuperscriptBox[
+                RowBox[{"\[FormalG]", "(", "\[FormalZ]", ")"}], "2"]], " ", 
+              TemplateBox[{
+                RowBox[{
+                  RowBox[{"-", "\[FormalNu]"}], "-", "1"}], 
+                RowBox[{"\[ImaginaryI]", " ", 
+                  RowBox[{"\[FormalG]", "(", "\[FormalZ]", ")"}]}]}, 
+               "HermiteH"]}], "+", 
+            RowBox[{"\[FormalC]1", " ", 
+              TemplateBox[{"\[FormalNu]", 
+                RowBox[{"\[FormalG]", "(", "\[FormalZ]", ")"}]}, 
+               "HermiteH"]}]}]}]},
+       "ConditionalExpression"], "]"}]}], ",", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "\[FormalW]", ",", "\[FormalZ]", ",", "\[FormalG]", ",", "\[FormalH]", 
+       ",", "\[FormalNu]", ",", "\[FormalC]1", ",", "\[FormalC]2"}], "}"}], 
+     "\[Function]", 
+     RowBox[{"Inactivate", "[", 
+      TemplateBox[{
+        RowBox[{
+          RowBox[{
+            RowBox[{
+              RowBox[{"\[FormalW]", "(", "\[FormalZ]", ")"}], " ", 
+              RowBox[{"(", 
+                RowBox[{
+                  RowBox[{"2", " ", "\[FormalNu]", " ", 
+                    SuperscriptBox[
+                    RowBox[{
+                    SuperscriptBox[
+                    "\[FormalG]", "\[Prime]", MultilineFunction -> None], "(",
+                     "\[FormalZ]", ")"}], "2"]}], "+", 
+                  FractionBox[
+                   RowBox[{"2", " ", 
+                    RowBox[{"\[FormalG]", "(", "\[FormalZ]", ")"}], " ", 
+                    RowBox[{
+                    SuperscriptBox[
+                    "\[FormalH]", "\[Prime]", MultilineFunction -> None], "(",
+                     "\[FormalZ]", ")"}], " ", 
+                    RowBox[{
+                    SuperscriptBox[
+                    "\[FormalG]", "\[Prime]", MultilineFunction -> None], "(",
+                     "\[FormalZ]", ")"}]}], 
+                   RowBox[{"\[FormalH]", "(", "\[FormalZ]", ")"}]], "+", 
+                  FractionBox[
+                   RowBox[{
+                    RowBox[{
+                    SuperscriptBox[
+                    "\[FormalH]", "\[Prime]", MultilineFunction -> None], "(",
+                     "\[FormalZ]", ")"}], " ", 
+                    RowBox[{
+                    SuperscriptBox[
+                    "\[FormalG]", "\[Prime]\[Prime]", MultilineFunction -> 
+                    None], "(", "\[FormalZ]", ")"}]}], 
+                   RowBox[{
+                    RowBox[{"\[FormalH]", "(", "\[FormalZ]", ")"}], " ", 
+                    RowBox[{
+                    SuperscriptBox[
+                    "\[FormalG]", "\[Prime]", MultilineFunction -> None], "(",
+                     "\[FormalZ]", ")"}]}]], "+", 
+                  FractionBox[
+                   RowBox[{
+                    RowBox[{"2", " ", 
+                    SuperscriptBox[
+                    RowBox[{
+                    SuperscriptBox[
+                    "\[FormalH]", "\[Prime]", MultilineFunction -> None], "(",
+                     "\[FormalZ]", ")"}], "2"]}], "-", 
+                    RowBox[{
+                    RowBox[{"\[FormalH]", "(", "\[FormalZ]", ")"}], " ", 
+                    RowBox[{
+                    SuperscriptBox[
+                    "\[FormalH]", "\[Prime]\[Prime]", MultilineFunction -> 
+                    None], "(", "\[FormalZ]", ")"}]}]}], 
+                   SuperscriptBox[
+                    RowBox[{"\[FormalH]", "(", "\[FormalZ]", ")"}], "2"]]}], 
+                ")"}]}], "-", 
+            RowBox[{
+              RowBox[{"(", 
+                RowBox[{
+                  RowBox[{"2", " ", 
+                    RowBox[{"\[FormalG]", "(", "\[FormalZ]", ")"}], " ", 
+                    RowBox[{
+                    SuperscriptBox[
+                    "\[FormalG]", "\[Prime]", MultilineFunction -> None], "(",
+                     "\[FormalZ]", ")"}]}], "+", 
+                  FractionBox[
+                   RowBox[{"2", " ", 
+                    RowBox[{
+                    SuperscriptBox[
+                    "\[FormalH]", "\[Prime]", MultilineFunction -> None], "(",
+                     "\[FormalZ]", ")"}]}], 
+                   RowBox[{"\[FormalH]", "(", "\[FormalZ]", ")"}]], "+", 
+                  FractionBox[
+                   RowBox[{
+                    SuperscriptBox[
+                    "\[FormalG]", "\[Prime]\[Prime]", MultilineFunction -> 
+                    None], "(", "\[FormalZ]", ")"}], 
+                   RowBox[{
+                    SuperscriptBox[
+                    "\[FormalG]", "\[Prime]", MultilineFunction -> None], "(",
+                     "\[FormalZ]", ")"}]]}], ")"}], " ", 
+              RowBox[{
+                SuperscriptBox[
+                "\[FormalW]", "\[Prime]", MultilineFunction -> None], "(", 
+                "\[FormalZ]", ")"}]}], "+", 
+            RowBox[{
+              SuperscriptBox[
+              "\[FormalW]", "\[Prime]\[Prime]", MultilineFunction -> None], 
+              "(", "\[FormalZ]", ")"}]}], "\[LongEqual]", "0"}], 
+        InterpretationBox[
+         DynamicModuleBox[{Typeset`open = False}, 
+          TemplateBox[{"Expression", 
+            StyleBox[
+             TagBox[
+              TooltipBox["\"condition\"", 
+               TagBox[
+                RowBox[{
+                  RowBox[{"\[FormalW]", "(", "\[FormalZ]", ")"}], 
+                  "\[LongEqual]", 
+                  RowBox[{
+                    RowBox[{"\[FormalC]2", " ", 
+                    SuperscriptBox["\[ExponentialE]", 
+                    SuperscriptBox[
+                    RowBox[{"\[FormalG]", "(", "\[FormalZ]", ")"}], "2"]], 
+                    " ", 
+                    RowBox[{"\[FormalH]", "(", "\[FormalZ]", ")"}], " ", 
+                    TemplateBox[{
+                    RowBox[{
+                    RowBox[{"-", "\[FormalNu]"}], "-", "1"}], 
+                    RowBox[{"\[ImaginaryI]", " ", 
+                    RowBox[{"\[FormalG]", "(", "\[FormalZ]", ")"}]}]}, 
+                    "HermiteH"]}], "+", 
+                    RowBox[{"\[FormalC]1", " ", 
+                    RowBox[{"\[FormalH]", "(", "\[FormalZ]", ")"}], " ", 
+                    TemplateBox[{"\[FormalNu]", 
+                    RowBox[{"\[FormalG]", "(", "\[FormalZ]", ")"}]}, 
+                    "HermiteH"]}]}]}], Short[#, 7]& ]], Annotation[#, 
+               
+               Short[\[FormalW][\[FormalZ]] == $CellContext`\[FormalC]1 \
+\[FormalH][\[FormalZ]] HermiteH[\[FormalNu], 
+                    \[FormalG][\[FormalZ]]] + $CellContext`\[FormalC]2 \
+\[FormalH][\[FormalZ]] E^(\[FormalG][\[FormalZ]]^2) 
+                  HermiteH[-1 - \[FormalNu], I \[FormalG][\[FormalZ]]], 7], 
+               "Tooltip"]& ], "IconizedCustomName", StripOnInput -> False], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Head: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+                 TagBox["Equal", "IconizedItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Byte count: \"", "IconizedLabel"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["976", "IconizedItem"]}]}}, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+             "Column", 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+            Dynamic[Typeset`open]}, 
+           "IconizedObject"]], \[FormalW][\[FormalZ]] == $CellContext`\
+\[FormalC]1 \[FormalH][\[FormalZ]] HermiteH[\[FormalNu], 
+             \[FormalG][\[FormalZ]]] + $CellContext`\[FormalC]2 \[FormalH][\
+\[FormalZ]] E^(\[FormalG][\[FormalZ]]^2) 
+           HermiteH[-1 - \[FormalNu], I \[FormalG][\[FormalZ]]], 
+         SelectWithContents -> True, Selectable -> False]},
+       "ConditionalExpression"], "]"}]}], ",", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "\[FormalZ]", ",", "\[FormalW]", ",", "\[FormalR]", ",", "\[FormalS]", 
+       ",", "\[FormalA]", ",", "\[FormalNu]", ",", "\[FormalC]1", ",", 
+       "\[FormalC]2"}], "}"}], "\[Function]", 
+     RowBox[{"Inactivate", "[", 
+      TemplateBox[{
+        RowBox[{
+          RowBox[{
+            RowBox[{
+              RowBox[{
+                SuperscriptBox[
+                "\[FormalW]", "\[Prime]\[Prime]", MultilineFunction -> None], 
+                "(", "\[FormalZ]", ")"}], " ", 
+              SuperscriptBox["\[FormalZ]", "2"]}], "-", 
+            RowBox[{
+              RowBox[{"(", 
+                RowBox[{
+                  RowBox[{"2", " ", 
+                    SuperscriptBox["\[FormalA]", "2"], " ", "\[FormalR]", " ", 
+                    SuperscriptBox["\[FormalZ]", 
+                    RowBox[{"2", " ", "\[FormalR]"}]]}], "+", "\[FormalR]", 
+                  "+", 
+                  RowBox[{"2", " ", "\[FormalS]"}], "-", "1"}], ")"}], " ", 
+              RowBox[{
+                SuperscriptBox[
+                "\[FormalW]", "\[Prime]", MultilineFunction -> None], "(", 
+                "\[FormalZ]", ")"}], " ", "\[FormalZ]"}], "+", 
+            RowBox[{
+              RowBox[{"(", 
+                RowBox[{
+                  RowBox[{"2", " ", 
+                    SuperscriptBox["\[FormalA]", "2"], " ", "\[FormalR]", " ", 
+                    RowBox[{"(", 
+                    RowBox[{"\[FormalS]", "+", 
+                    RowBox[{"\[FormalR]", " ", "\[FormalNu]"}]}], ")"}], " ", 
+                    
+                    SuperscriptBox["\[FormalZ]", 
+                    RowBox[{"2", " ", "\[FormalR]"}]]}], "+", 
+                  RowBox[{"\[FormalS]", " ", 
+                    RowBox[{"(", 
+                    RowBox[{"\[FormalR]", "+", "\[FormalS]"}], ")"}]}]}], 
+                ")"}], " ", 
+              RowBox[{"\[FormalW]", "(", "\[FormalZ]", ")"}]}]}], 
+          "\[LongEqual]", "0"}], 
+        InterpretationBox[
+         DynamicModuleBox[{Typeset`open = False}, 
+          TemplateBox[{"Expression", 
+            StyleBox[
+             TagBox[
+              TooltipBox["\"condition\"", 
+               TagBox[
+                RowBox[{
+                  RowBox[{"\[FormalW]", "(", "\[FormalZ]", ")"}], 
+                  "\[LongEqual]", 
+                  RowBox[{
+                    RowBox[{"\[FormalC]2", " ", 
+                    SuperscriptBox["\[ExponentialE]", 
+                    RowBox[{
+                    SuperscriptBox["\[FormalA]", "2"], " ", 
+                    SuperscriptBox["\[FormalZ]", 
+                    RowBox[{"2", " ", "\[FormalR]"}]]}]], " ", 
+                    TemplateBox[{
+                    RowBox[{
+                    RowBox[{"-", "\[FormalNu]"}], "-", "1"}], 
+                    RowBox[{"\[ImaginaryI]", " ", "\[FormalA]", " ", 
+                    SuperscriptBox["\[FormalZ]", "\[FormalR]"]}]}, 
+                    "HermiteH"], " ", 
+                    SuperscriptBox["\[FormalZ]", "\[FormalS]"]}], "+", 
+                    RowBox[{"\[FormalC]1", " ", 
+                    TemplateBox[{"\[FormalNu]", 
+                    RowBox[{"\[FormalA]", " ", 
+                    SuperscriptBox["\[FormalZ]", "\[FormalR]"]}]}, 
+                    "HermiteH"], " ", 
+                    SuperscriptBox["\[FormalZ]", "\[FormalS]"]}]}]}], 
+                Short[#, 7]& ]], Annotation[#, 
+               
+               Short[\[FormalW][\[FormalZ]] == $CellContext`\[FormalC]1 \
+\[FormalZ]^\[FormalS] 
+                  HermiteH[\[FormalNu], \[FormalA] \[FormalZ]^\[FormalR]] + \
+$CellContext`\[FormalC]2 \[FormalZ]^\[FormalS] 
+                  E^(\[FormalA]^2 \[FormalZ]^(2 \[FormalR])) 
+                  HermiteH[-1 - \[FormalNu], 
+                    I \[FormalA] \[FormalZ]^\[FormalR]], 7], "Tooltip"]& ], 
+             "IconizedCustomName", StripOnInput -> False], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Head: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+                 TagBox["Equal", "IconizedItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Byte count: \"", "IconizedLabel"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["1208", "IconizedItem"]}]}}, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+             "Column", 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+            Dynamic[Typeset`open]}, 
+           "IconizedObject"]], \[FormalW][\[FormalZ]] == $CellContext`\
+\[FormalC]1 \[FormalZ]^\[FormalS] 
+           HermiteH[\[FormalNu], \[FormalA] \[FormalZ]^\[FormalR]] + \
+$CellContext`\[FormalC]2 \[FormalZ]^\[FormalS] 
+           E^(\[FormalA]^2 \[FormalZ]^(2 \[FormalR])) 
+           HermiteH[-1 - \[FormalNu], I \[FormalA] \[FormalZ]^\[FormalR]], 
+         SelectWithContents -> True, Selectable -> False]},
+       "ConditionalExpression"], "]"}]}], ",", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "\[FormalW]", ",", "\[FormalZ]", ",", "\[FormalA]", ",", "\[FormalR]", 
+       ",", "\[FormalS]", ",", "\[FormalNu]", ",", "\[FormalC]1", ",", 
+       "\[FormalC]2"}], "}"}], "\[Function]", 
+     RowBox[{"Inactivate", "[", 
+      TemplateBox[{
+        RowBox[{
+          RowBox[{
+            RowBox[{
+              RowBox[{"\[FormalW]", "(", "\[FormalZ]", ")"}], " ", 
+              RowBox[{"(", 
+                RowBox[{
+                  RowBox[{"2", " ", 
+                    SuperscriptBox["\[FormalA]", "2"], " ", 
+                    RowBox[{"log", "(", "\[FormalR]", ")"}], " ", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"\[FormalNu]", " ", 
+                    RowBox[{"log", "(", "\[FormalR]", ")"}]}], "+", 
+                    RowBox[{"log", "(", "\[FormalS]", ")"}]}], ")"}], " ", 
+                    SuperscriptBox["\[FormalR]", 
+                    RowBox[{"2", " ", "\[FormalZ]"}]]}], "+", 
+                  RowBox[{
+                    RowBox[{"log", "(", "\[FormalS]", ")"}], " ", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"log", "(", "\[FormalR]", ")"}], "+", 
+                    RowBox[{"log", "(", "\[FormalS]", ")"}]}], ")"}]}]}], 
+                ")"}]}], "+", 
+            RowBox[{
+              RowBox[{"(", 
+                RowBox[{
+                  RowBox[{
+                    RowBox[{"-", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"2", " ", 
+                    SuperscriptBox["\[FormalA]", "2"], " ", 
+                    SuperscriptBox["\[FormalR]", 
+                    RowBox[{"2", " ", "\[FormalZ]"}]]}], "+", "1"}], ")"}]}], 
+                    " ", 
+                    RowBox[{"log", "(", "\[FormalR]", ")"}]}], "-", 
+                  RowBox[{"2", " ", 
+                    RowBox[{"log", "(", "\[FormalS]", ")"}]}]}], ")"}], " ", 
+              RowBox[{
+                SuperscriptBox[
+                "\[FormalW]", "\[Prime]", MultilineFunction -> None], "(", 
+                "\[FormalZ]", ")"}]}], "+", 
+            RowBox[{
+              SuperscriptBox[
+              "\[FormalW]", "\[Prime]\[Prime]", MultilineFunction -> None], 
+              "(", "\[FormalZ]", ")"}]}], "\[LongEqual]", "0"}], 
+        InterpretationBox[
+         DynamicModuleBox[{Typeset`open = False}, 
+          TemplateBox[{"Expression", 
+            StyleBox[
+             TagBox[
+              TooltipBox["\"condition\"", 
+               TagBox[
+                RowBox[{
+                  RowBox[{"\[FormalW]", "(", "\[FormalZ]", ")"}], 
+                  "\[LongEqual]", 
+                  RowBox[{
+                    RowBox[{"\[FormalC]2", " ", 
+                    SuperscriptBox["\[ExponentialE]", 
+                    RowBox[{
+                    SuperscriptBox["\[FormalA]", "2"], " ", 
+                    SuperscriptBox["\[FormalR]", 
+                    RowBox[{"2", " ", "\[FormalZ]"}]]}]], " ", 
+                    TemplateBox[{
+                    RowBox[{
+                    RowBox[{"-", "\[FormalNu]"}], "-", "1"}], 
+                    RowBox[{"\[ImaginaryI]", " ", "\[FormalA]", " ", 
+                    SuperscriptBox["\[FormalR]", "\[FormalZ]"]}]}, 
+                    "HermiteH"], " ", 
+                    SuperscriptBox["\[FormalS]", "\[FormalZ]"]}], "+", 
+                    RowBox[{"\[FormalC]1", " ", 
+                    TemplateBox[{"\[FormalNu]", 
+                    RowBox[{"\[FormalA]", " ", 
+                    SuperscriptBox["\[FormalR]", "\[FormalZ]"]}]}, 
+                    "HermiteH"], " ", 
+                    SuperscriptBox["\[FormalS]", "\[FormalZ]"]}]}]}], 
+                Short[#, 7]& ]], Annotation[#, 
+               
+               Short[\[FormalW][\[FormalZ]] == $CellContext`\[FormalC]1 \
+\[FormalS]^\[FormalZ] 
+                  HermiteH[\[FormalNu], \[FormalA] \[FormalR]^\[FormalZ]] + \
+$CellContext`\[FormalC]2 \[FormalS]^\[FormalZ] 
+                  E^(\[FormalA]^2 \[FormalR]^(2 \[FormalZ])) 
+                  HermiteH[-1 - \[FormalNu], 
+                    I \[FormalA] \[FormalR]^\[FormalZ]], 7], "Tooltip"]& ], 
+             "IconizedCustomName", StripOnInput -> False], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Head: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+                 TagBox["Equal", "IconizedItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Byte count: \"", "IconizedLabel"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["1208", "IconizedItem"]}]}}, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+             "Column", 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+            Dynamic[Typeset`open]}, 
+           "IconizedObject"]], \[FormalW][\[FormalZ]] == $CellContext`\
+\[FormalC]1 \[FormalS]^\[FormalZ] 
+           HermiteH[\[FormalNu], \[FormalA] \[FormalR]^\[FormalZ]] + \
+$CellContext`\[FormalC]2 \[FormalS]^\[FormalZ] 
+           E^(\[FormalA]^2 \[FormalR]^(2 \[FormalZ])) 
+           HermiteH[-1 - \[FormalNu], I \[FormalA] \[FormalR]^\[FormalZ]], 
+         SelectWithContents -> True, Selectable -> False]},
+       "ConditionalExpression"], "]"}]}]}], "}"}], TraditionalForm]], "Output",\
+
+ CellChangeTimes->{{3.927107296207003*^9, 
+  3.927107311075094*^9}},ExpressionUUID->"a1170dda-8a56-48f8-b0b4-\
+9ebceb3f1cff"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MathematicalFunctionData", "[", 
+  RowBox[{"\"\<HermiteH\>\"", ",", "\"\<AdditionFormulas\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.9271072482681704`*^9, 3.92710725471918*^9}, {
+  3.9271073248719797`*^9, 
+  3.927107327705963*^9}},ExpressionUUID->"4f12a956-d54a-4249-b9fc-\
+b0954aebee11"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[FormalNu]", ",", "\[FormalZ]1", ",", "\[FormalZ]2"}], "}"}], 
+     "\[Function]", 
+     RowBox[{"Inactivate", "[", 
+      RowBox[{
+       TemplateBox[{"\[FormalNu]", 
+         RowBox[{"\[FormalZ]1", "-", "\[FormalZ]2"}]},
+        "HermiteH"], "\[LongEqual]", 
+       RowBox[{
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"\[FormalZ]2", " ", 
+          RowBox[{"(", 
+           RowBox[{"\[FormalZ]2", "-", 
+            RowBox[{"2", " ", "\[FormalZ]1"}]}], ")"}]}]], " ", 
+        RowBox[{
+         UnderoverscriptBox["\[Sum]", 
+          RowBox[{"\[FormalK]", "=", "0"}], "\[Infinity]"], 
+         FractionBox[
+          RowBox[{
+           SuperscriptBox["\[FormalZ]2", "\[FormalK]"], " ", 
+           TemplateBox[{
+             RowBox[{"\[FormalK]", "+", "\[FormalNu]"}], "\[FormalZ]1"},
+            "HermiteH"]}], 
+          RowBox[{"\[FormalK]", "!"}]]}]}]}], "]"}]}], ",", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[FormalNu]", ",", "\[FormalZ]1", ",", "\[FormalZ]2"}], "}"}], 
+     "\[Function]", 
+     RowBox[{"Inactivate", "[", 
+      RowBox[{
+       TemplateBox[{"\[FormalNu]", 
+         RowBox[{"\[FormalZ]1", "-", "\[FormalZ]2"}]},
+        "HermiteH"], "\[LongEqual]", 
+       RowBox[{
+        UnderoverscriptBox["\[Sum]", 
+         RowBox[{"\[FormalK]", "=", "0"}], "\[Infinity]"], 
+        FractionBox[
+         RowBox[{
+          TemplateBox[{
+            RowBox[{"\[FormalNu]", "-", "\[FormalK]"}], "\[FormalZ]1"},
+           "HermiteH"], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            SuperscriptBox["2", "\[FormalK]"], " ", 
+            SuperscriptBox["\[FormalZ]2", "\[FormalK]"], " ", 
+            TemplateBox[{
+              RowBox[{"-", "\[FormalNu]"}], "\[FormalK]"},
+             "Pochhammer"]}], ")"}]}], 
+         RowBox[{"\[FormalK]", "!"}]]}]}], "]"}]}], ",", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[FormalN]", ",", "\[FormalZ]1", ",", "\[FormalZ]2"}], "}"}], 
+     "\[Function]", 
+     RowBox[{"Inactivate", "[", 
+      TemplateBox[{
+        RowBox[{
+          TemplateBox[{"\[FormalN]", 
+            RowBox[{"\[FormalZ]1", "+", "\[FormalZ]2"}]}, "HermiteH"], 
+          "\[LongEqual]", 
+          FractionBox[
+           RowBox[{
+             UnderoverscriptBox["\[Sum]", 
+              RowBox[{"\[FormalK]", "=", "0"}], "\[FormalN]"], 
+             RowBox[{
+               TemplateBox[{"\[FormalN]", "\[FormalK]"}, "Binomial"], " ", 
+               TemplateBox[{"\[FormalK]", 
+                 RowBox[{"\[FormalZ]1", " ", 
+                   SqrtBox["2"]}]}, "HermiteH"], " ", 
+               TemplateBox[{
+                 RowBox[{"\[FormalN]", "-", "\[FormalK]"}], 
+                 RowBox[{"\[FormalZ]2", " ", 
+                   SqrtBox["2"]}]}, "HermiteH"]}]}], 
+           SuperscriptBox["2", 
+            RowBox[{"\[FormalN]", "/", "2"}]]]}], 
+        RowBox[{
+          RowBox[{"\[FormalN]", "\[Element]", 
+            TemplateBox[{}, "Integers"]}], "\[And]", 
+          RowBox[{"\[FormalN]", "\[GreaterEqual]", "0"}]}]},
+       "ConditionalExpression"], "]"}]}], ",", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[FormalN]", ",", "\[FormalZ]1", ",", "\[FormalZ]2"}], "}"}], 
+     "\[Function]", 
+     RowBox[{"Inactivate", "[", 
+      TemplateBox[{
+        RowBox[{
+          TemplateBox[{"\[FormalN]", 
+            RowBox[{"\[FormalZ]1", "+", "\[FormalZ]2"}]}, "HermiteH"], 
+          "\[LongEqual]", 
+          RowBox[{
+            UnderoverscriptBox["\[Sum]", 
+             RowBox[{"\[FormalK]", "=", "0"}], "\[FormalN]"], 
+            RowBox[{
+              TemplateBox[{"\[FormalN]", "\[FormalK]"}, "Binomial"], " ", 
+              SuperscriptBox["2", 
+               RowBox[{"\[FormalN]", "-", "\[FormalK]"}]], " ", 
+              SuperscriptBox["\[FormalZ]2", 
+               RowBox[{"\[FormalN]", "-", "\[FormalK]"}]], " ", 
+              TemplateBox[{"\[FormalK]", "\[FormalZ]1"}, "HermiteH"]}]}]}], 
+        RowBox[{
+          RowBox[{"\[FormalN]", "\[Element]", 
+            TemplateBox[{}, "Integers"]}], "\[And]", 
+          RowBox[{"\[FormalN]", "\[GreaterEqual]", "0"}]}]},
+       "ConditionalExpression"], "]"}]}], ",", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "\[FormalNu]", ",", "\[FormalZ]1", ",", "\[FormalAlpha]", ",", 
+       "\[FormalZ]2"}], "}"}], "\[Function]", 
+     RowBox[{"Inactivate", "[", 
+      RowBox[{
+       TemplateBox[{"\[FormalNu]", 
+         RowBox[{
+           RowBox[{"\[FormalZ]1", " ", 
+             RowBox[{"cos", "(", "\[FormalAlpha]", ")"}]}], "+", 
+           RowBox[{"\[FormalZ]2", " ", 
+             RowBox[{"sin", "(", "\[FormalAlpha]", ")"}]}]}]},
+        "HermiteH"], "\[LongEqual]", 
+       RowBox[{
+        RowBox[{
+         SuperscriptBox["cos", "\[FormalNu]"], "(", "\[FormalAlpha]", ")"}], 
+        " ", 
+        RowBox[{
+         UnderoverscriptBox["\[Sum]", 
+          RowBox[{"\[FormalK]", "=", "0"}], "\[Infinity]"], 
+         FractionBox[
+          RowBox[{
+           TemplateBox[{"\[FormalK]", "\[FormalZ]2"},
+            "HermiteH"], " ", 
+           TemplateBox[{
+             RowBox[{"\[FormalNu]", "-", "\[FormalK]"}], "\[FormalZ]1"},
+            "HermiteH"], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{"-", 
+                RowBox[{"tan", "(", "\[FormalAlpha]", ")"}]}], ")"}], 
+              "\[FormalK]"], " ", 
+             TemplateBox[{
+               RowBox[{"-", "\[FormalNu]"}], "\[FormalK]"},
+              "Pochhammer"]}], ")"}]}], 
+          RowBox[{"\[FormalK]", "!"}]]}]}]}], "]"}]}], ",", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "\[FormalN]", ",", "\[FormalZ]1", ",", "\[FormalAlpha]", ",", 
+       "\[FormalZ]2"}], "}"}], "\[Function]", 
+     RowBox[{"Inactivate", "[", 
+      TemplateBox[{
+        RowBox[{
+          TemplateBox[{"\[FormalN]", 
+            RowBox[{
+              RowBox[{"\[FormalZ]1", " ", 
+                RowBox[{"cos", "(", "\[FormalAlpha]", ")"}]}], "+", 
+              RowBox[{"\[FormalZ]2", " ", 
+                RowBox[{"sin", "(", "\[FormalAlpha]", ")"}]}]}]}, "HermiteH"],
+           "\[LongEqual]", 
+          RowBox[{
+            RowBox[{"\[FormalN]", "!"}], " ", 
+            RowBox[{
+              UnderoverscriptBox["\[Sum]", 
+               RowBox[{"\[FormalK]", "=", "0"}], "\[FormalN]"], 
+              FractionBox[
+               RowBox[{
+                 RowBox[{
+                   SuperscriptBox["cos", "\[FormalK]"], "(", "\[FormalAlpha]",
+                    ")"}], " ", 
+                 RowBox[{
+                   SuperscriptBox["sin", 
+                    RowBox[{"\[FormalN]", "-", "\[FormalK]"}]], "(", 
+                   "\[FormalAlpha]", ")"}], " ", 
+                 TemplateBox[{"\[FormalK]", "\[FormalZ]1"}, "HermiteH"], " ", 
+                 
+                 TemplateBox[{
+                   RowBox[{"\[FormalN]", "-", "\[FormalK]"}], "\[FormalZ]2"}, 
+                  "HermiteH"]}], 
+               RowBox[{
+                 RowBox[{"\[FormalK]", "!"}], " ", 
+                 RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"\[FormalN]", "-", "\[FormalK]"}], ")"}], 
+                   "!"}]}]]}]}]}], 
+        RowBox[{
+          RowBox[{"\[FormalN]", "\[Element]", 
+            TemplateBox[{}, "Integers"]}], "\[And]", 
+          RowBox[{"\[FormalN]", "\[GreaterEqual]", "0"}]}]},
+       "ConditionalExpression"], "]"}]}]}], "}"}], TraditionalForm]], "Output",\
+
+ CellChangeTimes->{{3.927107329671886*^9, 
+  3.9271073339588013`*^9}},ExpressionUUID->"831bc727-44e2-4ec9-a963-\
+1d291fa502a3"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      SuperscriptBox["2", 
+       RowBox[{"\[FormalN]", "/", "2"}]], " ", 
+      TemplateBox[{"\[FormalN]", 
+        RowBox[{"\[FormalZ]1", "+", "\[FormalZ]2"}]},
+       "HermiteH"]}], "\[LongEqual]", 
+     RowBox[{
+      UnderoverscriptBox["\[Sum]", 
+       RowBox[{"\[FormalK]", "=", "0"}], "\[FormalN]"], 
+      RowBox[{
+       TemplateBox[{"\[FormalN]", "\[FormalK]"},
+        "Binomial"], " ", 
+       TemplateBox[{"\[FormalK]", 
+         RowBox[{"\[FormalZ]1", " ", 
+           SqrtBox["2"]}]},
+        "HermiteH"], " ", 
+       TemplateBox[{
+         RowBox[{"\[FormalN]", "-", "\[FormalK]"}], 
+         RowBox[{"\[FormalZ]2", " ", 
+           SqrtBox["2"]}]},
+        "HermiteH"]}]}]}], "/.", 
+    RowBox[{"\[FormalN]", "->", "7"}]}], "//", "Simplify"}], 
+  TraditionalForm]], "Input",
+ CellChangeTimes->{{3.927107417650255*^9, 
+  3.927107467267324*^9}},ExpressionUUID->"ffc5c641-3b91-4ad9-9bb2-\
+bc92595598cd"],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{{3.927107420406904*^9, 
+  3.927107467688526*^9}},ExpressionUUID->"4cd5b939-2241-4a74-8661-\
+3b6223683f5d"]
+}, Open  ]],
+
+Cell["Solving the ODE", "Text",
+ CellChangeTimes->{{3.927107000773835*^9, 3.9271070008832817`*^9}, {
+  3.927107055065816*^9, 
+  3.927107057376343*^9}},ExpressionUUID->"16ef0260-61ff-42d1-b9ab-\
+36863bd39129"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DSolve", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"2", " ", "n", " ", 
+        RowBox[{"\[FormalY]", "[", "\[FormalX]", "]"}]}], "-", 
+       RowBox[{"2", " ", "\[FormalX]", " ", 
+        RowBox[{
+         SuperscriptBox["\[FormalY]", "\[Prime]",
+          MultilineFunction->None], "[", "\[FormalX]", "]"}]}], "+", 
+       RowBox[{
+        SuperscriptBox["\[FormalY]", "\[Prime]\[Prime]",
+         MultilineFunction->None], "[", "\[FormalX]", "]"}]}], "\[Equal]", 
+      "0"}], ",", 
+     RowBox[{
+      RowBox[{"\[FormalY]", "[", "0", "]"}], "\[Equal]", 
+      FractionBox[
+       RowBox[{
+        SuperscriptBox["2", "n"], " ", 
+        SqrtBox["\[Pi]"]}], 
+       RowBox[{"Gamma", "[", 
+        FractionBox[
+         RowBox[{"1", "-", "n"}], "2"], "]"}]]}]}], "}"}], ",", "\[FormalY]", 
+   ",", "\[FormalX]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.92710700452882*^9, 3.9271070145169287`*^9}, {
+  3.927107078451335*^9, 
+  3.927107082375496*^9}},ExpressionUUID->"bdea8aaf-7612-4adf-ace2-\
+06de2aac6b49"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{"\[FormalY]", "\[Rule]", 
+    RowBox[{"Function", "[", 
+     RowBox[{
+      RowBox[{"{", "\[FormalX]", "}"}], ",", 
+      FractionBox[
+       RowBox[{
+        RowBox[{
+         TemplateBox[{"1"},
+          "C"], " ", 
+         RowBox[{"Gamma", "[", 
+          FractionBox[
+           RowBox[{"1", "-", "n"}], "2"], "]"}], " ", 
+         RowBox[{"HermiteH", "[", 
+          RowBox[{"n", ",", "\[FormalX]"}], "]"}]}], "+", 
+        RowBox[{
+         SuperscriptBox["2", "n"], " ", 
+         SqrtBox["\[Pi]"], " ", 
+         RowBox[{"Hypergeometric1F1", "[", 
+          RowBox[{
+           RowBox[{"-", 
+            FractionBox["n", "2"]}], ",", 
+           FractionBox["1", "2"], ",", 
+           SuperscriptBox["\[FormalX]", "2"]}], "]"}]}], "-", 
+        RowBox[{
+         SuperscriptBox["2", "n"], " ", 
+         SqrtBox["\[Pi]"], " ", 
+         TemplateBox[{"1"},
+          "C"], " ", 
+         RowBox[{"Hypergeometric1F1", "[", 
+          RowBox[{
+           RowBox[{"-", 
+            FractionBox["n", "2"]}], ",", 
+           FractionBox["1", "2"], ",", 
+           SuperscriptBox["\[FormalX]", "2"]}], "]"}]}]}], 
+       RowBox[{"Gamma", "[", 
+        FractionBox[
+         RowBox[{"1", "-", "n"}], "2"], "]"}]]}], "]"}]}], "}"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.92710701785375*^9, 3.927107041309802*^9}, 
+   3.927107082982799*^9, 
+   3.927107167714785*^9},ExpressionUUID->"1bd73540-b68e-4ce3-abdd-\
+478737ddc51f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"%", "/.", 
+  RowBox[{
+   RowBox[{"C", "[", "1", "]"}], "->", "1"}]}]], "Input",
+ CellChangeTimes->{{3.9271071270879717`*^9, 
+  3.927107129739636*^9}},ExpressionUUID->"c8b069f9-a889-400b-95b3-\
+98cd3e2c512c"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{"\[FormalY]", "\[Rule]", 
+    RowBox[{"Function", "[", 
+     RowBox[{
+      RowBox[{"{", "\[FormalX]", "}"}], ",", 
+      FractionBox[
+       RowBox[{
+        RowBox[{
+         RowBox[{"Gamma", "[", 
+          FractionBox[
+           RowBox[{"1", "-", "n"}], "2"], "]"}], " ", 
+         RowBox[{"HermiteH", "[", 
+          RowBox[{"n", ",", "\[FormalX]"}], "]"}]}], "+", 
+        RowBox[{
+         SuperscriptBox["2", "n"], " ", 
+         SqrtBox["\[Pi]"], " ", 
+         RowBox[{"Hypergeometric1F1", "[", 
+          RowBox[{
+           RowBox[{"-", 
+            FractionBox["n", "2"]}], ",", 
+           FractionBox["1", "2"], ",", 
+           SuperscriptBox["\[FormalX]", "2"]}], "]"}]}], "-", 
+        RowBox[{
+         SuperscriptBox["2", "n"], " ", 
+         SqrtBox["\[Pi]"], " ", 
+         RowBox[{"Hypergeometric1F1", "[", 
+          RowBox[{
+           RowBox[{"-", 
+            FractionBox["n", "2"]}], ",", 
+           FractionBox["1", "2"], ",", 
+           SuperscriptBox["\[FormalX]", "2"]}], "]"}]}]}], 
+       RowBox[{"Gamma", "[", 
+        FractionBox[
+         RowBox[{"1", "-", "n"}], "2"], "]"}]]}], "]"}]}], "}"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.927107130199979*^9, 
+  3.927107169528613*^9},ExpressionUUID->"3b9d35e5-8541-4884-be25-\
+ecd94f1306a9"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[FormalY]", "[", "x", "]"}], "/.", 
+   RowBox[{"First", "[", "%", "]"}]}], "//", "Simplify"}]], "Input",
+ CellChangeTimes->{{3.9271071390491533`*^9, 
+  3.92710716496465*^9}},ExpressionUUID->"8054d7c6-8a0c-46d2-8dc5-\
+0ad6f2c09088"],
+
+Cell[BoxData[
+ RowBox[{"HermiteH", "[", 
+  RowBox[{"n", ",", "x"}], "]"}]], "Output",
+ CellChangeTimes->{{3.927107151010624*^9, 
+  3.927107171218672*^9}},ExpressionUUID->"05bba21c-dc8a-4d16-a421-\
+9a0e4bebe8a7"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Use ",
+ Cell[BoxData[
+  TemplateBox[{"ctrl", "\[LongEqual]"},
+   "Key1",
+   BaseStyle->{
+    "ExampleText", FontWeight -> "Plain", FontFamily -> "Source Sans Pro"}]],
+  ExpressionUUID->"b7b6f52c-8d34-4581-94b3-65433a9c562f"],
+ " to discover properties of a function:"
+}], "CodeText",
+ CellID->89048427,ExpressionUUID->"94defc5f-946c-442c-ab8c-23784eab865c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ NamespaceBox["LinguisticAssistant",
+  DynamicModuleBox[{Typeset`query$$ = 
+   "what are the integral representations of the inverse tangent function?", 
+   Typeset`boxes$$ = RowBox[{
+     TemplateBox[{
+       TemplateBox[{"\"inverse tangent function\"", "\" \"", 
+         TemplateBox[{
+           TemplateBox[{"\"tan\"", 
+             
+             TemplateBox[{
+              "\[NegativeMediumSpace]", "\"\[NegativeMediumSpace]\"", 
+               "\"\[Hyphen]\"", "\"1\""}, "RowWithSeparators"]}, 
+            "Superscript", SyntaxForm -> SuperscriptBox], "\"(\"", 
+           StyleBox["\"z\"", Italic, StripOnInput -> False], "\")\""}, "Row", 
+          DisplayFunction -> (RowBox[{
+             TemplateSlotSequence[1, "\[InvisibleSpace]"]}]& ), 
+          InterpretationFunction -> (RowBox[{"Row", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 TemplateSlotSequence[1, ","], "}"}], ",", 
+               RowBox[{"BaseStyle", "\[Rule]", "\"TraditionalForm\""}]}], 
+             "]"}]& ), BaseStyle -> "TraditionalForm"]}, "RowDefault"], 
+       RowBox[{"Entity", "[", 
+         RowBox[{"\"MathematicalFunction\"", ",", "\"ArcTan\""}], "]"}], 
+       "\"Entity[\\\"MathematicalFunction\\\", \\\"ArcTan\\\"]\"", 
+       "\"mathematical function\""}, "Entity"], "[", 
+     "\"IntegralRepresentations\"", "]"}], Typeset`allassumptions$$ = {}, 
+   Typeset`assumptions$$ = {}, Typeset`open$$ = {1}, Typeset`querystate$$ = {
+   "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+    1.1030631`7.494145350177306, "Messages" -> {}}}, 
+   DynamicBox[ToBoxes[
+     AlphaIntegration`LinguisticAssistantBoxes["", 4, Automatic, 
+      Dynamic[Typeset`query$$], 
+      Dynamic[Typeset`boxes$$], 
+      Dynamic[Typeset`allassumptions$$], 
+      Dynamic[Typeset`assumptions$$], 
+      Dynamic[Typeset`open$$], 
+      Dynamic[Typeset`querystate$$]], StandardForm],
+    ImageSizeCache->{416.9802734375, {8.48974609375, 14.291915893554688`}},
+    TrackedSymbols:>{
+     Typeset`query$$, Typeset`boxes$$, Typeset`allassumptions$$, 
+      Typeset`assumptions$$, Typeset`open$$, Typeset`querystate$$}],
+   DynamicModuleValues:>{},
+   UndoTrackedVariables:>{Typeset`open$$}],
+  BaseStyle->"Deploy",
+  DeleteWithContents->True,
+  Editable->False,
+  SelectWithContents->True]], "Input",
+ CellID->51838209,ExpressionUUID->"59ed43e5-8c56-42f9-8a4c-875fa9b731b2"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"Function", "[", 
+   RowBox[{
+    RowBox[{"{", "\[FormalZ]", "}"}], ",", 
+    RowBox[{"Inactivate", "[", 
+     RowBox[{
+      RowBox[{"ArcTan", "[", "\[FormalZ]", "]"}], "\[Equal]", 
+      RowBox[{"\[FormalZ]", " ", 
+       RowBox[{
+        SubsuperscriptBox["\[Integral]", "0", "1"], 
+        RowBox[{
+         FractionBox["1", 
+          RowBox[{"1", "+", 
+           RowBox[{
+            SuperscriptBox["\[FormalZ]", "2"], " ", 
+            SuperscriptBox["\[FormalT]", "2"]}]}]], 
+         RowBox[{"\[DifferentialD]", "\[FormalT]"}]}]}]}]}], "]"}]}], "]"}], 
+  "}"}]], "Output",
+ CellID->388034251,ExpressionUUID->"e749e8ce-5d00-4a0c-83dc-3da8a4da7aff"]
+}, Open  ]],
+
+Cell[BoxData[
+ NamespaceBox["LinguisticAssistant",
+  DynamicModuleBox[{Typeset`query$$ = 
+   "what are the integral representations of the Hermite polynomials?", 
+   Typeset`boxes$$ = RowBox[{
+     TemplateBox[{
+       TemplateBox[{"\"Hermite function\"", "\" \"", 
+         TemplateBox[{
+           SubscriptBox[
+            StyleBox["\"H\"", Italic, StripOnInput -> False], "\"\[Nu]\""], 
+           "\"(\"", 
+           StyleBox["\"z\"", Italic, StripOnInput -> False], "\")\""}, "Row", 
+          DisplayFunction -> (RowBox[{
+             TemplateSlotSequence[1, "\[InvisibleSpace]"]}]& ), 
+          InterpretationFunction -> (RowBox[{"Row", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 TemplateSlotSequence[1, ","], "}"}], ",", 
+               RowBox[{"BaseStyle", "\[Rule]", "\"TraditionalForm\""}]}], 
+             "]"}]& ), BaseStyle -> "TraditionalForm"]}, "RowDefault"], 
+       RowBox[{"Entity", "[", 
+         RowBox[{"\"MathematicalFunction\"", ",", "\"HermiteH\""}], "]"}], 
+       "\"Entity[\\\"MathematicalFunction\\\", \\\"HermiteH\\\"]\"", 
+       "\"mathematical function\""}, "Entity"], "[", 
+     TemplateBox[{"\"integral representations\"", 
+       RowBox[{"EntityProperty", "[", 
+         RowBox[{
+          "\"MathematicalFunction\"", ",", "\"IntegralRepresentations\""}], 
+         "]"}], "\"EntityProperty[\\\"MathematicalFunction\\\", \
+\\\"IntegralRepresentations\\\"]\""}, "EntityProperty"], "]"}], 
+   Typeset`allassumptions$$ = {}, Typeset`assumptions$$ = {}, 
+   Typeset`open$$ = {1}, Typeset`querystate$$ = {
+   "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+    3.308147`6.971129793007196, "Messages" -> {}}}, 
+   DynamicBox[ToBoxes[
+     AlphaIntegration`LinguisticAssistantBoxes["", 4, Automatic, 
+      Dynamic[Typeset`query$$], 
+      Dynamic[Typeset`boxes$$], 
+      Dynamic[Typeset`allassumptions$$], 
+      Dynamic[Typeset`assumptions$$], 
+      Dynamic[Typeset`open$$], 
+      Dynamic[Typeset`querystate$$]], StandardForm],
+    ImageSizeCache->{396.705859375, {8.48974609375, 14.291915893554688`}},
+    TrackedSymbols:>{
+     Typeset`query$$, Typeset`boxes$$, Typeset`allassumptions$$, 
+      Typeset`assumptions$$, Typeset`open$$, Typeset`querystate$$}],
+   DynamicModuleValues:>{},
+   UndoTrackedVariables:>{Typeset`open$$}],
+  BaseStyle->"Deploy",
+  DeleteWithContents->True,
+  Editable->False,
+  SelectWithContents->True]], "Input",
+ CellChangeTimes->{3.927107941448421*^9},
+ CellID->26287856,ExpressionUUID->"763d07ea-40d6-4ab3-bd4d-0e5abc65e056"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  TemplateBox[{
+    TemplateBox[{"\"Hermite function\"", "\" \"", 
+      TemplateBox[{
+        SubscriptBox[
+         StyleBox["\"H\"", Italic, StripOnInput -> False], "\"\[Nu]\""], 
+        "\"(\"", 
+        StyleBox["\"z\"", Italic, StripOnInput -> False], "\")\""}, "Row", 
+       DisplayFunction -> (RowBox[{
+          TemplateSlotSequence[1, "\[InvisibleSpace]"]}]& ), 
+       InterpretationFunction -> (RowBox[{"Row", "[", 
+          RowBox[{
+            RowBox[{"{", 
+              TemplateSlotSequence[1, ","], "}"}], ",", 
+            RowBox[{"BaseStyle", "\[Rule]", "\"TraditionalForm\""}]}], 
+          "]"}]& ), BaseStyle -> "TraditionalForm"]}, "RowDefault"], 
+    RowBox[{"Entity", "[", 
+      RowBox[{"\"MathematicalFunction\"", ",", "\"HermiteH\""}], "]"}], 
+    "\"Entity[\\\"MathematicalFunction\\\", \\\"HermiteH\\\"]\"", 
+    "\"mathematical function\""},
+   "Entity"], "[", 
+  TemplateBox[{"\"integral representations\"", 
+    RowBox[{"EntityProperty", "[", 
+      RowBox[{
+       "\"MathematicalFunction\"", ",", "\"IntegralRepresentations\""}], 
+      "]"}], "\"EntityProperty[\\\"MathematicalFunction\\\", \
+\\\"IntegralRepresentations\\\"]\""},
+   "EntityProperty"], "]"}]], "Input",
+ CellChangeTimes->{{3.927107941448421*^9, 3.927107977184812*^9}},
+ CellID->359192710,ExpressionUUID->"c562c03e-04af-4770-82fd-ad40da5a4859"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"Function", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[FormalNu]", ",", "\[FormalZ]"}], "}"}], ",", 
+     RowBox[{"Inactivate", "[", 
+      TemplateBox[{
+        RowBox[{
+          RowBox[{"HermiteH", "[", 
+            RowBox[{"\[FormalNu]", ",", "\[FormalZ]"}], "]"}], "\[Equal]", 
+          FractionBox[
+           RowBox[{
+             RowBox[{"(", 
+               RowBox[{
+                 SuperscriptBox["2", 
+                  RowBox[{"\[FormalNu]", "+", "1"}]], " ", 
+                 SuperscriptBox["\[ExponentialE]", 
+                  SuperscriptBox["\[FormalZ]", "2"]]}], ")"}], " ", 
+             RowBox[{
+               SubsuperscriptBox["\[Integral]", "0", "\[Infinity]"], 
+               RowBox[{
+                 FractionBox[
+                  RowBox[{
+                    SuperscriptBox["\[FormalT]", "\[FormalNu]"], " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{
+                    RowBox[{"2", " ", "\[FormalZ]", " ", "\[FormalT]"}], "-", 
+                    
+                    FractionBox[
+                    RowBox[{"\[Pi]", " ", "\[FormalNu]"}], "2"]}], "]"}]}], 
+                  SuperscriptBox["\[ExponentialE]", 
+                   SuperscriptBox["\[FormalT]", "2"]]], 
+                 RowBox[{"\[DifferentialD]", "\[FormalT]"}]}]}]}], 
+           SqrtBox["\[Pi]"]]}], 
+        RowBox[{
+          RowBox[{"Re", "[", "\[FormalNu]", "]"}], ">", 
+          RowBox[{"-", "1"}]}]},
+       "ConditionalExpression"], "]"}]}], "]"}], ",", 
+   RowBox[{"Function", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[FormalN]", ",", "\[FormalZ]"}], "}"}], ",", 
+     RowBox[{"Inactivate", "[", 
+      TemplateBox[{
+        RowBox[{
+          RowBox[{"HermiteH", "[", 
+            RowBox[{"\[FormalN]", ",", "\[FormalZ]"}], "]"}], "\[Equal]", 
+          FractionBox[
+           RowBox[{
+             RowBox[{"(", 
+               RowBox[{
+                 SuperscriptBox["\[ExponentialE]", 
+                  FractionBox[
+                   
+                   RowBox[{
+                    "3", " ", "\[Pi]", " ", "\[ImaginaryI]", " ", 
+                    "\[FormalN]"}], "2"]], " ", 
+                 SuperscriptBox["2", "\[FormalN]"]}], ")"}], " ", 
+             RowBox[{
+               SubsuperscriptBox["\[Integral]", 
+                RowBox[{"-", "\[Infinity]"}], "\[Infinity]"], 
+               RowBox[{
+                 FractionBox[
+                  SuperscriptBox["\[FormalT]", "\[FormalN]"], 
+                  SuperscriptBox["\[ExponentialE]", 
+                   SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"\[FormalT]", "-", 
+                    RowBox[{"\[ImaginaryI]", " ", "\[FormalZ]"}]}], ")"}], 
+                    "2"]]], 
+                 RowBox[{"\[DifferentialD]", "\[FormalT]"}]}]}]}], 
+           SqrtBox["\[Pi]"]]}], 
+        RowBox[{
+          RowBox[{"\[FormalN]", "\[Element]", 
+            TemplateBox[{}, "Integers"]}], "&&", 
+          RowBox[{"\[FormalN]", "\[GreaterEqual]", "0"}]}]},
+       "ConditionalExpression"], "]"}]}], "]"}], ",", 
+   RowBox[{"Function", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[FormalN]", ",", "\[FormalZ]"}], "}"}], ",", 
+     RowBox[{"Inactivate", "[", 
+      TemplateBox[{
+        RowBox[{
+          RowBox[{"HermiteH", "[", 
+            RowBox[{"\[FormalN]", ",", "\[FormalZ]"}], "]"}], "\[Equal]", 
+          FractionBox[
+           RowBox[{
+             SuperscriptBox["2", "\[FormalN]"], " ", 
+             RowBox[{
+               SubsuperscriptBox["\[Integral]", 
+                RowBox[{"-", "\[Infinity]"}], "\[Infinity]"], 
+               RowBox[{
+                 FractionBox[
+                  SuperscriptBox[
+                   RowBox[{"(", 
+                    RowBox[{"\[FormalZ]", "+", 
+                    RowBox[{"\[ImaginaryI]", " ", "\[FormalT]"}]}], ")"}], 
+                   "\[FormalN]"], 
+                  SuperscriptBox["\[ExponentialE]", 
+                   SuperscriptBox["\[FormalT]", "2"]]], 
+                 RowBox[{"\[DifferentialD]", "\[FormalT]"}]}]}]}], 
+           SqrtBox["\[Pi]"]]}], 
+        RowBox[{
+          RowBox[{"\[FormalN]", "\[Element]", 
+            TemplateBox[{}, "Integers"]}], "&&", 
+          RowBox[{"\[FormalN]", "\[GreaterEqual]", "0"}]}]},
+       "ConditionalExpression"], "]"}]}], "]"}], ",", 
+   RowBox[{"Function", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[FormalN]", ",", "\[FormalZ]"}], "}"}], ",", 
+     RowBox[{"Inactivate", "[", 
+      TemplateBox[{
+        RowBox[{
+          RowBox[{"HermiteH", "[", 
+            RowBox[{"\[FormalN]", ",", "\[FormalZ]"}], "]"}], "\[Equal]", 
+          RowBox[{
+            SuperscriptBox[
+             RowBox[{"(", 
+               RowBox[{"-", "1"}], ")"}], "\[FormalN]"], " ", 
+            SuperscriptBox["\[ExponentialE]", 
+             SuperscriptBox["\[FormalZ]", "2"]], " ", 
+            RowBox[{
+              SubscriptBox["\[PartialD]", 
+               RowBox[{
+                 RowBox[{"{", 
+                   RowBox[{"\[FormalZ]", ",", "\[FormalN]"}], "}"}]}]], 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{"-", 
+                 SuperscriptBox["\[FormalZ]", "2"]}]]}]}]}], 
+        RowBox[{
+          RowBox[{"\[FormalN]", "\[Element]", 
+            TemplateBox[{}, "Integers"]}], "&&", 
+          RowBox[{"\[FormalN]", "\[GreaterEqual]", "0"}]}]},
+       "ConditionalExpression"], "]"}]}], "]"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.9271079823277903`*^9, 
+  3.9271079977337437`*^9}},ExpressionUUID->"6652e251-f63e-4811-9d74-\
+578efee51332"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["DLMF", "Subsection",
+ CellChangeTimes->{{3.927107708297247*^9, 
+  3.9271077090540953`*^9}},ExpressionUUID->"db197e4b-8308-44de-ab98-\
+2f48b74bd63a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MathematicalFunctionData", "[", 
+  RowBox[{
+   TemplateBox[{"\"Digital Library of Mathematical Functions\"", 
+     RowBox[{"Entity", "[", 
+       RowBox[{
+        "\"Source\"", ",", "\"DigitalLibraryOfMathematicalFunctions\""}], 
+       "]"}], "\"Entity[\\\"Source\\\", \
+\\\"DigitalLibraryOfMathematicalFunctions\\\"]\"", "\"Source\""},
+    "Entity"], "\[Rule]", "\"\<27.5.5\>\""}], "]"}]], "Input",ExpressionUUID->\
+"7ddffc5f-501e-46a0-813e-7c2b4d92525c"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    TemplateBox[{"\"DLMF eq. 27.5.5\"", "http://dlmf.nist.gov/27.5.5"},
+     "HyperlinkURL"], "\[Rule]", 
+    TemplateBox[{"Inactive", 
+      RowBox[{
+        TemplateBox[{"EntityValue"}, "InactiveHead", BaseStyle -> "Inactive", 
+         Tooltip -> "Inactive[EntityValue]", SyntaxForm -> "Symbol"], "[", 
+        RowBox[{
+          TemplateBox[{
+            TemplateBox[{"\"Mangoldt function\"", "\" \"", 
+              TemplateBox[{"\"\[CapitalLambda]\"", "\"(\"", 
+                StyleBox["\"z\"", Italic, StripOnInput -> False], "\")\""}, 
+               "Row", DisplayFunction -> (RowBox[{
+                  TemplateSlotSequence[1, "\[InvisibleSpace]"]}]& ), 
+               InterpretationFunction -> (RowBox[{"Row", "[", 
+                  RowBox[{
+                    RowBox[{"{", 
+                    TemplateSlotSequence[1, ","], "}"}], ",", 
+                    RowBox[{"BaseStyle", "\[Rule]", "\"TraditionalForm\""}]}],
+                   "]"}]& ), BaseStyle -> "TraditionalForm"]}, "RowDefault"], 
+            
+            RowBox[{"Entity", "[", 
+              RowBox[{"\"MathematicalFunction\"", ",", "\"MangoldtLambda\""}],
+               "]"}], "\"Entity[\\\"MathematicalFunction\\\", \
+\\\"MangoldtLambda\\\"]\"", "\"mathematical function\""}, "Entity"], ",", 
+          TemplateBox[{"\"alternative representations\"", 
+            RowBox[{"EntityProperty", "[", 
+              
+              RowBox[{"\"MathematicalFunction\"", ",", 
+                "\"AlternativeRepresentations\""}], "]"}], 
+            "\"EntityProperty[\\\"MathematicalFunction\\\", \
+\\\"AlternativeRepresentations\\\"]\""}, "EntityProperty"]}], "]"}], "2"},
+     "InactivePart"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"DLMF eq. 27.5.5\"", "http://dlmf.nist.gov/27.5.5"},
+     "HyperlinkURL"], "\[Rule]", 
+    TemplateBox[{"Inactive", 
+      RowBox[{
+        TemplateBox[{"EntityValue"}, "InactiveHead", BaseStyle -> "Inactive", 
+         Tooltip -> "Inactive[EntityValue]", SyntaxForm -> "Symbol"], "[", 
+        RowBox[{
+          TemplateBox[{
+            TemplateBox[{"\"Mangoldt function\"", "\" \"", 
+              TemplateBox[{"\"\[CapitalLambda]\"", "\"(\"", 
+                StyleBox["\"z\"", Italic, StripOnInput -> False], "\")\""}, 
+               "Row", DisplayFunction -> (RowBox[{
+                  TemplateSlotSequence[1, "\[InvisibleSpace]"]}]& ), 
+               InterpretationFunction -> (RowBox[{"Row", "[", 
+                  RowBox[{
+                    RowBox[{"{", 
+                    TemplateSlotSequence[1, ","], "}"}], ",", 
+                    RowBox[{"BaseStyle", "\[Rule]", "\"TraditionalForm\""}]}],
+                   "]"}]& ), BaseStyle -> "TraditionalForm"]}, "RowDefault"], 
+            
+            RowBox[{"Entity", "[", 
+              RowBox[{"\"MathematicalFunction\"", ",", "\"MangoldtLambda\""}],
+               "]"}], "\"Entity[\\\"MathematicalFunction\\\", \
+\\\"MangoldtLambda\\\"]\"", "\"mathematical function\""}, "Entity"], ",", 
+          TemplateBox[{"\"related function representations\"", 
+            RowBox[{"EntityProperty", "[", 
+              
+              RowBox[{"\"MathematicalFunction\"", ",", 
+                "\"RelatedFunctionRepresentations\""}], "]"}], 
+            "\"EntityProperty[\\\"MathematicalFunction\\\", \
+\\\"RelatedFunctionRepresentations\\\"]\""}, "EntityProperty"]}], "]"}], "2"},
+     
+     "InactivePart"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"DLMF eq. 27.5.5\"", "http://dlmf.nist.gov/27.5.5"},
+     "HyperlinkURL"], "\[Rule]", 
+    TemplateBox[{"Inactive", 
+      RowBox[{
+        TemplateBox[{"EntityValue"}, "InactiveHead", BaseStyle -> "Inactive", 
+         Tooltip -> "Inactive[EntityValue]", SyntaxForm -> "Symbol"], "[", 
+        RowBox[{
+          TemplateBox[{
+            TemplateBox[{"\"Mangoldt function\"", "\" \"", 
+              TemplateBox[{"\"\[CapitalLambda]\"", "\"(\"", 
+                StyleBox["\"z\"", Italic, StripOnInput -> False], "\")\""}, 
+               "Row", DisplayFunction -> (RowBox[{
+                  TemplateSlotSequence[1, "\[InvisibleSpace]"]}]& ), 
+               InterpretationFunction -> (RowBox[{"Row", "[", 
+                  RowBox[{
+                    RowBox[{"{", 
+                    TemplateSlotSequence[1, ","], "}"}], ",", 
+                    RowBox[{"BaseStyle", "\[Rule]", "\"TraditionalForm\""}]}],
+                   "]"}]& ), BaseStyle -> "TraditionalForm"]}, "RowDefault"], 
+            
+            RowBox[{"Entity", "[", 
+              RowBox[{"\"MathematicalFunction\"", ",", "\"MangoldtLambda\""}],
+               "]"}], "\"Entity[\\\"MathematicalFunction\\\", \
+\\\"MangoldtLambda\\\"]\"", "\"mathematical function\""}, "Entity"], ",", 
+          TemplateBox[{"\"sample finite sums\"", 
+            RowBox[{"EntityProperty", "[", 
+              
+              RowBox[{"\"MathematicalFunction\"", ",", 
+                "\"SampleFiniteSums\""}], "]"}], 
+            "\"EntityProperty[\\\"MathematicalFunction\\\", \
+\\\"SampleFiniteSums\\\"]\""}, "EntityProperty"]}], "]"}], "1"},
+     "InactivePart"]}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.927107650787426*^9},ExpressionUUID->"4cb23da6-409f-4691-9793-\
+ba4be7028058"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Activate", "@", 
+  RowBox[{
+   TemplateBox[{"EntityValue"},
+    "InactiveHead",
+    BaseStyle->"Inactive",
+    SyntaxForm->"Symbol",
+    Tooltip->"Inactive[EntityValue]"], "[", 
+   RowBox[{
+    TemplateBox[{
+      TemplateBox[{"\"Mangoldt function\"", "\" \"", 
+        TemplateBox[{"\"\[CapitalLambda]\"", "\"(\"", 
+          StyleBox["\"z\"", Italic, StripOnInput -> False], "\")\""}, "Row", 
+         DisplayFunction -> (RowBox[{
+            TemplateSlotSequence[1, "\[InvisibleSpace]"]}]& ), 
+         InterpretationFunction -> (RowBox[{"Row", "[", 
+            RowBox[{
+              RowBox[{"{", 
+                TemplateSlotSequence[1, ","], "}"}], ",", 
+              RowBox[{"BaseStyle", "\[Rule]", "\"TraditionalForm\""}]}], 
+            "]"}]& ), BaseStyle -> "TraditionalForm"]}, "RowDefault"], 
+      RowBox[{"Entity", "[", 
+        RowBox[{"\"MathematicalFunction\"", ",", "\"MangoldtLambda\""}], 
+        "]"}], "\"Entity[\\\"MathematicalFunction\\\", \
+\\\"MangoldtLambda\\\"]\"", "\"mathematical function\""},
+     "Entity"], ",", 
+    TemplateBox[{"\"alternative representations\"", 
+      RowBox[{"EntityProperty", "[", 
+        RowBox[{
+         "\"MathematicalFunction\"", ",", "\"AlternativeRepresentations\""}], 
+        "]"}], "\"EntityProperty[\\\"MathematicalFunction\\\", \
+\\\"AlternativeRepresentations\\\"]\""},
+     "EntityProperty"]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.9271076784790382`*^9, 
+  3.927107680030416*^9}},ExpressionUUID->"dea6597d-7277-4312-b01f-\
+cfed16b1dde7"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"{", "\[FormalN]", "}"}], "\[Function]", 
+     RowBox[{"Inactivate", "[", 
+      TemplateBox[{
+        RowBox[{
+          TemplateBox[{"\[FormalN]"}, "MangoldtLambda"], "\[LongEqual]", 
+          RowBox[{
+            RowBox[{"SummatoryMangoldt", "(", "\[FormalN]", ")"}], "-", 
+            RowBox[{"SummatoryMangoldt", "(", 
+              RowBox[{"\[FormalN]", "-", "1"}], ")"}]}]}], 
+        RowBox[{"\[FormalN]", "\[Element]", 
+          TemplateBox[{}, "Integers"]}]},
+       "ConditionalExpression"], "]"}]}], ",", 
+    RowBox[{
+     RowBox[{"{", "\[FormalN]", "}"}], "\[Function]", 
+     RowBox[{"Inactivate", "[", 
+      TemplateBox[{
+        RowBox[{
+          TemplateBox[{"\[FormalN]"}, "MangoldtLambda"], "\[LongEqual]", 
+          RowBox[{
+            UnderoverscriptBox["\[Sum]", "\[FormalD]", 
+             RowBox[{"Divisors", "[", "\[FormalN]", "]"}]], 
+            RowBox[{
+              TemplateBox[{
+                FractionBox["\[FormalN]", "\[FormalD]"]}, "MoebiusMu"], " ", 
+              RowBox[{"log", "(", "\[FormalD]", ")"}]}]}]}], 
+        RowBox[{
+          RowBox[{"\[FormalN]", "\[Element]", 
+            TemplateBox[{}, "Integers"]}], "\[And]", 
+          RowBox[{"\[FormalN]", "\[GreaterEqual]", 
+            RowBox[{"-", "1"}]}]}]},
+       "ConditionalExpression"], "]"}]}], ",", 
+    RowBox[{
+     RowBox[{"{", "\[FormalN]", "}"}], "\[Function]", 
+     RowBox[{"Inactivate", "[", 
+      TemplateBox[{
+        RowBox[{
+          TemplateBox[{"\[FormalN]"}, "MangoldtLambda"], "\[LongEqual]", 
+          RowBox[{"-", 
+            RowBox[{
+              UnderoverscriptBox["\[Sum]", "\[FormalD]", 
+               RowBox[{"Divisors", "[", "\[FormalN]", "]"}]], 
+              RowBox[{
+                TemplateBox[{"\[FormalD]"}, "MoebiusMu"], " ", 
+                RowBox[{"log", "(", "\[FormalD]", ")"}]}]}]}]}], 
+        RowBox[{
+          RowBox[{"\[FormalN]", "\[Element]", 
+            TemplateBox[{}, "Integers"]}], "\[And]", 
+          RowBox[{"\[FormalN]", ">", "0"}]}]},
+       "ConditionalExpression"], "]"}]}]}], "}"}], TraditionalForm]], "Output",\
+
+ CellChangeTimes->{{3.927107683073894*^9, 
+  3.927107694394388*^9}},ExpressionUUID->"013d8416-4a9b-41c8-8e6e-\
+39a8b53e91d2"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1055, 873},
+WindowMargins->{{Automatic, 131}, {Automatic, 0}},
+TaggingRules-><|"TryRealOnly" -> False|>,
+FrontEndVersion->"14.1 for Mac OS X ARM (64-bit) (May 2, 2024)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[StyleDefinitions -> "Default.nb"]], 
+   Cell[
+    StyleData["Notebook"], PageWidth -> WindowWidth, CellLabelAutoDelete -> 
+    True, ShowSyntaxStyles -> True, 
+    StyleHints -> <|"CodeFont" -> "Source Code Pro"|>, MenuSortingValue -> 
+    None], 
+   Cell[
+    CellGroupData[{
+      Cell["Custom Styles", "Section"], 
+      Cell[
+       CellGroupData[{
+         Cell["General", "Subsection"], 
+         Cell[
+          StyleData["Title"], CellMargins -> {{27, Inherited}, {10, 30}}, 
+          FontColor -> RGBColor[1, 0.43, 0.13]], 
+         Cell[
+          StyleData["SectionTitle", StyleDefinitions -> StyleData["Title"]], 
+          CellFrame -> {{False, False}, {1, 0}}, 
+          CellMargins -> {{27, Inherited}, {0, 10}}, CellFrameColor -> 
+          RGBColor[0.85, 0.85, 0.85], CounterIncrements -> "SectionTitle", 
+          FontSize -> 20, FontWeight -> "Light", FontColor -> 
+          RGBColor[0.65, 0.65, 0.65]], 
+         Cell[
+          StyleData["Subtitle"], FontWeight -> "Light", FontColor -> 
+          RGBColor[0.65, 0.65, 0.65]], 
+         Cell[
+          StyleData["Subsubtitle"], FontWeight -> "Light", FontColor -> 
+          RGBColor[0.65, 0.65, 0.65]], 
+         Cell[
+          StyleData["Chapter"], CellMargins -> {{27, Inherited}, {10, 30}}, 
+          PageBreakAbove -> True, FontSize -> 40, FontSlant -> "Italic", 
+          FontColor -> GrayLevel[0.5]], 
+         Cell[
+          StyleData["Subchapter"], CellDingbat -> 
+          StyleBox[
+           "\[FilledSmallCircle]", Alignment -> Baseline, FontColor -> 
+            RGBColor[1, 0.43, 0.13]], FontSlant -> "Plain", FontColor -> 
+          GrayLevel[0.5]], 
+         Cell[
+          StyleData["Section"], CellFrame -> False, 
+          CellMargins -> {{27, Inherited}, {34, 14}}, PageBreakAbove -> False,
+           PageBreakBelow -> False, ShowCellLabel -> False, 
+          CellFrameLabelMargins -> {{2, Inherited}, {Inherited, Inherited}}, 
+          FontSize -> 36, FontColor -> RGBColor[1, 0.43, 0.13]], 
+         Cell[
+          StyleData[
+          "SectionNumber", StyleDefinitions -> StyleData["Section"]], 
+          FontSize -> 38, FontWeight -> "Light", FontColor -> 
+          RGBColor[0.65, 0.65, 0.65]], 
+         Cell[
+          StyleData[
+          "NumberedSection", StyleDefinitions -> StyleData["Section"]], 
+          CellDingbat -> Cell[
+            TextData[{
+              CounterBox["Section"], " |\[ThinSpace]"}], "SectionNumber"], 
+          CellMargins -> {{96, Inherited}, {34, 14}}], 
+         Cell[
+          StyleData[
+          "SectionTitleWithSection", StyleDefinitions -> 
+           StyleData["Section"]], CellDingbat -> Cell[
+            TextData[{
+              CounterBox["SectionTitle"], ".", 
+              CounterBox["Section"], " |\[ThinSpace]"}], "SectionNumber"], 
+          CellMargins -> {{96, Inherited}, {34, 14}}], 
+         Cell[
+          StyleData["SectionInline"], FontColor -> RGBColor[0.9, 0.4, 0.]], 
+         Cell[
+          StyleData["Subsection"], CellMargins -> {{27, Inherited}, {12, 32}},
+           CellElementSpacings -> {"ClosedGroupTopMargin" -> 32}, FontSize -> 
+          25, FontColor -> RGBColor[0.9, 0.4, 0.]], 
+         Cell[
+          StyleData["Subsubsection"], 
+          CellMargins -> {{27, Inherited}, {6, 16}}, 
+          CellElementSpacings -> {"ClosedGroupTopMargin" -> 16}, FontSize -> 
+          20, FontColor -> RGBColor[0.9, 0.4, 0.]], 
+         Cell[
+          StyleData["Subsubsubsection"], 
+          CellMargins -> {{27, Inherited}, {6, 16}}, FontSize -> 15, 
+          FontColor -> RGBColor[0.9, 0.4, 0.]], 
+         Cell[
+          StyleData["Subsubsubsubsection"], 
+          CellMargins -> {{27, Inherited}, {6, 16}}, FontSize -> 14, 
+          FontColor -> RGBColor[0.9, 0.4, 0.]], 
+         Cell[
+          StyleData["Text"], CellMargins -> {{66, 10}, {7, 8}}, FontSize -> 
+          15, FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["CodeText"], CellMargins -> {{66, 10}, {7, 8}}, FontSize -> 
+          15], 
+         Cell[
+          StyleData["Author"], CellMargins -> {{27, Inherited}, {6, 16}}], 
+         Cell[
+          StyleData["Affiliation"], 
+          CellMargins -> {{27, Inherited}, {6, 16}}], 
+         Cell[
+          StyleData["Link"], FontColor -> RGBColor[0, 0.6, 1]], 
+         Cell[
+          StyleData["HyperLink"], FontColor -> RGBColor[0, 0.6, 1]], 
+         Cell[
+          StyleData["Hyperlink"], FontColor -> RGBColor[0, 0.6, 1]], 
+         Cell[
+          StyleData["FunctionLink"], FontColor -> RGBColor[0, 0.6, 1]], 
+         Cell[
+          StyleData["HyperlinkActionNew"], FontColor -> RGBColor[0, 0.6, 1]], 
+         
+         Cell[
+          StyleData["HyperlinkActive"], FontColor -> RGBColor[1, 0.4, 0]]}, 
+        Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell["Items", "Subsection"], 
+         Cell[
+          StyleData["Item"], CellDingbat -> 
+          StyleBox["\[FilledSmallSquare]", Alignment -> Baseline, 
+            RGBColor[0.9, 0.4, 0.]], FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["Subitem"], CellDingbat -> 
+          StyleBox["\[FilledSmallSquare]", Alignment -> Baseline, 
+            RGBColor[0.9, 0.4, 0.]], FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["Subsubitem"], CellDingbat -> 
+          StyleBox["\[FilledSmallSquare]", Alignment -> Baseline, 
+            RGBColor[0.65, 0.65, 0.65]], FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["ItemNumbered"], FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["SubitemNumbered"], FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["SubsubitemNumbered"], FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData[
+          "ItemRomanNumbered", StyleDefinitions -> StyleData["ItemNumbered"]],
+           CellDingbat -> Cell[
+            TextData[{
+              CounterBox[
+              "ItemRomanNumbered", CounterFunction -> RomanNumeral], "."}], 
+            FontWeight -> Bold], CounterIncrements -> "ItemRomanNumbered", 
+          FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["ItemParagraph"], FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["SubitemParagraph"], FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["SubsubitemParagraph"], FontColor -> GrayLevel[0]]}, 
+        Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell["Inline and Special Formatting", "Subsection"], 
+         Cell[
+          StyleData["TimeCode", StyleDefinitions -> StyleData["Text"]], 
+          MenuSortingValue -> 1401, FontSize -> 14, FontColor -> 
+          GrayLevel[0.5]], 
+         Cell[
+          StyleData["Input"], ShowCellBracket -> True, 
+          CellMargins -> {{70, Inherited}, {25, 0}}, FontWeight -> "SemiBold",
+           FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["Output"], ShowCellBracket -> True, 
+          CellMargins -> {{70, Inherited}, {25, 0}}, FontColor -> 
+          GrayLevel[0]], 
+         Cell[
+          StyleData["InputOnly"], ShowCellBracket -> True, 
+          CellMargins -> {{70, Inherited}, {25, 0}}, FontWeight -> "SemiBold",
+           FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["InputHidden", StyleDefinitions -> StyleData["Input"]], 
+          CellEpilog :> (SelectionMove[
+             EvaluationNotebook[], All, GeneratedCell]; 
+           FrontEndTokenExecute["SelectionCloseUnselectedCells"]), 
+          InitializationCell -> True, MenuSortingValue -> 1510, 
+          MenuCommandKey :> "8"], 
+         Cell[
+          StyleData["Code"], ShowCellBracket -> True, 
+          CellMargins -> {{70, Inherited}, {25, 0}}], 
+         Cell[
+          StyleData["Separator"], CellFrame -> {{False, False}, {1.5, False}},
+           CellMargins -> {{70, Inherited}, {25, 0}}, CellFrameColor -> 
+          GrayLevel[0.66], MenuSortingValue -> 10000], 
+         Cell[
+          StyleData["Print"], CellMargins -> {{70, Inherited}, {25, 0}}], 
+         Cell[
+          StyleData["InlineCode"], SpanMaxSize -> 0, FontWeight -> "SemiBold",
+           FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData[
+          "InlineCodeText", StyleDefinitions -> StyleData["InlineCode"]]], 
+         Cell[
+          StyleData[
+          "InlineInput", StyleDefinitions -> StyleData["InlineCode"]]], 
+         Cell[
+          StyleData["InlineFormula"], ShowStringCharacters -> True, 
+          SpanMaxSize -> 0, FontWeight -> "SemiBold", FontColor -> 
+          GrayLevel[0]], 
+         Cell[
+          StyleData["InlineMath"], SpanMaxSize -> 0, FontColor -> 
+          GrayLevel[0]], 
+         Cell[
+          StyleData[
+          "NotebookDownload", StyleDefinitions -> StyleData["Text"]], 
+          CellFrame -> {{0, 0}, {0, 1}}, ShowCellBracket -> False, 
+          CellMargins -> {{27, Inherited}, {100, 20}}, 
+          CellGroupingRules -> {"SectionGrouping", 10}, CloudRenderingMethod -> 
+          "InteractiveBoxes", 
+          CellFrameMargins -> {{Inherited, Inherited}, {Inherited, 20}}, 
+          FontColor -> RGBColor[1, 0.43, 0.13]], 
+         Cell[
+          StyleData[
+          "ExperimentalInput", StyleDefinitions -> StyleData["Input"]], 
+          CellFrame -> True, 
+          StyleKeyMapping -> {"=" -> "WolframAlphaShort", "*" -> "Item"}, 
+          CellFrameColor -> RGBColor[0.9, 0.4, 0.], CellFrameLabels -> {{
+             Cell[
+              BoxData[
+               InterpretationBox[
+                Cell[
+                 BoxData[
+                  RotationBox[
+                  "Experimental", BoxRotation -> 1.5707963267948966`]], 
+                 "Text", LineColor -> RGBColor[0.9, 0.4, 0.], FrontFaceColor -> 
+                 RGBColor[0.9, 0.4, 0.], $CellContext`BackFaceColor -> 
+                 RGBColor[0.9, 0.4, 0.], GraphicsColor -> 
+                 RGBColor[0.9, 0.4, 0.], FontSize -> 10, FontColor -> 
+                 RGBColor[0.9, 0.4, 0.]], 
+                TextCell[
+                 Rotate["Experimental", 90 Degree], "Text", 10, 
+                 RGBColor[0.9, 0.4, 0.]]]]], None}, {None, None}}, 
+          MenuSortingValue -> 1510, FontSize -> 13], 
+         Cell[
+          StyleData["WolframAlphaShort"], ShowCellBracket -> True, 
+          CellMargins -> {{70, Inherited}, {25, 0}}, MenuSortingValue -> 
+          10000], 
+         Cell[
+          StyleData["WolframAlphaLong"], ShowCellBracket -> True, 
+          CellMargins -> {{70, Inherited}, {25, 0}}, MenuSortingValue -> 
+          10000], 
+         Cell[
+          StyleData["ExternalLanguage"], ShowCellBracket -> True, 
+          CellMargins -> {{70, Inherited}, {25, 0}}], 
+         Cell[
+          StyleData["HintHeader", StyleDefinitions -> StyleData["Text"]], 
+          ShowGroupOpener -> True, GroupOpenerInsideFrame -> False, 
+          CellGroupingRules -> {"SectionGrouping", 80}, PageBreakBelow -> 
+          False, FontColor -> RGBColor[1., 0.42745098039215684`, 0.]], 
+         Cell[
+          StyleData["Hint", StyleDefinitions -> StyleData["Text"]], CellFrame -> 
+          True, Background -> RGBColor[1., 0.6, 0.1]], 
+         Cell[
+          StyleData["KeyEvent"], CellFrame -> {{1, 1}, {1, 1}}, 
+          CellFrameMargins -> {{2, 2}, {2, 2}}, CellFrameColor -> 
+          GrayLevel[0.8], MenuSortingValue -> 1402, FontColor -> 
+          GrayLevel[0.36], Background -> GrayLevel[0.96]], 
+         Cell[
+          StyleData["Keyword", StyleDefinitions -> StyleData["Text"]], 
+          MenuSortingValue -> 10000, FontColor -> RGBColor[0.9, 0.4, 0.]], 
+         Cell[
+          StyleData["AuthorNote", StyleDefinitions -> StyleData["Text"]], 
+          CellDingbat -> 
+          StyleBox[
+           "Author note:", "Text", Italic, FontColor -> 
+            RGBColor[0.9, 0.4, 0.], Alignment -> Baseline], 
+          CellMargins -> {{100, 10}, {7, 8}}, FontSlant -> Italic, FontColor -> 
+          GrayLevel[0.4]], 
+         Cell[
+          StyleData["Note"], 
+          CellMargins -> {{
+            0.15 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 0.03 
+             FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {10, 10}}, 
+          CellOpen -> True, LineSpacing -> {1, 3}, CounterIncrements -> 
+          "Note", MenuSortingValue -> 1590, FontSize -> 12, FontSlant -> 
+          "Italic", Background -> GrayLevel[0.85]], 
+         Cell[
+          StyleData["WolframLanguageLogo"], FontColor -> 
+          RGBColor[0.09, 0.16, 0.25]], 
+         Cell[
+          StyleData["Message"], ShowCellBracket -> True]}, Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell["Ungraded Exercise", "Subsection"], 
+         Cell[
+          StyleData[
+          "ExerciseSection", StyleDefinitions -> StyleData["Section"]], 
+          CellMargins -> {{27, Inherited}, {7, 14}}], 
+         Cell[
+          StyleData[
+          "NumberedExerciseSection", StyleDefinitions -> 
+           StyleData["NumberedSection"]], 
+          CellMargins -> {{96, Inherited}, {7, 14}}], 
+         Cell[
+          StyleData[
+          "ExerciseSectionTitleWithSection", StyleDefinitions -> 
+           StyleData["SectionTitleWithSection"]], 
+          CellMargins -> {{96, Inherited}, {7, 14}}], 
+         Cell[
+          StyleData[
+          "ExerciseSubsection", StyleDefinitions -> StyleData["Subsection"]]], 
+         Cell[
+          StyleData[
+          "ExerciseFirstSubsection", StyleDefinitions -> 
+           StyleData["ExerciseSubsection"]], 
+          CellMargins -> {{27, Inherited}, {Inherited, Inherited}}], 
+         Cell[
+          StyleData[
+          "ExerciseSubsubsection", StyleDefinitions -> 
+           StyleData["Subsubsection"]], ShowGroupOpener -> "Inline", 
+          CellMargins -> {{66, Inherited}, {Inherited, Inherited}}, FontColor -> 
+          RGBColor[0.65, 0.65, 0.65]]}, Closed]]}, Open]]}, Visible -> False, 
+  FrontEndVersion -> "14.1 for Mac OS X ARM (64-bit) (May 2, 2024)", 
+  StyleDefinitions -> "PrivateStylesheetFormatting.nb"],
+ExpressionUUID->"d0ee3a0a-b181-4353-a02f-0d5cfa87a8f2"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "SectionTitle"->{
+  Cell[576, 22, 196, 3, 44, "SectionTitle",ExpressionUUID->"5bd2fb71-0f36-497d-b0a5-1260a9b9d527",
+   CellTags->"SectionTitle"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"SectionTitle", 160180, 4083}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 196, 3, 44, "SectionTitle",ExpressionUUID->"5bd2fb71-0f36-497d-b0a5-1260a9b9d527",
+ CellTags->"SectionTitle"],
+Cell[CellGroupData[{
+Cell[797, 29, 270, 4, 93, "NumberedSection",ExpressionUUID->"7ab84585-c3ed-4260-bf3a-82938e2fbf21",
+ CounterAssignments->{{"Subsection", 0}, {"Subsubsection", 0}, {"Exercise", 0}, {"Section", 8}}],
+Cell[1070, 35, 162, 3, 75, "Subsection",ExpressionUUID->"0157f05a-1288-4271-9673-712e26c80759"],
+Cell[CellGroupData[{
+Cell[1257, 42, 161, 3, 75, "Subsection",ExpressionUUID->"5f0607af-0a45-4f3b-b222-c1a077f98b15"],
+Cell[1421, 47, 896, 27, 45, "MathCaption",ExpressionUUID->"168d2f86-784b-480b-a987-a45ee16e882e"],
+Cell[CellGroupData[{
+Cell[2342, 78, 691, 21, 54, "Input",ExpressionUUID->"7a212c7e-1539-4a46-bcbf-5f373194afb7"],
+Cell[3036, 101, 915, 28, 101, "Output",ExpressionUUID->"a08712a2-24df-47bf-9a3c-ca6f40f80093"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4000, 135, 220, 4, 75, "Subsection",ExpressionUUID->"3666c690-3c09-46b1-b594-b80653d90db3"],
+Cell[4223, 141, 380, 11, 40, "MathCaption",ExpressionUUID->"f8e0149b-7cbe-4624-b37f-29b8b307b4c5"],
+Cell[4606, 154, 369, 12, 43, "Input",ExpressionUUID->"781a5e22-5e90-497c-b12a-5c758048ea5b"],
+Cell[4978, 168, 207, 5, 40, "MathCaption",ExpressionUUID->"1e09c212-fb19-4c8b-8bfa-f7c8488a130b"],
+Cell[CellGroupData[{
+Cell[5210, 177, 289, 9, 39, "Input",ExpressionUUID->"056c51e0-0828-440a-b68b-516616bee451"],
+Cell[5502, 188, 1427, 42, 59, "Output",ExpressionUUID->"3152689d-4569-4a68-b637-a733453b6715"]
+}, Open  ]],
+Cell[6944, 233, 157, 3, 40, "MathCaption",ExpressionUUID->"3828bbaf-5e78-4052-a772-7c730ef7764e"],
+Cell[CellGroupData[{
+Cell[7126, 240, 521, 17, 65, "Input",ExpressionUUID->"118cc194-ca58-4127-b63a-ac16843fbc7f"],
+Cell[7650, 259, 394, 10, 41, "Output",ExpressionUUID->"e932b802-54e8-4231-8085-073ea5fb96be"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8093, 275, 331, 5, 75, "Subsection",ExpressionUUID->"a4e27403-34c8-4512-addc-9b24120d2764"],
+Cell[8427, 282, 529, 13, 55, "Text",ExpressionUUID->"cb725aef-de38-4abc-bb34-c6bb2039a847"],
+Cell[8959, 297, 3721, 109, 113, "DisplayFormula",ExpressionUUID->"8dae6b1f-cb41-4bd3-8065-5cc8ce5c8bd0"],
+Cell[12683, 408, 476, 13, 33, "Text",ExpressionUUID->"9814b09e-32c2-4afe-9585-3def014c3117"],
+Cell[13162, 423, 807, 27, 37, "DisplayFormula",ExpressionUUID->"dac7e53e-c216-415b-a68e-f7ac615ce720"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14006, 455, 273, 4, 75, "Subsection",ExpressionUUID->"41dbb4ce-1dba-4725-ac6d-b5c16ddbefbc"],
+Cell[14282, 461, 1254, 38, 37, "Text",ExpressionUUID->"1e8034f9-305e-4886-a451-61723f09d5ec"],
+Cell[15539, 501, 252, 4, 40, "MathCaption",ExpressionUUID->"a33f7fa8-07d7-4538-a040-dcef8cb138fe"],
+Cell[CellGroupData[{
+Cell[15816, 509, 701, 21, 54, "Input",ExpressionUUID->"9a318eca-67f0-4ba2-b278-fc2e30c7a174"],
+Cell[16520, 532, 986, 31, 101, "Output",ExpressionUUID->"2e062be0-45fa-4749-876a-9c6ab4850ea2"]
+}, Open  ]],
+Cell[17521, 566, 225, 5, 33, "Text",ExpressionUUID->"02cb47b6-b821-4cef-b2b4-0bb8ad70f190"],
+Cell[17749, 573, 334, 9, 40, "MathCaption",ExpressionUUID->"c799f484-d704-4530-a1fb-d657a7e7ddfc"],
+Cell[CellGroupData[{
+Cell[18108, 586, 296, 9, 59, "Input",ExpressionUUID->"bb0fe69a-d952-44d4-b12e-1e70faa56e97"],
+Cell[18407, 597, 231, 7, 38, "Output",ExpressionUUID->"ed121113-6813-4ab6-b190-3c3d18664422"]
+}, Open  ]],
+Cell[18653, 607, 202, 4, 33, "Text",ExpressionUUID->"34fb56c4-ecdb-45a7-9137-13341608b400"],
+Cell[18858, 613, 3260, 105, 145, "DisplayFormula",ExpressionUUID->"0116ec93-9333-4433-b4e3-f2cc18e07754"],
+Cell[22121, 720, 385, 10, 33, "Text",ExpressionUUID->"01cad952-bb93-4a8b-aa9a-fe04f336cf53"],
+Cell[22509, 732, 622, 20, 25, "DisplayFormula",ExpressionUUID->"0f399702-548f-420d-a9a5-f1e1f08efc69"],
+Cell[23134, 754, 183, 3, 40, "MathCaption",ExpressionUUID->"385ca796-dbc8-409c-83a4-7f26d0c8df19"],
+Cell[CellGroupData[{
+Cell[23342, 761, 724, 22, 38, "Input",ExpressionUUID->"c5d5e5a8-81a8-47fd-ae48-838ab68ba937"],
+Cell[24069, 785, 700, 21, 87, "Output",ExpressionUUID->"505c674e-1c8e-464e-a537-48e942a24c2f"]
+}, Open  ]],
+Cell[24784, 809, 238, 4, 33, "Text",ExpressionUUID->"b6cf512c-5fab-4a22-a80b-260c05a9bcc1"],
+Cell[25025, 815, 773, 24, 38, "DisplayFormula",ExpressionUUID->"cb967703-c932-4d42-9b56-6773e73efccf"],
+Cell[25801, 841, 184, 3, 33, "Text",ExpressionUUID->"695ff911-4f33-40fc-93a8-24ea9902f113"],
+Cell[25988, 846, 2638, 80, 54, "DisplayFormula",ExpressionUUID->"51bf4d84-fe1e-4194-b32b-92b81ae0d9bf"],
+Cell[28629, 928, 177, 3, 40, "MathCaption",ExpressionUUID->"fc4fd7f3-7daa-4e29-a70e-1468d7874649"],
+Cell[CellGroupData[{
+Cell[28831, 935, 1042, 35, 43, "Input",ExpressionUUID->"4f40d668-ddb4-4485-a0d2-9d829183eff9"],
+Cell[29876, 972, 986, 31, 101, "Output",ExpressionUUID->"dea2f41b-574e-42d2-8cbb-85d0761f4035"]
+}, Open  ]],
+Cell[30877, 1006, 251, 4, 33, "CodeText",ExpressionUUID->"07a1b738-fe43-486f-9e40-c816a56dff57"],
+Cell[31131, 1012, 2508, 52, 47, "Input",ExpressionUUID->"fa66e73e-c855-47c2-86e4-09af79b6e395",
+ CellID->1018866338],
+Cell[CellGroupData[{
+Cell[33664, 1068, 1379, 30, 48, "Input",ExpressionUUID->"b8458558-b73f-48d6-b998-767668b5227d",
+ CellID->12965236],
+Cell[35046, 1100, 14410, 319, 216, "Output",ExpressionUUID->"ae8faa4a-12f9-417f-a422-0344de52d88a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[49493, 1424, 737, 22, 65, "Input",ExpressionUUID->"02c1706c-4805-49cf-86e6-c8e12aecc61f"],
+Cell[50233, 1448, 130, 2, 41, "Output",ExpressionUUID->"f2dd8818-e054-48db-9639-0262a7455f58"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[50400, 1455, 751, 23, 56, "Input",ExpressionUUID->"f8399b4a-5e50-4a8d-ac5c-1339083bb6e7"],
+Cell[51154, 1480, 161, 3, 41, "Output",ExpressionUUID->"c964b8e5-cb43-45a5-bcca-b7c3e26ae152"]
+}, Open  ]],
+Cell[51330, 1486, 2496, 52, 47, "Input",ExpressionUUID->"56df7a6a-b0d7-4774-a3a8-16a0ed87db9d",
+ CellID->529813619],
+Cell[CellGroupData[{
+Cell[53851, 1542, 1370, 30, 48, "Input",ExpressionUUID->"fe0ab0b4-2c7d-4ae5-bdb2-7d263e6f781b",
+ CellID->1090258009],
+Cell[55224, 1574, 7660, 196, 305, "Output",ExpressionUUID->"7303621e-38b1-4ad0-bf7b-8df26615f6b7"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[62933, 1776, 187, 3, 75, "Subsection",ExpressionUUID->"f6e02a52-aec8-4759-918f-440d89eaef10"],
+Cell[63123, 1781, 236, 4, 33, "Text",ExpressionUUID->"008f0097-28b2-452a-a132-80b0f64ca538"],
+Cell[CellGroupData[{
+Cell[63384, 1789, 340, 8, 41, "Input",ExpressionUUID->"00e04e44-8b63-4ca4-9e27-35f06c14c040"],
+Cell[63727, 1799, 2305, 54, 50, "Output",ExpressionUUID->"a5f4a23e-186e-4f71-a318-7671efc44fa6"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[66069, 1858, 273, 6, 41, "Input",ExpressionUUID->"6f6d73be-97de-4078-8ada-dec675fc9d7f"],
+Cell[66345, 1866, 42412, 934, 343, "Output",ExpressionUUID->"a1170dda-8a56-48f8-b0b4-9ebceb3f1cff"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[108794, 2805, 319, 7, 41, "Input",ExpressionUUID->"4f12a956-d54a-4249-b9fc-b0954aebee11"],
+Cell[109116, 2814, 7662, 196, 305, "Output",ExpressionUUID->"831bc727-44e2-4ec9-a963-1d291fa502a3"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[116815, 3015, 993, 30, 67, "Input",ExpressionUUID->"ffc5c641-3b91-4ad9-9bb2-bc92595598cd"],
+Cell[117811, 3047, 157, 3, 41, "Output",ExpressionUUID->"4cd5b939-2241-4a74-8661-3b6223683f5d"]
+}, Open  ]],
+Cell[117983, 3053, 208, 4, 33, "Text",ExpressionUUID->"16ef0260-61ff-42d1-b9ab-36863bd39129"],
+Cell[CellGroupData[{
+Cell[118216, 3061, 1081, 30, 69, "Input",ExpressionUUID->"bdea8aaf-7612-4adf-ace2-06de2aac6b49"],
+Cell[119300, 3093, 1486, 44, 102, "Output",ExpressionUUID->"1bd73540-b68e-4ce3-abdd-478737ddc51f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[120823, 3142, 231, 6, 41, "Input",ExpressionUUID->"c8b069f9-a889-400b-95b3-98cd3e2c512c"],
+Cell[121057, 3150, 1336, 39, 71, "Output",ExpressionUUID->"3b9d35e5-8541-4884-be25-ecd94f1306a9"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[122430, 3194, 279, 7, 45, "Input",ExpressionUUID->"8054d7c6-8a0c-46d2-8dc5-0ad6f2c09088"],
+Cell[122712, 3203, 211, 5, 41, "Output",ExpressionUUID->"05bba21c-dc8a-4d16-a421-9a0e4bebe8a7"]
+}, Open  ]],
+Cell[122938, 3211, 375, 10, 50, "CodeText",ExpressionUUID->"94defc5f-946c-442c-ab8c-23784eab865c",
+ CellID->89048427],
+Cell[CellGroupData[{
+Cell[123338, 3225, 2383, 49, 47, "Input",ExpressionUUID->"59ed43e5-8c56-42f9-8a4c-875fa9b731b2",
+ CellID->51838209],
+Cell[125724, 3276, 696, 19, 59, "Output",ExpressionUUID->"e749e8ce-5d00-4a0c-83dc-3da8a4da7aff",
+ CellID->388034251]
+}, Open  ]],
+Cell[126435, 3298, 2531, 53, 47, "Input",ExpressionUUID->"763d07ea-40d6-4ab3-bd4d-0e5abc65e056",
+ CellID->26287856],
+Cell[CellGroupData[{
+Cell[128991, 3355, 1373, 30, 48, "Input",ExpressionUUID->"c562c03e-04af-4770-82fd-ad40da5a4859",
+ CellID->359192710],
+Cell[130367, 3387, 5629, 140, 281, "Output",ExpressionUUID->"6652e251-f63e-4811-9d74-578efee51332"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[136045, 3533, 154, 3, 75, "Subsection",ExpressionUUID->"db197e4b-8308-44de-ab98-2f48b74bd63a"],
+Cell[CellGroupData[{
+Cell[136224, 3540, 481, 10, 48, "Input",ExpressionUUID->"7ddffc5f-501e-46a0-813e-7c2b4d92525c"],
+Cell[136708, 3552, 5218, 105, 106, "Output",ExpressionUUID->"4cb23da6-409f-4691-9793-ba4be7028058"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[141963, 3662, 1538, 35, 48, "Input",ExpressionUUID->"dea6597d-7277-4312-b01f-cfed16b1dde7"],
+Cell[143504, 3699, 2293, 57, 106, "Output",ExpressionUUID->"013d8416-4a9b-41c8-8e6e-39a8b53e91d2"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

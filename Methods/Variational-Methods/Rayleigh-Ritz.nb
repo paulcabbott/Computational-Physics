@@ -1,0 +1,1324 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     51046,       1316]
+NotebookOptionsPosition[     32282,        934]
+NotebookOutlinePosition[     46617,       1259]
+CellTagsIndexPosition[     46574,       1256]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Rayleigh-Ritz variational method", "Section",
+ CellChangeTimes->{
+  3.4805881296572113`*^9},ExpressionUUID->"8af4c11f-6eef-4377-9dc0-\
+6e53ae9fef25"],
+
+Cell["Consider the one-dimensional (Schr\[ODoubleDot]dinger) equation", "Text",
+ CellChangeTimes->{{3.41933095826372*^9, 3.419330964519734*^9}, {
+  3.4193311284261837`*^9, 3.419331129218317*^9}, {3.480588139903343*^9, 
+  3.48058814419388*^9}},ExpressionUUID->"ce2e1e58-203e-4082-968c-\
+44035e05cc99"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", 
+       FractionBox["1", "2"]}], 
+      RowBox[{
+       SuperscriptBox["\[Psi]", "\[DoublePrime]"], "(", "x", ")"}]}], " ", 
+     "+", 
+     RowBox[{
+      RowBox[{"V", "(", "x", ")"}], 
+      RowBox[{"\[Psi]", "(", "x", ")"}]}]}], "\[LongEqual]", 
+    RowBox[{"\[ScriptCapitalE]", " ", 
+     RowBox[{"\[Psi]", "(", "x", ")"}]}]}], ","}], 
+  TraditionalForm]], "DisplayFormulaNumbered",
+ CellChangeTimes->{
+  3.419330699081221*^9, 3.419332398570854*^9, {3.51100225038365*^9, 
+   3.511002280710079*^9}, {3.511071574323601*^9, 3.5110715852754374`*^9}},
+ TextAlignment->Center,ExpressionUUID->"0c6ca4a0-8848-4fa8-86c5-a042d42cb688"],
+
+Cell[TextData[{
+ "where ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Psi]", "(", "x", ")"}], TraditionalForm]],ExpressionUUID->
+  "454b1d27-9e2f-4ce4-a378-edd4a72435ee"],
+ " is the ",
+ StyleBox["wavefunction",
+  FontWeight->"Bold"],
+ " (or eigenstate or eigenfunction), ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"V", "(", "x", ")"}], TraditionalForm]],ExpressionUUID->
+  "30de10f1-9b40-4f99-9a98-361f5f010857"],
+ " is the potential, and ",
+ "\[ScriptCapitalE]",
+ " is the energy (or eigenvalue)."
+}], "Text",
+ CellChangeTimes->{{3.419330751668695*^9, 3.419330797525941*^9}, {
+   3.4193309798282137`*^9, 3.419330991570179*^9}, {3.4193310237809277`*^9, 
+   3.419331081128289*^9}, {3.4193324097035227`*^9, 3.4193324614950867`*^9}, 
+   3.511002283205174*^9},ExpressionUUID->"e56d7a2e-638e-4bc5-94fd-\
+816ffb8e7eb8"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["Example: ",
+  FontWeight->"Bold"],
+ "one-dimensional quantum harmonic oscillator"
+}], "Subsubsection",
+ CellChangeTimes->{{3.4193324891103287`*^9, 3.419332498625246*^9}, {
+  3.511001201374712*^9, 
+  3.51100121029044*^9}},ExpressionUUID->"ec477c08-1fb7-40c4-a468-\
+efe9bf6bc9a5"],
+
+Cell[TextData[{
+ "The equation for the one-dimensional quantum harmonic oscillator with ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"V", "(", "x", ")"}], "=", 
+    RowBox[{
+     FractionBox["1", "2"], 
+     SuperscriptBox["x", "2"]}]}], TraditionalForm]],ExpressionUUID->
+  "c4653424-d9cd-4c10-8d72-d1994db33cc7"],
+ " reads"
+}], "Text",
+ CellChangeTimes->{{3.4193324891103287`*^9, 3.419332498625246*^9}, {
+  3.511001201374712*^9, 
+  3.511001213849594*^9}},ExpressionUUID->"7cc6a614-0eba-48de-84d6-\
+6535fa550445"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", 
+       FractionBox["1", "2"]}], 
+      RowBox[{
+       SuperscriptBox["\[Psi]", "\[DoublePrime]"], "(", "x", ")"}]}], " ", 
+     "+", 
+     RowBox[{
+      FractionBox["1", "2"], 
+      SuperscriptBox["x", "2"], 
+      RowBox[{"\[Psi]", "(", "x", ")"}]}]}], "\[LongEqual]", 
+    RowBox[{"\[ScriptCapitalE]", " ", 
+     RowBox[{"\[Psi]", "(", "x", ")"}]}]}], ","}], 
+  TraditionalForm]], "DisplayFormula",
+ CellChangeTimes->{
+  3.511001219748282*^9, 3.511002289449295*^9, {3.5110716063650923`*^9, 
+   3.511071615690627*^9}},ExpressionUUID->"923fd8a4-4cbc-47cf-8084-\
+bba813d5be14"],
+
+Cell[TextData[{
+ "where ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"-", "\[Infinity]"}], "<", "x", "<", "\[Infinity]"}], 
+   TraditionalForm]],ExpressionUUID->"7787f246-3108-4835-bc89-b4aa96bb27d5"],
+ " and the ",
+ StyleBox["normalisation condition",
+  FontWeight->"Bold"],
+ " is"
+}], "Text",ExpressionUUID->"59b2527d-ff3b-4363-a4a0-c39f10044e87"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    SubsuperscriptBox["\[Integral]", 
+     RowBox[{"-", "\[Infinity]"}], "\[Infinity]"], 
+    RowBox[{
+     SuperscriptBox[
+      RowBox[{"\[Psi]", "(", "x", ")"}], "2"], 
+     RowBox[{"\[DifferentialD]", "x"}]}]}], "\[LongEqual]", "1."}], 
+  TraditionalForm]], "DisplayFormulaNumbered",
+ CellChangeTimes->{{3.4193307083933372`*^9, 3.419330713705161*^9}, {
+  3.511001221289839*^9, 3.51100122223379*^9}, {3.511071618098762*^9, 
+  3.5110716187704363`*^9}},
+ TextAlignment->Center,ExpressionUUID->"34ce4679-47da-4c43-a420-f70799eb1343"],
+
+Cell[TextData[{
+ "The boundary condition is that ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"\[Psi]", "(", "x", ")"}], "\[Rule]", "0"}], TraditionalForm]],
+  ExpressionUUID->"24cddbc1-48d3-43cc-b891-a1b85c29ce85"],
+ " as ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"x", "\[Rule]", 
+    RowBox[{"\[PlusMinus]", "\[Infinity]"}]}], TraditionalForm]],
+  ExpressionUUID->"c2f767e3-4b14-4e1e-af4a-ccb5dc34743c"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.4193316705583067`*^9, 
+  3.419331698350895*^9}},ExpressionUUID->"ce3bc838-9657-4bb9-ae64-\
+a4198c98216e"],
+
+Cell["\<\
+In this case, exact solution is possible. Here are the first four eigenstates \
+with their corresponding energy eigenvalue:\
+\>", "Text",
+ CellChangeTimes->{{3.51100203711679*^9, 3.511002037332727*^9}, {
+  3.5423405660448217`*^9, 
+  3.5423405669711037`*^9}},ExpressionUUID->"4aee4298-c191-427a-91c3-\
+c7f687ccca3f"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  TagBox[
+   StyleBox[GridBox[{
+      {"n", 
+       RowBox[{
+        SubscriptBox["\[Psi]", "n"], "(", "x", ")"}], 
+       RowBox[{
+        SubscriptBox["\[ScriptCapitalE]", "n"], "\[LongEqual]", 
+        RowBox[{"n", "+", 
+         FractionBox["1", "2"]}]}]},
+      {"0", 
+       RowBox[{
+        SuperscriptBox["\[Pi]", 
+         RowBox[{
+          RowBox[{"-", "1"}], "/", "4"}]], 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"-", 
+          FractionBox[
+           SuperscriptBox["x", "2"], "2"]}]]}], 
+       FractionBox["1", "2"]},
+      {"1", 
+       RowBox[{
+        SqrtBox["2"], 
+        SuperscriptBox["\[Pi]", 
+         RowBox[{
+          RowBox[{"-", "1"}], "/", "4"}]], " ", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"-", 
+          FractionBox[
+           SuperscriptBox["x", "2"], "2"]}]], " ", "x"}], 
+       FractionBox["3", "2"]},
+      {"2", 
+       RowBox[{
+        FractionBox["1", 
+         SqrtBox["2"]], 
+        SuperscriptBox["\[Pi]", 
+         RowBox[{
+          RowBox[{"-", "1"}], "/", "4"}]], 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"-", 
+          FractionBox[
+           SuperscriptBox["x", "2"], "2"]}]], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"2", " ", 
+           SuperscriptBox["x", "2"]}], "-", "1"}], ")"}]}], 
+       FractionBox["5", "2"]},
+      {"3", 
+       RowBox[{
+        SqrtBox["3"], 
+        SuperscriptBox["\[Pi]", 
+         RowBox[{
+          RowBox[{"-", "1"}], "/", "4"}]], 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"-", 
+          FractionBox[
+           SuperscriptBox["x", "2"], "2"]}]], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"2", " ", 
+           SuperscriptBox["x", "3"]}], "-", 
+          RowBox[{"3", " ", "x"}]}], ")"}]}], 
+       FractionBox["7", "2"]}
+     },
+     GridBoxDividers->{"Columns" -> {
+         AbsoluteThickness[2], {False}, 
+         AbsoluteThickness[2]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         AbsoluteThickness[2], True, {False}, 
+         AbsoluteThickness[2]}, "RowsIndexed" -> {}}],
+    Background->GrayLevel[0.8],
+    GridBoxOptions->{
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}}}],
+   DisplayForm], TraditionalForm]], "Output",
+ GeneratedCell->False,
+ CellAutoOverwrite->
+  False,ExpressionUUID->"d3479f28-2041-494c-9e65-dfb9b17c48ae"]], \
+"IndentedText",
+ CellMargins->{{40, Inherited}, {Inherited, Inherited}},
+ CellChangeTimes->{{3.419330161222908*^9, 3.4193301720988703`*^9}, {
+  3.5110022930102158`*^9, 3.511002293010355*^9}},
+ TextAlignment->Center,ExpressionUUID->"16b92125-0db6-4c34-acc6-fe25ee050468"],
+
+Cell[TextData[{
+ "The general normalized solution depends upon the ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["n", "th"], TraditionalForm]],ExpressionUUID->
+  "721485c6-ac8c-4b99-ad20-58d11b61dc77"],
+ " Hermite polynomial (",
+ Cell[BoxData[
+  ButtonBox["HermiteH",
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/HermiteH"]],ExpressionUUID->
+  "4b1cbc3d-ebd0-4a3c-bca3-f2fa28f65df7"],
+ ") ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["H", "n"], "(", "x", ")"}], TraditionalForm]],ExpressionUUID->
+  "ec6c6ec1-61c7-4826-97b1-4d3d82be6342"],
+ ":"
+}], "MathCaption",
+ CellChangeTimes->{{3.4189533129231977`*^9, 3.41895332903878*^9}, {
+  3.418953381362892*^9, 3.4189533848269453`*^9}, {3.511002055669908*^9, 
+  3.511002129705923*^9}},
+ CellID->1530322957,ExpressionUUID->"ee9d0f23-2131-4dcc-b8e2-1700416970c7"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    SubscriptBox["\[Psi]", "n_"], "(", "x_", ")"}], ":=", 
+   RowBox[{
+    FractionBox["1", 
+     RowBox[{" ", 
+      SqrtBox[
+       RowBox[{
+        SuperscriptBox["2", "n"], 
+        SqrtBox["\[Pi]"], " ", 
+        RowBox[{"n", "!"}]}]]}]], 
+    RowBox[{
+     SubscriptBox["H", "n"], "(", "x", ")"}], 
+    SuperscriptBox["\[ExponentialE]", 
+     RowBox[{"-", 
+      FractionBox[
+       SuperscriptBox["x", "2"], "2"]}]]}]}], TraditionalForm]], "Input",
+ CellChangeTimes->{{3.4189531848999662`*^9, 3.418953212265167*^9}, {
+  3.4191221010696583`*^9, 3.4191221134557037`*^9}},
+ CellID->243810284,ExpressionUUID->"e18b9ae3-eae1-4b1c-ac1e-4581fc6f796e"],
+
+Cell[TextData[{
+ "The energy (in units of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[HBar]", " ", "\[Omega]"}], TraditionalForm]],ExpressionUUID->
+  "fb0ab74c-aec7-4885-bd30-7c0baf60aa84"],
+ "):"
+}], "MathCaption",
+ CellChangeTimes->{{3.418953331937458*^9, 3.418953361673123*^9}, {
+   3.419330191514336*^9, 3.419330276565587*^9}, 3.511002068014724*^9, {
+   3.5110021390433683`*^9, 
+   3.51100214244063*^9}},ExpressionUUID->"993bc2a8-9a7d-4c1e-973b-\
+3bfbf745cc3e"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    SubscriptBox["\[ScriptCapitalE]", "n_"], "=", 
+    RowBox[{"n", "+", 
+     FractionBox["1", "2"]}]}], ";"}], TraditionalForm]], "Input",
+ CellChangeTimes->{{3.418953341850422*^9, 3.418953347718039*^9}, 
+   3.418953429834073*^9},ExpressionUUID->"09488289-d503-4ef4-92e1-\
+ec8da4578fdd"],
+
+Cell[TextData[{
+ "Plot of the (squared) eigenstates ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox[
+    RowBox[{
+     SubscriptBox["\[Psi]", "n"], "(", "x", ")"}], "2"], TraditionalForm]],
+  ExpressionUUID->"b7c583b7-18e2-445a-9a38-1ec59d042eea"],
+ "\[LongDash]the probability density\[LongDash]displaced vertically by their \
+corresponding energy ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[ScriptCapitalE]", "n"], TraditionalForm]],ExpressionUUID->
+  "2cc01968-5170-4a3f-8fcc-5b77f2ae9d27"],
+ ", superimposed onto a plot of the potential:"
+}], "MathCaption",
+ CellChangeTimes->{{3.418953473668482*^9, 3.4189535092461433`*^9}, {
+  3.4191222064991493`*^9, 3.4191222098236027`*^9}, {3.480588175960548*^9, 
+  3.480588190757847*^9}, {3.511002016647437*^9, 3.511002029940713*^9}, {
+  3.511836447946751*^9, 3.511836448222748*^9}, {3.542340879699142*^9, 
+  3.5423408940117207`*^9}},ExpressionUUID->"9ac5e0e1-451f-4bb4-ab7b-\
+e362ee29f1a3"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"Manipulate", "[", 
+   RowBox[{
+    RowBox[{"Plot", "[", 
+     RowBox[{
+      RowBox[{"Evaluate", "[", 
+       RowBox[{"Append", "[", 
+        RowBox[{
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"Tooltip", "[", 
+            RowBox[{
+             RowBox[{
+              SuperscriptBox[
+               RowBox[{
+                SubscriptBox["\[Psi]", "n"], "(", "x", ")"}], "p"], "+", 
+              SubscriptBox["\[ScriptCapitalE]", "n"]}], ",", "n"}], "]"}], 
+           ",", 
+           RowBox[{"{", 
+            RowBox[{"n", ",", "0", ",", "k"}], "}"}]}], "]"}], ",", 
+         FractionBox[
+          SuperscriptBox["x", "2"], "2"]}], "]"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", 
+        RowBox[{"-", "5"}], ",", "5"}], "}"}], ",", 
+      RowBox[{"PlotRange", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "7.5"}], "}"}]}], ",", 
+      RowBox[{"AxesLabel", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "\[ScriptCapitalE]"}], "}"}]}], ",", 
+      RowBox[{"Filling", "\[Rule]", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"n", "+", "1"}], "\[Rule]", 
+          SubscriptBox["\[ScriptCapitalE]", "n"]}], ",", 
+         RowBox[{"{", 
+          RowBox[{"n", ",", "0", ",", "k"}], "}"}]}], "]"}]}]}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"k", ",", "4"}], "}"}], ",", 
+      RowBox[{"Range", "[", 
+       RowBox[{"0", ",", "6"}], "]"}], ",", "SetterBar"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"p", ",", "2"}], "}"}], ",", 
+      RowBox[{"Range", "[", "2", "]"}]}], "}"}], ",", 
+    RowBox[{"SaveDefinitions", "\[Rule]", "True"}]}], "]"}], 
+  TraditionalForm]], "Input",
+ CellChangeTimes->{{3.542341262154972*^9, 
+  3.542341371784037*^9}},ExpressionUUID->"a7d050a0-3440-43ec-b65d-\
+25f3ea364c4a"],
+
+Cell[BoxData[
+ FormBox[
+  TagBox[
+   FormBox[
+    StyleBox[
+     DynamicModuleBox[{$CellContext`k$$ = 4, $CellContext`p$$ = 2, 
+      Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+      Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ =
+       1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+         Hold[$CellContext`k$$], 4}, {0, 1, 2, 3, 4, 5, 6}}, {{
+         Hold[$CellContext`p$$], 2}, {1, 2}}}, Typeset`size$$ = {
+      360., {119.73157585561661`, 125.90149773061661`}}, Typeset`update$$ = 0,
+       Typeset`initDone$$, Typeset`skipInitDone$$ = 
+      False, $CellContext`k$3276$$ = 0, $CellContext`p$3277$$ = False}, 
+      DynamicBox[Manipulate`ManipulateBoxes[
+       1, TraditionalForm, 
+        "Variables" :> {$CellContext`k$$ = 4, $CellContext`p$$ = 2}, 
+        "ControllerVariables" :> {
+          Hold[$CellContext`k$$, $CellContext`k$3276$$, 0], 
+          Hold[$CellContext`p$$, $CellContext`p$3277$$, False]}, 
+        "OtherVariables" :> {
+         Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+          Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+          Typeset`specs$$, Typeset`size$$, Typeset`update$$, 
+          Typeset`initDone$$, Typeset`skipInitDone$$}, "Body" :> Plot[
+          Evaluate[
+           Append[
+            Table[
+             Tooltip[
+             Subscript[$CellContext`\[Psi], \
+$CellContext`n][$CellContext`x]^$CellContext`p$$ + 
+              Subscript[$CellContext`\[ScriptCapitalE], $CellContext`n], \
+$CellContext`n], {$CellContext`n, 0, $CellContext`k$$}], $CellContext`x^2/
+            2]], {$CellContext`x, -5, 5}, PlotRange -> {0, 7.5}, 
+          AxesLabel -> {$CellContext`x, $CellContext`\[ScriptCapitalE]}, 
+          Filling -> Table[$CellContext`n + 1 -> 
+            Subscript[$CellContext`\[ScriptCapitalE], $CellContext`n], \
+{$CellContext`n, 0, $CellContext`k$$}]], 
+        "Specifications" :> {{{$CellContext`k$$, 4}, {0, 1, 2, 3, 4, 5, 6}, 
+           ControlType -> SetterBar}, {{$CellContext`p$$, 2}, {1, 2}}}, 
+        "Options" :> {}, "DefaultOptions" :> {}],
+       ImageSizeCache->{403.1, {172.1311852306166, 178.3011071056166}},
+       SingleEvaluation->True],
+      Deinitialization:>None,
+      DynamicModuleValues:>{},
+      Initialization:>({
+        Attributes[Subscript] = {NHoldRest}, Subscript[$CellContext`\[Psi], 
+           Pattern[$CellContext`n, 
+            Blank[]]][
+           Pattern[$CellContext`x, 
+            Blank[]]] := ((1/
+            Sqrt[(2^$CellContext`n Sqrt[Pi]) Factorial[$CellContext`n]]) 
+           HermiteH[$CellContext`n, $CellContext`x])/E^($CellContext`x^2/2), 
+         Subscript[$CellContext`\[ScriptCapitalE], 
+           Pattern[$CellContext`n, 
+            Blank[]]] = 1/2 + $CellContext`n, 
+         Attributes[PlotRange] = {ReadProtected}}; Typeset`initDone$$ = True),
+      
+      SynchronousInitialization->True,
+      UnsavedVariables:>{Typeset`initDone$$},
+      UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+     Deployed->True,
+     StripOnInput->False],
+    TraditionalForm],
+   Manipulate`InterpretManipulate[1]], TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.5423412456020403`*^9, {3.542341281432518*^9, 3.542341296415083*^9}, {
+   3.542341330506598*^9, 
+   3.542341374029739*^9}},ExpressionUUID->"ff3a9009-5fb7-40e8-bb88-\
+9982e8efc412"]
+}, {2}]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Variational formulation", "Subsubsection",
+ CellChangeTimes->{{3.4193324891103287`*^9, 3.419332498625246*^9}, {
+   3.511001201374712*^9, 3.51100121029044*^9}, 
+   3.5110021987457*^9},ExpressionUUID->"d5e0cea5-d13c-469b-b92c-e3272e9efbda"],
+
+Cell[TextData[{
+ "In general, it is not possible to solve the Schr\[ODoubleDot]dinger \
+equation in closed-form for an arbitrary potential so usually one seeks ",
+ StyleBox["approximate",
+  FontSlant->"Italic"],
+ " solutions."
+}], "Text",
+ CellChangeTimes->{{3.480588221806423*^9, 
+  3.480588226916026*^9}},ExpressionUUID->"f1532b36-afc4-4301-b2cb-\
+3436572a0ff3"],
+
+Cell[TextData[{
+ "Multiplying both sides of the Schr\[ODoubleDot]dinger equation by ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Psi]", "(", "x", ")"}], TraditionalForm]],ExpressionUUID->
+  "40d0854d-7fe9-440f-9337-e42e710fa3ff"],
+ " and integrating one obtains"
+}], "Text",
+ CellChangeTimes->{{3.41933091002938*^9, 3.419330924109352*^9}, {
+  3.419331567841126*^9, 3.419331568789586*^9}, {3.419332536883442*^9, 
+  3.419332541315845*^9}, {3.511071638804306*^9, 
+  3.511071639390233*^9}},ExpressionUUID->"6a37bb8f-a2f4-4f7b-af26-\
+aaa98c855093"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    SubsuperscriptBox["\[Integral]", 
+     RowBox[{"-", "\[Infinity]"}], "\[Infinity]"], " ", 
+    RowBox[{
+     RowBox[{"\[Psi]", "(", "x", ")"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox["1", "2"]}], 
+        RowBox[{
+         SuperscriptBox["\[Psi]", "\[DoublePrime]"], "(", "x", ")"}]}], " ", 
+       "+", 
+       RowBox[{
+        RowBox[{"V", "(", "x", ")"}], " ", 
+        RowBox[{"\[Psi]", "(", "x", ")"}]}], "-", 
+       RowBox[{"\[ScriptCapitalE]", " ", 
+        RowBox[{"\[Psi]", "(", "x", ")"}]}]}], ")"}], 
+     RowBox[{"\[DifferentialD]", "x"}]}]}], "\[LongEqual]", "0."}], 
+  TraditionalForm]], "DisplayFormula",
+ CellChangeTimes->{{3.4193305357226667`*^9, 3.419330543523198*^9}, {
+   3.419330594521455*^9, 3.419330655884035*^9}, {3.419330907388393*^9, 
+   3.419330907871498*^9}, {3.419331209658742*^9, 3.419331239829118*^9}, {
+   3.419331318084188*^9, 3.419331376596909*^9}, {3.4193319482270803`*^9, 
+   3.419331982148032*^9}, {3.419332287169587*^9, 3.419332334760466*^9}, 
+   3.51100224845755*^9, {3.511002359568022*^9, 3.511002360420413*^9}, {
+   3.511071641594027*^9, 
+   3.5110716546733847`*^9}},ExpressionUUID->"4252d963-8819-42e4-af90-\
+4a53ffdf55fd"],
+
+Cell[TextData[{
+ "Using integration by parts and applying the boundary condition ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{" ", 
+    FormBox[
+     RowBox[{
+      RowBox[{"\[Psi]", "(", "x", ")"}], "\[Rule]", "0"}],
+     TraditionalForm]}], TraditionalForm]],ExpressionUUID->
+  "1b5f3d9a-3e8b-484f-8827-27d5854e6e5a"],
+ " as ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"x", "\[Rule]", 
+    RowBox[{"\[PlusMinus]", "\[Infinity]"}]}], TraditionalForm]],
+  ExpressionUUID->"7900ca11-e183-4031-b8d6-985acf8384c0"],
+ ", this can be re-arranged to"
+}], "Text",
+ CellChangeTimes->{{3.419332551171027*^9, 3.41933255595607*^9}, {
+  3.419332595367097*^9, 3.4193326066557283`*^9}, {3.419332694824391*^9, 
+  3.419332704940181*^9}},ExpressionUUID->"31accaad-7232-4dc4-b743-\
+4bb36e539e10"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{" ", 
+   RowBox[{"\[ScriptCapitalE]", "\[LongEqual]", 
+    RowBox[{
+     FractionBox[
+      RowBox[{
+       SubsuperscriptBox["\[Integral]", 
+        RowBox[{"-", "\[Infinity]"}], "\[Infinity]"], 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           FractionBox["1", "2"], 
+           SuperscriptBox[
+            RowBox[{
+             SuperscriptBox["\[Psi]", "\[Prime]"], "(", "x", ")"}], "2"]}], 
+          "+", 
+          RowBox[{
+           RowBox[{"V", "(", "x", ")"}], " ", 
+           SuperscriptBox[
+            RowBox[{"\[Psi]", "(", "x", ")"}], "2"]}]}], ")"}], 
+        RowBox[{"\[DifferentialD]", "x"}]}]}], 
+      RowBox[{
+       SubsuperscriptBox["\[Integral]", 
+        RowBox[{"-", "\[Infinity]"}], "\[Infinity]"], 
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"\[Psi]", "(", "x", ")"}], "2"], 
+        RowBox[{"\[DifferentialD]", "x"}]}]}]], "."}]}]}], 
+  TraditionalForm]], "DisplayFormula",
+ CellChangeTimes->{{3.4193305357226667`*^9, 3.419330543523198*^9}, {
+   3.419330594521455*^9, 3.419330655884035*^9}, {3.419330907388393*^9, 
+   3.419330907871498*^9}, {3.419331209658742*^9, 3.419331239829118*^9}, {
+   3.419331318084188*^9, 3.419331376596909*^9}, {3.4193319482270803`*^9, 
+   3.419331982148032*^9}, {3.419332287169587*^9, 3.4193322884120893`*^9}, 
+   3.419332321317294*^9, 3.419332612013399*^9, 3.5110022671545763`*^9, 
+   3.511002363646294*^9, {3.511071661282422*^9, 
+   3.5110716750603123`*^9}},ExpressionUUID->"8eea1cbe-f858-4c89-8c9e-\
+60c8cfc962f0"],
+
+Cell[TextData[{
+ "The ",
+ StyleBox["Rayleigh-Ritz variational method",
+  FontSlant->"Italic"],
+ "\[LongDash]a very powerful method for obtaining such approximate solutions\
+\[LongDash]considers the energy as a ",
+ StyleBox["functional",
+  FontSlant->"Italic"],
+ ", that is"
+}], "Text",
+ CellChangeTimes->{{3.419331852267459*^9, 3.419331852832493*^9}, {
+   3.4193319354024*^9, 3.41933194001446*^9}, 
+   3.419332615568725*^9},ExpressionUUID->"e0b50274-8341-4715-8a7d-\
+e1a1526271ab"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"\[ScriptCapitalE]", "[", "\[Phi]", "]"}], "\[LongEqual]", 
+    FractionBox[
+     RowBox[{
+      SubsuperscriptBox["\[Integral]", 
+       RowBox[{"-", "\[Infinity]"}], "\[Infinity]"], 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          FractionBox["1", "2"], 
+          SuperscriptBox[
+           RowBox[{
+            SuperscriptBox["\[Phi]", "\[Prime]"], "(", "x", ")"}], "2"]}], 
+         "+", 
+         RowBox[{
+          RowBox[{"V", "(", "x", ")"}], " ", 
+          SuperscriptBox[
+           RowBox[{"\[Phi]", "(", "x", ")"}], "2"]}]}], ")"}], 
+       RowBox[{"\[DifferentialD]", "x"}]}]}], 
+     RowBox[{
+      SubsuperscriptBox["\[Integral]", 
+       RowBox[{"-", "\[Infinity]"}], "\[Infinity]"], 
+      RowBox[{
+       SuperscriptBox[
+        RowBox[{"\[Phi]", "(", "x", ")"}], "2"], 
+       RowBox[{"\[DifferentialD]", "x"}]}]}]]}], ","}], 
+  TraditionalForm]], "DisplayFormulaNumbered",
+ CellChangeTimes->{{3.41933262430405*^9, 3.4193326337079*^9}, {
+  3.5110023675272503`*^9, 3.51100238844736*^9}, {3.5110716853815203`*^9, 
+  3.5110716995964823`*^9}},
+ TextAlignment->Center,ExpressionUUID->"b8fefddc-c753-4a9f-abe6-aee0b60b742e"],
+
+Cell[TextData[{
+ "where ",
+ Cell[BoxData[
+  FormBox["\[Phi]", TraditionalForm]],ExpressionUUID->
+  "dee66175-72ab-437d-8b7b-c82e4b3de6a7"],
+ " is an ",
+ StyleBox["approximate solution",
+  FontSlant->"Italic"],
+ ". The ",
+ StyleBox["stationary value",
+  FontSlant->"Italic"],
+ " of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[ScriptCapitalE]", "[", "\[Phi]", "]"}], TraditionalForm]],
+  ExpressionUUID->"59e70e02-81ce-4d5b-ae88-5d6c97b2d2f4"],
+ " gives an ",
+ StyleBox["upper",
+  FontSlant->"Italic"],
+ " bound for the (lowest) eigenvalue."
+}], "Text",
+ CellChangeTimes->{{3.511002377052842*^9, 
+  3.511002377052953*^9}},ExpressionUUID->"8b2a8999-9c85-4c06-be9f-\
+858643a69cc6"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Example: linear potential", "Subsubsection",
+ CellChangeTimes->{{3.5110024048079147`*^9, 
+  3.511002411263604*^9}},ExpressionUUID->"4ec0ee75-f713-4a76-8b5f-\
+2cacfb4faa0d"],
+
+Cell["Consider the potential", "Text",
+ CellChangeTimes->{{3.419334836016968*^9, 3.419334869541898*^9}, 
+   3.5110024134874687`*^9},ExpressionUUID->"ff16ca3f-98da-48ed-a6b7-\
+d13ba24d0c2a"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"V", "(", "x", ")"}], "=", 
+   RowBox[{"\[Piecewise]", GridBox[{
+      {"x", 
+       RowBox[{"0", "\[LessEqual]", "x", "\[LessEqual]", "1"}]},
+      {"\[Infinity]", 
+       RowBox[{
+        RowBox[{"x", "<", "0"}], "\[Or]", 
+        RowBox[{"x", ">", "1"}]}]}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.84]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}]}]}], 
+  TraditionalForm]], "DisplayFormula",
+ CellChangeTimes->{{3.511071752338166*^9, 
+  3.511071753474132*^9}},ExpressionUUID->"d3d22232-7e3a-4cf0-bad6-\
+c3e9e0910c9b"],
+
+Cell[TextData[{
+ "which is linear over ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"0", "\[LessEqual]", "x", "\[LessEqual]", "1"}], TraditionalForm]],
+  ExpressionUUID->"a4309afd-2587-4267-a7da-72547eb08efd"],
+ " and infinite outside this region. Exact solution for the energy and \
+eigenfunctions is quite complicated and involves Airy functions. By contrast, \
+the Rayleigh-Ritz variational method requires us to obtain stationary values \
+of"
+}], "Text",
+ CellChangeTimes->{
+  3.419332922543065*^9, {3.41933484100565*^9, 
+   3.419334927834962*^9}},ExpressionUUID->"bde91e6f-f924-4edb-94b0-\
+16e347bc394c"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"\[ScriptCapitalE]", "[", "\[Phi]_", "]"}], ":=", 
+   FractionBox[
+    RowBox[{
+     SubsuperscriptBox["\[Integral]", "0", "1"], 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         FractionBox["1", "2"], 
+         SuperscriptBox[
+          RowBox[{
+           SuperscriptBox["\[Phi]", "\[Prime]"], "(", "x", ")"}], "2"]}], "+", 
+        RowBox[{"x", " ", 
+         SuperscriptBox[
+          RowBox[{"\[Phi]", "(", "x", ")"}], "2"]}]}], ")"}], 
+      RowBox[{"\[DifferentialD]", "x"}]}]}], 
+    RowBox[{
+     SubsuperscriptBox["\[Integral]", "0", "1"], 
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"\[Phi]", "(", "x", ")"}], "2"], 
+      RowBox[{"\[DifferentialD]", "x"}]}]}]]}], TraditionalForm]], "Input",
+ CellChangeTimes->{{3.419332825362029*^9, 3.41933283267227*^9}, {
+   3.419333770638856*^9, 3.419333770811598*^9}, {3.419333879983667*^9, 
+   3.419333880331235*^9}, 3.511071718654874*^9, {3.511071793394566*^9, 
+   3.511071804646825*^9}},ExpressionUUID->"2673bf2b-08a1-4d2c-a8b8-\
+2cb379ceecdb"],
+
+Cell[TextData[{
+ "In the region where the potential is infinite, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"\[Psi]", "(", "x", ")"}], "=", "0"}], TraditionalForm]],
+  ExpressionUUID->"d70c89bf-3054-4cc0-97ad-7e1349167a1d"],
+ ", so we only need to compute the integral over ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"0", "\[LessEqual]", "x", "\[LessEqual]", "1"}], TraditionalForm]],
+  ExpressionUUID->"896c2a9b-052c-43e6-b65f-1df4eda4028a"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.4193346438812923`*^9, 3.4193346642733088`*^9}, {
+  3.419334700451481*^9, 
+  3.41933471843848*^9}},ExpressionUUID->"f6262a00-509b-498c-bc5c-\
+ad3a6e288d80"],
+
+Cell[TextData[{
+ " The boundary condition is ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"\[Psi]", "(", "0", ")"}], "\[LongEqual]", 
+    RowBox[{"\[Psi]", "(", "1", ")"}], "\[LongEqual]", "0"}], 
+   TraditionalForm]],ExpressionUUID->"b449a3a9-76a8-45b6-8897-79d2179f8787"],
+ ". Here is a suitable one-parameter ",
+ StyleBox["trial function",
+  FontWeight->"Bold"],
+ " (ie, our guess):"
+}], "MathCaption",
+ CellChangeTimes->{
+  3.4193346380445004`*^9, {3.419334957057062*^9, 3.4193349698366823`*^9}, {
+   3.419335004239572*^9, 3.419335008711246*^9}, {3.41933510669845*^9, 
+   3.419335106900976*^9}, {3.4193351377513866`*^9, 3.4193351407275763`*^9}, {
+   3.511002439905304*^9, 3.511002448758655*^9}, {3.5110025377822943`*^9, 
+   3.511002541826976*^9}},ExpressionUUID->"295ccf1e-d4a2-4e38-824f-\
+81cb356b64d5"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     SubscriptBox["\[Phi]", "\[Alpha]_"], "(", "x_", ")"}], "=", 
+    RowBox[{"\[Alpha]", " ", 
+     RowBox[{"sin", "(", 
+      RowBox[{"\[Pi]", " ", "x"}], ")"}]}]}], ";"}], 
+  TraditionalForm]], "Input",ExpressionUUID->"594b9659-5f37-4ca4-9a9d-\
+9ec0ea46a50e"],
+
+Cell["Computing the required integrals is straightforward:", "MathCaption",ExpressionUUID->"cc1acba9-8f37-4c77-9f1b-8c6d17aee5b9"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"\[ScriptCapitalE]", "[", 
+   SubscriptBox["\[Phi]", "\[Alpha]"], "]"}], TraditionalForm]], "Input",
+ CellChangeTimes->{
+  3.511071732127872*^9},ExpressionUUID->"c4079f05-b451-4e1a-9b99-\
+209961ffc235"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   FractionBox["1", "2"], " ", 
+   RowBox[{"(", 
+    RowBox[{"1", "+", 
+     SuperscriptBox["\[Pi]", "2"]}], ")"}]}], TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.4193328440240717`*^9, 3.419333772908283*^9, {3.41933388673882*^9, 
+   3.419333891123577*^9}, 3.419335012901774*^9, 3.4193370413954983`*^9, 
+   3.511002456066586*^9, 3.5110717331347513`*^9, {3.511071781357403*^9, 
+   3.5110718099443083`*^9}},ExpressionUUID->"52735198-69e3-40a1-98f9-\
+4d48d3255a39"]
+}, Open  ]],
+
+Cell["Compute the numerical value:", "MathCaption",
+ CellChangeTimes->{{3.511002511421672*^9, 
+  3.511002524235693*^9}},ExpressionUUID->"be3389b8-ae25-43ca-9eca-\
+5d3f45af34b7"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"N", "[", "%", "]"}], TraditionalForm]], "Input",ExpressionUUID->\
+"cfe7a49a-c428-4ff0-9766-cb851df946cd"],
+
+Cell[BoxData[
+ FormBox["5.434802200544679`", TraditionalForm]], "Output",
+ CellChangeTimes->{3.419332932036553*^9, 3.419333774680834*^9, 
+  3.419333892280723*^9, 3.419335013818668*^9, 3.4193370414610233`*^9, 
+  3.511002459040927*^9, 
+  3.5110718123385878`*^9},ExpressionUUID->"322ff49a-06f0-4bb1-83f1-\
+f16b32ddd39d"]
+}, Open  ]],
+
+Cell[TextData[{
+ "This result is stationary, and is a very good approximation (an upper \
+bound) to the exact value ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[ScriptCapitalE]", "=", 
+    RowBox[{"5.43261", "\[Ellipsis]"}]}], TraditionalForm]],ExpressionUUID->
+  "f98505be-ad6d-470b-8c70-180ceb1f9f23"]
+}], "Text",
+ CellChangeTimes->{{3.419332947160421*^9, 3.419332947941271*^9}, {
+  3.5110024629566593`*^9, 
+  3.5110024639667673`*^9}},ExpressionUUID->"56dd2f00-4d46-4bd4-b07d-\
+d7527a177b0f"],
+
+Cell[TextData[{
+ "Note that, in this case, even though the trial function contains a \
+variational parameter ",
+ Cell[BoxData[
+  FormBox["\[Alpha]", TraditionalForm]],ExpressionUUID->
+  "6dae3af0-74ad-4a51-9ac0-3a57541d62d1"],
+ ", it is not determined by the Rayleigh-Ritz variational method. This is \
+because it is implicitly constrained by the normalisation requirement ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SubsuperscriptBox["\[Integral]", "0", "1"], 
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"\[Phi]", "(", "x", ")"}], "2"], 
+      RowBox[{"\[DifferentialD]", "x"}]}]}], "\[LongEqual]", "1"}], 
+   TraditionalForm]],ExpressionUUID->"cbdd2b59-68ce-4a12-bb8c-1ae86cc26d62"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.4193329665687847`*^9, 3.419332967983045*^9}, {
+  3.5110718188852253`*^9, 
+  3.511071819334399*^9}},ExpressionUUID->"77a8486a-d95d-4bab-ad8e-\
+cbe674f264c8"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 796},
+WindowMargins->{{316, Automatic}, {16, Automatic}},
+FrontEndVersion->"14.1 for Mac OS X ARM (64-bit) (May 2, 2024)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[StyleDefinitions -> "Default.nb"]], 
+   Cell[
+    StyleData["Notebook"], PageWidth -> WindowWidth, CellLabelAutoDelete -> 
+    True, ShowSyntaxStyles -> True, 
+    StyleHints -> <|"CodeFont" -> "Source Code Pro"|>, MenuSortingValue -> 
+    None], 
+   Cell[
+    CellGroupData[{
+      Cell["Custom Styles", "Section"], 
+      Cell[
+       CellGroupData[{
+         Cell["General", "Subsection"], 
+         Cell[
+          StyleData["Title"], CellMargins -> {{27, Inherited}, {10, 30}}, 
+          FontColor -> RGBColor[1, 0.43, 0.13]], 
+         Cell[
+          StyleData["SectionTitle", StyleDefinitions -> StyleData["Title"]], 
+          CellFrame -> {{False, False}, {1, 0}}, 
+          CellMargins -> {{27, Inherited}, {0, 10}}, CellFrameColor -> 
+          RGBColor[0.85, 0.85, 0.85], CounterIncrements -> "SectionTitle", 
+          FontSize -> 20, FontWeight -> "Light", FontColor -> 
+          RGBColor[0.65, 0.65, 0.65]], 
+         Cell[
+          StyleData["Subtitle"], FontWeight -> "Light", FontColor -> 
+          RGBColor[0.65, 0.65, 0.65]], 
+         Cell[
+          StyleData["Subsubtitle"], FontWeight -> "Light", FontColor -> 
+          RGBColor[0.65, 0.65, 0.65]], 
+         Cell[
+          StyleData["Chapter"], CellMargins -> {{27, Inherited}, {10, 30}}, 
+          PageBreakAbove -> True, FontSize -> 40, FontSlant -> "Italic", 
+          FontColor -> GrayLevel[0.5]], 
+         Cell[
+          StyleData["Subchapter"], CellDingbat -> 
+          StyleBox[
+           "\[FilledSmallCircle]", Alignment -> Baseline, FontColor -> 
+            RGBColor[1, 0.43, 0.13]], FontSlant -> "Plain", FontColor -> 
+          GrayLevel[0.5]], 
+         Cell[
+          StyleData["Section"], CellFrame -> False, 
+          CellMargins -> {{27, Inherited}, {34, 14}}, PageBreakAbove -> False,
+           PageBreakBelow -> False, ShowCellLabel -> False, 
+          CellFrameLabelMargins -> {{2, Inherited}, {Inherited, Inherited}}, 
+          FontSize -> 36, FontColor -> RGBColor[1, 0.43, 0.13]], 
+         Cell[
+          StyleData[
+          "SectionNumber", StyleDefinitions -> StyleData["Section"]], 
+          FontSize -> 38, FontWeight -> "Light", FontColor -> 
+          RGBColor[0.65, 0.65, 0.65]], 
+         Cell[
+          StyleData[
+          "NumberedSection", StyleDefinitions -> StyleData["Section"]], 
+          CellDingbat -> Cell[
+            TextData[{
+              CounterBox["Section"], " |\[ThinSpace]"}], "SectionNumber"], 
+          CellMargins -> {{96, Inherited}, {34, 14}}], 
+         Cell[
+          StyleData[
+          "SectionTitleWithSection", StyleDefinitions -> 
+           StyleData["Section"]], CellDingbat -> Cell[
+            TextData[{
+              CounterBox["SectionTitle"], ".", 
+              CounterBox["Section"], " |\[ThinSpace]"}], "SectionNumber"], 
+          CellMargins -> {{96, Inherited}, {34, 14}}], 
+         Cell[
+          StyleData["SectionInline"], FontColor -> RGBColor[0.9, 0.4, 0.]], 
+         Cell[
+          StyleData["Subsection"], CellMargins -> {{27, Inherited}, {12, 32}},
+           CellElementSpacings -> {"ClosedGroupTopMargin" -> 32}, FontSize -> 
+          25, FontColor -> RGBColor[0.9, 0.4, 0.]], 
+         Cell[
+          StyleData["Subsubsection"], 
+          CellMargins -> {{27, Inherited}, {6, 16}}, 
+          CellElementSpacings -> {"ClosedGroupTopMargin" -> 16}, FontSize -> 
+          20, FontColor -> RGBColor[0.9, 0.4, 0.]], 
+         Cell[
+          StyleData["Subsubsubsection"], 
+          CellMargins -> {{27, Inherited}, {6, 16}}, FontSize -> 15, 
+          FontColor -> RGBColor[0.9, 0.4, 0.]], 
+         Cell[
+          StyleData["Subsubsubsubsection"], 
+          CellMargins -> {{27, Inherited}, {6, 16}}, FontSize -> 14, 
+          FontColor -> RGBColor[0.9, 0.4, 0.]], 
+         Cell[
+          StyleData["Text"], CellMargins -> {{66, 10}, {7, 8}}, FontSize -> 
+          15, FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["CodeText"], CellMargins -> {{66, 10}, {7, 8}}, FontSize -> 
+          15], 
+         Cell[
+          StyleData["Author"], CellMargins -> {{27, Inherited}, {6, 16}}], 
+         Cell[
+          StyleData["Affiliation"], 
+          CellMargins -> {{27, Inherited}, {6, 16}}], 
+         Cell[
+          StyleData["Link"], FontColor -> RGBColor[0, 0.6, 1]], 
+         Cell[
+          StyleData["HyperLink"], FontColor -> RGBColor[0, 0.6, 1]], 
+         Cell[
+          StyleData["Hyperlink"], FontColor -> RGBColor[0, 0.6, 1]], 
+         Cell[
+          StyleData["FunctionLink"], FontColor -> RGBColor[0, 0.6, 1]], 
+         Cell[
+          StyleData["HyperlinkActionNew"], FontColor -> RGBColor[0, 0.6, 1]], 
+         
+         Cell[
+          StyleData["HyperlinkActive"], FontColor -> RGBColor[1, 0.4, 0]]}, 
+        Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell["Items", "Subsection"], 
+         Cell[
+          StyleData["Item"], CellDingbat -> 
+          StyleBox["\[FilledSmallSquare]", Alignment -> Baseline, 
+            RGBColor[0.9, 0.4, 0.]], FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["Subitem"], CellDingbat -> 
+          StyleBox["\[FilledSmallSquare]", Alignment -> Baseline, 
+            RGBColor[0.9, 0.4, 0.]], FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["Subsubitem"], CellDingbat -> 
+          StyleBox["\[FilledSmallSquare]", Alignment -> Baseline, 
+            RGBColor[0.65, 0.65, 0.65]], FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["ItemNumbered"], FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["SubitemNumbered"], FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["SubsubitemNumbered"], FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData[
+          "ItemRomanNumbered", StyleDefinitions -> StyleData["ItemNumbered"]],
+           CellDingbat -> Cell[
+            TextData[{
+              CounterBox[
+              "ItemRomanNumbered", CounterFunction -> RomanNumeral], "."}], 
+            FontWeight -> Bold], CounterIncrements -> "ItemRomanNumbered", 
+          FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["ItemParagraph"], FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["SubitemParagraph"], FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["SubsubitemParagraph"], FontColor -> GrayLevel[0]]}, 
+        Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell["Inline and Special Formatting", "Subsection"], 
+         Cell[
+          StyleData["TimeCode", StyleDefinitions -> StyleData["Text"]], 
+          MenuSortingValue -> 1401, FontSize -> 14, FontColor -> 
+          GrayLevel[0.5]], 
+         Cell[
+          StyleData["Input"], ShowCellBracket -> True, 
+          CellMargins -> {{70, Inherited}, {25, 0}}, FontWeight -> "SemiBold",
+           FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["Output"], ShowCellBracket -> True, 
+          CellMargins -> {{70, Inherited}, {25, 0}}, FontColor -> 
+          GrayLevel[0]], 
+         Cell[
+          StyleData["InputOnly"], ShowCellBracket -> True, 
+          CellMargins -> {{70, Inherited}, {25, 0}}, FontWeight -> "SemiBold",
+           FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["InputHidden", StyleDefinitions -> StyleData["Input"]], 
+          CellEpilog :> (SelectionMove[
+             EvaluationNotebook[], All, GeneratedCell]; 
+           FrontEndTokenExecute["SelectionCloseUnselectedCells"]), 
+          InitializationCell -> True, MenuSortingValue -> 1510, 
+          MenuCommandKey :> "8"], 
+         Cell[
+          StyleData["Code"], ShowCellBracket -> True, 
+          CellMargins -> {{70, Inherited}, {25, 0}}], 
+         Cell[
+          StyleData["Separator"], CellFrame -> {{False, False}, {1.5, False}},
+           CellMargins -> {{70, Inherited}, {25, 0}}, CellFrameColor -> 
+          GrayLevel[0.66], MenuSortingValue -> 10000], 
+         Cell[
+          StyleData["Print"], CellMargins -> {{70, Inherited}, {25, 0}}], 
+         Cell[
+          StyleData["InlineCode"], SpanMaxSize -> 0, FontWeight -> "SemiBold",
+           FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData[
+          "InlineCodeText", StyleDefinitions -> StyleData["InlineCode"]]], 
+         Cell[
+          StyleData[
+          "InlineInput", StyleDefinitions -> StyleData["InlineCode"]]], 
+         Cell[
+          StyleData["InlineFormula"], ShowStringCharacters -> True, 
+          SpanMaxSize -> 0, FontWeight -> "SemiBold", FontColor -> 
+          GrayLevel[0]], 
+         Cell[
+          StyleData["InlineMath"], SpanMaxSize -> 0, FontColor -> 
+          GrayLevel[0]], 
+         Cell[
+          StyleData[
+          "NotebookDownload", StyleDefinitions -> StyleData["Text"]], 
+          CellFrame -> {{0, 0}, {0, 1}}, ShowCellBracket -> False, 
+          CellMargins -> {{27, Inherited}, {100, 20}}, 
+          CellGroupingRules -> {"SectionGrouping", 10}, CloudRenderingMethod -> 
+          "InteractiveBoxes", 
+          CellFrameMargins -> {{Inherited, Inherited}, {Inherited, 20}}, 
+          FontColor -> RGBColor[1, 0.43, 0.13]], 
+         Cell[
+          StyleData[
+          "ExperimentalInput", StyleDefinitions -> StyleData["Input"]], 
+          CellFrame -> True, 
+          StyleKeyMapping -> {"=" -> "WolframAlphaShort", "*" -> "Item"}, 
+          CellFrameColor -> RGBColor[0.9, 0.4, 0.], CellFrameLabels -> {{
+             Cell[
+              BoxData[
+               InterpretationBox[
+                Cell[
+                 BoxData[
+                  RotationBox[
+                  "Experimental", BoxRotation -> 1.5707963267948966`]], 
+                 "Text", LineColor -> RGBColor[0.9, 0.4, 0.], FrontFaceColor -> 
+                 RGBColor[0.9, 0.4, 0.], $CellContext`BackFaceColor -> 
+                 RGBColor[0.9, 0.4, 0.], GraphicsColor -> 
+                 RGBColor[0.9, 0.4, 0.], FontSize -> 10, FontColor -> 
+                 RGBColor[0.9, 0.4, 0.]], 
+                TextCell[
+                 Rotate["Experimental", 90 Degree], "Text", 10, 
+                 RGBColor[0.9, 0.4, 0.]]]]], None}, {None, None}}, 
+          MenuSortingValue -> 1510, FontSize -> 13], 
+         Cell[
+          StyleData["WolframAlphaShort"], ShowCellBracket -> True, 
+          CellMargins -> {{70, Inherited}, {25, 0}}, MenuSortingValue -> 
+          10000], 
+         Cell[
+          StyleData["WolframAlphaLong"], ShowCellBracket -> True, 
+          CellMargins -> {{70, Inherited}, {25, 0}}, MenuSortingValue -> 
+          10000], 
+         Cell[
+          StyleData["ExternalLanguage"], ShowCellBracket -> True, 
+          CellMargins -> {{70, Inherited}, {25, 0}}], 
+         Cell[
+          StyleData["HintHeader", StyleDefinitions -> StyleData["Text"]], 
+          ShowGroupOpener -> True, GroupOpenerInsideFrame -> False, 
+          CellGroupingRules -> {"SectionGrouping", 80}, PageBreakBelow -> 
+          False, FontColor -> RGBColor[1., 0.42745098039215684`, 0.]], 
+         Cell[
+          StyleData["Hint", StyleDefinitions -> StyleData["Text"]], CellFrame -> 
+          True, Background -> RGBColor[1., 0.6, 0.1]], 
+         Cell[
+          StyleData["KeyEvent"], CellFrame -> {{1, 1}, {1, 1}}, 
+          CellFrameMargins -> {{2, 2}, {2, 2}}, CellFrameColor -> 
+          GrayLevel[0.8], MenuSortingValue -> 1402, FontColor -> 
+          GrayLevel[0.36], Background -> GrayLevel[0.96]], 
+         Cell[
+          StyleData["Keyword", StyleDefinitions -> StyleData["Text"]], 
+          MenuSortingValue -> 10000, FontColor -> RGBColor[0.9, 0.4, 0.]], 
+         Cell[
+          StyleData["AuthorNote", StyleDefinitions -> StyleData["Text"]], 
+          CellDingbat -> 
+          StyleBox[
+           "Author note:", "Text", Italic, FontColor -> 
+            RGBColor[0.9, 0.4, 0.], Alignment -> Baseline], 
+          CellMargins -> {{100, 10}, {7, 8}}, FontSlant -> Italic, FontColor -> 
+          GrayLevel[0.4]], 
+         Cell[
+          StyleData["Note"], 
+          CellMargins -> {{
+            0.15 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 0.03 
+             FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {10, 10}}, 
+          CellOpen -> True, LineSpacing -> {1, 3}, CounterIncrements -> 
+          "Note", MenuSortingValue -> 1590, FontSize -> 12, FontSlant -> 
+          "Italic", Background -> GrayLevel[0.85]], 
+         Cell[
+          StyleData["WolframLanguageLogo"], FontColor -> 
+          RGBColor[0.09, 0.16, 0.25]], 
+         Cell[
+          StyleData["Message"], ShowCellBracket -> True]}, Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell["Ungraded Exercise", "Subsection"], 
+         Cell[
+          StyleData[
+          "ExerciseSection", StyleDefinitions -> StyleData["Section"]], 
+          CellMargins -> {{27, Inherited}, {7, 14}}], 
+         Cell[
+          StyleData[
+          "NumberedExerciseSection", StyleDefinitions -> 
+           StyleData["NumberedSection"]], 
+          CellMargins -> {{96, Inherited}, {7, 14}}], 
+         Cell[
+          StyleData[
+          "ExerciseSectionTitleWithSection", StyleDefinitions -> 
+           StyleData["SectionTitleWithSection"]], 
+          CellMargins -> {{96, Inherited}, {7, 14}}], 
+         Cell[
+          StyleData[
+          "ExerciseSubsection", StyleDefinitions -> StyleData["Subsection"]]], 
+         Cell[
+          StyleData[
+          "ExerciseFirstSubsection", StyleDefinitions -> 
+           StyleData["ExerciseSubsection"]], 
+          CellMargins -> {{27, Inherited}, {Inherited, Inherited}}], 
+         Cell[
+          StyleData[
+          "ExerciseSubsubsection", StyleDefinitions -> 
+           StyleData["Subsubsection"]], ShowGroupOpener -> "Inline", 
+          CellMargins -> {{66, Inherited}, {Inherited, Inherited}}, FontColor -> 
+          RGBColor[0.65, 0.65, 0.65]]}, Closed]]}, Open]]}, Visible -> False, 
+  FrontEndVersion -> "14.1 for Mac OS X ARM (64-bit) (May 2, 2024)", 
+  StyleDefinitions -> "PrivateStylesheetFormatting.nb"],
+ExpressionUUID->"8afdac90-ca78-433d-a795-bee0f6e9fb37"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 155, 3, 93, "Section",ExpressionUUID->"8af4c11f-6eef-4377-9dc0-6e53ae9fef25"],
+Cell[734, 27, 300, 4, 33, "Text",ExpressionUUID->"ce2e1e58-203e-4082-968c-44035e05cc99"],
+Cell[1037, 33, 722, 20, 38, "DisplayFormulaNumbered",ExpressionUUID->"0c6ca4a0-8848-4fa8-86c5-a042d42cb688"],
+Cell[1762, 55, 807, 22, 55, "Text",ExpressionUUID->"e56d7a2e-638e-4bc5-94fd-816ffb8e7eb8"],
+Cell[CellGroupData[{
+Cell[2594, 81, 305, 8, 47, "Subsubsection",ExpressionUUID->"ec477c08-1fb7-40c4-a468-efe9bf6bc9a5"],
+Cell[2902, 91, 522, 15, 37, "Text",ExpressionUUID->"7cc6a614-0eba-48de-84d6-6535fa550445"],
+Cell[3427, 108, 673, 21, 38, "DisplayFormula",ExpressionUUID->"923fd8a4-4cbc-47cf-8084-bba813d5be14"],
+Cell[4103, 131, 357, 11, 33, "Text",ExpressionUUID->"59b2527d-ff3b-4363-a4a0-c39f10044e87"],
+Cell[4463, 144, 580, 14, 37, "DisplayFormulaNumbered",ExpressionUUID->"34ce4679-47da-4c43-a420-f70799eb1343"],
+Cell[5046, 160, 557, 17, 33, "Text",ExpressionUUID->"ce3bc838-9657-4bb9-ae64-a4198c98216e"],
+Cell[5606, 179, 325, 7, 55, "Text",ExpressionUUID->"4aee4298-c191-427a-91c3-c7f687ccca3f"],
+Cell[5934, 188, 2751, 83, 177, "IndentedText",ExpressionUUID->"16b92125-0db6-4c34-acc6-fe25ee050468"],
+Cell[8688, 273, 824, 23, 43, "MathCaption",ExpressionUUID->"ee9d0f23-2131-4dcc-b8e2-1700416970c7",
+ CellID->1530322957],
+Cell[9515, 298, 698, 21, 71, "Input",ExpressionUUID->"e18b9ae3-eae1-4b1c-ac1e-4581fc6f796e",
+ CellID->243810284],
+Cell[10216, 321, 464, 12, 40, "MathCaption",ExpressionUUID->"993bc2a8-9a7d-4c1e-973b-3bfbf745cc3e"],
+Cell[10683, 335, 336, 9, 56, "Input",ExpressionUUID->"09488289-d503-4ef4-92e1-ec8da4578fdd"],
+Cell[11022, 346, 937, 21, 54, "MathCaption",ExpressionUUID->"9ac5e0e1-451f-4bb4-ab7b-e362ee29f1a3"],
+Cell[CellGroupData[{
+Cell[11984, 371, 1925, 55, 147, "Input",ExpressionUUID->"a7d050a0-3440-43ec-b65d-25f3ea364c4a"],
+Cell[13912, 428, 3357, 69, 375, "Output",ExpressionUUID->"ff3a9009-5fb7-40e8-bb88-9982e8efc412"]
+}, {2}]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17315, 503, 244, 3, 47, "Subsubsection",ExpressionUUID->"d5e0cea5-d13c-469b-b92c-e3272e9efbda"],
+Cell[17562, 508, 364, 9, 55, "Text",ExpressionUUID->"f1532b36-afc4-4301-b2cb-3436572a0ff3"],
+Cell[17929, 519, 541, 12, 33, "Text",ExpressionUUID->"6a37bb8f-a2f4-4f7b-af26-aaa98c855093"],
+Cell[18473, 533, 1277, 31, 39, "DisplayFormula",ExpressionUUID->"4252d963-8819-42e4-af90-4a53ffdf55fd"],
+Cell[19753, 566, 769, 21, 33, "Text",ExpressionUUID->"31accaad-7232-4dc4-b743-4bb36e539e10"],
+Cell[20525, 589, 1559, 39, 55, "DisplayFormula",ExpressionUUID->"8eea1cbe-f858-4c89-8c9e-60c8cfc962f0"],
+Cell[22087, 630, 481, 13, 55, "Text",ExpressionUUID->"e0b50274-8341-4715-8a7d-e1a1526271ab"],
+Cell[22571, 645, 1231, 34, 55, "DisplayFormulaNumbered",ExpressionUUID->"b8fefddc-c753-4a9f-abe6-aee0b60b742e"],
+Cell[23805, 681, 676, 23, 55, "Text",ExpressionUUID->"8b2a8999-9c85-4c06-be9f-858643a69cc6"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[24518, 709, 178, 3, 47, "Subsubsection",ExpressionUUID->"4ec0ee75-f713-4a76-8b5f-2cacfb4faa0d"],
+Cell[24699, 714, 189, 3, 33, "Text",ExpressionUUID->"ff16ca3f-98da-48ed-a6b7-d13ba24d0c2a"],
+Cell[24891, 719, 891, 25, 39, "DisplayFormula",ExpressionUUID->"d3d22232-7e3a-4cf0-bad6-c3e9e0910c9b"],
+Cell[25785, 746, 604, 14, 77, "Text",ExpressionUUID->"bde91e6f-f924-4edb-94b0-16e347bc394c"],
+Cell[26392, 762, 1078, 29, 73, "Input",ExpressionUUID->"2673bf2b-08a1-4d2c-a8b8-2cb379ceecdb"],
+Cell[27473, 793, 645, 17, 33, "Text",ExpressionUUID->"f6262a00-509b-498c-bc5c-ad3a6e288d80"],
+Cell[28121, 812, 816, 19, 40, "MathCaption",ExpressionUUID->"295ccf1e-d4a2-4e38-824f-81cb356b64d5"],
+Cell[28940, 833, 322, 10, 38, "Input",ExpressionUUID->"594b9659-5f37-4ca4-9a9d-9ec0ea46a50e"],
+Cell[29265, 845, 130, 0, 40, "MathCaption",ExpressionUUID->"cc1acba9-8f37-4c77-9f1b-8c6d17aee5b9"],
+Cell[CellGroupData[{
+Cell[29420, 849, 236, 6, 38, "Input",ExpressionUUID->"c4079f05-b451-4e1a-9b99-209961ffc235"],
+Cell[29659, 857, 504, 12, 54, "Output",ExpressionUUID->"52735198-69e3-40a1-98f9-4d48d3255a39"]
+}, Open  ]],
+Cell[30178, 872, 177, 3, 40, "MathCaption",ExpressionUUID->"be3389b8-ae25-43ca-9eca-5d3f45af34b7"],
+Cell[CellGroupData[{
+Cell[30380, 879, 140, 3, 38, "Input",ExpressionUUID->"cfe7a49a-c428-4ff0-9766-cb851df946cd"],
+Cell[30523, 884, 317, 6, 38, "Output",ExpressionUUID->"322ff49a-06f0-4bb1-83f1-f16b32ddd39d"]
+}, Open  ]],
+Cell[30855, 893, 492, 12, 33, "Text",ExpressionUUID->"56dd2f00-4d46-4bd4-b07d-d7527a177b0f"],
+Cell[31350, 907, 904, 23, 79, "Text",ExpressionUUID->"77a8486a-d95d-4bab-ad8e-cbe674f264c8"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

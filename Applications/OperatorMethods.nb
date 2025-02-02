@@ -1,0 +1,606 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     20639,        596]
+NotebookOptionsPosition[     17001,        536]
+NotebookOutlinePosition[     17722,        560]
+CellTagsIndexPosition[     17640,        555]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Operator Methods", "Section",ExpressionUUID->"c3fe030f-6354-4fcb-9d9d-8c235ffab45b"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ 
+ CounterBox["Section"],
+ ". Harmonic plane waves"
+}], "Subsection",
+ CellChangeTimes->{{3.739924850369314*^9, 
+  3.7399248519780483`*^9}},ExpressionUUID->"9898921b-fe27-40f7-bfec-\
+c4f3b5bd2dae"],
+
+Cell["A particularly important solution to the 3D wave equation", "Text",
+ CellChangeTimes->{
+  3.741449894363892*^9, {3.7414500807133007`*^9, 3.741450082082526*^9}},
+ CellTags->
+  "harmonic plane \
+wave",ExpressionUUID->"8b05447b-23f8-49b7-ae18-3d6a82cbc6c7"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    SuperscriptBox["\[Del]", "2"], 
+    RowBox[{"\[Psi]", "(", 
+     RowBox[{
+      StyleBox["r",
+       FontWeight->"Bold"], ",", "t"}], ")"}]}], "\[LongEqual]", 
+   RowBox[{
+    FractionBox["1", 
+     SuperscriptBox["c", "2"]], 
+    RowBox[{
+     FractionBox[
+      SuperscriptBox["\[PartialD]", "2"], 
+      RowBox[{"\[PartialD]", 
+       SuperscriptBox["t", "2"]}]], 
+     RowBox[{"\[Psi]", "(", 
+      RowBox[{
+       StyleBox["r",
+        FontWeight->"Bold"], ",", "t"}], ")"}]}]}]}], 
+  TraditionalForm]], "DisplayFormulaNumbered",
+ CellChangeTimes->{{3.741449676633544*^9, 3.741449709029252*^9}, {
+  3.741449781040284*^9, 3.741449790386491*^9}, {3.74144984549984*^9, 
+  3.741449852409172*^9}, {3.741449936674177*^9, 3.741449939077827*^9}, {
+  3.7414500145124063`*^9, 
+  3.7414500350072403`*^9}},ExpressionUUID->"35b15ecf-d7cd-4124-b33c-\
+7ae264a44d5b"],
+
+Cell[TextData[{
+ " is the ",
+ StyleBox["harmonic plane wave",
+  FontSlant->"Italic"],
+ " form"
+}], "Text",
+ CellTags->
+  "harmonic plane \
+wave",ExpressionUUID->"8d02e7ef-8608-4b4b-aa9d-84e5add6ad44"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"\[Psi]", "(", 
+    RowBox[{
+     StyleBox["r",
+      FontWeight->"Bold"], ",", "t"}], ")"}], "\[LongEqual]", 
+   RowBox[{
+    SubscriptBox["\[Psi]", "0"], 
+    SuperscriptBox["\[ExponentialE]", 
+     RowBox[{"i", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         StyleBox["k",
+          FontWeight->"Bold"], "\[CenterDot]", 
+         StyleBox["r",
+          FontWeight->"Bold"]}], "-", 
+        RowBox[{"\[Omega]", " ", "t"}]}], ")"}]}]]}]}], 
+  TraditionalForm]], "DisplayFormula",
+ CellChangeTimes->{{3.741449621275979*^9, 3.741449637672772*^9}, 
+   3.7414501265831213`*^9},ExpressionUUID->"75452e30-0948-4a40-a468-\
+7a48d5c37027"],
+
+Cell[TextData[{
+ "Applying the operators ",
+ Cell[BoxData[
+  FormBox[
+   FractionBox["\[PartialD]", 
+    RowBox[{"\[PartialD]", "t"}]], TraditionalForm]],ExpressionUUID->
+  "c85dde1a-80f4-47ee-8b28-550d7b64c116"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox["\[Del]",
+    FontWeight->"Bold"], TraditionalForm]],ExpressionUUID->
+  "260236a1-ac7f-4c20-b0d3-6a6bf539611f"],
+ " to ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Psi]", "(", 
+    RowBox[{
+     StyleBox["r",
+      FontWeight->"Bold"], ",", "t"}], ")"}], TraditionalForm]],
+  ExpressionUUID->"439a6646-4fac-4903-9ebe-5659c62db164"],
+ " we see that"
+}], "Text",
+ CellChangeTimes->{{3.741449643005227*^9, 
+  3.7414496434874973`*^9}},ExpressionUUID->"aef449af-8f1b-418c-b9ad-\
+fbba5db5d286"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    FractionBox["\[PartialD]", 
+     RowBox[{"\[PartialD]", "t"}]], 
+    RowBox[{"\[Psi]", "(", 
+     RowBox[{
+      StyleBox["r",
+       FontWeight->"Bold"], ",", "t"}], ")"}]}], "\[LongEqual]", 
+   RowBox[{
+    RowBox[{"-", "\[ImaginaryI]"}], " ", "\[Omega]", " ", 
+    RowBox[{"\[Psi]", "(", 
+     RowBox[{"r", ",", "t"}], ")"}]}]}], TraditionalForm]], "DisplayFormula",
+ CellChangeTimes->{{3.741449676633544*^9, 3.741449709029252*^9}, {
+  3.741449781040284*^9, 3.741449784403088*^9}, {3.7414501220442038`*^9, 
+  3.7414501228818007`*^9}},ExpressionUUID->"87857471-b3dd-49f8-96b6-\
+6f785336ecef"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    StyleBox["\[Del]",
+     FontWeight->"Bold"], 
+    RowBox[{"\[Psi]", "(", 
+     RowBox[{
+      StyleBox["r",
+       FontWeight->"Bold"], ",", "t"}], ")"}]}], "\[LongEqual]", 
+   RowBox[{"\[ImaginaryI]", " ", 
+    StyleBox["k",
+     FontWeight->"Bold"], " ", 
+    RowBox[{"\[Psi]", "(", 
+     RowBox[{
+      StyleBox["r",
+       FontWeight->"Bold"], ",", "t"}], ")"}]}]}], 
+  TraditionalForm]], "DisplayFormula",
+ CellChangeTimes->{{3.741449676633544*^9, 3.741449709029252*^9}, {
+   3.741449781040284*^9, 3.741449790386491*^9}, 
+   3.74145012841757*^9},ExpressionUUID->"74fcffa9-01d2-45b2-9958-\
+c547f91b50aa"],
+
+Cell[TextData[{
+ "In other words, application of the differential operator ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[PartialD]", "t"], TraditionalForm]],ExpressionUUID->
+  "b0eddba3-6f77-48af-9895-e3f5832b457f"],
+ " is equivalent to multiplication by ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"-", "\[ImaginaryI]"}], " ", "\[Omega]"}], TraditionalForm]],
+  ExpressionUUID->"37bdcb1f-abc9-4d93-9539-dcb730204959"],
+ ". Similarly ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox["\[Del]",
+    FontWeight->"Bold"], TraditionalForm]],ExpressionUUID->
+  "94a876ef-fe39-41b1-b607-88c5d4cc3533"],
+ " is equivalent to multiplication by ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[ImaginaryI]", " ", 
+    StyleBox["k",
+     FontWeight->"Bold"]}], TraditionalForm]],ExpressionUUID->
+  "21ca72f0-74bf-4d17-a93e-d90340433902"],
+ "."
+}], "Text",
+ CellDingbat->"\[WarningSign]",
+ CellChangeTimes->{{3.739924967383708*^9, 3.739924976099345*^9}, {
+  3.7399253953533792`*^9, 3.739925455583469*^9}, {3.739925782545961*^9, 
+  3.739925783577582*^9}, {3.741450549930106*^9, 
+  3.741450552821073*^9}},ExpressionUUID->"ea67a535-b54d-40e5-8549-\
+4c2bd3d85ec0"],
+
+Cell[TextData[{
+ "For Maxwell's equations ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     StyleBox["\[Del]",
+      FontWeight->"Bold"], 
+     RowBox[{"\[CenterDot]", 
+      StyleBox["E",
+       FontWeight->"Bold"]}]}], "=", "0"}], TraditionalForm]],ExpressionUUID->
+  "2883ba1b-671b-4273-9f41-b3b6aae9e1ad"],
+ " becomes ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     StyleBox["k",
+      FontWeight->"Bold"], "\[CenterDot]", 
+     StyleBox["E",
+      FontWeight->"Bold"]}], "=", "0"}], TraditionalForm]],ExpressionUUID->
+  "ef2967f6-7498-42fa-a9c8-a86fba46e717"],
+ " which is related to taking the Fourier Transform of Maxwell's equations."
+}], "Text",
+ CellDingbat->"\[WarningSign]",
+ CellChangeTimes->{{3.739924967383708*^9, 3.739924976099345*^9}, {
+  3.7399253953533792`*^9, 3.739925455583469*^9}, {3.739925782545961*^9, 
+  3.7399257879491377`*^9}, {3.7414505360852013`*^9, 
+  3.741450547842059*^9}},ExpressionUUID->"762dffbe-b07a-4f88-95e4-\
+674911812be5"],
+
+Cell["Iterating the operators, we see that", "Text",
+ CellChangeTimes->{{3.741449828898622*^9, 3.74144982976542*^9}, {
+  3.741450461175727*^9, 
+  3.741450489707842*^9}},ExpressionUUID->"97351ceb-28e1-425f-9f08-\
+a73ed111b398"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    FractionBox[
+     SuperscriptBox["\[PartialD]", "2"], 
+     RowBox[{"\[PartialD]", 
+      SuperscriptBox["t", "2"]}]], 
+    RowBox[{"\[Psi]", "(", 
+     RowBox[{
+      StyleBox["r",
+       FontWeight->"Bold"], ",", "t"}], ")"}]}], "\[LongEqual]", 
+   RowBox[{
+    RowBox[{"-", 
+     SuperscriptBox["\[Omega]", "2"]}], " ", 
+    RowBox[{"\[Psi]", "(", 
+     RowBox[{
+      StyleBox["r",
+       FontWeight->"Bold"], ",", "t"}], ")"}]}]}], 
+  TraditionalForm]], "DisplayFormula",
+ CellChangeTimes->{{3.741449676633544*^9, 3.741449709029252*^9}, {
+   3.741449781040284*^9, 3.741449784403088*^9}, {3.741449868218524*^9, 
+   3.741449876868863*^9}, 
+   3.741450130708589*^9},ExpressionUUID->"b272df4d-78a8-45c8-9901-\
+3d57552654c9"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    SuperscriptBox["\[Del]", "2"], 
+    RowBox[{"\[Psi]", "(", 
+     RowBox[{
+      StyleBox["r",
+       FontWeight->"Bold"], ",", "t"}], ")"}]}], "\[LongEqual]", 
+   RowBox[{
+    RowBox[{"-", 
+     SuperscriptBox["k", "2"]}], 
+    RowBox[{"\[Psi]", "(", 
+     RowBox[{
+      StyleBox["r",
+       FontWeight->"Bold"], ",", "t"}], ")"}]}]}], 
+  TraditionalForm]], "DisplayFormula",
+ CellChangeTimes->{{3.741449676633544*^9, 3.741449709029252*^9}, {
+  3.741449781040284*^9, 3.741449790386491*^9}, {3.74144984549984*^9, 
+  3.741449852409172*^9}, {3.741450131988146*^9, 
+  3.741450190804042*^9}},ExpressionUUID->"f1c4f09a-421a-4d59-8ef5-\
+7aef0c68a536"],
+
+Cell[TextData[{
+ "and the wave equation is satisfied if the dispersion relation ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"c", "=", 
+    RowBox[{"\[Omega]", "/", "k"}]}], TraditionalForm]],ExpressionUUID->
+  "909e93f3-46b3-4a03-8fe1-d9385f1e7272"],
+ " holds."
+}], "Text",
+ CellChangeTimes->{{3.7414500754866*^9, 3.7414501061520147`*^9}, {
+  3.7414501806442537`*^9, 3.7414502122553167`*^9}, {3.741450563596764*^9, 
+  3.741450565464216*^9}},ExpressionUUID->"0aa83cce-4b4a-4dda-8d53-\
+ec16a49bcb6d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ 
+ CounterBox["Section"],
+ ". Quantum Mechanics"
+}], "Subsection",
+ CellChangeTimes->{{3.741450573160294*^9, 
+  3.741450583714878*^9}},ExpressionUUID->"1b2e4b22-0032-4f85-83ad-\
+a5e084eb2a79"],
+
+Cell["Classically,", "Text",
+ CellChangeTimes->{{3.73992497172891*^9, 3.7399250350093927`*^9}, {
+  3.739925804439767*^9, 3.7399258317269993`*^9}, {3.741450240990513*^9, 
+  3.74145028371544*^9}, {3.741450317962057*^9, 3.741450411267376*^9}, {
+  3.7414505890630627`*^9, 3.74145064093125*^9}, {3.741450676451126*^9, 
+  3.7414507035542107`*^9}, {3.7414509643393*^9, 
+  3.741450981450844*^9}},ExpressionUUID->"483a47df-11c7-4f76-9e67-\
+aa65d642ed71"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"E", "\[LongEqual]", 
+   RowBox[{"T", "+", "V"}], "\[LongEqual]", 
+   RowBox[{
+    FractionBox[
+     SuperscriptBox["p", "2"], 
+     RowBox[{"2", "m"}]], "+", "V"}]}], TraditionalForm]], "DisplayFormula",
+ CellChangeTimes->{{3.741449676633544*^9, 3.741449709029252*^9}, {
+   3.741449781040284*^9, 3.741449784403088*^9}, {3.741449868218524*^9, 
+   3.741449876868863*^9}, 3.741450130708589*^9, {3.74145064957521*^9, 
+   3.7414506631544313`*^9}},ExpressionUUID->"dc6ba2b1-e3b4-4825-b4af-\
+800e723bc01d"],
+
+Cell[TextData[{
+ "where ",
+ Cell[BoxData[
+  FormBox["E", TraditionalForm]],ExpressionUUID->
+  "10278cd0-c6f7-4da4-93d7-c5427add825a"],
+ " is the total energy, ",
+ Cell[BoxData[
+  FormBox["T", TraditionalForm]],ExpressionUUID->
+  "dc4f4718-a5cd-4026-a215-29bf1f615491"],
+ " is the kinetic energy, and ",
+ Cell[BoxData[
+  FormBox["V", TraditionalForm]],ExpressionUUID->
+  "208cdd69-6878-4d57-8a69-808fea8e3bb6"],
+ " is the potential energy."
+}], "Text",
+ CellChangeTimes->{{3.741450665188306*^9, 3.7414507114189568`*^9}, {
+  3.741450984180543*^9, 
+  3.741451007819008*^9}},ExpressionUUID->"6e02a604-a570-4e42-8341-\
+648fadb05a61"],
+
+Cell[TextData[{
+ "In quantum mechanics, using the above observations, we ",
+ StyleBox["define",
+  FontWeight->"Bold"],
+ " the ",
+ StyleBox["momentum ",
+  FontSlant->"Italic"],
+ StyleBox["operator",
+  FontSlant->"Italic"],
+ " as ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    StyleBox["p",
+     FontWeight->"Bold"], "=", 
+    RowBox[{
+     RowBox[{"\[HBar]", " ", 
+      StyleBox["k",
+       FontWeight->"Bold"]}], "\[Congruent]", 
+     RowBox[{
+      RowBox[{"-", "\[ImaginaryI]"}], " ", "\[HBar]", " ", 
+      StyleBox["\[Del]",
+       FontWeight->"Bold"]}]}]}], TraditionalForm]],ExpressionUUID->
+  "2afb8aa8-19b9-4523-93ee-c5a110f69f2b"],
+ " and the ",
+ StyleBox["energy operator is ",
+  FontSlant->"Italic"],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"E", "\[LongEqual]", 
+    RowBox[{"\[HBar]", " ", "\[Omega]"}], "\[Congruent]", 
+    RowBox[{"\[ImaginaryI]", " ", "\[HBar]", " ", 
+     SubscriptBox["\[PartialD]", "t"]}]}], TraditionalForm]],ExpressionUUID->
+  "10e19e52-ce2f-45b2-9d9c-ba44ffe6e72c"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.73992497172891*^9, 3.7399250350093927`*^9}, {
+  3.739925804439767*^9, 3.7399258317269993`*^9}, {3.741450240990513*^9, 
+  3.74145028371544*^9}, {3.741450317962057*^9, 3.741450411267376*^9}, {
+  3.7414505890630627`*^9, 3.74145064093125*^9}, {3.741450676451126*^9, 
+  3.7414506827744827`*^9}, {3.741450732669401*^9, 3.7414507432073717`*^9}, {
+  3.741450774338512*^9, 3.7414507942444477`*^9}, {3.741451036489134*^9, 
+  3.741451087963097*^9}},ExpressionUUID->"818c12cb-430d-47e2-a8bd-\
+e95a44504bba"],
+
+Cell["Turning conservation of energy into a wave equation, ", "Text",
+ CellChangeTimes->{{3.73992497172891*^9, 3.7399250350093927`*^9}, {
+  3.739925804439767*^9, 3.7399258317269993`*^9}, {3.741450240990513*^9, 
+  3.74145028371544*^9}, {3.741450317962057*^9, 3.741450411267376*^9}, {
+  3.7414505890630627`*^9, 3.74145064093125*^9}, {3.741450676451126*^9, 
+  3.7414506827744827`*^9}, {3.741450732669401*^9, 3.7414507432073717`*^9}, {
+  3.741450774338512*^9, 
+  3.741450793655908*^9}},ExpressionUUID->"1da6e3de-f80f-4352-acd3-\
+9bc75fabb137"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"E", " ", "\[Psi]"}], "\[LongEqual]", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", 
+      RowBox[{"2", "m"}]], 
+     SuperscriptBox["p", "2"], "\[Psi]"}], "+", "V\[Psi]"}]}], 
+  TraditionalForm]], "DisplayFormula",
+ CellChangeTimes->{{3.741449676633544*^9, 3.741449709029252*^9}, {
+   3.741449781040284*^9, 3.741449784403088*^9}, {3.741449868218524*^9, 
+   3.741449876868863*^9}, 3.741450130708589*^9, {3.74145064957521*^9, 
+   3.7414506631544313`*^9}, {3.7414507519139977`*^9, 3.741450872133129*^9}, 
+   3.7414509026428223`*^9},ExpressionUUID->"93d6d4f5-974c-4d24-a748-\
+b24b6882b5ea"],
+
+Cell["\<\
+and then substituting the operators, we get the Schr\[ODoubleDot]dinger \
+equation:\
+\>", "Text",
+ CellChangeTimes->{{3.741450904516159*^9, 
+  3.741450933278805*^9}},ExpressionUUID->"0ea77b82-6a7a-4854-8dca-\
+8a7eae21f0bd"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"\[ImaginaryI]", " ", "\[HBar]", " ", 
+    RowBox[{
+     SubscriptBox["\[PartialD]", "t"], "\[Psi]"}]}], "\[LongEqual]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox[
+       SuperscriptBox["\[HBar]", "2"], 
+       RowBox[{"2", "m"}]]}], 
+     RowBox[{
+      SuperscriptBox["\[Del]", "2"], "\[Psi]"}]}], "+", 
+    RowBox[{"V", " ", "\[Psi]"}]}]}], 
+  TraditionalForm]], "DisplayFormulaNumbered",
+ CellChangeTimes->{{3.741449676633544*^9, 3.741449709029252*^9}, {
+   3.741449781040284*^9, 3.741449784403088*^9}, {3.741449868218524*^9, 
+   3.741449876868863*^9}, 3.741450130708589*^9, {3.74145064957521*^9, 
+   3.7414506631544313`*^9}, {3.7414507519139977`*^9, 3.741450872133129*^9}, {
+   3.7414509026428223`*^9, 
+   3.7414509431685677`*^9}},ExpressionUUID->"09faaab7-0d37-430b-92cd-\
+e1077da0cf17"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Klein-Gordan", "Subsection",ExpressionUUID->"a281ee45-2761-4de2-9f95-f3cea9932fd2"],
+
+Cell["https://en.wikipedia.org/wiki/Klein-Gordon_equation", "Text",ExpressionUUID->"1e6b7a5a-9cce-4365-b0c5-b05ec686ddaa"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   SuperscriptBox["E", "2"], "\[LongEqual]", 
+   RowBox[{
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"p", " ", "c"}], ")"}], "2"], "+", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["m", "0"], 
+       SuperscriptBox["c", "2"]}], ")"}], "2"]}]}], 
+  TraditionalForm]], "DisplayFormula",ExpressionUUID->"9f0e1594-ef4f-4728-\
+a30b-935dc61f8c6d"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    SuperscriptBox["E", "2"], "\[Psi]"}], "\[LongEqual]", 
+   RowBox[{
+    RowBox[{
+     SuperscriptBox["c", "2"], 
+     SuperscriptBox["p", "2"], "\[Psi]"}], " ", "+", 
+    RowBox[{
+     SubsuperscriptBox["m", "0", "2"], 
+     SuperscriptBox["c", "4"], "\[Psi]"}]}]}], 
+  TraditionalForm]], "DisplayFormula",ExpressionUUID->"f36afdea-67c4-4867-\
+8821-e6f81aabe0ce"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{" ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       FractionBox["1", 
+        SuperscriptBox["c", "2"]], 
+       RowBox[{
+        SubscriptBox["\[PartialD]", 
+         RowBox[{"{", 
+          RowBox[{"t", ",", "2"}], "}"}]], 
+        RowBox[{"-", 
+         RowBox[{
+          SuperscriptBox["\[Del]", "2"], 
+          RowBox[{"+", 
+           FractionBox[
+            RowBox[{
+             SubsuperscriptBox["m", "0", "2"], 
+             SuperscriptBox["c", "2"]}], 
+            SuperscriptBox["\[HBar]", "2"]]}]}]}]}]}], ")"}], 
+     RowBox[{"\[Psi]", "(", 
+      RowBox[{
+       StyleBox["x",
+        FontWeight->"Bold"], ",", "t"}], ")"}]}], "\[LongEqual]", "0"}]}], 
+  TraditionalForm]], "DisplayFormulaNumbered",ExpressionUUID->"e3f8d89a-880a-\
+4f33-849c-a5604e65b6e9"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 796},
+WindowMargins->{{20, Automatic}, {Automatic, 44}},
+FrontEndVersion->"14.2 for Mac OS X ARM (64-bit) (December 26, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"63b60230-9f67-4376-ac88-c874f062d098"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "harmonic plane wave"->{
+  Cell[907, 35, 260, 5, 33, "Text",ExpressionUUID->"8b05447b-23f8-49b7-ae18-3d6a82cbc6c7",
+   CellTags->"harmonic plane wave"],
+  Cell[2080, 71, 200, 8, 33, "Text",ExpressionUUID->"8d02e7ef-8608-4b4b-aa9d-84e5add6ad44",
+   CellTags->"harmonic plane wave"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"harmonic plane wave", 17359, 547}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 90, 0, 66, "Section",ExpressionUUID->"c3fe030f-6354-4fcb-9d9d-8c235ffab45b"],
+Cell[CellGroupData[{
+Cell[691, 26, 213, 7, 53, "Subsection",ExpressionUUID->"9898921b-fe27-40f7-bfec-c4f3b5bd2dae"],
+Cell[907, 35, 260, 5, 33, "Text",ExpressionUUID->"8b05447b-23f8-49b7-ae18-3d6a82cbc6c7",
+ CellTags->"harmonic plane wave"],
+Cell[1170, 42, 907, 27, 43, "DisplayFormulaNumbered",ExpressionUUID->"35b15ecf-d7cd-4124-b33c-7ae264a44d5b"],
+Cell[2080, 71, 200, 8, 33, "Text",ExpressionUUID->"8d02e7ef-8608-4b4b-aa9d-84e5add6ad44",
+ CellTags->"harmonic plane wave"],
+Cell[2283, 81, 698, 22, 25, "DisplayFormula",ExpressionUUID->"75452e30-0948-4a40-a468-7a48d5c37027"],
+Cell[2984, 105, 748, 25, 37, "Text",ExpressionUUID->"aef449af-8f1b-418c-b9ad-fbba5db5d286"],
+Cell[3735, 132, 645, 17, 39, "DisplayFormula",ExpressionUUID->"87857471-b3dd-49f8-96b6-6f785336ecef"],
+Cell[4383, 151, 659, 21, 25, "DisplayFormula",ExpressionUUID->"74fcffa9-01d2-45b2-9958-c547f91b50aa"],
+Cell[5045, 174, 1144, 32, 55, "Text",ExpressionUUID->"ea67a535-b54d-40e5-8549-4c2bd3d85ec0"],
+Cell[6192, 208, 982, 29, 55, "Text",ExpressionUUID->"762dffbe-b07a-4f88-95e4-674911812be5"],
+Cell[7177, 239, 226, 4, 33, "Text",ExpressionUUID->"97351ceb-28e1-425f-9f08-a73ed111b398"],
+Cell[7406, 245, 776, 24, 43, "DisplayFormula",ExpressionUUID->"b272df4d-78a8-45c8-9901-3d57552654c9"],
+Cell[8185, 271, 696, 21, 25, "DisplayFormula",ExpressionUUID->"f1c4f09a-421a-4d59-8ef5-7aef0c68a536"],
+Cell[8884, 294, 494, 12, 33, "Text",ExpressionUUID->"0aa83cce-4b4a-4dda-8d53-ec16a49bcb6d"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9415, 311, 208, 7, 53, "Subsection",ExpressionUUID->"1b2e4b22-0032-4f85-83ad-a5e084eb2a79"],
+Cell[9626, 320, 445, 7, 33, "Text",ExpressionUUID->"483a47df-11c7-4f76-9e67-aa65d642ed71"],
+Cell[10074, 329, 534, 12, 41, "DisplayFormula",ExpressionUUID->"dc6ba2b1-e3b4-4825-b4af-800e723bc01d"],
+Cell[10611, 343, 628, 18, 33, "Text",ExpressionUUID->"6e02a604-a570-4e42-8341-648fadb05a61"],
+Cell[11242, 363, 1535, 43, 55, "Text",ExpressionUUID->"818c12cb-430d-47e2-a8bd-e95a44504bba"],
+Cell[12780, 408, 539, 8, 33, "Text",ExpressionUUID->"1da6e3de-f80f-4352-acd3-9bc75fabb137"],
+Cell[13322, 418, 635, 15, 38, "DisplayFormula",ExpressionUUID->"93d6d4f5-974c-4d24-a748-b24b6882b5ea"],
+Cell[13960, 435, 233, 6, 33, "Text",ExpressionUUID->"0ea77b82-6a7a-4854-8dca-8a7eae21f0bd"],
+Cell[14196, 443, 860, 22, 41, "DisplayFormulaNumbered",ExpressionUUID->"09faaab7-0d37-430b-92cd-e1077da0cf17"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15093, 470, 89, 0, 53, "Subsection",ExpressionUUID->"a281ee45-2761-4de2-9f95-f3cea9932fd2"],
+Cell[15185, 472, 122, 0, 33, "Text",ExpressionUUID->"1e6b7a5a-9cce-4365-b0c5-b05ec686ddaa"],
+Cell[15310, 474, 416, 14, 26, "DisplayFormula",ExpressionUUID->"9f0e1594-ef4f-4728-a30b-935dc61f8c6d"],
+Cell[15729, 490, 413, 13, 25, "DisplayFormula",ExpressionUUID->"f36afdea-67c4-4867-8821-e6f81aabe0ce"],
+Cell[16145, 505, 828, 27, 45, "DisplayFormulaNumbered",ExpressionUUID->"e3f8d89a-880a-4f33-849c-a5604e65b6e9"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

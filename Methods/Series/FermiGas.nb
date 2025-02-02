@@ -1,0 +1,997 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     35938,        989]
+NotebookOptionsPosition[     17295,        594]
+NotebookOutlinePosition[     33618,        955]
+CellTagsIndexPosition[     33276,        943]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Ideal Fermi Gas", "Section",
+ Evaluatable->False,
+ CellChangeTimes->{{3.926483087354198*^9, 3.926483091509335*^9}},
+ AspectRatioFixed->
+  True,ExpressionUUID->"cd0bc227-260a-4634-b37f-3a1237ef0d49"],
+
+Cell[TextData[{
+ "The ",
+ StyleBox["equation of state",
+  FontSlant->"Italic"],
+ " is a functional relationship between the thermodynamic parameters, say ",
+ Cell[BoxData[
+  FormBox["P", TraditionalForm]],ExpressionUUID->
+  "e3158dfb-2f62-49d3-a80d-f501576af8bf"],
+ ", ",
+ Cell[BoxData[
+  FormBox["V", TraditionalForm]],ExpressionUUID->
+  "46aac0d9-edb1-427b-bfd7-cb45e17fc6a7"],
+ ", and ",
+ Cell[BoxData[
+  FormBox["T", TraditionalForm]],ExpressionUUID->
+  "d69d421a-7e8c-4448-bc78-97836be2d976"],
+ ", of the form ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"f", "(", 
+     RowBox[{"P", ",", "V", ",", "T"}], ")"}], "=", "0"}], TraditionalForm]],
+  ExpressionUUID->"b45464bc-73ba-435d-8976-6badd51275e5"],
+ ". The ",
+ StyleBox["parametric form",
+  FontSlant->"Italic"],
+ " of the equation of state for a spinless ideal Fermi gas is"
+}], "Text",
+ CellTags->{
+  "equation of state", "thermodynamic parameters", 
+   "ideal Fermi gas"},ExpressionUUID->"b1838471-9519-4100-9dc6-bc734e7314b8"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    FractionBox["P", 
+     RowBox[{"k", " ", "T"}]], "=", 
+    RowBox[{
+     FractionBox["1", 
+      SuperscriptBox["\[Lambda]", "3"]], 
+     RowBox[{
+      SubscriptBox["f", 
+       RowBox[{"5", "/", "2"}]], "(", "z", ")"}]}]}], ",", " ", "\n", 
+   RowBox[{
+    FractionBox["1", "v"], "=", 
+    RowBox[{
+     FractionBox["1", 
+      SuperscriptBox["\[Lambda]", "3"]], 
+     RowBox[{
+      SubscriptBox["f", 
+       RowBox[{"3", "/", "2"}]], "(", "z", ")"}]}]}], ","}], 
+  TraditionalForm]], "DisplayFormulaNumbered",
+ CellTags->
+  "spinless ideal Fermi \
+gas",ExpressionUUID->"ad70609b-41f0-467d-973a-87b6372738dc"],
+
+Cell[TextData[{
+ "where ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"v", "=", 
+    RowBox[{"V", "/", "N"}]}], TraditionalForm]],ExpressionUUID->
+  "0a9e5250-c5e5-4e3c-a4f6-b38c0928df74"],
+ ", ",
+ Cell[BoxData[
+  FormBox["\[Lambda]", TraditionalForm]],ExpressionUUID->
+  "51d09dd3-d5b4-4cd5-950b-ce924d7820d9"],
+ " is the ",
+ StyleBox["thermal wavelength",
+  FontSlant->"Italic"],
+ ", and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SubscriptBox["f", "n"], "(", "z", ")"}], "=", 
+    RowBox[{
+     UnderoverscriptBox["\[Sum]", 
+      RowBox[{"i", "=", "1"}], "\[Infinity]"], 
+     FractionBox[
+      RowBox[{
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{"-", "1"}], ")"}], 
+        RowBox[{"i", "+", "1"}]], 
+       SuperscriptBox["z", "i"]}], 
+      SuperscriptBox["i", "n"]]}]}], TraditionalForm]],ExpressionUUID->
+  "d20f9584-7f57-41fc-8351-5ff53f814a31"],
+ "."
+}], "Text",
+ CellTags->
+  "thermal wavelength",ExpressionUUID->"d6e7a4ff-b679-4dd8-a1b2-0377c9673f82"],
+
+Cell[TextData[{
+ 
+ CounterBox["Section"],
+ ".",
+ 
+ CounterBox["Subsection"],
+ ".",
+ 
+ CounterBox["Exercise"],
+ ". The ",
+ StyleBox["virial expansion",
+  FontSlant->"Italic"],
+ " of the equation of state is defined to be"
+}], "CodeText",
+ CellTags->{
+  "virial expansion", "virial coefficient", 
+   "series methods"},ExpressionUUID->"c02e7733-9d8b-4317-a0ac-54e9fb7f7935"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   FractionBox[
+    RowBox[{"P", " ", "v"}], 
+    RowBox[{"k", " ", "T"}]], "=", 
+   RowBox[{
+    UnderoverscriptBox["\[Sum]", 
+     RowBox[{"l", "=", "1"}], "\[Infinity]"], 
+    RowBox[{
+     SubscriptBox["a", "l"], " ", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       FractionBox[
+        SuperscriptBox["\[Lambda]", "3"], "v"], ")"}], 
+      RowBox[{"l", "-", "1"}]]}]}]}], 
+  TraditionalForm]], "DisplayFormulaNumbered",
+ CellTags->
+  "virial expansion",ExpressionUUID->"e4f1f541-dd1a-46bb-a7e2-dadaf127c19b"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[GridBox[{
+    {GridBox[{
+       {
+        RowBox[{
+         FractionBox[
+          RowBox[{"P", " ", "v"}], 
+          RowBox[{"k", " ", "T"}]], "=", 
+         RowBox[{
+          UnderoverscriptBox["\[Sum]", 
+           RowBox[{"l", "=", "1"}], "\[Infinity]"], 
+          RowBox[{
+           SubscriptBox["a", "l"], " ", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             FractionBox[
+              SuperscriptBox["\[Lambda]", "3"], "v"], ")"}], 
+            RowBox[{"l", "-", "1"}]]}]}]}]}
+      },
+      GridBoxAlignment->{"Columns" -> {{"="}}}]}
+   },
+   GridBoxItemSize->{"Columns" -> {{
+        Scaled[0.96]}}}], 
+  TraditionalForm]],ExpressionUUID->"502ed04c-3a11-48bd-a1d0-fd57bfb14367"]], \
+"Text",
+ CellChangeTimes->{{3.926483040742115*^9, 
+  3.926483040742165*^9}},ExpressionUUID->"fc0bab04-8ff4-4044-9d25-\
+533ec8e52101"],
+
+Cell[TextData[{
+ "where  ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["a", "l"], TraditionalForm]],ExpressionUUID->
+  "a0adc9b4-9550-4e84-ac7f-784215604815"],
+ " is called the ",
+ Cell[BoxData[
+  FormBox["l", TraditionalForm]],ExpressionUUID->
+  "d94c7f2f-7231-418f-b24e-0dd455a35c6f"],
+ "-th ",
+ StyleBox["virial coefficient",
+  FontSlant->"Italic"],
+ ". Using equations ",
+ Cell[TextData[{
+  "(",
+  
+  CounterBox["DisplayFormulaNumbered", "spinless ideal Fermi gas"],
+  ")"
+ }],ExpressionUUID->"2adf175f-8cf6-4e8b-812b-520a8ed0d06e"],
+ " and ",
+ Cell[TextData[{
+  "(",
+  
+  CounterBox["DisplayFormulaNumbered"],
+  ")"
+ }],ExpressionUUID->"8f6169a6-9a83-4a5f-bf57-eb33bcf126d1"],
+ " apply series methods (up to sufficiently high order) for high temperatures \
+and low densities ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["\[Lambda]", "3"], "/", "v"}], "\[LessLess]", "1"}], 
+     ")"}], ","}], TraditionalForm]],ExpressionUUID->
+  "bc345f13-91f2-4eb2-9204-a71b0cff5c73"],
+ " so as to correctly determine the exact values of the first five virial \
+coefficients. (",
+ StyleBox["Hint",
+  FontSlant->"Italic"],
+ ": ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["a", "1"], "=", "1"}], TraditionalForm]],ExpressionUUID->
+  "20c5036d-4737-4c6e-93a6-01ab91ef469b"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["a", "2"], "=", 
+    RowBox[{"1", "/", 
+     RowBox[{"(", 
+      RowBox[{"4", 
+       SqrtBox["2"]}], ")"}]}]}], TraditionalForm]],ExpressionUUID->
+  "2b5aad5f-fec2-44bf-94ab-bb5558ea98e7"],
+ ".) ",
+ StyleBox["[7]", "Marks"]
+}], "CodeText",ExpressionUUID->"f8674226-7509-436b-9c4e-66132c911514"],
+
+Cell[TextData[{
+ "Define ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["f", "n"], "(", "z", ")"}], TraditionalForm]],ExpressionUUID->
+  "7657b03d-2e97-4aa9-9944-28c3fbbd705b"],
+ "."
+}], "Text",ExpressionUUID->"d3b57211-01f9-433a-adf6-b77ce37b2171"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    SubscriptBox["f", "n_"], "(", "z_", ")"}], "=", 
+   RowBox[{
+    UnderoverscriptBox["\[Sum]", 
+     RowBox[{"i", "=", "1"}], "\[Infinity]"], 
+    FractionBox[
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"-", "1"}], ")"}], 
+       RowBox[{"i", "+", "1"}]], 
+      SuperscriptBox["z", "i"]}], 
+     SuperscriptBox["i", "n"]]}]}], TraditionalForm]], "Input",ExpressionUUID->\
+"6cda0a91-4bb7-4df6-9381-932ee2872e6f"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"-", 
+   RowBox[{
+    SubscriptBox[
+     InterpretationBox["Li",
+      PolyLog,
+      Editable->False,
+      Selectable->False], "n"], "(", 
+    RowBox[{"-", "z"}], ")"}]}], TraditionalForm]], "Output",ExpressionUUID->\
+"e9c0dea5-426f-463a-9479-715f561b45ab"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Since ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    FractionBox[
+     RowBox[{"P", " ", "v"}], 
+     RowBox[{"k", " ", "T"}]], "=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       UnderoverscriptBox["\[Sum]", 
+        RowBox[{"l", "=", "1"}], "\[Infinity]"], 
+       RowBox[{
+        SubscriptBox["a", "l"], " ", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          FractionBox[
+           SuperscriptBox["\[Lambda]", "3"], "v"], ")"}], 
+         RowBox[{"l", "-", "1"}]]}]}], "\[Congruent]", 
+      FractionBox[
+       RowBox[{
+        SubscriptBox["f", 
+         FractionBox["5", "2"]], "(", "z", ")"}], 
+       RowBox[{
+        SubscriptBox["f", 
+         FractionBox["3", "2"]], "(", "z", ")"}]]}], "=", 
+     RowBox[{
+      UnderoverscriptBox["\[Sum]", 
+       RowBox[{"l", "=", "1"}], "\[Infinity]"], 
+      RowBox[{
+       SubscriptBox["a", "l"], " ", 
+       SuperscriptBox[
+        RowBox[{
+         SubscriptBox["f", 
+          RowBox[{"3", "/", "2"}]], "(", "z", ")"}], 
+        RowBox[{"l", "-", "1"}]]}]}]}]}], TraditionalForm]],ExpressionUUID->
+  "f5e75879-32b0-4f19-93c1-752113d51b3f"],
+ ", direct expansion into a series in ",
+ Cell[BoxData[
+  FormBox["z", TraditionalForm]],ExpressionUUID->
+  "e76ed538-420b-482a-b249-5a33afbed81b"],
+ " yields"
+}], "Text",ExpressionUUID->"5f594167-50e3-4a04-8703-d46cb4f16895"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    FractionBox[
+     RowBox[{
+      SubscriptBox["f", 
+       FractionBox["5", "2"]], "(", "z", ")"}], 
+     RowBox[{
+      SubscriptBox["f", 
+       FractionBox["3", "2"]], "(", "z", ")"}]], "-", 
+    RowBox[{
+     UnderoverscriptBox["\[Sum]", 
+      RowBox[{"l", "=", "1"}], "5"], 
+     RowBox[{
+      SubscriptBox["a", "l"], " ", 
+      SuperscriptBox[
+       RowBox[{
+        SubscriptBox["f", 
+         RowBox[{"3", "/", "2"}]], "(", "z", ")"}], 
+       RowBox[{"l", "-", "1"}]]}]}], "+", 
+    SuperscriptBox[
+     RowBox[{"O", "[", "z", "]"}], "5"]}], "//", "Simplify"}], 
+  TraditionalForm]], "Input",ExpressionUUID->"dbab62dc-ef3e-4680-b7a4-\
+3b3ec2e05f88"],
+
+Cell[BoxData[
+ FormBox[
+  InterpretationBox[
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"1", "-", 
+      SubscriptBox["a", "1"]}], ")"}], "+", 
+    RowBox[{
+     FractionBox["1", "8"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       SqrtBox["2"], "-", 
+       RowBox[{"8", " ", 
+        SubscriptBox["a", "2"]}]}], ")"}], " ", "z"}], "+", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       FractionBox[
+        SubscriptBox["a", "2"], 
+        RowBox[{"2", " ", 
+         SqrtBox["2"]}]], "-", 
+       SubscriptBox["a", "3"], "-", 
+       FractionBox["2", 
+        RowBox[{"9", " ", 
+         SqrtBox["3"]}]], "+", 
+       FractionBox["1", "16"]}], ")"}], " ", 
+     SuperscriptBox["z", "2"]}], "+", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox[
+         SubscriptBox["a", "2"], 
+         RowBox[{"3", " ", 
+          SqrtBox["3"]}]]}], "+", 
+       FractionBox[
+        SubscriptBox["a", "3"], 
+        SqrtBox["2"]], "-", 
+       SubscriptBox["a", "4"], "-", 
+       FractionBox["7", 
+        RowBox[{"36", " ", 
+         SqrtBox["6"]}]], "+", 
+       FractionBox["1", 
+        RowBox[{"32", " ", 
+         SqrtBox["2"]}]], "+", 
+       FractionBox["3", "32"]}], ")"}], " ", 
+     SuperscriptBox["z", "3"]}], "+", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       FractionBox[
+        SubscriptBox["a", "2"], "8"], "-", 
+       RowBox[{
+        FractionBox["1", "72"], " ", 
+        RowBox[{"(", 
+         RowBox[{"9", "+", 
+          RowBox[{"16", " ", 
+           SqrtBox["3"]}]}], ")"}], " ", 
+        SubscriptBox["a", "3"]}], "+", 
+       FractionBox[
+        RowBox[{"3", " ", 
+         SubscriptBox["a", "4"]}], 
+        RowBox[{"2", " ", 
+         SqrtBox["2"]}]], "-", 
+       SubscriptBox["a", "5"], "-", 
+       FractionBox["4", 
+        RowBox[{"25", " ", 
+         SqrtBox["5"]}]], "-", 
+       FractionBox["5", 
+        RowBox[{"72", " ", 
+         SqrtBox["3"]}]], "+", 
+       FractionBox["5", 
+        RowBox[{"64", " ", 
+         SqrtBox["2"]}]], "+", 
+       FractionBox["337", "10368"]}], ")"}], " ", 
+     SuperscriptBox["z", "4"]}], "+", 
+    InterpretationBox[
+     RowBox[{"O", "(", 
+      SuperscriptBox["z", "5"], ")"}],
+     SeriesData[z, 0, {}, 0, 5, 1],
+     Editable->False]}],
+   SeriesData[
+   z, 0, {1 - Subscript[a, 1], 
+     Rational[1, 8] (2^Rational[1, 2] - 8 Subscript[a, 2]), Rational[1, 16] + 
+     Rational[-2, 9] 3^Rational[-1, 2] + (Rational[1, 2] 2^Rational[-1, 2]) 
+      Subscript[a, 2] - Subscript[a, 3], Rational[3, 32] + 
+     Rational[1, 32] 2^Rational[-1, 2] + 
+     Rational[-7, 36] 6^Rational[-1, 2] + (Rational[-1, 3] 3^Rational[-1, 2]) 
+      Subscript[a, 2] + 2^Rational[-1, 2] Subscript[a, 3] - Subscript[a, 4], 
+     Rational[337, 10368] + Rational[5, 64] 2^Rational[-1, 2] + 
+     Rational[-5, 72] 3^Rational[-1, 2] + Rational[-4, 25] 5^Rational[-1, 2] + 
+     Rational[1, 8] 
+      Subscript[a, 2] + (Rational[-1, 72] (9 + 16 3^Rational[1, 2])) 
+      Subscript[a, 3] + (Rational[3, 2] 2^Rational[-1, 2]) Subscript[a, 4] - 
+     Subscript[a, 5]}, 0, 5, 1],
+   Editable->False], TraditionalForm]], "Output",ExpressionUUID->"116a0878-\
+3b43-4a81-8439-3dbf76176231"]
+}, Open  ]],
+
+Cell[TextData[{
+ "We can use ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox["SolveAlways", "Input"], TraditionalForm]],ExpressionUUID->
+  "4bb9c07d-194f-43ee-8a98-95a1196b9501"],
+ " to determine the virial coefficients. "
+}], "Text",ExpressionUUID->"552f937a-1863-4fbb-9f5e-84d50aa50438"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"SolveAlways", "[", 
+        RowBox[{
+         RowBox[{"%", "\[Equal]", "0"}], ",", "z"}], "]"}], "//", "First"}], "//",
+       "Sort"}], "//", "FullSimplify"}], "//", "ExpandAll"}], "//", 
+   "TableForm"}], TraditionalForm]], "Input",ExpressionUUID->"36f3e311-ff85-\
+4734-88cf-7332c2e1a958"],
+
+Cell[BoxData[
+ FormBox[
+  InterpretationBox[GridBox[{
+     {
+      RowBox[{
+       SubscriptBox["a", "1"], "\[Rule]", "1"}]},
+     {
+      RowBox[{
+       SubscriptBox["a", "2"], "\[Rule]", 
+       FractionBox["1", 
+        RowBox[{"4", " ", 
+         SqrtBox["2"]}]]}]},
+     {
+      RowBox[{
+       SubscriptBox["a", "3"], "\[Rule]", 
+       RowBox[{
+        FractionBox["1", "8"], "-", 
+        FractionBox["2", 
+         RowBox[{"9", " ", 
+          SqrtBox["3"]}]]}]}]},
+     {
+      RowBox[{
+       SubscriptBox["a", "4"], "\[Rule]", 
+       RowBox[{
+        FractionBox["3", "32"], "+", 
+        FractionBox["5", 
+         RowBox[{"32", " ", 
+          SqrtBox["2"]}]], "-", 
+        FractionBox["1", 
+         RowBox[{"2", " ", 
+          SqrtBox["6"]}]]}]}]},
+     {
+      RowBox[{
+       SubscriptBox["a", "5"], "\[Rule]", 
+       RowBox[{
+        FractionBox["317", "1728"], "+", 
+        FractionBox["1", 
+         RowBox[{"4", " ", 
+          SqrtBox["2"]}]], "-", 
+        FractionBox["1", 
+         RowBox[{"2", " ", 
+          SqrtBox["3"]}]], "-", 
+        FractionBox["4", 
+         RowBox[{"25", " ", 
+          SqrtBox["5"]}]]}]}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[2.0999999999999996`]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}],
+   TableForm[{
+    Subscript[a, 1] -> 1, Subscript[a, 2] -> Rational[1, 4] 2^Rational[-1, 2],
+      Subscript[a, 3] -> Rational[1, 8] + Rational[-2, 9] 3^Rational[-1, 2], 
+     Subscript[a, 4] -> 
+     Rational[3, 32] + Rational[5, 32] 2^Rational[-1, 2] + 
+      Rational[-1, 2] 6^Rational[-1, 2], Subscript[a, 5] -> 
+     Rational[317, 1728] + Rational[1, 4] 2^Rational[-1, 2] + 
+      Rational[-1, 2] 3^Rational[-1, 2] + 
+      Rational[-4, 25] 5^Rational[-1, 2]}]], TraditionalForm]], "Output",Expre\
+ssionUUID->"9f06f0f0-0d7a-4a3f-aa4c-a1b7aceee6ed"]
+}, Open  ]],
+
+Cell["The virial coefficients decrease rapidly. ", "Text",ExpressionUUID->"c08047a0-eda8-4a0d-a974-7baf09c90c86"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"Table", "[", 
+     RowBox[{
+      SubscriptBox["a", "i"], ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", "5"}], "}"}]}], "]"}], "/.", "%"}], "//", "N"}], 
+  TraditionalForm]], "Input",ExpressionUUID->"fdd72622-bcf5-4ea2-bf4b-\
+5d1b661eb60b"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{"1.`", ",", "0.17677669529663687`", ",", 
+    RowBox[{"-", "0.0033000598199168507`"}], ",", "0.0001112893284665184`", 
+    ",", 
+    RowBox[{"-", "3.540504095261854`*^-6"}]}], "}"}], 
+  TraditionalForm]], "Output",ExpressionUUID->"c646d371-b3b7-4a2b-a0be-\
+4af6feba59c8"]
+}, Open  ]],
+
+Cell["\<\
+Note that you have to expand the series to sufficiently high order so that \
+the resulting low-order terms are correct. You can be confident that your \
+chosen expansion order is high enough when the low order terms no longer \
+change.\
+\>", "Text",ExpressionUUID->"e2c05fbd-5916-41fa-af0f-c66ce3773627"]
+}, Open  ]]
+},
+WindowSize->{808, 796},
+WindowMargins->{{148, Automatic}, {16, Automatic}},
+FrontEndVersion->"14.1 for Mac OS X ARM (64-bit) (May 2, 2024)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[StyleDefinitions -> "Default.nb"]], 
+   Cell[
+    StyleData["Notebook"], PageWidth -> WindowWidth, CellLabelAutoDelete -> 
+    True, ShowSyntaxStyles -> True, 
+    StyleHints -> <|"CodeFont" -> "Source Code Pro"|>, MenuSortingValue -> 
+    None], 
+   Cell[
+    CellGroupData[{
+      Cell["Custom Styles", "Section"], 
+      Cell[
+       CellGroupData[{
+         Cell["General", "Subsection"], 
+         Cell[
+          StyleData["Title"], CellMargins -> {{27, Inherited}, {10, 30}}, 
+          FontColor -> RGBColor[1, 0.43, 0.13]], 
+         Cell[
+          StyleData["SectionTitle", StyleDefinitions -> StyleData["Title"]], 
+          CellFrame -> {{False, False}, {1, 0}}, 
+          CellMargins -> {{27, Inherited}, {0, 10}}, CellFrameColor -> 
+          RGBColor[0.85, 0.85, 0.85], CounterIncrements -> "SectionTitle", 
+          FontSize -> 20, FontWeight -> "Light", FontColor -> 
+          RGBColor[0.65, 0.65, 0.65]], 
+         Cell[
+          StyleData["Subtitle"], FontWeight -> "Light", FontColor -> 
+          RGBColor[0.65, 0.65, 0.65]], 
+         Cell[
+          StyleData["Subsubtitle"], FontWeight -> "Light", FontColor -> 
+          RGBColor[0.65, 0.65, 0.65]], 
+         Cell[
+          StyleData["Chapter"], CellMargins -> {{27, Inherited}, {10, 30}}, 
+          PageBreakAbove -> True, FontSize -> 40, FontSlant -> "Italic", 
+          FontColor -> GrayLevel[0.5]], 
+         Cell[
+          StyleData["Subchapter"], CellDingbat -> 
+          StyleBox[
+           "\[FilledSmallCircle]", Alignment -> Baseline, FontColor -> 
+            RGBColor[1, 0.43, 0.13]], FontSlant -> "Plain", FontColor -> 
+          GrayLevel[0.5]], 
+         Cell[
+          StyleData["Section"], CellFrame -> False, 
+          CellMargins -> {{27, Inherited}, {34, 14}}, PageBreakAbove -> False,
+           PageBreakBelow -> False, ShowCellLabel -> False, 
+          CellFrameLabelMargins -> {{2, Inherited}, {Inherited, Inherited}}, 
+          FontSize -> 36, FontColor -> RGBColor[1, 0.43, 0.13]], 
+         Cell[
+          StyleData[
+          "SectionNumber", StyleDefinitions -> StyleData["Section"]], 
+          FontSize -> 38, FontWeight -> "Light", FontColor -> 
+          RGBColor[0.65, 0.65, 0.65]], 
+         Cell[
+          StyleData[
+          "NumberedSection", StyleDefinitions -> StyleData["Section"]], 
+          CellDingbat -> Cell[
+            TextData[{
+              CounterBox["Section"], " |\[ThinSpace]"}], "SectionNumber"], 
+          CellMargins -> {{96, Inherited}, {34, 14}}], 
+         Cell[
+          StyleData[
+          "SectionTitleWithSection", StyleDefinitions -> 
+           StyleData["Section"]], CellDingbat -> Cell[
+            TextData[{
+              CounterBox["SectionTitle"], ".", 
+              CounterBox["Section"], " |\[ThinSpace]"}], "SectionNumber"], 
+          CellMargins -> {{96, Inherited}, {34, 14}}], 
+         Cell[
+          StyleData["SectionInline"], FontColor -> RGBColor[0.9, 0.4, 0.]], 
+         Cell[
+          StyleData["Subsection"], CellMargins -> {{27, Inherited}, {12, 32}},
+           CellElementSpacings -> {"ClosedGroupTopMargin" -> 32}, FontSize -> 
+          25, FontColor -> RGBColor[0.9, 0.4, 0.]], 
+         Cell[
+          StyleData["Subsubsection"], 
+          CellMargins -> {{27, Inherited}, {6, 16}}, 
+          CellElementSpacings -> {"ClosedGroupTopMargin" -> 16}, FontSize -> 
+          20, FontColor -> RGBColor[0.9, 0.4, 0.]], 
+         Cell[
+          StyleData["Subsubsubsection"], 
+          CellMargins -> {{27, Inherited}, {6, 16}}, FontSize -> 15, 
+          FontColor -> RGBColor[0.9, 0.4, 0.]], 
+         Cell[
+          StyleData["Subsubsubsubsection"], 
+          CellMargins -> {{27, Inherited}, {6, 16}}, FontSize -> 14, 
+          FontColor -> RGBColor[0.9, 0.4, 0.]], 
+         Cell[
+          StyleData["Text"], CellMargins -> {{66, 10}, {7, 8}}, FontSize -> 
+          15, FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["CodeText"], CellMargins -> {{66, 10}, {7, 8}}, FontSize -> 
+          15], 
+         Cell[
+          StyleData["Author"], CellMargins -> {{27, Inherited}, {6, 16}}], 
+         Cell[
+          StyleData["Affiliation"], 
+          CellMargins -> {{27, Inherited}, {6, 16}}], 
+         Cell[
+          StyleData["Link"], FontColor -> RGBColor[0, 0.6, 1]], 
+         Cell[
+          StyleData["HyperLink"], FontColor -> RGBColor[0, 0.6, 1]], 
+         Cell[
+          StyleData["Hyperlink"], FontColor -> RGBColor[0, 0.6, 1]], 
+         Cell[
+          StyleData["FunctionLink"], FontColor -> RGBColor[0, 0.6, 1]], 
+         Cell[
+          StyleData["HyperlinkActionNew"], FontColor -> RGBColor[0, 0.6, 1]], 
+         
+         Cell[
+          StyleData["HyperlinkActive"], FontColor -> RGBColor[1, 0.4, 0]]}, 
+        Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell["Items", "Subsection"], 
+         Cell[
+          StyleData["Item"], CellDingbat -> 
+          StyleBox["\[FilledSmallSquare]", Alignment -> Baseline, 
+            RGBColor[0.9, 0.4, 0.]], FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["Subitem"], CellDingbat -> 
+          StyleBox["\[FilledSmallSquare]", Alignment -> Baseline, 
+            RGBColor[0.9, 0.4, 0.]], FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["Subsubitem"], CellDingbat -> 
+          StyleBox["\[FilledSmallSquare]", Alignment -> Baseline, 
+            RGBColor[0.65, 0.65, 0.65]], FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["ItemNumbered"], FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["SubitemNumbered"], FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["SubsubitemNumbered"], FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData[
+          "ItemRomanNumbered", StyleDefinitions -> StyleData["ItemNumbered"]],
+           CellDingbat -> Cell[
+            TextData[{
+              CounterBox[
+              "ItemRomanNumbered", CounterFunction -> RomanNumeral], "."}], 
+            FontWeight -> Bold], CounterIncrements -> "ItemRomanNumbered", 
+          FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["ItemParagraph"], FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["SubitemParagraph"], FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["SubsubitemParagraph"], FontColor -> GrayLevel[0]]}, 
+        Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell["Inline and Special Formatting", "Subsection"], 
+         Cell[
+          StyleData["TimeCode", StyleDefinitions -> StyleData["Text"]], 
+          MenuSortingValue -> 1401, FontSize -> 14, FontColor -> 
+          GrayLevel[0.5]], 
+         Cell[
+          StyleData["Input"], ShowCellBracket -> True, 
+          CellMargins -> {{70, Inherited}, {25, 0}}, FontWeight -> "SemiBold",
+           FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["Output"], ShowCellBracket -> True, 
+          CellMargins -> {{70, Inherited}, {25, 0}}, FontColor -> 
+          GrayLevel[0]], 
+         Cell[
+          StyleData["InputOnly"], ShowCellBracket -> True, 
+          CellMargins -> {{70, Inherited}, {25, 0}}, FontWeight -> "SemiBold",
+           FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData["InputHidden", StyleDefinitions -> StyleData["Input"]], 
+          CellEpilog :> (SelectionMove[
+             EvaluationNotebook[], All, GeneratedCell]; 
+           FrontEndTokenExecute["SelectionCloseUnselectedCells"]), 
+          InitializationCell -> True, MenuSortingValue -> 1510, 
+          MenuCommandKey :> "8"], 
+         Cell[
+          StyleData["Code"], ShowCellBracket -> True, 
+          CellMargins -> {{70, Inherited}, {25, 0}}], 
+         Cell[
+          StyleData["Separator"], CellFrame -> {{False, False}, {1.5, False}},
+           CellMargins -> {{70, Inherited}, {25, 0}}, CellFrameColor -> 
+          GrayLevel[0.66], MenuSortingValue -> 10000], 
+         Cell[
+          StyleData["Print"], CellMargins -> {{70, Inherited}, {25, 0}}], 
+         Cell[
+          StyleData["InlineCode"], SpanMaxSize -> 0, FontWeight -> "SemiBold",
+           FontColor -> GrayLevel[0]], 
+         Cell[
+          StyleData[
+          "InlineCodeText", StyleDefinitions -> StyleData["InlineCode"]]], 
+         Cell[
+          StyleData[
+          "InlineInput", StyleDefinitions -> StyleData["InlineCode"]]], 
+         Cell[
+          StyleData["InlineFormula"], ShowStringCharacters -> True, 
+          SpanMaxSize -> 0, FontWeight -> "SemiBold", FontColor -> 
+          GrayLevel[0]], 
+         Cell[
+          StyleData["InlineMath"], SpanMaxSize -> 0, FontColor -> 
+          GrayLevel[0]], 
+         Cell[
+          StyleData[
+          "NotebookDownload", StyleDefinitions -> StyleData["Text"]], 
+          CellFrame -> {{0, 0}, {0, 1}}, ShowCellBracket -> False, 
+          CellMargins -> {{27, Inherited}, {100, 20}}, 
+          CellGroupingRules -> {"SectionGrouping", 10}, CloudRenderingMethod -> 
+          "InteractiveBoxes", 
+          CellFrameMargins -> {{Inherited, Inherited}, {Inherited, 20}}, 
+          FontColor -> RGBColor[1, 0.43, 0.13]], 
+         Cell[
+          StyleData[
+          "ExperimentalInput", StyleDefinitions -> StyleData["Input"]], 
+          CellFrame -> True, 
+          StyleKeyMapping -> {"=" -> "WolframAlphaShort", "*" -> "Item"}, 
+          CellFrameColor -> RGBColor[0.9, 0.4, 0.], CellFrameLabels -> {{
+             Cell[
+              BoxData[
+               InterpretationBox[
+                Cell[
+                 BoxData[
+                  RotationBox[
+                  "Experimental", BoxRotation -> 1.5707963267948966`]], 
+                 "Text", LineColor -> RGBColor[0.9, 0.4, 0.], FrontFaceColor -> 
+                 RGBColor[0.9, 0.4, 0.], $CellContext`BackFaceColor -> 
+                 RGBColor[0.9, 0.4, 0.], GraphicsColor -> 
+                 RGBColor[0.9, 0.4, 0.], FontSize -> 10, FontColor -> 
+                 RGBColor[0.9, 0.4, 0.]], 
+                TextCell[
+                 Rotate["Experimental", 90 Degree], "Text", 10, 
+                 RGBColor[0.9, 0.4, 0.]]]]], None}, {None, None}}, 
+          MenuSortingValue -> 1510, FontSize -> 13], 
+         Cell[
+          StyleData["WolframAlphaShort"], ShowCellBracket -> True, 
+          CellMargins -> {{70, Inherited}, {25, 0}}, MenuSortingValue -> 
+          10000], 
+         Cell[
+          StyleData["WolframAlphaLong"], ShowCellBracket -> True, 
+          CellMargins -> {{70, Inherited}, {25, 0}}, MenuSortingValue -> 
+          10000], 
+         Cell[
+          StyleData["ExternalLanguage"], ShowCellBracket -> True, 
+          CellMargins -> {{70, Inherited}, {25, 0}}], 
+         Cell[
+          StyleData["HintHeader", StyleDefinitions -> StyleData["Text"]], 
+          ShowGroupOpener -> True, GroupOpenerInsideFrame -> False, 
+          CellGroupingRules -> {"SectionGrouping", 80}, PageBreakBelow -> 
+          False, FontColor -> RGBColor[1., 0.42745098039215684`, 0.]], 
+         Cell[
+          StyleData["Hint", StyleDefinitions -> StyleData["Text"]], CellFrame -> 
+          True, Background -> RGBColor[1., 0.6, 0.1]], 
+         Cell[
+          StyleData["KeyEvent"], CellFrame -> {{1, 1}, {1, 1}}, 
+          CellFrameMargins -> {{2, 2}, {2, 2}}, CellFrameColor -> 
+          GrayLevel[0.8], MenuSortingValue -> 1402, FontColor -> 
+          GrayLevel[0.36], Background -> GrayLevel[0.96]], 
+         Cell[
+          StyleData["Keyword", StyleDefinitions -> StyleData["Text"]], 
+          MenuSortingValue -> 10000, FontColor -> RGBColor[0.9, 0.4, 0.]], 
+         Cell[
+          StyleData["AuthorNote", StyleDefinitions -> StyleData["Text"]], 
+          CellDingbat -> 
+          StyleBox[
+           "Author note:", "Text", Italic, FontColor -> 
+            RGBColor[0.9, 0.4, 0.], Alignment -> Baseline], 
+          CellMargins -> {{100, 10}, {7, 8}}, FontSlant -> Italic, FontColor -> 
+          GrayLevel[0.4]], 
+         Cell[
+          StyleData["Note"], 
+          CellMargins -> {{
+            0.15 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 0.03 
+             FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {10, 10}}, 
+          CellOpen -> True, LineSpacing -> {1, 3}, CounterIncrements -> 
+          "Note", MenuSortingValue -> 1590, FontSize -> 12, FontSlant -> 
+          "Italic", Background -> GrayLevel[0.85]], 
+         Cell[
+          StyleData["WolframLanguageLogo"], FontColor -> 
+          RGBColor[0.09, 0.16, 0.25]], 
+         Cell[
+          StyleData["Message"], ShowCellBracket -> True]}, Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell["Ungraded Exercise", "Subsection"], 
+         Cell[
+          StyleData[
+          "ExerciseSection", StyleDefinitions -> StyleData["Section"]], 
+          CellMargins -> {{27, Inherited}, {7, 14}}], 
+         Cell[
+          StyleData[
+          "NumberedExerciseSection", StyleDefinitions -> 
+           StyleData["NumberedSection"]], 
+          CellMargins -> {{96, Inherited}, {7, 14}}], 
+         Cell[
+          StyleData[
+          "ExerciseSectionTitleWithSection", StyleDefinitions -> 
+           StyleData["SectionTitleWithSection"]], 
+          CellMargins -> {{96, Inherited}, {7, 14}}], 
+         Cell[
+          StyleData[
+          "ExerciseSubsection", StyleDefinitions -> StyleData["Subsection"]]], 
+         Cell[
+          StyleData[
+          "ExerciseFirstSubsection", StyleDefinitions -> 
+           StyleData["ExerciseSubsection"]], 
+          CellMargins -> {{27, Inherited}, {Inherited, Inherited}}], 
+         Cell[
+          StyleData[
+          "ExerciseSubsubsection", StyleDefinitions -> 
+           StyleData["Subsubsection"]], ShowGroupOpener -> "Inline", 
+          CellMargins -> {{66, Inherited}, {Inherited, Inherited}}, FontColor -> 
+          RGBColor[0.65, 0.65, 0.65]]}, Closed]]}, Open]]}, Visible -> False, 
+  FrontEndVersion -> "14.1 for Mac OS X ARM (64-bit) (May 2, 2024)", 
+  StyleDefinitions -> "PrivateStylesheetFormatting.nb"],
+ExpressionUUID->"0486361b-e57f-4d20-9cb9-63dda91693bb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "equation of state"->{
+  Cell[783, 28, 997, 30, 55, "Text",ExpressionUUID->"b1838471-9519-4100-9dc6-bc734e7314b8",
+   CellTags->{"equation of state", "thermodynamic parameters", "ideal Fermi gas"}]},
+ "ideal Fermi gas"->{
+  Cell[783, 28, 997, 30, 55, "Text",ExpressionUUID->"b1838471-9519-4100-9dc6-bc734e7314b8",
+   CellTags->{"equation of state", "thermodynamic parameters", "ideal Fermi gas"}]},
+ "series methods"->{
+  Cell[3446, 122, 371, 16, 33, "CodeText",ExpressionUUID->"c02e7733-9d8b-4317-a0ac-54e9fb7f7935",
+   CellTags->{"virial expansion", "virial coefficient", "series methods"}]},
+ "spinless ideal Fermi gas"->{
+  Cell[1783, 60, 663, 23, 80, "DisplayFormulaNumbered",ExpressionUUID->"ad70609b-41f0-467d-973a-87b6372738dc",
+   CellTags->"spinless ideal Fermi gas"]},
+ "thermal wavelength"->{
+  Cell[2449, 85, 994, 35, 40, "Text",ExpressionUUID->"d6e7a4ff-b679-4dd8-a1b2-0377c9673f82",
+   CellTags->"thermal wavelength"]},
+ "thermodynamic parameters"->{
+  Cell[783, 28, 997, 30, 55, "Text",ExpressionUUID->"b1838471-9519-4100-9dc6-bc734e7314b8",
+   CellTags->{"equation of state", "thermodynamic parameters", "ideal Fermi gas"}]},
+ "virial coefficient"->{
+  Cell[3446, 122, 371, 16, 33, "CodeText",ExpressionUUID->"c02e7733-9d8b-4317-a0ac-54e9fb7f7935",
+   CellTags->{"virial expansion", "virial coefficient", "series methods"}]},
+ "virial expansion"->{
+  Cell[3446, 122, 371, 16, 33, "CodeText",ExpressionUUID->"c02e7733-9d8b-4317-a0ac-54e9fb7f7935",
+   CellTags->{"virial expansion", "virial coefficient", "series methods"}],
+  Cell[3820, 140, 549, 18, 48, "DisplayFormulaNumbered",ExpressionUUID->"e4f1f541-dd1a-46bb-a7e2-dadaf127c19b",
+   CellTags->"virial expansion"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"equation of state", 31589, 914},
+ {"ideal Fermi gas", 31788, 917},
+ {"series methods", 31986, 920},
+ {"spinless ideal Fermi gas", 32192, 923},
+ {"thermal wavelength", 32371, 926},
+ {"thermodynamic parameters", 32532, 929},
+ {"virial coefficient", 32734, 932},
+ {"virial expansion", 32932, 935}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 204, 4, 93, "Section",ExpressionUUID->"cd0bc227-260a-4634-b37f-3a1237ef0d49",
+ Evaluatable->False],
+Cell[783, 28, 997, 30, 55, "Text",ExpressionUUID->"b1838471-9519-4100-9dc6-bc734e7314b8",
+ CellTags->{"equation of state", "thermodynamic parameters", "ideal Fermi gas"}],
+Cell[1783, 60, 663, 23, 80, "DisplayFormulaNumbered",ExpressionUUID->"ad70609b-41f0-467d-973a-87b6372738dc",
+ CellTags->"spinless ideal Fermi gas"],
+Cell[2449, 85, 994, 35, 40, "Text",ExpressionUUID->"d6e7a4ff-b679-4dd8-a1b2-0377c9673f82",
+ CellTags->"thermal wavelength"],
+Cell[3446, 122, 371, 16, 33, "CodeText",ExpressionUUID->"c02e7733-9d8b-4317-a0ac-54e9fb7f7935",
+ CellTags->{"virial expansion", "virial coefficient", "series methods"}],
+Cell[3820, 140, 549, 18, 48, "DisplayFormulaNumbered",ExpressionUUID->"e4f1f541-dd1a-46bb-a7e2-dadaf127c19b",
+ CellTags->"virial expansion"],
+Cell[4372, 160, 885, 27, 41, "Text",ExpressionUUID->"fc0bab04-8ff4-4044-9d25-533ec8e52101"],
+Cell[5260, 189, 1699, 60, 79, "CodeText",ExpressionUUID->"f8674226-7509-436b-9c4e-66132c911514"],
+Cell[6962, 251, 260, 8, 33, "Text",ExpressionUUID->"d3b57211-01f9-433a-adf6-b77ce37b2171"],
+Cell[CellGroupData[{
+Cell[7247, 263, 492, 16, 64, "Input",ExpressionUUID->"6cda0a91-4bb7-4df6-9381-932ee2872e6f"],
+Cell[7742, 281, 293, 10, 38, "Output",ExpressionUUID->"e9c0dea5-426f-463a-9479-715f561b45ab"]
+}, Open  ]],
+Cell[8050, 294, 1352, 43, 60, "Text",ExpressionUUID->"5f594167-50e3-4a04-8703-d46cb4f16895"],
+Cell[CellGroupData[{
+Cell[9427, 341, 713, 24, 78, "Input",ExpressionUUID->"dbab62dc-ef3e-4680-b7a4-3b3ec2e05f88"],
+Cell[10143, 367, 3177, 96, 105, "Output",ExpressionUUID->"116a0878-3b43-4a81-8439-3dbf76176231"]
+}, Open  ]],
+Cell[13335, 466, 282, 7, 33, "Text",ExpressionUUID->"552f937a-1863-4fbb-9f5e-84d50aa50438"],
+Cell[CellGroupData[{
+Cell[13642, 477, 396, 12, 38, "Input",ExpressionUUID->"36f3e311-ff85-4734-88cf-7332c2e1a958"],
+Cell[14041, 491, 2126, 65, 143, "Output",ExpressionUUID->"9f06f0f0-0d7a-4a3f-aa4c-a1b7aceee6ed"]
+}, Open  ]],
+Cell[16182, 559, 113, 0, 33, "Text",ExpressionUUID->"c08047a0-eda8-4a0d-a974-7baf09c90c86"],
+Cell[CellGroupData[{
+Cell[16320, 563, 305, 10, 38, "Input",ExpressionUUID->"fdd72622-bcf5-4ea2-bf4b-5d1b661eb60b"],
+Cell[16628, 575, 322, 8, 41, "Output",ExpressionUUID->"c646d371-b3b7-4a2b-a0be-4af6feba59c8"]
+}, Open  ]],
+Cell[16965, 586, 314, 5, 77, "Text",ExpressionUUID->"e2c05fbd-5916-41fa-af0f-c66ce3773627"]
+}, Open  ]]
+}
+]
+*)
+

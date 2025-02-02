@@ -1,0 +1,1621 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     46331,       1612]
+NotebookOptionsPosition[     42327,       1475]
+NotebookOutlinePosition[     42665,       1490]
+CellTagsIndexPosition[     42622,       1487]
+WindowFrame->Normal
+ContainsDynamic->True *)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Exact solution for the undamped pendulum", "Subsection",
+ CellChangeTimes->{3.3945033458256283`*^9}],
+
+Cell["The equation", "Text",
+ CellChangeTimes->{
+  3.394503123188506*^9, {3.3945033545942183`*^9, 3.39450335986442*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     OverscriptBox["\[Theta]", "\[DoubleDot]"], "(", "t", ")"}], "+", 
+    RowBox[{
+     SuperscriptBox["\[Omega]", "2"], " ", 
+     RowBox[{"sin", "(", 
+      RowBox[{"\[Theta]", "(", "t", ")"}], ")"}]}]}], "=", 
+   RowBox[{"0"}]}], TraditionalForm]], "DisplayFormula",
+ CellChangeTimes->{{3.394503364602622*^9, 3.394503365734243*^9}}],
+
+Cell[TextData[{
+ "admits a ",
+ StyleBox["first integral",
+  FontSlant->"Italic"],
+ ": "
+}], "Text",
+ CellChangeTimes->{
+  3.394503123188506*^9, {3.3945033545942183`*^9, 3.394503369863884*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"DSolve", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["\[Theta]", "\[DoublePrime]"], "(", "t", ")"}], "+", 
+      RowBox[{
+       SuperscriptBox["\[Omega]", "2"], " ", 
+       RowBox[{"sin", "(", 
+        RowBox[{"\[Theta]", "(", "t", ")"}], ")"}]}]}], "==", "0"}], ",", 
+    "\[Theta]", ",", "t"}], "]"}], TraditionalForm]], "Input",
+ CellChangeTimes->{{3.394503129857854*^9, 3.394503142297742*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"\[Theta]", "\[Rule]", 
+      RowBox[{"Function", "[", 
+       RowBox[{
+        RowBox[{"{", "t", "}"}], ",", 
+        RowBox[{
+         RowBox[{"-", "2"}], " ", 
+         RowBox[{"am", "(", 
+          RowBox[{
+           RowBox[{
+            FractionBox["1", "2"], " ", 
+            SqrtBox[
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"2", " ", 
+                 SuperscriptBox["\[Omega]", "2"]}], "+", 
+                SubscriptBox[
+                 TagBox["c",
+                  C], "1"]}], ")"}], " ", 
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{"t", "+", 
+                 SubscriptBox[
+                  TagBox["c",
+                   C], "2"]}], ")"}], "2"]}]]}], "\[VerticalSeparator]", 
+           FractionBox[
+            RowBox[{"4", " ", 
+             SuperscriptBox["\[Omega]", "2"]}], 
+            RowBox[{
+             RowBox[{"2", " ", 
+              SuperscriptBox["\[Omega]", "2"]}], "+", 
+             SubscriptBox[
+              TagBox["c",
+               C], "1"]}]]}], ")"}]}]}], "]"}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"\[Theta]", "\[Rule]", 
+      RowBox[{"Function", "[", 
+       RowBox[{
+        RowBox[{"{", "t", "}"}], ",", 
+        RowBox[{"2", " ", 
+         RowBox[{"am", "(", 
+          RowBox[{
+           RowBox[{
+            FractionBox["1", "2"], " ", 
+            SqrtBox[
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"2", " ", 
+                 SuperscriptBox["\[Omega]", "2"]}], "+", 
+                SubscriptBox[
+                 TagBox["c",
+                  C], "1"]}], ")"}], " ", 
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{"t", "+", 
+                 SubscriptBox[
+                  TagBox["c",
+                   C], "2"]}], ")"}], "2"]}]]}], "\[VerticalSeparator]", 
+           FractionBox[
+            RowBox[{"4", " ", 
+             SuperscriptBox["\[Omega]", "2"]}], 
+            RowBox[{
+             RowBox[{"2", " ", 
+              SuperscriptBox["\[Omega]", "2"]}], "+", 
+             SubscriptBox[
+              TagBox["c",
+               C], "1"]}]]}], ")"}]}]}], "]"}]}], "}"}]}], "}"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{3.3945031533049517`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"sin", "(", 
+     FractionBox[
+      RowBox[{"\[Theta]", "(", "t", ")"}], "2"], ")"}], "/.", "%"}], "//", 
+   "Simplify"}], TraditionalForm]], "Input",
+ CellChangeTimes->{{3.394503160105785*^9, 3.394503173667981*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"-", 
+     RowBox[{"sn", "(", 
+      RowBox[{
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        SqrtBox[
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"2", " ", 
+             SuperscriptBox["\[Omega]", "2"]}], "+", 
+            SubscriptBox[
+             TagBox["c",
+              C], "1"]}], ")"}], " ", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"t", "+", 
+             SubscriptBox[
+              TagBox["c",
+               C], "2"]}], ")"}], "2"]}]]}], "\[VerticalSeparator]", 
+       FractionBox[
+        RowBox[{"4", " ", 
+         SuperscriptBox["\[Omega]", "2"]}], 
+        RowBox[{
+         RowBox[{"2", " ", 
+          SuperscriptBox["\[Omega]", "2"]}], "+", 
+         SubscriptBox[
+          TagBox["c",
+           C], "1"]}]]}], ")"}]}], ",", 
+    RowBox[{"sn", "(", 
+     RowBox[{
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       SqrtBox[
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"2", " ", 
+            SuperscriptBox["\[Omega]", "2"]}], "+", 
+           SubscriptBox[
+            TagBox["c",
+             C], "1"]}], ")"}], " ", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{"t", "+", 
+            SubscriptBox[
+             TagBox["c",
+              C], "2"]}], ")"}], "2"]}]]}], "\[VerticalSeparator]", 
+      FractionBox[
+       RowBox[{"4", " ", 
+        SuperscriptBox["\[Omega]", "2"]}], 
+       RowBox[{
+        RowBox[{"2", " ", 
+         SuperscriptBox["\[Omega]", "2"]}], "+", 
+        SubscriptBox[
+         TagBox["c",
+          C], "1"]}]]}], ")"}]}], "}"}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.394503174193626*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "Alternatively, multiplying by ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SuperscriptBox["\[Theta]", "\[Prime]"], "(", "t", ")"}], 
+   TraditionalForm]]],
+ " and integrating we obtain the energy."
+}], "Text",
+ CellChangeTimes->{
+  3.394503123188506*^9, {3.394503179677497*^9, 3.394503184730085*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"energy", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"m", " ", 
+       SuperscriptBox["l", "2"], 
+       RowBox[{"\[Integral]", 
+        RowBox[{
+         RowBox[{
+          SuperscriptBox["\[Theta]", "\[Prime]"], "(", "t", ")"}], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            SuperscriptBox["\[Theta]", "\[DoublePrime]"], "(", "t", ")"}], 
+           "+", 
+           RowBox[{
+            SuperscriptBox["\[Omega]", "2"], " ", 
+            RowBox[{"sin", "(", 
+             RowBox[{"\[Theta]", "(", "t", ")"}], ")"}]}]}], ")"}], 
+         RowBox[{"\[DifferentialD]", "t"}]}]}]}], "\[Equal]", 
+      "\[ScriptCapitalE]"}], "/.", 
+     RowBox[{
+      SuperscriptBox["\[Omega]", "2"], "\[Rule]", 
+      FractionBox["g", "l"]}]}], "//", "ExpandAll"}]}], 
+  TraditionalForm]], "Input"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     FractionBox["1", "2"], " ", 
+     SuperscriptBox["l", "2"], " ", "m", " ", 
+     SuperscriptBox[
+      RowBox[{
+       SuperscriptBox["\[Theta]", "\[Prime]",
+        MultilineFunction->None], "(", "t", ")"}], "2"]}], "-", 
+    RowBox[{"g", " ", "l", " ", "m", " ", 
+     RowBox[{"cos", "(", 
+      RowBox[{"\[Theta]", "(", "t", ")"}], ")"}]}]}], "\[LongEqual]", 
+   "\[ScriptCapitalE]"}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.394503187415658*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "We can compute the energy in terms of the maximum angle, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"\[Theta]", "(", "t", ")"}], "\[Rule]", "\[Alpha]"}], ",", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["\[Theta]", "\[Prime]",
+        MultilineFunction->None], "(", "t", ")"}], "\[Rule]", " ", "0"}]}], 
+    "}"}], TraditionalForm]]],
+ ", as follows:"
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"energy", "/.", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"\[Theta]", "(", "t", ")"}], "\[Rule]", "\[Alpha]"}], ",", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["\[Theta]", "\[Prime]",
+        MultilineFunction->None], "(", "t", ")"}], "\[Rule]", " ", "0"}]}], 
+    "}"}]}], TraditionalForm]], "Input"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"-", "g"}], " ", "l", " ", "m", " ", 
+    RowBox[{"cos", "(", "\[Alpha]", ")"}]}], "\[LongEqual]", 
+   "\[ScriptCapitalE]"}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.394503189024276*^9}]
+}, Open  ]],
+
+Cell["The energy equation can be simplified:", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"Solve", "[", 
+    RowBox[{"%", ",", "\[ScriptCapitalE]"}], "]"}], "//", "First"}], 
+  TraditionalForm]], "Input"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{"\[ScriptCapitalE]", "\[Rule]", 
+    RowBox[{
+     RowBox[{"-", "g"}], " ", "l", " ", "m", " ", 
+     RowBox[{"cos", "(", "\[Alpha]", ")"}]}]}], "}"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{3.394503190093758*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"energy", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      FractionBox["energy", 
+       RowBox[{
+        SuperscriptBox["l", "2"], " ", "m"}]], "/.", "%"}], "/.", 
+     RowBox[{"g", "\[Rule]", 
+      RowBox[{
+       SuperscriptBox["\[Omega]", "2"], "l"}]}]}], "//", "Simplify"}]}], 
+  TraditionalForm]], "Input",
+ CellChangeTimes->{{3.3945032988502607`*^9, 3.394503304079339*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   FractionBox[
+    RowBox[{
+     RowBox[{"2", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"cos", "(", "\[Alpha]", ")"}], "-", 
+        RowBox[{"cos", "(", 
+         RowBox[{"\[Theta]", "(", "t", ")"}], ")"}]}], ")"}], " ", 
+      SuperscriptBox["\[Omega]", "2"]}], "+", 
+     SuperscriptBox[
+      RowBox[{
+       SuperscriptBox["\[Theta]", "\[Prime]",
+        MultilineFunction->None], "(", "t", ")"}], "2"]}], 
+    RowBox[{"l", " ", "m"}]], "\[LongEqual]", "0"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{3.39450319505407*^9, 3.394503300397838*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"FullSimplify", "[", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", 
+      RowBox[{"\[Omega]", " ", 
+       SqrtBox["2"]}]], 
+     RowBox[{"\[Integral]", 
+      FractionBox[
+       RowBox[{"\[DifferentialD]", "\[Theta]"}], 
+       SqrtBox[
+        RowBox[{
+         RowBox[{"cos", "(", "\[Theta]", ")"}], "-", 
+         RowBox[{"cos", "(", "\[Alpha]", ")"}]}]]]}]}], ",", 
+    RowBox[{
+     RowBox[{"-", "\[Alpha]"}], "<", "\[Theta]", "<", "\[Alpha]"}]}], "]"}], 
+  TraditionalForm]], "Input"],
+
+Cell[BoxData[
+ FormBox[
+  FractionBox[
+   RowBox[{
+    RowBox[{"\[LeftBracketingBar]", 
+     RowBox[{"csc", "(", 
+      FractionBox["\[Alpha]", "2"], ")"}], "\[RightBracketingBar]"}], " ", 
+    RowBox[{"F", "(", 
+     RowBox[{
+      FractionBox["\[Theta]", "2"], "\[VerticalSeparator]", 
+      RowBox[{
+       SuperscriptBox["csc", "2"], "(", 
+       FractionBox["\[Alpha]", "2"], ")"}]}], ")"}]}], "\[Omega]"], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{3.3945033103390827`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"t", "(", "\[Theta]", ")"}], "\[Equal]", 
+   RowBox[{
+    FractionBox["1", 
+     RowBox[{"\[Omega]", " ", 
+      RowBox[{"sin", "(", 
+       FractionBox["\[Alpha]", "2"], ")"}]}]], 
+    RowBox[{"F", "(", 
+     RowBox[{
+      FractionBox["\[Theta]", "2"], "\[VerticalSeparator]", 
+      RowBox[{
+       SuperscriptBox["csc", "2"], "(", 
+       FractionBox["\[Alpha]", "2"], ")"}]}], ")"}]}]}], 
+  TraditionalForm]], "Input",
+ FontWeight->"Plain"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"InverseFunction", "[", 
+    RowBox[{"\[Omega]", " ", 
+     RowBox[{"sin", "(", 
+      FractionBox["\[Alpha]", "2"], ")"}], " ", 
+     RowBox[{"t", "(", "\[Theta]", ")"}]}], "]"}], "\[LongEqual]", 
+   RowBox[{
+    RowBox[{"\[Theta]", "(", "t", ")"}], " ", "\[Omega]", " ", 
+    RowBox[{"sin", "(", 
+     FractionBox["\[Alpha]", "2"], ")"}]}], "\[LongEqual]", 
+   RowBox[{"sn", "(", 
+    RowBox[{
+     RowBox[{"\[Omega]", " ", "t"}], "\[VerticalSeparator]", 
+     RowBox[{"F", "(", 
+      RowBox[{
+       FractionBox["\[Theta]", "2"], "\[VerticalSeparator]", 
+       RowBox[{
+        SuperscriptBox["csc", "2"], "(", 
+        FractionBox["\[Alpha]", "2"], ")"}]}], ")"}]}], ")"}]}], 
+  TraditionalForm]], "Input",
+ CellChangeTimes->{{3.3944932946068573`*^9, 3.394493340149568*^9}},
+ FontWeight->"Plain"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"InverseFunction", "[", 
+    RowBox[{"\[Omega]", " ", 
+     RowBox[{"sin", "(", 
+      FractionBox["\[Alpha]", "2"], ")"}], " ", 
+     RowBox[{"t", "(", "\[Theta]", ")"}]}], "]"}], "\[LongEqual]", 
+   RowBox[{"\[Omega]", " ", 
+    RowBox[{"sin", "(", 
+     FractionBox["\[Alpha]", "2"], ")"}], " ", 
+    RowBox[{"\[Theta]", "(", "t", ")"}]}], "\[LongEqual]", 
+   RowBox[{"sn", "(", 
+    RowBox[{
+     RowBox[{"t", " ", "\[Omega]"}], "\[VerticalSeparator]", 
+     RowBox[{"F", "(", 
+      RowBox[{
+       FractionBox["\[Theta]", "2"], "\[VerticalSeparator]", 
+       RowBox[{
+        SuperscriptBox["csc", "2"], "(", 
+        FractionBox["\[Alpha]", "2"], ")"}]}], ")"}]}], ")"}]}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{3.394493342460869*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"InverseFunction", "[", 
+    RowBox[{"EllipticF", ",", "1", ",", "2"}], "]"}], "[", 
+   RowBox[{"u", ",", "m"}], "]"}], TraditionalForm]], "Input"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"am", "(", 
+   RowBox[{"u", "\[VerticalSeparator]", "m"}], ")"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{3.394493353022666*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"sin", "(", 
+   FormBox["%",
+    TraditionalForm], ")"}], TraditionalForm]], "Input"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"sn", "(", 
+   RowBox[{"u", "\[VerticalSeparator]", "m"}], ")"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{3.394493356314473*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "We can reduce this equation to a ",
+ StyleBox["canonical form",
+  FontSlant->"Italic"],
+ ":"
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{
+        SuperscriptBox["y", "\[Prime]"], "(", "t", ")"}], "2"], "\[Equal]", 
+      RowBox[{
+       SuperscriptBox["\[Omega]", "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", 
+         SuperscriptBox[
+          RowBox[{"y", "(", "t", ")"}], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", 
+         RowBox[{
+          SuperscriptBox["k", "2"], " ", 
+          SuperscriptBox[
+           RowBox[{"y", "(", "t", ")"}], "2"]}]}], ")"}]}]}], "/.", 
+     "\[InvisibleSpace]", 
+     RowBox[{"y", "\[Rule]", 
+      RowBox[{"Function", "[", 
+       RowBox[{"t", ",", 
+        FormBox[
+         FractionBox[
+          RowBox[{"sin", "(", 
+           FractionBox[
+            RowBox[{"\[Theta]", "(", "t", ")"}], "2"], ")"}], 
+          RowBox[{"sin", "(", 
+           FractionBox["\[Alpha]", "2"], ")"}]],
+         TraditionalForm]}], "]"}]}]}], "/.", 
+    RowBox[{"k", "\[Rule]", 
+     RowBox[{"sin", "(", 
+      FractionBox["\[Alpha]", "2"], ")"}]}]}], "//", "Simplify"}], 
+  TraditionalForm]], "Input"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"cos", "(", 
+     FractionBox[
+      RowBox[{"\[Theta]", "(", "t", ")"}], "2"], ")"}], " ", 
+    RowBox[{"csc", "(", 
+     FractionBox["\[Alpha]", "2"], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"2", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"cos", "(", "\[Alpha]", ")"}], "-", 
+         RowBox[{"cos", "(", 
+          RowBox[{"\[Theta]", "(", "t", ")"}], ")"}]}], ")"}], " ", 
+       SuperscriptBox["\[Omega]", "2"]}], "+", 
+      SuperscriptBox[
+       RowBox[{
+        SuperscriptBox["\[Theta]", "\[Prime]",
+         MultilineFunction->None], "(", "t", ")"}], "2"]}], ")"}]}], 
+   "\[LongEqual]", "0"}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.394493378502619*^9, 3.394503321564692*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  FractionBox["%", 
+   RowBox[{
+    RowBox[{"cos", "(", 
+     FractionBox[
+      RowBox[{"\[Theta]", "(", "t", ")"}], "2"], ")"}], " ", 
+    RowBox[{"csc", "(", 
+     FractionBox["\[Alpha]", "2"], ")"}]}]], TraditionalForm]], "Input"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"2", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"cos", "(", "\[Alpha]", ")"}], "-", 
+       RowBox[{"cos", "(", 
+        RowBox[{"\[Theta]", "(", "t", ")"}], ")"}]}], ")"}], " ", 
+     SuperscriptBox["\[Omega]", "2"]}], "+", 
+    SuperscriptBox[
+     RowBox[{
+      SuperscriptBox["\[Theta]", "\[Prime]",
+       MultilineFunction->None], "(", "t", ")"}], "2"]}], "\[LongEqual]", 
+   "0"}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.3944933822966747`*^9, 3.394503323178815*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "The solution to the equation ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SuperscriptBox[
+     RowBox[{
+      SuperscriptBox["y", "\[Prime]"], "(", "t", ")"}], "2"], "=", " ", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"1", "-", 
+       SuperscriptBox[
+        RowBox[{"y", "(", "t", ")"}], "2"]}], ")"}], " ", 
+     RowBox[{"(", 
+      RowBox[{"1", "-", 
+       RowBox[{"m", " ", 
+        SuperscriptBox[
+         RowBox[{"y", "(", "t", ")"}], "2"]}]}], ")"}]}]}], 
+   TraditionalForm]]],
+ " is the Jacobi elliptic function ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"sn", "(", 
+     RowBox[{"t", "\[VerticalSeparator]", "m"}], ")"}], " "}], 
+   TraditionalForm]]],
+ ". "
+}], "Text",
+ CellChangeTimes->{{3.394504078667336*^9, 3.394504085813712*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"DSolve", "[", 
+   RowBox[{
+    RowBox[{
+     SuperscriptBox[
+      RowBox[{
+       SuperscriptBox["y", "\[Prime]"], "(", "t", ")"}], "2"], "\[LongEqual]",
+      " ", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"1", "-", 
+        SuperscriptBox[
+         RowBox[{"y", "(", "t", ")"}], "2"]}], ")"}], " ", 
+      RowBox[{"(", 
+       RowBox[{"1", "-", 
+        RowBox[{"m", " ", 
+         SuperscriptBox[
+          RowBox[{"y", "(", "t", ")"}], "2"]}]}], ")"}]}]}], ",", "y", ",", 
+    "t"}], "]"}], TraditionalForm]], "Input"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"y", "\[Rule]", 
+      RowBox[{"Function", "[", 
+       RowBox[{
+        RowBox[{"{", "t", "}"}], ",", 
+        RowBox[{"-", 
+         RowBox[{"sn", "(", 
+          RowBox[{
+           RowBox[{"t", "+", 
+            SubscriptBox[
+             TagBox["c",
+              C], "1"]}], "\[VerticalSeparator]", "m"}], ")"}]}]}], "]"}]}], 
+     "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"y", "\[Rule]", 
+      RowBox[{"Function", "[", 
+       RowBox[{
+        RowBox[{"{", "t", "}"}], ",", 
+        RowBox[{"sn", "(", 
+         RowBox[{
+          RowBox[{"t", "+", 
+           SubscriptBox[
+            TagBox["c",
+             C], "1"]}], "\[VerticalSeparator]", "m"}], ")"}]}], "]"}]}], 
+     "}"}]}], "}"}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.3945024529934072`*^9, 3.394504088450902*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "These Jacobi elliptic functions generalize ordinary trig functions, and \
+reduce to them when ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"m", "=", "0"}], TraditionalForm]]],
+ ":"
+}], "Text",
+ CellChangeTimes->{3.394504078667336*^9}],
+
+Cell[BoxData[{
+ FormBox[
+  RowBox[{
+   RowBox[{
+    SuperscriptBox[
+     RowBox[{"sn", "(", 
+      RowBox[{"u", "\[VerticalSeparator]", "m"}], ")"}], "2"], "+", 
+    SuperscriptBox[
+     RowBox[{"cn", "(", 
+      RowBox[{"u", "\[VerticalSeparator]", "m"}], ")"}], "2"]}], "=", "1"}], 
+  TraditionalForm], "\[IndentingNewLine]", 
+ FormBox[
+  RowBox[{
+   SuperscriptBox[
+    RowBox[{"dn", "(", 
+     RowBox[{"u", "\[VerticalSeparator]", "m"}], ")"}], "2"], "=", 
+   RowBox[{"1", "-", 
+    RowBox[{"m", " ", 
+     SuperscriptBox[
+      RowBox[{"sn", "(", 
+       RowBox[{"u", "\[VerticalSeparator]", "m"}], ")"}], "2"]}]}]}], 
+  TraditionalForm], "\[IndentingNewLine]", 
+ FormBox[
+  RowBox[{
+   FractionBox[
+    RowBox[{"\[PartialD]", 
+     RowBox[{"sn", "(", 
+      RowBox[{"u", "\[VerticalSeparator]", "m"}], ")"}]}], 
+    RowBox[{"\[PartialD]", "u"}],
+    MultilineFunction->None], "=", 
+   RowBox[{
+    RowBox[{"cn", 
+     RowBox[{"(", 
+      RowBox[{"u", "\[VerticalSeparator]", "m"}], ")"}]}], " ", 
+    RowBox[{"dn", 
+     RowBox[{"(", 
+      RowBox[{"u", "\[VerticalSeparator]", "m"}], ")"}]}]}]}], 
+  TraditionalForm], "\[IndentingNewLine]", 
+ FormBox[
+  RowBox[{
+   FractionBox[
+    RowBox[{"\[PartialD]", 
+     RowBox[{"cn", "(", 
+      RowBox[{"u", "\[VerticalSeparator]", "m"}], ")"}]}], 
+    RowBox[{"\[PartialD]", "u"}],
+    MultilineFunction->None], "=", 
+   RowBox[{
+    RowBox[{"-", " ", "sn"}], 
+    RowBox[{"(", 
+     RowBox[{"u", "\[VerticalSeparator]", "m"}], ")"}], 
+    RowBox[{"dn", 
+     RowBox[{"(", 
+      RowBox[{"u", "\[VerticalSeparator]", "m"}], ")"}]}]}]}], 
+  TraditionalForm]}], "DisplayFormula",
+ GridBoxOptions->{
+ GridBoxAlignment->{
+  "Columns" -> {{"\[AlignmentMarker]"}}, "ColumnsIndexed" -> {}, 
+   "Rows" -> {{Baseline}}, "RowsIndexed" -> {}}}],
+
+Cell["Defining the first two of these as replacement rules,", "Text"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"snrules", "=", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"cn", "(", 
+        RowBox[{"u_", "\[VerticalSeparator]", "m_"}], ")"}], "\[Rule]", 
+       SqrtBox[
+        RowBox[{"1", "-", 
+         SuperscriptBox[
+          RowBox[{"sn", "(", 
+           RowBox[{"u", "\[VerticalSeparator]", "m"}], ")"}], "2"]}]]}], ",", 
+      
+      RowBox[{
+       RowBox[{"dn", "(", 
+        RowBox[{"u_", "\[VerticalSeparator]", "m_"}], ")"}], "\[Rule]", 
+       SqrtBox[
+        RowBox[{"1", "-", 
+         RowBox[{"m", " ", 
+          SuperscriptBox[
+           RowBox[{"sn", "(", 
+            RowBox[{"u", "\[VerticalSeparator]", "m"}], ")"}], "2"]}]}]]}]}], 
+     "}"}]}], ";"}], TraditionalForm]], "Input"],
+
+Cell[TextData[{
+ "it is easy to verify that ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"sn", "(", 
+    RowBox[{"t", "\[VerticalSeparator]", "m"}], ")"}], TraditionalForm]]],
+ " satisfies the canonical equation."
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{
+        SuperscriptBox["y", "\[Prime]"], "(", "t", ")"}], "2"], "\[Equal]", 
+      "  ", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"1", "-", 
+         SuperscriptBox[
+          RowBox[{"y", "(", "t", ")"}], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", 
+         RowBox[{"m", " ", 
+          SuperscriptBox[
+           RowBox[{"y", "(", "t", ")"}], "2"]}]}], ")"}]}]}], "/.", 
+     RowBox[{"y", "\[Rule]", 
+      RowBox[{"Function", "[", 
+       RowBox[{"t", ",", 
+        FormBox[
+         RowBox[{"sn", "(", " ", 
+          RowBox[{"t", "\[VerticalSeparator]", "m"}], ")"}],
+         TraditionalForm]}], "]"}]}]}], "/.", "snrules"}], "//", "Simplify"}],
+   TraditionalForm]], "Input"],
+
+Cell[BoxData[
+ FormBox["True", TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[TextData[{
+ "The period is obtained by integrating: ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{"\[DifferentialD]", "y"}], "/", 
+     RowBox[{"\[DifferentialD]", "t"}]}], "=", " ", 
+    RowBox[{
+     RowBox[{
+      SqrtBox[
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"1", "-", 
+          SuperscriptBox["y", "2"]}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{"1", "-", 
+          RowBox[{"m", " ", 
+           SuperscriptBox["y", "2"]}]}], ")"}]}]], "\[DoubleLongRightArrow]", 
+      
+      RowBox[{"\[DifferentialD]", "t"}]}], "=", 
+     RowBox[{
+      RowBox[{"\[DifferentialD]", "y"}], "/", 
+      SqrtBox[
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"1", "-", 
+          SuperscriptBox["y", "2"]}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{"1", "-", 
+          RowBox[{"m", " ", 
+           SuperscriptBox["y", "2"]}]}], ")"}]}]]}]}]}], TraditionalForm]]],
+ ", leading to a complete elliptic integral of the first kind."
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"\[Tau]", "=", 
+   RowBox[{"4", 
+    RowBox[{
+     SubsuperscriptBox["\[Integral]", "0", "1"], 
+     RowBox[{
+      FractionBox["1", 
+       SqrtBox[
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"1", "-", 
+           SuperscriptBox["y", "2"]}], ")"}], " ", 
+         RowBox[{"(", 
+          RowBox[{"1", "-", 
+           RowBox[{"m", " ", 
+            SuperscriptBox["y", "2"]}]}], ")"}]}]]], 
+      RowBox[{"\[DifferentialD]", "y"}]}]}]}]}], TraditionalForm]], "Input"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"4", " ", 
+   RowBox[{"K", "(", "m", ")"}]}], TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Here we plot the Jacobi elliptic functions ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"sn", "(", " ", 
+    RowBox[{"u", "\[VerticalSeparator]", "m"}], ")"}], TraditionalForm]]],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"cn", "(", 
+    RowBox[{"u", "\[VerticalSeparator]", "m"}], ")"}], TraditionalForm]]],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"dn", "(", 
+    RowBox[{"u", "\[VerticalSeparator]", "m"}], ")"}], TraditionalForm]]],
+ " over one period."
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"Manipulate", "[", 
+   RowBox[{
+    RowBox[{"Plot", "[", 
+     RowBox[{
+      FormBox[
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"sn", "(", 
+          RowBox[{"u", "\[VerticalSeparator]", "m"}], ")"}], ",", 
+         RowBox[{"cn", "(", 
+          RowBox[{"u", "\[VerticalSeparator]", "m"}], ")"}], ",", 
+         RowBox[{"dn", "(", 
+          RowBox[{"u", "\[VerticalSeparator]", "m"}], ")"}]}], "}"}],
+       TraditionalForm], ",", 
+      RowBox[{"{", 
+       RowBox[{"u", ",", "0", ",", " ", 
+        RowBox[{"4", 
+         RowBox[{"K", "(", "m", ")"}]}]}], "}"}], ",", 
+      RowBox[{"PlotRange", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "1.1"}], ",", "2"}], "}"}]}], ",", 
+      RowBox[{"PlotStyle", "\[Rule]", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"Hue", "[", 
+          RowBox[{"i", "/", "3"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", "0", ",", "2"}], "}"}]}], "]"}]}], ",", 
+      RowBox[{"Ticks", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"i", " ", 
+              RowBox[{"K", "(", "m", ")"}]}], ",", 
+             RowBox[{"i", " ", 
+              FractionBox["\[Tau]", "4"]}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"i", ",", "0", ",", "4"}], "}"}]}], "]"}], ",", 
+         "Automatic"}], "}"}]}]}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"m", ",", 
+      RowBox[{"-", "2"}], ",", "0.9999"}], "}"}]}], "]"}], 
+  TraditionalForm]], "Input",
+ CellChangeTimes->{
+  3.394491548566661*^9, {3.394491605506734*^9, 3.394491607920176*^9}, {
+   3.3944930866209583`*^9, 3.394493148568804*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  TagBox[
+   FormBox[
+    StyleBox[
+     DynamicModuleBox[{$CellContext`m$$ = -2., Typeset`show$$ = True, 
+      Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+      Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+      "\"untitled\"", Typeset`specs$$ = {{
+        Hold[$CellContext`m$$], -2, 0.9999}}, Typeset`size$$ = {
+      360., {107., 111.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+      Typeset`skipInitDone$$ = True, $CellContext`m$1069142$$ = 0}, 
+      DynamicBox[Manipulate`ManipulateBoxes[
+       1, TraditionalForm, "Variables" :> {$CellContext`m$$ = -2}, 
+        "ControllerVariables" :> {
+          Hold[$CellContext`m$$, $CellContext`m$1069142$$, 0]}, 
+        "OtherVariables" :> {
+         Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+          Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+          Typeset`specs$$, Typeset`size$$, Typeset`update$$, 
+          Typeset`initDone$$, Typeset`skipInitDone$$}, "Body" :> Plot[{
+           JacobiSN[$CellContext`u, $CellContext`m$$], 
+           JacobiCN[$CellContext`u, $CellContext`m$$], 
+           JacobiDN[$CellContext`u, $CellContext`m$$]}, {$CellContext`u, 0, 4 
+           EllipticK[$CellContext`m$$]}, PlotRange -> {-1.1, 2}, PlotStyle -> 
+          Table[
+            Hue[$CellContext`i/3], {$CellContext`i, 0, 2}], Ticks -> {
+            
+            Table[{$CellContext`i 
+              EllipticK[$CellContext`m$$], $CellContext`i \
+($CellContext`\[Tau]/4)}, {$CellContext`i, 0, 4}], Automatic}], 
+        "Specifications" :> {{$CellContext`m$$, -2, 0.9999}}, "Options" :> {},
+         "DefaultOptions" :> {}],
+       ImageSizeCache->{402., {149.4375, 155.5625}},
+       SingleEvaluation->True],
+      Deinitialization:>None,
+      DynamicModuleValues:>{},
+      SynchronousInitialization->True,
+      UnsavedVariables:>{Typeset`initDone$$},
+      UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+     Deployed->True,
+     StripOnInput->False],
+    TraditionalForm],
+   Manipulate`InterpretManipulate[1]], TraditionalForm]], "Output",
+ CellChangeTimes->{{3.3944915849449863`*^9, 3.394491609103436*^9}, {
+  3.394493092206369*^9, 3.394493150066998*^9}}]
+}, Open  ]],
+
+Cell["From the canonical equation we have that", "Text"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   FractionBox[
+    RowBox[{"sin", "(", 
+     FractionBox[
+      RowBox[{"\[Theta]", "(", "t", ")"}], "2"], ")"}], 
+    RowBox[{"sin", "(", 
+     FractionBox["\[Alpha]", "2"], ")"}]], "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"sn", "(", " ", 
+      RowBox[{
+       RowBox[{"\[Omega]", " ", 
+        RowBox[{"(", 
+         RowBox[{"t", "-", 
+          SubscriptBox["t", "0"]}], ")"}]}], "\[VerticalSeparator]", 
+       SuperscriptBox[
+        RowBox[{"sin", "(", 
+         FractionBox["\[Alpha]", "2"], ")"}], "2"]}], ")"}], "\[Implies]", 
+     RowBox[{"cos", "(", 
+      FractionBox[
+       RowBox[{"\[Theta]", "(", "t", ")"}], "2"], ")"}]}], "=", 
+    RowBox[{"dn", "(", 
+     RowBox[{
+      RowBox[{"\[Omega]", " ", 
+       RowBox[{"(", 
+        RowBox[{"t", "-", 
+         SubscriptBox["t", "0"]}], ")"}]}], "\[VerticalSeparator]", 
+      RowBox[{
+       SuperscriptBox["sin", "2"], "(", 
+       FractionBox["\[Alpha]", "2"], ")"}]}], ")"}]}]}], 
+  TraditionalForm]], "DisplayFormula"],
+
+Cell[TextData[{
+ "where ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"\[Omega]", " ", 
+     SubscriptBox["t", "0"]}], "=", 
+    RowBox[{"K", "(", 
+     RowBox[{
+      SuperscriptBox["sin", "2"], "(", 
+      FractionBox["\[Alpha]", "2"], ")"}], ")"}]}], TraditionalForm]]],
+ ", corresponding to a quarter period."
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"energy", "/.", 
+       RowBox[{"\[Theta]", "\[Rule]", 
+        RowBox[{"Function", "[", 
+         RowBox[{"t", ",", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            SuperscriptBox["cos", 
+             RowBox[{"-", "1"}]], "(", 
+            RowBox[{"dn", "(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"\[Omega]", " ", "t"}], "-", 
+               RowBox[{"K", "(", 
+                RowBox[{
+                 SuperscriptBox["sin", "2"], "(", 
+                 FractionBox["\[Alpha]", "2"], ")"}], ")"}]}], 
+              "\[VerticalSeparator]", 
+              RowBox[{
+               SuperscriptBox["sin", "2"], "(", 
+               FractionBox["\[Alpha]", "2"], ")"}]}], ")"}], ")"}]}]}], 
+         "]"}]}]}], "//", "Simplify"}], ")"}], "/.", "snrules"}], "//", 
+   "Simplify"}], TraditionalForm]], "Input"],
+
+Cell[BoxData[
+ FormBox["True", TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell["\<\
+Series expansion of the exact solution agrees with that obtained by direct \
+series expansion whe\
+\>", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"Factor", "[", 
+     RowBox[{"TrigReduce", "[", "#", "]"}], "]"}], "&"}], "/@", 
+   RowBox[{"(", 
+    RowBox[{"Simplify", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"2", " ", 
+        RowBox[{
+         SuperscriptBox["cos", 
+          RowBox[{"-", "1"}]], "(", 
+         RowBox[{"dn", "(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"\[Omega]", " ", "t"}], "-", 
+            RowBox[{"K", "(", 
+             RowBox[{
+              SuperscriptBox["sin", "2"], "(", 
+              FractionBox["\[Alpha]", "2"], ")"}], ")"}]}], 
+           "\[VerticalSeparator]", 
+           RowBox[{
+            SuperscriptBox["sin", "2"], "(", 
+            FractionBox["\[Alpha]", "2"], ")"}]}], ")"}], ")"}]}], "+", 
+       SuperscriptBox[
+        RowBox[{"O", "[", "t", "]"}], "9"]}], ",", 
+      RowBox[{
+       RowBox[{"\[Omega]", ">", "0"}], "\[And]", 
+       RowBox[{"0", "<", "\[Alpha]", "<", "\[Pi]"}]}]}], "]"}], ")"}]}], 
+  TraditionalForm]], "Input"],
+
+Cell[BoxData[
+ FormBox[
+  InterpretationBox[
+   RowBox[{"\[Alpha]", "-", 
+    RowBox[{
+     FractionBox["1", "2"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["\[Omega]", "2"], " ", 
+       RowBox[{"sin", "(", "\[Alpha]", ")"}]}], ")"}], " ", 
+     SuperscriptBox["t", "2"]}], "+", 
+    RowBox[{
+     FractionBox["1", "48"], " ", 
+     SuperscriptBox["\[Omega]", "4"], " ", 
+     RowBox[{"sin", "(", 
+      RowBox[{"2", " ", "\[Alpha]"}], ")"}], " ", 
+     SuperscriptBox["t", "4"]}], "+", 
+    RowBox[{
+     FractionBox["1", "720"], " ", 
+     SuperscriptBox["\[Omega]", "6"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"2", " ", 
+        RowBox[{"sin", "(", "\[Alpha]", ")"}]}], "-", 
+       RowBox[{"sin", "(", 
+        RowBox[{"3", " ", "\[Alpha]"}], ")"}]}], ")"}], " ", 
+     SuperscriptBox["t", "6"]}], "-", 
+    FractionBox[
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        SuperscriptBox["\[Omega]", "8"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"32", " ", 
+           RowBox[{"sin", "(", 
+            RowBox[{"2", " ", "\[Alpha]"}], ")"}]}], "-", 
+          RowBox[{"17", " ", 
+           RowBox[{"sin", "(", 
+            RowBox[{"4", " ", "\[Alpha]"}], ")"}]}]}], ")"}]}], ")"}], " ", 
+      SuperscriptBox["t", "8"]}], "161280"], "+", 
+    InterpretationBox[
+     RowBox[{"O", "(", 
+      SuperscriptBox["t", "9"], ")"}],
+     SeriesData[t, 0, {}, 0, 9, 1],
+     Editable->False]}],
+   SeriesData[
+   t, 0, {\[Alpha], 0, Rational[-1, 2] \[Omega]^2 Sin[\[Alpha]], 0, 
+     Rational[1, 48] \[Omega]^4 Sin[2 \[Alpha]], 0, 
+     Rational[1, 720] \[Omega]^6 (2 Sin[\[Alpha]] - Sin[3 \[Alpha]]), 0, 
+     Rational[-1, 161280] \[Omega]^8 (32 Sin[2 \[Alpha]] - 17 
+      Sin[4 \[Alpha]])}, 0, 9, 1],
+   Editable->False], TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"%", "-", "seriessolution"}], TraditionalForm]], "Input"],
+
+Cell[BoxData[
+ FormBox[
+  InterpretationBox[
+   RowBox[{"O", "(", 
+    SuperscriptBox["t", "9"], ")"}],
+   SeriesData[t, 0, {}, 9, 9, 1],
+   Editable->False], TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"Simplify", "[", 
+   RowBox[{
+    RowBox[{
+     SubsuperscriptBox["\[Integral]", "0", 
+      RowBox[{"sin", "(", "\[Phi]", ")"}]], 
+     RowBox[{
+      FractionBox["1", 
+       SqrtBox[
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"1", "-", 
+           SuperscriptBox["y", "2"]}], ")"}], " ", 
+         RowBox[{"(", 
+          RowBox[{"1", "-", 
+           RowBox[{"m", " ", 
+            SuperscriptBox["y", "2"]}]}], ")"}]}]]], 
+      RowBox[{"\[DifferentialD]", "y"}]}]}], ",", 
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox["\[Pi]", "2"]}], "\[LessEqual]", "\[Phi]", "\[LessEqual]", 
+     FractionBox["\[Pi]", "2"]}]}], "]"}], TraditionalForm]], "Input"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"F", "(", 
+   RowBox[{"\[Phi]", "\[VerticalSeparator]", "m"}], ")"}], 
+  TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"Simplify", "[", 
+   RowBox[{
+    RowBox[{
+     SubsuperscriptBox["\[Integral]", "0", 
+      RowBox[{"sn", "(", 
+       RowBox[{"u", "\[VerticalSeparator]", "m"}], ")"}]], 
+     RowBox[{
+      FractionBox["1", 
+       SqrtBox[
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"1", "-", 
+           SuperscriptBox["y", "2"]}], ")"}], " ", 
+         RowBox[{"(", 
+          RowBox[{"1", "-", 
+           RowBox[{"m", " ", 
+            SuperscriptBox["y", "2"]}]}], ")"}]}]]], 
+      RowBox[{"\[DifferentialD]", "y"}]}]}], ",", 
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox["\[Pi]", "2"]}], "\[LessEqual]", "\[Phi]", "\[LessEqual]", 
+     FractionBox["\[Pi]", "2"]}]}], "]"}], TraditionalForm]], "Input"],
+
+Cell[BoxData[
+ FormBox[
+  FractionBox[
+   RowBox[{
+    RowBox[{"F", "(", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["sin", 
+        RowBox[{"-", "1"}]], "(", 
+       RowBox[{"sn", "(", 
+        RowBox[{"u", "\[VerticalSeparator]", "m"}], ")"}], ")"}], 
+      "\[VerticalSeparator]", "m"}], ")"}], " ", 
+    SqrtBox[
+     RowBox[{"1", "-", 
+      SuperscriptBox[
+       RowBox[{"sn", "(", 
+        RowBox[{"u", "\[VerticalSeparator]", "m"}], ")"}], "2"]}]], " ", 
+    SqrtBox[
+     RowBox[{"1", "-", 
+      RowBox[{"m", " ", 
+       SuperscriptBox[
+        RowBox[{"sn", "(", 
+         RowBox[{"u", "\[VerticalSeparator]", "m"}], ")"}], "2"]}]}]]}], 
+   SqrtBox[
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox[
+        RowBox[{"sn", "(", 
+         RowBox[{"u", "\[VerticalSeparator]", "m"}], ")"}], "2"], "-", "1"}], 
+      ")"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"m", " ", 
+        SuperscriptBox[
+         RowBox[{"sn", "(", 
+          RowBox[{"u", "\[VerticalSeparator]", "m"}], ")"}], "2"]}], "-", 
+       "1"}], ")"}]}]]], TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"sin", "(", "\[Phi]", ")"}], "==", 
+    FractionBox[
+     RowBox[{"sin", "(", 
+      FractionBox[
+       RowBox[{"\[Theta]", "(", "t", ")"}], "2"], ")"}], 
+     RowBox[{"sin", "(", 
+      FractionBox["\[Alpha]", "2"], ")"}]]}], "=", 
+   RowBox[{"sn", "(", 
+    RowBox[{"u", "\[VerticalSeparator]", "m"}], ")"}]}], 
+  TraditionalForm]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"F", "(", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["sin", 
+        RowBox[{"-", "1"}]], "(", 
+       RowBox[{"sn", "(", 
+        RowBox[{"u", "\[VerticalSeparator]", "m"}], ")"}], ")"}], 
+      "\[VerticalSeparator]", "m"}], ")"}], "+", 
+    SuperscriptBox[
+     RowBox[{"O", "[", "u", "]"}], "6"]}], "//", "Simplify"}], 
+  TraditionalForm]], "Input"],
+
+Cell[BoxData[
+ FormBox[
+  InterpretationBox[
+   RowBox[{"u", "+", 
+    InterpretationBox[
+     RowBox[{"O", "(", 
+      SuperscriptBox["u", "6"], ")"}],
+     SeriesData[u, 0, {}, 1, 6, 1],
+     Editable->False]}],
+   SeriesData[u, 0, {1}, 1, 6, 1],
+   Editable->False], TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[TextData[{
+ "The amplitude for Jacobi elliptic functions is the inverse of the elliptic \
+integral of the first kind. If ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"u", "=", 
+    RowBox[{"F", "(", 
+     RowBox[{
+      RowBox[{"\[Phi]", " "}], 
+      RowBox[{"\[VerticalSeparator]", " "}], "m"}], ")"}]}], 
+   TraditionalForm]], "InlineFormula"],
+ ", then ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Phi]", "=", 
+    RowBox[{"am", "(", 
+     RowBox[{"u", " ", 
+      RowBox[{"\[VerticalSeparator]", " "}], "m"}], ")"}]}], 
+   TraditionalForm]], "InlineFormula"],
+ ". The Jacobi elliptic functions are given respectively by ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"sn", "(", "u", ")"}], "=", 
+    RowBox[{"sin", "(", "\[Phi]", ")"}]}], TraditionalForm]], 
+  "InlineFormula"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"cn", "(", "u", ")"}], "=", 
+    RowBox[{"cos", "(", "\[Phi]", ")"}]}], TraditionalForm]], 
+  "InlineFormula"],
+ "."
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"InverseFunction", "[", 
+    RowBox[{"EllipticF", ",", "1", ",", "2"}], "]"}], "[", 
+   RowBox[{"u", ",", "m"}], "]"}], TraditionalForm]], "Input"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"am", "(", 
+   RowBox[{"u", "\[VerticalSeparator]", "m"}], ")"}], 
+  TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"sin", "(", 
+   FormBox["%",
+    TraditionalForm], ")"}], TraditionalForm]], "Input"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"sn", "(", 
+   RowBox[{"u", "\[VerticalSeparator]", "m"}], ")"}], 
+  TraditionalForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"F", "(", 
+     RowBox[{
+      RowBox[{"am", "(", 
+       RowBox[{"u", "\[VerticalSeparator]", "m"}], ")"}], 
+      "\[VerticalSeparator]", "m"}], ")"}], "+", 
+    SuperscriptBox[
+     RowBox[{"O", "[", "u", "]"}], "6"]}], "//", "Simplify"}], 
+  TraditionalForm]], "Input"],
+
+Cell[BoxData[
+ FormBox[
+  InterpretationBox[
+   RowBox[{"u", "+", 
+    InterpretationBox[
+     RowBox[{"O", "(", 
+      SuperscriptBox["u", "6"], ")"}],
+     SeriesData[u, 0, {}, 1, 6, 1],
+     Editable->False]}],
+   SeriesData[u, 0, {1}, 1, 6, 1],
+   Editable->False], TraditionalForm]], "Output"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{962, 983},
+WindowMargins->{{180, Automatic}, {129, Automatic}},
+FrontEndVersion->"6.0 for Mac OS X x86 (32-bit) (June 19, 2007)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[590, 23, 106, 1, 34, "Subsection"],
+Cell[699, 26, 120, 2, 26, "Text"],
+Cell[822, 30, 396, 11, 25, "DisplayFormula"],
+Cell[1221, 43, 192, 7, 26, "Text"],
+Cell[CellGroupData[{
+Cell[1438, 54, 472, 13, 34, "Input"],
+Cell[1913, 69, 2405, 74, 51, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4355, 148, 276, 8, 47, "Input"],
+Cell[4634, 158, 1765, 61, 51, "Output"]
+}, Open  ]],
+Cell[6414, 222, 318, 10, 28, "Text"],
+Cell[CellGroupData[{
+Cell[6757, 236, 865, 26, 46, "Input"],
+Cell[7625, 264, 524, 15, 46, "Output"]
+}, Open  ]],
+Cell[8164, 282, 433, 14, 28, "Text"],
+Cell[CellGroupData[{
+Cell[8622, 300, 361, 11, 29, "Input"],
+Cell[8986, 313, 255, 7, 27, "Output"]
+}, Open  ]],
+Cell[9256, 323, 54, 0, 26, "Text"],
+Cell[CellGroupData[{
+Cell[9335, 327, 160, 5, 27, "Input"],
+Cell[9498, 334, 276, 8, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9811, 347, 417, 13, 47, "Input"],
+Cell[10231, 362, 610, 18, 48, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10878, 385, 528, 17, 53, "Input"],
+Cell[11409, 404, 487, 14, 55, "Output"]
+}, Open  ]],
+Cell[11911, 421, 491, 16, 57, "Input"],
+Cell[CellGroupData[{
+Cell[12427, 441, 848, 23, 47, "Input"],
+Cell[13278, 466, 801, 22, 47, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14116, 493, 193, 5, 27, "Input"],
+Cell[14312, 500, 173, 5, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14522, 510, 119, 4, 27, "Input"],
+Cell[14644, 516, 173, 5, 27, "Output"]
+}, Open  ]],
+Cell[14832, 524, 122, 5, 26, "Text"],
+Cell[CellGroupData[{
+Cell[14979, 533, 1138, 36, 67, "Input"],
+Cell[16120, 571, 794, 23, 47, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16951, 599, 258, 8, 57, "Input"],
+Cell[17212, 609, 555, 16, 30, "Output"]
+}, Open  ]],
+Cell[17782, 628, 782, 28, 32, "Text"],
+Cell[CellGroupData[{
+Cell[18589, 660, 566, 19, 34, "Input"],
+Cell[19158, 681, 883, 29, 27, "Output"]
+}, Open  ]],
+Cell[20056, 713, 247, 8, 26, "Text"],
+Cell[20306, 723, 1784, 57, 114, "DisplayFormula"],
+Cell[22093, 782, 69, 0, 26, "Text"],
+Cell[22165, 784, 764, 24, 44, "Input"],
+Cell[22932, 810, 220, 7, 26, "Text"],
+Cell[CellGroupData[{
+Cell[23177, 821, 831, 27, 34, "Input"],
+Cell[24011, 850, 59, 1, 27, "Output"]
+}, Open  ]],
+Cell[24085, 854, 1007, 33, 40, "Text"],
+Cell[CellGroupData[{
+Cell[25117, 891, 517, 17, 58, "Input"],
+Cell[25637, 910, 108, 3, 27, "Output"]
+}, Open  ]],
+Cell[25760, 916, 487, 17, 26, "Text"],
+Cell[CellGroupData[{
+Cell[26272, 937, 1772, 51, 71, "Input"],
+Cell[28047, 990, 2219, 45, 323, "Output"]
+}, Open  ]],
+Cell[30281, 1038, 56, 0, 26, "Text"],
+Cell[30340, 1040, 1025, 32, 58, "DisplayFormula"],
+Cell[31368, 1074, 332, 12, 38, "Text"],
+Cell[CellGroupData[{
+Cell[31725, 1090, 940, 27, 44, "Input"],
+Cell[32668, 1119, 59, 1, 27, "Output"]
+}, Open  ]],
+Cell[32742, 1123, 121, 3, 26, "Text"],
+Cell[CellGroupData[{
+Cell[32888, 1130, 1026, 31, 44, "Input"],
+Cell[33917, 1163, 1816, 52, 50, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[35770, 1220, 91, 2, 27, "Input"],
+Cell[35864, 1224, 187, 6, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[36088, 1235, 708, 22, 58, "Input"],
+Cell[36799, 1259, 135, 4, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[36971, 1268, 749, 23, 58, "Input"],
+Cell[37723, 1293, 1108, 37, 66, "Output"]
+}, Open  ]],
+Cell[38846, 1333, 403, 13, 67, "Input"],
+Cell[CellGroupData[{
+Cell[39274, 1350, 421, 14, 34, "Input"],
+Cell[39698, 1366, 298, 10, 33, "Output"]
+}, Open  ]],
+Cell[40011, 1379, 976, 34, 41, "Text"],
+Cell[CellGroupData[{
+Cell[41012, 1417, 193, 5, 27, "Input"],
+Cell[41208, 1424, 131, 4, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[41376, 1433, 119, 4, 27, "Input"],
+Cell[41498, 1439, 131, 4, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[41666, 1448, 332, 11, 31, "Input"],
+Cell[42001, 1461, 298, 10, 33, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
