@@ -1,2 +1,2 @@
 # Computational Physics
-This directory includes the book chapters for an introductory Wolfram Language course on Computational Physics, based on the course I presented at the University of Western Australia.
+This directory includes the book chapters for an introductory Wolfram Language eBook and MOOC on Computational Physics, based on my undergraduate Computational Physics and Applied Mathematics courses at the University of Western Australia.
