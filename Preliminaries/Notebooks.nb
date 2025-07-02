@@ -1,0 +1,645 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     38375,        637]
+NotebookOptionsPosition[     34364,        579]
+NotebookOutlinePosition[     34756,        595]
+CellTagsIndexPosition[     34713,        592]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Origin Story of Notebooks", "Section",ExpressionUUID->"dfeaa5b7-d9bc-46bd-81b7-565cc8996e1e"],
+
+Cell["\<\
+For a brief overview of the history and development of Mathematica: \
+https://www.wolfram.com/mathematica/scrapbook/\
+\>", "Text",ExpressionUUID->"2cf7349e-3e7c-4684-8406-b0dd2746aafb"],
+
+Cell[TextData[{
+ "Theo Gray answered a question on a ",
+ ButtonBox["ycombinator thread",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://news.ycombinator.com/item?id=36270985"], None},
+  ButtonNote->"https://news.ycombinator.com/item?id=36270985"],
+ " about the development of the Notebook interface:"
+}], "Text",ExpressionUUID->"8f7c8115-5e65-43c8-9852-fc69c187bc39"],
+
+Cell["\<\
+Jupyter notebooks were inspired by Mathematica notebooks: that\
+\[CloseCurlyQuote]s widely known and has been explicitly said in blog posts \
+and elsewhere by the creators of Jupyter. It\[CloseCurlyQuote]s no secret\
+\[Ellipsis] And as the designer and developer of Mathematica notebooks I am \
+flattered and honored that my ideas are now so widely used, even if it is in \
+a product other than the one I wrote myself.\
+\>", "Text",ExpressionUUID->"4f5eab8d-dbe1-45c4-9758-a542e16f1de6"],
+
+Cell["\<\
+Time for a trip down memory lane. There were several notebook-adjacent \
+products around at that time (1987) but none of them implemented notebooks as \
+we know them today.\
+\>", "Text",ExpressionUUID->"a0fdd20c-f9e5-4539-92c8-caa4f4bb3c68"],
+
+Cell["\<\
+At the time I was using Xcode, which had a terminal-like interface that was a \
+plain text document in which you could put all the shell commands you needed \
+to build your app. This could include calls to the compiler, linker, or just \
+any generic shell commands. To evaluate a given command (which could be one \
+or more lines long) you had to manually select the exact range of text you \
+wanted to run, which was kind of irritating. Any output would be placed \
+directly below the input line. Because the document was pure plain text, it \
+had no way of knowing what was input and what was output, or distinguish new \
+output from old. So all the outputs accumulated, and you had to manually \
+select and delete them periodically. It was an improvement over a glass \
+teletype terminal interface, but I thought I could do better for Mathematica \
+(code name Omega at the time).\
+\>", "Text",ExpressionUUID->"45b45cf9-428c-4b2f-ae6b-96d98f03ca21"],
+
+Cell["\<\
+The solution I came up with was to create a text document that was annotated \
+with \[OpenCurlyDoubleQuote]zones\[CloseCurlyDoubleQuote] delimited by \
+vertical bars along the right side of the screen (where cell brackets are \
+now). Initially I used different black and white texture patterns on 4 or 5 \
+pixel wide vertical bars. One texture for input and another texture for output.
+This immediately gave two huge advantages: first, you didn\[CloseCurlyQuote]t \
+have to manually select the range of a multi-line input. Just putting the \
+cursor anywhere within an input zone and evaluating would evaluate the whole \
+input. Second, because the system was keeping track of what was output, old \
+output could be deleted automatically and replaced with new output.\
+\>", "Text",ExpressionUUID->"43202de1-3caf-4748-bff1-3edc2d4ecce2"],
+
+Cell["\<\
+Initially I called these things zones, but Steve Jobs suggested I use large \
+close-square-bracket symbols instead of patterned bars, and think of them \
+more like cells in a spreadsheet than like zones in a text document. Once you \
+have brackets instead of bars, it\[CloseCurlyQuote]s immediately obvious that \
+you could have larger brackets that encompass two or more cells. So I created \
+cell groups, initially just to group input/output pairs, but of course it\
+\[CloseCurlyQuote]s not a big leap to also have sections and subsections, \
+then different cell types, styles, graphics cells, etc.
+These key defining features of notebooks did not exist in any other system at \
+the time, and to the best of my knowledge were not independently developed by \
+other people. All the current notebook systems that share these broad \
+features, definitely including Jupyter notebooks, derive from the original \
+Mathematica notebooks I developed in 1987-8. (There are other styles of user \
+interface, including some used by Maple and Matlab around the same time, that \
+are called notebooks, but they did not share the key features I\
+\[CloseCurlyQuote]ve described. They were and are fine products that I\
+\[CloseCurlyQuote]m sure have both advantages and disadvantages compared to \
+our Notebooks, but unlike our Notebooks, they are not the precursors of \
+Jupyter.)\
+\>", "Text",ExpressionUUID->"9ed03fb0-2b45-4073-8136-15175378c81b"],
+
+Cell["\<\
+So can Stephen Wolfram personally claim to have invented notebooks? No, and \
+he doesn\[CloseCurlyQuote]t: he claims that Wolfram Research did, which is \
+true, since I was one of the co-founders of that company, and I invented that \
+form of notebook.\
+\>", "Text",ExpressionUUID->"aa2c4470-2c89-4567-ac75-9d6cc1bc66ca"],
+
+Cell[TextData[{
+ ButtonBox["1987: The Mathematica front end begins to take shape\[Ellipsis]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://www.wolfram.com/mathematica/scrapbook/1987/02/08/1987_\
+frontend-2/"], None},
+  ButtonNote->
+   "https://www.wolfram.com/mathematica/scrapbook/1987/02/08/1987_frontend-2/\
+"],
+ "\n(Theo Gray invents cells and groups\[Ellipsis] and other things still \
+seen today\[Ellipsis])\n"
+}], "Text",ExpressionUUID->"614a5646-de01-4d85-aa35-daedb6952bd3"],
+
+Cell[CellGroupData[{
+
+Cell["", "Subsection",ExpressionUUID->"af54aefe-25ab-49a4-8e32-b773bc3b762c"],
+
+Cell[TextData[{
+ "See also ",
+ ButtonBox["The Scientific Paper Is Obsolete",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://www.theatlantic.com/science/archive/2018/04/the-scientific-\
+paper-is-obsolete/556676/"], None},
+  ButtonNote->
+   "https://www.theatlantic.com/science/archive/2018/04/the-scientific-paper-\
+is-obsolete/556676/"],
+ "\nApril 5, 2018 | Atlantic: Web Edition Articles (USA)\nAuthor/Byline: \
+James Somers "
+}], "Text",ExpressionUUID->"bf4330a5-062c-4624-8147-1e6d489ebda1"],
+
+Cell["\<\
+The notebook interface was the brainchild of Theodore Gray, who was inspired \
+while working with an old Apple code editor. Where most programming \
+environments either had you run code one line at a time, or all at once as a \
+big blob, the Apple editor let you highlight any part of your code and run \
+just that part. Gray brought the same basic concept to Mathematica, with help \
+refining the design from none other than Steve Jobs. The notebook is designed \
+to turn scientific programming into an interactive exercise, where individual \
+commands were tweaked and rerun, perhaps dozens or hundreds of times, as the \
+author learned from the results of their little computational experiments, \
+and came to a more intimate understanding of their data.\
+\>", "Text",ExpressionUUID->"172ff52d-2b65-46f1-a414-4fd3d7ff636c"],
+
+Cell["\<\
+What made Mathematica\[CloseCurlyQuote]s notebook especially suited to the \
+task was its ability to generate plots, pictures, and beautiful mathematical \
+formulas, and to have this output respond dynamically to changes in the code. \
+In Mathematica you can input a voice recording, run complex mathematical \
+filters over the audio, and visualize the resulting sound wave; just by \
+mousing through and adjusting parameters, you can warp the wave, discovering \
+which filters work best by playing around. Mathematica\[CloseCurlyQuote]s \
+ability to fluidly handle so many different kinds of computation in a single, \
+simple interface is the result, Gray says, of \
+\[OpenCurlyDoubleQuote]literally man-centuries of work.\
+\[CloseCurlyDoubleQuote]\
+\>", "Text",ExpressionUUID->"cf1d4439-e479-4112-9852-e83de1feea2e"],
+
+Cell["\<\
+The Mathematica notebook could be an accelerant for science because it could \
+spawn a new kind of thinking. \[OpenCurlyDoubleQuote]The place where it \
+really gets exciting,\[CloseCurlyDoubleQuote] he says, \
+\[OpenCurlyDoubleQuote]is where you have the same transition that happened in \
+the 1600s when people started to be able to read math notation. It becomes a \
+form of communication which has the incredibly important extra piece that you \
+can actually run it, too.\[CloseCurlyDoubleQuote]\
+\>", "Text",ExpressionUUID->"f29debe1-e72f-46c6-af38-0d51094fd1c4"],
+
+Cell["\<\
+The idea is that a \[OpenCurlyDoubleQuote]paper\[CloseCurlyDoubleQuote] of \
+this sort would have all the dynamism Strogatz and Victor wanted interactive \
+diagrams interleaved within the text with the added benefit that all the code \
+generating those diagrams, and the data behind them, would be right there for \
+the reader to see and play with. \[OpenCurlyDoubleQuote]Frankly, when you do \
+something that is a nice clean Wolfram-language thing in a notebook, there\
+\[CloseCurlyQuote]s no bullshit there. It is what it is, it does what it \
+does. You don\[CloseCurlyQuote]t get to fudge your data,\
+\[CloseCurlyDoubleQuote] Wolfram says.\
+\>", "Text",ExpressionUUID->"e75fc02b-3af7-4f5c-a998-64b620fd4090"],
+
+Cell["\<\
+To write a paper in a Mathematica notebook is to reveal your results and \
+methods at the same time; the published paper and the work that begot it. \
+Which shouldn\[CloseCurlyQuote]t just make it easier for readers to \
+understand what you did it should make it easier for them to replicate it (or \
+not). With millions of scientists worldwide producing incremental \
+contributions, the only way to have those contributions add up to something \
+significant is if others can reliably build on them. \
+\[OpenCurlyDoubleQuote]That\[CloseCurlyQuote]s what having science presented \
+as computational essays can achieve,\[CloseCurlyDoubleQuote] Wolfram said.\
+\>", "Text",ExpressionUUID->"3568e2cc-3695-4210-8d8a-65d98c69d0c8"],
+
+Cell["\<\
+Wolfram says that he\[CloseCurlyQuote]s surprised the computational essay \
+hasn\[CloseCurlyQuote]t taken off. He remembers working with Elsevier, the \
+scientific publishing giant, all the way back in the early \
+\[OpenCurlyQuote]80s. \[OpenCurlyDoubleQuote]Elsevier hired me to do some \
+consulting thing about \[OpenCurlyDoubleQuote]What would the future of \
+scientific publishing look like?\[CloseCurlyQuote]\[CloseCurlyDoubleQuote] \
+This was before the Mathematica notebook, but he gave them a spiel along the \
+same lines. \[OpenCurlyDoubleQuote]A few years ago I was talking to some of \
+their upper management again. I realized in this meeting, oh my gosh, I said \
+exactly the same things 35 years ago!\[CloseCurlyDoubleQuote]\
+\>", "Text",ExpressionUUID->"3ccf5346-52d8-45f2-b425-f863d23b4137"],
+
+Cell["\<\
+I spoke to Theodore Gray, who has since left Wolfram Research to become a \
+full-time writer. He said that his work on the notebook was in part motivated \
+by the feeling, well formed already by the early 1990s, \
+\[OpenCurlyDoubleQuote]that obviously all scientific communication, all \
+technical papers that involve any sort of data or mathematics or modeling or \
+graphs or plots or anything like that, obviously don\[CloseCurlyQuote]t \
+belong on paper. That was just completely obvious in, let\[CloseCurlyQuote]s \
+say, 1990,\[CloseCurlyDoubleQuote] he said.\
+\>", "Text",ExpressionUUID->"0e6fa5cc-4452-4588-a1cc-fd0e7279b31e"],
+
+Cell["\<\
+\[OpenCurlyDoubleQuote]It\[CloseCurlyQuote]s been a source of ongoing \
+bafflement and consternation for the past 29 years, that with the exception \
+of a few people who get it, the community at large hasn\[CloseCurlyQuote]t \
+really adopted it,\[CloseCurlyDoubleQuote] he said. \[OpenCurlyDoubleQuote]It\
+\[CloseCurlyQuote]s incalculable, literally ... how much is lost, and how \
+much time is wasted, and how many results are misinterpreted or are \
+misrepresented.\[CloseCurlyDoubleQuote]\
+\>", "Text",ExpressionUUID->"982039cd-6e35-4d8f-8f6e-38531e306985"],
+
+Cell["\<\
+In early 2001, Fernando P\[EAcute]rez found himself in much the same position \
+Wolfram had 20 years earlier: He was a young graduate student in physics \
+running up against the limits of his tools. He\[CloseCurlyQuote]d been using \
+a hodgepodge of systems, Mathematica among them, feeling as though every task \
+required switching from one to the next. He remembered having six or seven \
+different programming-language books on his desk. What he wanted was a \
+unified environment for scientific computing.\
+\>", "Text",ExpressionUUID->"4d5ee808-ba67-40d0-8fa4-63b185d8609d"],
+
+Cell["\<\
+But rather than going off and building a company, he found two far-flung \
+scientists, a German oceanographer and a computer-science graduate student at \
+Caltech, who had been thinking along the same lines. They\[CloseCurlyQuote]d \
+all fallen in love with Python, an open-source, general-purpose programming \
+language, and they\[CloseCurlyQuote]d all independently started building \
+tools to make it work better for scientists: tools that made it easier to \
+manage data sets and draw plots, and that encouraged a more exploratory \
+programming style.\
+\>", "Text",ExpressionUUID->"bc6ea42a-f09e-42ce-81db-e835cb742e81"],
+
+Cell["\<\
+P\[EAcute]rez combined the three projects into one and took the reins. From \
+the very beginning, the project, called IPython (the \[OpenCurlyDoubleQuote]I\
+\[CloseCurlyDoubleQuote] for \[OpenCurlyDoubleQuote]Interactive\
+\[CloseCurlyDoubleQuote]), was open-source: It wasn\[CloseCurlyQuote]t just \
+that the program was free, but that anyone could inspect its code and modify \
+it, contributing their changes back to the common cause. It was a deliberate \
+decision. \[OpenCurlyDoubleQuote]I was interested in both the ethical aspect \
+of being able to share my work with others,\[CloseCurlyDoubleQuote] \
+P\[EAcute]rez told me he came from Colombia, where access to proprietary \
+software was harder to come by \[OpenCurlyDoubleQuote]and there was also a \
+more epistemological motivation.\[CloseCurlyDoubleQuote] He thought that if \
+science was to be an open enterprise, the tools that are used to do it should \
+themselves be open. Commercial software whose source code you were legally \
+prohibited from reading was \[OpenCurlyDoubleQuote]antithetical to the idea \
+of science,\[CloseCurlyDoubleQuote] where the very purpose is to open the \
+black box of nature.\
+\>", "Text",ExpressionUUID->"a1fae3e5-e64b-45e5-a8e2-3b4e17015247"],
+
+Cell["\<\
+Hence the allure of Python. Out of the box, Python is a much less powerful \
+language than the Wolfram Language that powers Mathematica. But where \
+Mathematica gets its powers from an army of Wolfram Research programmers, \
+Python\[CloseCurlyQuote]s bare-bones core is supplemented by a massive \
+library of extra features for processing images, making music, building AIs, \
+analyzing language, graphing data sets built by a community of open-source \
+contributors working for free. Python became a de facto standard for \
+scientific computing because open-source developers like P\[EAcute]rez \
+happened to build useful tools for it; and open-source developers have \
+flocked to Python because it happens to be the de facto standard for \
+scientific computing. Programming-language communities, like any social \
+network, thrive or die on the strength of these feedback loops.\
+\[LineSeparator]\
+\>", "Text",ExpressionUUID->"e824fa61-e34a-4a17-be4e-b95de1133c09"],
+
+Cell["\<\
+The idea for IPython\[CloseCurlyQuote]s notebook interface came from \
+Mathematica. P\[EAcute]rez admired the way that Mathematica notebooks \
+encouraged an exploratory style. \[OpenCurlyDoubleQuote]You would sketch \
+something out because that\[CloseCurlyQuote]s how you reason about a problem, \
+that\[CloseCurlyQuote]s how you understand a problem.\[CloseCurlyDoubleQuote] \
+Computational notebooks, he said, \[OpenCurlyDoubleQuote]bring that idea of \
+live narrative out ... You can think through the process, and you\
+\[CloseCurlyQuote]re effectively using the computer, if you will, as a \
+computational partner, and as a thinking partner.\[CloseCurlyDoubleQuote]\
+\[LineSeparator]\[LineSeparator]Instead of building a specialized, \
+stand-alone application, let alone spending man-centuries on it, the IPython \
+team P\[EAcute]rez was now joined by Brian Granger, a physics professor at \
+California Polytechnic State University at San Luis Obispo; and Min \
+Ragan-Kelley, a Ph.D. student at UC Berkeley working in computational physics \
+built their notebooks as simple web pages. The interface is missing \
+Mathematica\[CloseCurlyQuote]s Steve Jobsian polish, and its sophistication. \
+But by latching itself to the web, IPython got what is essentially free \
+labor: Any time Google, Apple, or a random programmer open-sourced a new \
+plotting tool, or published better code for rendering math, the improvement \
+would get rolled into IPython. \[OpenCurlyDoubleQuote]It has paid off \
+handsomely,\[CloseCurlyDoubleQuote] P\[EAcute]rez said.\[LineSeparator]\
+\[LineSeparator]The paper announcing the first confirmed detection of \
+gravitational waves was published in the traditional way, as a PDF, but with \
+a supplemental IPython notebook. The notebook walks through the work that \
+generated every figure in the paper. Anyone who wants to can run the code for \
+themselves, tweaking parts of it as they see fit, playing with the \
+calculations to get a better handle on how each one works. At a certain point \
+in the notebook, it gets to the part where the signal that generated the \
+gravitational waves is processed into sound, and this you can play in your \
+browser, hearing for yourself what the scientists heard first, the bloop of \
+two black holes colliding.\[LineSeparator]\[LineSeparator]\
+\[OpenCurlyDoubleQuote]I think what they have is acceptance from the \
+scientific community as a tool that is considered to be universal,\
+\[CloseCurlyDoubleQuote] Theodore Gray says of \
+P\[EAcute]rez\[CloseCurlyQuote]s group. \[OpenCurlyDoubleQuote]And that\
+\[CloseCurlyQuote]s the thing that Mathematica never really so far has \
+achieved.\[CloseCurlyDoubleQuote] There are now 1.3 million of these \
+notebooks hosted publicly on Github. They\[CloseCurlyQuote]re in use at \
+Google, Bloomberg, and NASA; by musicians, teachers, and AI researchers; and \
+in \[OpenCurlyDoubleQuote]almost every country on Earth.\
+\[CloseCurlyDoubleQuote]\[LineSeparator]\[LineSeparator]At every turn, \
+IPython chose the way that was more inclusive, to the point where it\
+\[CloseCurlyQuote]s no longer called \[OpenCurlyDoubleQuote]IPython\
+\[CloseCurlyDoubleQuote]: The project rebranded itself as \
+\[OpenCurlyDoubleQuote]Jupyter\[CloseCurlyDoubleQuote] in 2014 to recognize \
+the fact that it was no longer just for Python. The Jupyter notebook, as it\
+\[CloseCurlyQuote]s called, is like a Mathematica notebook but for any \
+programming language. You can have a Python notebook, or a C notebook, or an \
+R notebook, or Ruby, or Javascript, or Julia. Anyone can build support for \
+their programming language in Jupyter. Today it supports more than 100 \
+languages.\[LineSeparator]\[LineSeparator]Theodore Gray, who developed the \
+original Mathematica notebook interface, said that he once as an experiment \
+tried to build support for other programming languages into it. \
+\[OpenCurlyDoubleQuote]It never went anywhere,\[CloseCurlyDoubleQuote] he \
+told me. \[OpenCurlyDoubleQuote]The company had no interest in supporting \
+this. And also because when you have to support a lot of different languages, \
+you can\[CloseCurlyQuote]t do it as deeply.\[CloseCurlyDoubleQuote]\
+\[LineSeparator]\[LineSeparator]A 1997 essay by Eric S. Raymond titled \
+\[OpenCurlyDoubleQuote]The Cathedral and the Bazaar,\[CloseCurlyDoubleQuote] \
+in some sense the founding document of the modern open-source movement, \
+challenged the notion that complex software had to be built like a cathedral, \
+\[OpenCurlyDoubleQuote]carefully crafted by individual wizards or small bands \
+of mages working in splendid isolation.\[CloseCurlyDoubleQuote] Raymond\
+\[CloseCurlyQuote]s experience as one of the stewards of the Linux kernel (a \
+piece of open-source software that powers all of the world\[CloseCurlyQuote]s \
+500 most powerful supercomputers, and the vast majority of mobile devices) \
+taught him that the \[OpenCurlyDoubleQuote]great babbling bazaar of differing \
+agendas and approaches\[CloseCurlyDoubleQuote] that defined open-source \
+projects was actually a strength. \[OpenCurlyDoubleQuote]The fact that this \
+bazaar style seemed to work, and work well, came as a distinct shock,\
+\[CloseCurlyDoubleQuote] he wrote. The essay was his attempt to reckon with \
+why \[OpenCurlyDoubleQuote]the Linux world not only didn\[CloseCurlyQuote]t \
+fly apart in confusion but seemed to go from strength to strength at a speed \
+barely imaginable to cathedral builders.\[CloseCurlyDoubleQuote]\
+\[LineSeparator]\[LineSeparator]Mathematica was in development long before \
+Raymond\[CloseCurlyQuote]s formative experience with Linux, and has been in \
+development long after it. It is the quintessential cathedral, and its \
+builders are still skeptical of the bazaar. \[OpenCurlyDoubleQuote]There\
+\[CloseCurlyQuote]s always chaos,\[CloseCurlyDoubleQuote] Gray said about \
+open-source systems. \[OpenCurlyDoubleQuote]The number of moving parts is so \
+vast, and several of them are under the control of different groups. There\
+\[CloseCurlyQuote]s no way you could ever pull it together into an integrated \
+system in the same way as you can in a single commercial product with, you \
+know, a single maniac in the middle.\[CloseCurlyDoubleQuote]\[LineSeparator]\
+\[LineSeparator]The maniac is, of course, Stephen Wolfram. Gray pointed out \
+that the trains ran on time under Mussolini. \[OpenCurlyDoubleQuote]It\
+\[CloseCurlyQuote]s a bad analogy,\[CloseCurlyDoubleQuote] he said, but \
+still, \[OpenCurlyDoubleQuote]I\[CloseCurlyQuote]m all in favor of there \
+being a maniac in the middle.\[CloseCurlyDoubleQuote] The Mathematica \
+notebook is the more coherently designed, more polished product in large part \
+because every decision that went into building it emanated from the mind of a \
+single, opinionated genius. \[OpenCurlyDoubleQuote]I see these Jupyter guys,\
+\[CloseCurlyDoubleQuote] Wolfram said to me, \[OpenCurlyDoubleQuote]they are \
+about on a par with what we had in the early 1990s.\[CloseCurlyDoubleQuote] \
+They\[CloseCurlyQuote]ve taken shortcuts, he said. \[OpenCurlyDoubleQuote]We \
+actually want to try and do it right.\[CloseCurlyDoubleQuote]\[LineSeparator]\
+\[LineSeparator]But it\[CloseCurlyQuote]s hard to sell the scientific \
+community on a piece of commercial software. Even though Wolfram Research has \
+given away a free Mathematica notebook viewer for years, and even though most \
+major universities already have a site license that lets their students and \
+faculty use Mathematica freely, it might be too much to ask publishers to \
+abandon PDFs, an open format, for a proprietary product. \
+\[OpenCurlyDoubleQuote]Right now if you make a Mathematica notebook and you \
+try to send that to a journal,\[CloseCurlyDoubleQuote] Gray says, \
+\[OpenCurlyDoubleQuote]they\[CloseCurlyQuote]re gonna complain: Well, we don\
+\[CloseCurlyQuote]t have Mathematica, this is an expensive product give us \
+something that\[CloseCurlyQuote]s more of a standard.\[CloseCurlyDoubleQuote]\
+\[LineSeparator]\[LineSeparator]It doesn\[CloseCurlyQuote]t help that Wolfram \
+the man, and to some extent the company touts Mathematica\[CloseCurlyQuote]s \
+superiority, its necessity, in a way that even Gray describes as being a bit \
+like how CrossFit people won\[CloseCurlyQuote]t shut up about CrossFit. This \
+is, after all, the same Stephen Wolfram who titled a book about his own work \
+on cellular automata A New Kind of Science. In his blog post about \
+computational essays, he writes, \[OpenCurlyDoubleQuote]At the core of \
+computational essays is the idea of expressing computational thoughts using \
+the Wolfram Language.\[CloseCurlyDoubleQuote] Which, who knows, might well be \
+true maybe computational notebooks will only take root if they\
+\[CloseCurlyQuote]re backed by a single super-language, or by a company with \
+deep pockets and a vested interest in making them work. But it seems just as \
+likely that the opposite is true. A federated effort, while more chaotic, \
+might also be more robust and the only way to win the trust of the scientific \
+community.\
+\>", "Text",ExpressionUUID->"434e1881-0854-4ccd-a592-9a339fb45a78"],
+
+Cell["\<\
+Wolfram has a hard time seeing outside Wolfram, and perhaps that\
+\[CloseCurlyQuote]s the reason that the Mathematica notebook has remained \
+relatively obscure while a rival system derivative, yes, and simplistic, but \
+open looks to be taking over the world.\
+\>", "Text",ExpressionUUID->"97eeb4d3-c55c-4540-801a-bf79cc2c7180"],
+
+Cell["\<\
+It\[CloseCurlyQuote]ll be some time before computational notebooks replace \
+PDFs in scientific journals, because that would mean changing the incentive \
+structure of science itself. Until journals require scientists to submit \
+notebooks, and until sharing your work and your data becomes the way to earn \
+prestige, or funding, people will likely just keep doing what they\
+\[CloseCurlyQuote]re doing.\
+\>", "Text",ExpressionUUID->"828bcd7f-71dd-47f6-9ea2-610a2569c828"],
+
+Cell["\<\
+I spoke to a neuroscientist-turned-software-developer who contributed to \
+Jupyter, who told me that the professor in charge of his former lab was \
+originally an electrophysiologist he actually measured neuronal activity with \
+implanted electrodes. \[OpenCurlyDoubleQuote]This kind of data is basically \
+so costly, so expensive, and so good,\[CloseCurlyDoubleQuote] he said, that \
+nobody would ever share it. \[OpenCurlyDoubleQuote]You collect one batch of \
+data and you can mine it for the rest of your career.\[CloseCurlyDoubleQuote]\
+\
+\>", "Text",ExpressionUUID->"bb9f36d0-8fc6-47d8-8c6a-8c568522ac29"],
+
+Cell["\<\
+\[OpenCurlyDoubleQuote]At this point, nobody in their sane mind challenges \
+the fact that the praxis of scientific research is under major upheaval,\
+\[CloseCurlyDoubleQuote] P\[EAcute]rez, the creator of Jupyter, wrote in a \
+blog post in 2013. As science becomes more about computation, the skills \
+required to be a good scientist become increasingly attractive in industry. \
+Universities lose their best people to start-ups, to Google and Microsoft. \
+\[OpenCurlyDoubleQuote]I have seen many talented colleagues leave academia in \
+frustration over the last decade,\[CloseCurlyDoubleQuote] he wrote, \
+\[OpenCurlyDoubleQuote]and I can\[CloseCurlyQuote]t think of a single one who \
+wasn\[CloseCurlyQuote]t happier years later.\[CloseCurlyDoubleQuote]\
+\>", "Text",ExpressionUUID->"15f8929f-db1d-4797-94fd-6751d5deb7e3"],
+
+Cell["\<\
+P\[EAcute]rez told me stories of scientists who sacrificed their academic \
+careers to build software, because building software counted for so little in \
+their field: The creator of matplotlib, probably the most widely used tool \
+for generating plots in scientific papers, was a postdoc in neuroscience but \
+had to leave academia for industry. The same thing happened to the creator of \
+NumPy, a now-ubiquitous tool for numerical computing. P\[EAcute]rez himself \
+said, \[OpenCurlyDoubleQuote]I did get straight-out blunt comments from many, \
+many colleagues, and from senior people and mentors who said: Stop doing \
+this, you\[CloseCurlyQuote]re wasting your career, you\[CloseCurlyQuote]re \
+wasting your talent.\[CloseCurlyDoubleQuote] Unabashedly, he said, they\
+\[CloseCurlyQuote]d tell him to \[OpenCurlyDoubleQuote]go back to physics and \
+mathematics and writing papers.\[CloseCurlyDoubleQuote]\
+\>", "Text",ExpressionUUID->"82185d3d-3f20-4c4f-9fb1-4dbce0102296"],
+
+Cell["\<\
+Still, those who stay are making progress. P\[EAcute]rez himself recently got \
+a faculty appointment in the stats department at Berkeley. The day after we \
+spoke, he was slated to teach an upper-division data-science course, built \
+entirely on Python and Jupyter notebooks. \[OpenCurlyDoubleQuote]The freshman \
+version of that course had in the fall I think 1,200 students,\
+\[CloseCurlyDoubleQuote] he said. \
+\[OpenCurlyDoubleQuote]It\[CloseCurlyQuote]s been the fastest-growing course \
+in the history of UC Berkeley. And it\[CloseCurlyQuote]s all based on these \
+open-source tools.\[CloseCurlyDoubleQuote]\
+\>", "Text",ExpressionUUID->"cf3d2225-7324-4e94-9d71-ee5767553486"],
+
+Cell["\<\
+When you improve the praxis of science, the dream is that you\
+\[CloseCurlyQuote]ll improve its products, too. Leibniz\[CloseCurlyQuote]s \
+notation, by making it easier to do calculus, expanded the space of what it \
+was possible to think. The grand scientific challenges of our day are as \
+often as not computational puzzles: How to integrate billions of base pairs \
+of genomic data, and 10 times that amount of proteomic data, and historical \
+patient data, and the results of pharmacological screens into a coherent \
+account of how somebody got sick and what to do to make them better? How to \
+make actionable an endless stream of new temperature and precipitation data, \
+and oceanographic and volcanic and seismic data? How to build, and make sense \
+of, a neuron-by-neuron map of a thinking brain? Equipping scientists with \
+computational notebooks, or some evolved form of them, might bring their \
+minds to a level with problems now out of reach.\
+\>", "Text",ExpressionUUID->"baa24edd-00e7-4733-bcbe-cebec9807ba9"],
+
+Cell["\<\
+At one point, P\[EAcute]rez told me the name Jupyter honored Galileo, perhaps \
+the first modern scientist. The Jupyter logo is an abstracted version of \
+Galileo\[CloseCurlyQuote]s original drawings of the moons of Jupiter. \
+\[OpenCurlyDoubleQuote]Galileo couldn\[CloseCurlyQuote]t go anywhere to buy a \
+telescope,\[CloseCurlyDoubleQuote] P\[EAcute]rez said. \
+\[OpenCurlyDoubleQuote]He had to build his own.\[CloseCurlyDoubleQuote]\
+\>", "Text",ExpressionUUID->"d11c1c45-9457-4027-98fb-be1a0dda9206"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Colab", "Subsection",ExpressionUUID->"a5fc25bc-0354-4472-937f-d3e6462b13d4"],
+
+Cell[TextData[{
+ "Mathematica\[CloseCurlyQuote]s notebook definitely strongly inspired ",
+ ButtonBox["Colab",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://colab.research.google.com"], None},
+  ButtonNote->"https://colab.research.google.com"],
+ "\[CloseCurlyQuote]s notebook."
+}], "Text",ExpressionUUID->"80940bbd-7604-4949-a142-07aeeb69fbc7"],
+
+Cell["\<\
+williamstein on Feb 8, 2020 | parent | context | favorite | on: Colab Pro\
+\>", "Text",ExpressionUUID->"e0f47e2d-9634-4d9c-bfb6-7de27333c946"],
+
+Cell["\<\
+Mathematica\[CloseCurlyQuote]s notebook definitely strongly inspired Colab\
+\[CloseCurlyQuote]s notebook. Colab is an implementation of the Jupyter \
+notebook format and UI. Jupyter, which launched around 2011, itself was \
+strongly inspired by (1) the IPython console from around 2003, and (2) the \
+Sage Notebook which I launched around 2006.
+I can tell you definitively that Sage Notebook is very Mathematica inspired. \
+The IPython console looked a lot like Mathematica, mainly because Fernando \
+Perez (who was a physicist) had used Mathematica a lot and wanted something \
+similar but (much) better. In 2005 there was a project to make an IPython \
+notebook interface as an OS X graphical application, which got demoed at Sage \
+Day 1 (in Feb 2006). That motivated me to get interested in doing something \
+similar, but using Javascript and HTML instead. I hired Alex Clemesha, who \
+just finished his physics undergrad and was a heavy Mathematica user to work \
+on Sage fulltime. He did a lot of work with me during 2006 to create a \
+web-based notebook interface (and also to provide a mathematica-like graphics \
+compatibility layer for Python, which is in Sage). The Sage notebook felt \
+pretty similar in 2007 to what Jupyter notebook feels like, and it definitely \
+inspired the UI. We developed Sage notebook heavily and then all sort of lost \
+interest and moved on to other things (e.g., Jason Grout, who was involved a \
+lot with the Sage notebook went to work at Bloomberg, where he did a massive \
+amount of work on JupyterLab). Fortunately, Fernando Perez and others got \
+incredible grant support and many fantastic engineers together built the \
+Jupyter notebook. Jupyter notebook provided the same sort of cell/output UI \
+as we had with the Sage notebook, but was much more general purpose (many \
+kernels) and used more \[OpenCurlyDoubleQuote]modern\[CloseCurlyDoubleQuote] \
+implementation techniques, by 2011 standards at least.\
+\>", "Text",ExpressionUUID->"5aad87d3-5f2c-4314-9d27-b21202dff6da"],
+
+Cell["\<\
+There\[CloseCurlyQuote]s a lot of amazing things about the Mathematica \
+notebook that we never even tried to implement. For example, Mathematica has \
+a much more sophisticated nested structure. Also, by default Mathematica \
+shares one kernel across multiple notebooks (or at least it did last time I \
+tried it).\
+\>", "Text",ExpressionUUID->"4c62bb06-82a8-420b-9c3e-ff8ed4b9f631"],
+
+Cell["\<\
+Just to finish the story, in 2013 I started CoCalc to make a fully realtime \
+collaborative notebook interface. Around the same time, many other people \
+started another project called JupyterLab that reimplemented a Jupyter \
+notebook client using much more powerful modern approaches. In addition, \
+there\[CloseCurlyQuote]s a lot more going on regarding notebook clients these \
+days, including Nteract, Kaggle kernels, and http://deepnote.com/. Some \
+people like me who work on these surely played around a lot with Mathematica \
+notebooks when they were kids :-).\
+\>", "Text",ExpressionUUID->"0ea887f6-6da1-4787-b927-efb9979d3c28"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 796},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"14.2 for Mac OS X ARM (64-bit) (March 16, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"3d4d5f4f-bfda-44cc-b379-fed396d594b0"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 99, 0, 66, "Section",ExpressionUUID->"dfeaa5b7-d9bc-46bd-81b7-565cc8996e1e"],
+Cell[678, 24, 195, 3, 55, "Text",ExpressionUUID->"2cf7349e-3e7c-4684-8406-b0dd2746aafb"],
+Cell[876, 29, 379, 8, 33, "Text",ExpressionUUID->"8f7c8115-5e65-43c8-9852-fc69c187bc39"],
+Cell[1258, 39, 497, 7, 99, "Text",ExpressionUUID->"4f5eab8d-dbe1-45c4-9758-a542e16f1de6"],
+Cell[1758, 48, 251, 4, 55, "Text",ExpressionUUID->"a0fdd20c-f9e5-4539-92c8-caa4f4bb3c68"],
+Cell[2012, 54, 961, 13, 186, "Text",ExpressionUUID->"45b45cf9-428c-4b2f-ae6b-96d98f03ca21"],
+Cell[2976, 69, 845, 11, 164, "Text",ExpressionUUID->"43202de1-3caf-4748-bff1-3edc2d4ecce2"],
+Cell[3824, 82, 1446, 20, 274, "Text",ExpressionUUID->"9ed03fb0-2b45-4073-8136-15175378c81b"],
+Cell[5273, 104, 331, 5, 77, "Text",ExpressionUUID->"aa2c4470-2c89-4567-ac75-9d6cc1bc66ca"],
+Cell[5607, 111, 497, 11, 77, "Text",ExpressionUUID->"614a5646-de01-4d85-aa35-daedb6952bd3"],
+Cell[CellGroupData[{
+Cell[6129, 126, 77, 0, 53, "Subsection",ExpressionUUID->"af54aefe-25ab-49a4-8e32-b773bc3b762c"],
+Cell[6209, 128, 506, 12, 77, "Text",ExpressionUUID->"bf4330a5-062c-4624-8147-1e6d489ebda1"],
+Cell[6718, 142, 836, 11, 164, "Text",ExpressionUUID->"172ff52d-2b65-46f1-a414-4fd3d7ff636c"],
+Cell[7557, 155, 828, 12, 164, "Text",ExpressionUUID->"cf1d4439-e479-4112-9852-e83de1feea2e"],
+Cell[8388, 169, 577, 8, 99, "Text",ExpressionUUID->"f29debe1-e72f-46c6-af38-0d51094fd1c4"],
+Cell[8968, 179, 721, 10, 121, "Text",ExpressionUUID->"e75fc02b-3af7-4f5c-a998-64b620fd4090"],
+Cell[9692, 191, 734, 10, 143, "Text",ExpressionUUID->"3568e2cc-3695-4210-8d8a-65d98c69d0c8"],
+Cell[10429, 203, 816, 11, 143, "Text",ExpressionUUID->"3ccf5346-52d8-45f2-b425-f863d23b4137"],
+Cell[11248, 216, 642, 9, 121, "Text",ExpressionUUID->"0e6fa5cc-4452-4588-a1cc-fd0e7279b31e"],
+Cell[11893, 227, 570, 8, 99, "Text",ExpressionUUID->"982039cd-6e35-4d8f-8f6e-38531e306985"],
+Cell[12466, 237, 588, 8, 121, "Text",ExpressionUUID->"4d5ee808-ba67-40d0-8fa4-63b185d8609d"],
+Cell[13057, 247, 634, 9, 121, "Text",ExpressionUUID->"bc6ea42a-f09e-42ce-81db-e835cb742e81"],
+Cell[13694, 258, 1247, 17, 208, "Text",ExpressionUUID->"a1fae3e5-e64b-45e5-a8e2-3b4e17015247"],
+Cell[14944, 277, 976, 14, 208, "Text",ExpressionUUID->"e824fa61-e34a-4a17-be4e-b95de1133c09"],
+Cell[15923, 293, 9159, 123, 1738, "Text",ExpressionUUID->"434e1881-0854-4ccd-a592-9a339fb45a78"],
+Cell[25085, 418, 339, 5, 77, "Text",ExpressionUUID->"97eeb4d3-c55c-4540-801a-bf79cc2c7180"],
+Cell[25427, 425, 483, 7, 99, "Text",ExpressionUUID->"828bcd7f-71dd-47f6-9ea2-610a2569c828"],
+Cell[25913, 434, 621, 9, 121, "Text",ExpressionUUID->"bb9f36d0-8fc6-47d8-8c6a-8c568522ac29"],
+Cell[26537, 445, 835, 11, 143, "Text",ExpressionUUID->"15f8929f-db1d-4797-94fd-6751d5deb7e3"],
+Cell[27375, 458, 989, 13, 164, "Text",ExpressionUUID->"82185d3d-3f20-4c4f-9fb1-4dbce0102296"],
+Cell[28367, 473, 693, 10, 121, "Text",ExpressionUUID->"cf3d2225-7324-4e94-9d71-ee5767553486"],
+Cell[29063, 485, 1039, 14, 208, "Text",ExpressionUUID->"baa24edd-00e7-4733-bcbe-cebec9807ba9"],
+Cell[30105, 501, 514, 7, 77, "Text",ExpressionUUID->"d11c1c45-9457-4027-98fb-be1a0dda9206"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[30656, 513, 82, 0, 53, "Subsection",ExpressionUUID->"a5fc25bc-0354-4472-937f-d3e6462b13d4"],
+Cell[30741, 515, 356, 8, 33, "Text",ExpressionUUID->"80940bbd-7604-4949-a142-07aeeb69fbc7"],
+Cell[31100, 525, 152, 2, 33, "Text",ExpressionUUID->"e0f47e2d-9634-4d9c-bfb6-7de27333c946"],
+Cell[31255, 529, 2033, 27, 405, "Text",ExpressionUUID->"5aad87d3-5f2c-4314-9d27-b21202dff6da"],
+Cell[33291, 558, 394, 6, 77, "Text",ExpressionUUID->"4c62bb06-82a8-420b-9c3e-ff8ed4b9f631"],
+Cell[33688, 566, 648, 9, 143, "Text",ExpressionUUID->"0ea887f6-6da1-4787-b927-efb9979d3c28"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
