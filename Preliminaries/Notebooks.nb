@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     38375,        637]
-NotebookOptionsPosition[     34364,        579]
-NotebookOutlinePosition[     34756,        595]
-CellTagsIndexPosition[     34713,        592]
+NotebookDataLength[     40466,        694]
+NotebookOptionsPosition[     35332,        624]
+NotebookOutlinePosition[     35724,        640]
+CellTagsIndexPosition[     35681,        637]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -72,13 +72,17 @@ The solution I came up with was to create a text document that was annotated \
 with \[OpenCurlyDoubleQuote]zones\[CloseCurlyDoubleQuote] delimited by \
 vertical bars along the right side of the screen (where cell brackets are \
 now). Initially I used different black and white texture patterns on 4 or 5 \
-pixel wide vertical bars. One texture for input and another texture for output.
+pixel wide vertical bars. One texture for input and another texture for \
+output.\
+\>", "Text",ExpressionUUID->"43202de1-3caf-4748-bff1-3edc2d4ecce2"],
+
+Cell["\<\
 This immediately gave two huge advantages: first, you didn\[CloseCurlyQuote]t \
 have to manually select the range of a multi-line input. Just putting the \
 cursor anywhere within an input zone and evaluating would evaluate the whole \
 input. Second, because the system was keeping track of what was output, old \
 output could be deleted automatically and replaced with new output.\
-\>", "Text",ExpressionUUID->"43202de1-3caf-4748-bff1-3edc2d4ecce2"],
+\>", "Text",ExpressionUUID->"ba8b051d-d067-4138-9376-402bb60888ee"],
 
 Cell["\<\
 Initially I called these things zones, but Steve Jobs suggested I use large \
@@ -88,7 +92,10 @@ have brackets instead of bars, it\[CloseCurlyQuote]s immediately obvious that \
 you could have larger brackets that encompass two or more cells. So I created \
 cell groups, initially just to group input/output pairs, but of course it\
 \[CloseCurlyQuote]s not a big leap to also have sections and subsections, \
-then different cell types, styles, graphics cells, etc.
+then different cell types, styles, graphics cells, etc.\
+\>", "Text",ExpressionUUID->"9ed03fb0-2b45-4073-8136-15175378c81b"],
+
+Cell["\<\
 These key defining features of notebooks did not exist in any other system at \
 the time, and to the best of my knowledge were not independently developed by \
 other people. All the current notebook systems that share these broad \
@@ -100,7 +107,7 @@ are called notebooks, but they did not share the key features I\
 \[CloseCurlyQuote]m sure have both advantages and disadvantages compared to \
 our Notebooks, but unlike our Notebooks, they are not the precursors of \
 Jupyter.)\
-\>", "Text",ExpressionUUID->"9ed03fb0-2b45-4073-8136-15175378c81b"],
+\>", "Text",ExpressionUUID->"c3b32a24-b673-4d8d-8491-0668455b10f5"],
 
 Cell["\<\
 So can Stephen Wolfram personally claim to have invented notebooks? No, and \
@@ -119,12 +126,22 @@ frontend-2/"], None},
    "https://www.wolfram.com/mathematica/scrapbook/1987/02/08/1987_frontend-2/\
 "],
  "\n(Theo Gray invents cells and groups\[Ellipsis] and other things still \
-seen today\[Ellipsis])\n"
+seen today\[Ellipsis])"
 }], "Text",ExpressionUUID->"614a5646-de01-4d85-aa35-daedb6952bd3"],
 
 Cell[CellGroupData[{
 
-Cell["", "Subsection",ExpressionUUID->"af54aefe-25ab-49a4-8e32-b773bc3b762c"],
+Cell[TextData[{
+ "See also ",
+ ButtonBox["The Scientific Paper Is Obsolete",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://www.theatlantic.com/science/archive/2018/04/the-scientific-\
+paper-is-obsolete/556676/"], None},
+  ButtonNote->
+   "https://www.theatlantic.com/science/archive/2018/04/the-scientific-paper-\
+is-obsolete/556676/"]
+}], "Subsection",ExpressionUUID->"af54aefe-25ab-49a4-8e32-b773bc3b762c"],
 
 Cell[TextData[{
  "See also ",
@@ -288,7 +305,6 @@ happened to build useful tools for it; and open-source developers have \
 flocked to Python because it happens to be the de facto standard for \
 scientific computing. Programming-language communities, like any social \
 network, thrive or die on the strength of these feedback loops.\
-\[LineSeparator]\
 \>", "Text",ExpressionUUID->"e824fa61-e34a-4a17-be4e-b95de1133c09"],
 
 Cell["\<\
@@ -301,28 +317,36 @@ Computational notebooks, he said, \[OpenCurlyDoubleQuote]bring that idea of \
 live narrative out ... You can think through the process, and you\
 \[CloseCurlyQuote]re effectively using the computer, if you will, as a \
 computational partner, and as a thinking partner.\[CloseCurlyDoubleQuote]\
-\[LineSeparator]\[LineSeparator]Instead of building a specialized, \
-stand-alone application, let alone spending man-centuries on it, the IPython \
-team P\[EAcute]rez was now joined by Brian Granger, a physics professor at \
-California Polytechnic State University at San Luis Obispo; and Min \
-Ragan-Kelley, a Ph.D. student at UC Berkeley working in computational physics \
-built their notebooks as simple web pages. The interface is missing \
-Mathematica\[CloseCurlyQuote]s Steve Jobsian polish, and its sophistication. \
-But by latching itself to the web, IPython got what is essentially free \
-labor: Any time Google, Apple, or a random programmer open-sourced a new \
-plotting tool, or published better code for rendering math, the improvement \
-would get rolled into IPython. \[OpenCurlyDoubleQuote]It has paid off \
-handsomely,\[CloseCurlyDoubleQuote] P\[EAcute]rez said.\[LineSeparator]\
-\[LineSeparator]The paper announcing the first confirmed detection of \
-gravitational waves was published in the traditional way, as a PDF, but with \
-a supplemental IPython notebook. The notebook walks through the work that \
-generated every figure in the paper. Anyone who wants to can run the code for \
-themselves, tweaking parts of it as they see fit, playing with the \
-calculations to get a better handle on how each one works. At a certain point \
-in the notebook, it gets to the part where the signal that generated the \
-gravitational waves is processed into sound, and this you can play in your \
-browser, hearing for yourself what the scientists heard first, the bloop of \
-two black holes colliding.\[LineSeparator]\[LineSeparator]\
+\>", "Text",ExpressionUUID->"434e1881-0854-4ccd-a592-9a339fb45a78"],
+
+Cell["\<\
+Instead of building a specialized, stand-alone application, let alone \
+spending man-centuries on it, the IPython team P\[EAcute]rez was now joined \
+by Brian Granger, a physics professor at California Polytechnic State \
+University at San Luis Obispo; and Min Ragan-Kelley, a Ph.D. student at UC \
+Berkeley working in computational physics built their notebooks as simple web \
+pages. The interface is missing Mathematica\[CloseCurlyQuote]s Steve Jobsian \
+polish, and its sophistication. But by latching itself to the web, IPython \
+got what is essentially free labor: Any time Google, Apple, or a random \
+programmer open-sourced a new plotting tool, or published better code for \
+rendering math, the improvement would get rolled into IPython. \
+\[OpenCurlyDoubleQuote]It has paid off handsomely,\[CloseCurlyDoubleQuote] P\
+\[EAcute]rez said.\
+\>", "Text",ExpressionUUID->"dafb0c3d-5051-43a9-9dde-f92e739aff66"],
+
+Cell["\<\
+The paper announcing the first confirmed detection of gravitational waves was \
+published in the traditional way, as a PDF, but with a supplemental IPython \
+notebook. The notebook walks through the work that generated every figure in \
+the paper. Anyone who wants to can run the code for themselves, tweaking \
+parts of it as they see fit, playing with the calculations to get a better \
+handle on how each one works. At a certain point in the notebook, it gets to \
+the part where the signal that generated the gravitational waves is processed \
+into sound, and this you can play in your browser, hearing for yourself what \
+the scientists heard first, the bloop of two black holes colliding.\
+\>", "Text",ExpressionUUID->"d9a2c47c-cb38-405c-96a1-56b60ab10804"],
+
+Cell["\<\
 \[OpenCurlyDoubleQuote]I think what they have is acceptance from the \
 scientific community as a tool that is considered to be universal,\
 \[CloseCurlyDoubleQuote] Theodore Gray says of \
@@ -332,9 +356,12 @@ achieved.\[CloseCurlyDoubleQuote] There are now 1.3 million of these \
 notebooks hosted publicly on Github. They\[CloseCurlyQuote]re in use at \
 Google, Bloomberg, and NASA; by musicians, teachers, and AI researchers; and \
 in \[OpenCurlyDoubleQuote]almost every country on Earth.\
-\[CloseCurlyDoubleQuote]\[LineSeparator]\[LineSeparator]At every turn, \
-IPython chose the way that was more inclusive, to the point where it\
-\[CloseCurlyQuote]s no longer called \[OpenCurlyDoubleQuote]IPython\
+\[CloseCurlyDoubleQuote]\
+\>", "Text",ExpressionUUID->"0caa4530-0103-4c14-9a60-9e6736a6e57c"],
+
+Cell["\<\
+At every turn, IPython chose the way that was more inclusive, to the point \
+where it\[CloseCurlyQuote]s no longer called \[OpenCurlyDoubleQuote]IPython\
 \[CloseCurlyDoubleQuote]: The project rebranded itself as \
 \[OpenCurlyDoubleQuote]Jupyter\[CloseCurlyDoubleQuote] in 2014 to recognize \
 the fact that it was no longer just for Python. The Jupyter notebook, as it\
@@ -342,79 +369,97 @@ the fact that it was no longer just for Python. The Jupyter notebook, as it\
 programming language. You can have a Python notebook, or a C notebook, or an \
 R notebook, or Ruby, or Javascript, or Julia. Anyone can build support for \
 their programming language in Jupyter. Today it supports more than 100 \
-languages.\[LineSeparator]\[LineSeparator]Theodore Gray, who developed the \
-original Mathematica notebook interface, said that he once as an experiment \
-tried to build support for other programming languages into it. \
-\[OpenCurlyDoubleQuote]It never went anywhere,\[CloseCurlyDoubleQuote] he \
-told me. \[OpenCurlyDoubleQuote]The company had no interest in supporting \
-this. And also because when you have to support a lot of different languages, \
-you can\[CloseCurlyQuote]t do it as deeply.\[CloseCurlyDoubleQuote]\
-\[LineSeparator]\[LineSeparator]A 1997 essay by Eric S. Raymond titled \
-\[OpenCurlyDoubleQuote]The Cathedral and the Bazaar,\[CloseCurlyDoubleQuote] \
-in some sense the founding document of the modern open-source movement, \
-challenged the notion that complex software had to be built like a cathedral, \
-\[OpenCurlyDoubleQuote]carefully crafted by individual wizards or small bands \
-of mages working in splendid isolation.\[CloseCurlyDoubleQuote] Raymond\
-\[CloseCurlyQuote]s experience as one of the stewards of the Linux kernel (a \
-piece of open-source software that powers all of the world\[CloseCurlyQuote]s \
-500 most powerful supercomputers, and the vast majority of mobile devices) \
-taught him that the \[OpenCurlyDoubleQuote]great babbling bazaar of differing \
-agendas and approaches\[CloseCurlyDoubleQuote] that defined open-source \
-projects was actually a strength. \[OpenCurlyDoubleQuote]The fact that this \
-bazaar style seemed to work, and work well, came as a distinct shock,\
+languages.\
+\>", "Text",ExpressionUUID->"1d7e7b06-f624-4669-8abe-cfd325a22ae0"],
+
+Cell["\<\
+Theodore Gray, who developed the original Mathematica notebook interface, \
+said that he once, as an experiment, tried to build support for other \
+programming languages into it. \[OpenCurlyDoubleQuote]It never went anywhere,\
+\[CloseCurlyDoubleQuote] he told me. \[OpenCurlyDoubleQuote]The company had \
+no interest in supporting this. And also because when you have to support a \
+lot of different languages, you can\[CloseCurlyQuote]t do it as deeply.\
+\[CloseCurlyDoubleQuote]\
+\>", "Text",ExpressionUUID->"9f0dcffb-87f7-4dc5-a5c1-ea0a8483d649"],
+
+Cell["\<\
+A 1997 essay by Eric S. Raymond titled \[OpenCurlyDoubleQuote]The Cathedral \
+and the Bazaar,\[CloseCurlyDoubleQuote] in some sense the founding document \
+of the modern open-source movement, challenged the notion that complex \
+software had to be built like a cathedral, \[OpenCurlyDoubleQuote]carefully \
+crafted by individual wizards or small bands of mages working in splendid \
+isolation.\[CloseCurlyDoubleQuote] Raymond\[CloseCurlyQuote]s experience as \
+one of the stewards of the Linux kernel (a piece of open-source software that \
+powers all of the world\[CloseCurlyQuote]s 500 most powerful supercomputers, \
+and the vast majority of mobile devices) taught him that the \
+\[OpenCurlyDoubleQuote]great babbling bazaar of differing agendas and \
+approaches\[CloseCurlyDoubleQuote] that defined open-source projects was \
+actually a strength. \[OpenCurlyDoubleQuote]The fact that this bazaar style \
+seemed to work, and work well, came as a distinct shock,\
 \[CloseCurlyDoubleQuote] he wrote. The essay was his attempt to reckon with \
 why \[OpenCurlyDoubleQuote]the Linux world not only didn\[CloseCurlyQuote]t \
 fly apart in confusion but seemed to go from strength to strength at a speed \
 barely imaginable to cathedral builders.\[CloseCurlyDoubleQuote]\
-\[LineSeparator]\[LineSeparator]Mathematica was in development long before \
-Raymond\[CloseCurlyQuote]s formative experience with Linux, and has been in \
-development long after it. It is the quintessential cathedral, and its \
-builders are still skeptical of the bazaar. \[OpenCurlyDoubleQuote]There\
-\[CloseCurlyQuote]s always chaos,\[CloseCurlyDoubleQuote] Gray said about \
-open-source systems. \[OpenCurlyDoubleQuote]The number of moving parts is so \
-vast, and several of them are under the control of different groups. There\
-\[CloseCurlyQuote]s no way you could ever pull it together into an integrated \
-system in the same way as you can in a single commercial product with, you \
-know, a single maniac in the middle.\[CloseCurlyDoubleQuote]\[LineSeparator]\
-\[LineSeparator]The maniac is, of course, Stephen Wolfram. Gray pointed out \
-that the trains ran on time under Mussolini. \[OpenCurlyDoubleQuote]It\
-\[CloseCurlyQuote]s a bad analogy,\[CloseCurlyDoubleQuote] he said, but \
-still, \[OpenCurlyDoubleQuote]I\[CloseCurlyQuote]m all in favor of there \
-being a maniac in the middle.\[CloseCurlyDoubleQuote] The Mathematica \
-notebook is the more coherently designed, more polished product in large part \
-because every decision that went into building it emanated from the mind of a \
-single, opinionated genius. \[OpenCurlyDoubleQuote]I see these Jupyter guys,\
+\>", "Text",ExpressionUUID->"17c2e69f-d2f9-4413-99ef-dde0be3c3b1b"],
+
+Cell["\<\
+Mathematica was in development long before Raymond\[CloseCurlyQuote]s \
+formative experience with Linux, and has been in development long after it. \
+It is the quintessential cathedral, and its builders are still skeptical of \
+the bazaar. \[OpenCurlyDoubleQuote]There\[CloseCurlyQuote]s always chaos,\
+\[CloseCurlyDoubleQuote] Gray said about open-source systems. \
+\[OpenCurlyDoubleQuote]The number of moving parts is so vast, and several of \
+them are under the control of different groups. There\[CloseCurlyQuote]s no \
+way you could ever pull it together into an integrated system in the same way \
+as you can in a single commercial product with, you know, a single maniac in \
+the middle.\[CloseCurlyDoubleQuote]\
+\>", "Text",ExpressionUUID->"9523ba2a-6d4f-4288-abff-11e183c201ec"],
+
+Cell["\<\
+The maniac is, of course, Stephen Wolfram. Gray pointed out that the trains \
+ran on time under Mussolini. \[OpenCurlyDoubleQuote]It\[CloseCurlyQuote]s a \
+bad analogy,\[CloseCurlyDoubleQuote] he said, but still, \
+\[OpenCurlyDoubleQuote]I\[CloseCurlyQuote]m all in favor of there being a \
+maniac in the middle.\[CloseCurlyDoubleQuote] The Mathematica notebook is the \
+more coherently designed, more polished product in large part because every \
+decision that went into building it emanated from the mind of a single, \
+opinionated genius. \[OpenCurlyDoubleQuote]I see these Jupyter guys,\
 \[CloseCurlyDoubleQuote] Wolfram said to me, \[OpenCurlyDoubleQuote]they are \
 about on a par with what we had in the early 1990s.\[CloseCurlyDoubleQuote] \
 They\[CloseCurlyQuote]ve taken shortcuts, he said. \[OpenCurlyDoubleQuote]We \
-actually want to try and do it right.\[CloseCurlyDoubleQuote]\[LineSeparator]\
-\[LineSeparator]But it\[CloseCurlyQuote]s hard to sell the scientific \
-community on a piece of commercial software. Even though Wolfram Research has \
-given away a free Mathematica notebook viewer for years, and even though most \
-major universities already have a site license that lets their students and \
-faculty use Mathematica freely, it might be too much to ask publishers to \
-abandon PDFs, an open format, for a proprietary product. \
-\[OpenCurlyDoubleQuote]Right now if you make a Mathematica notebook and you \
-try to send that to a journal,\[CloseCurlyDoubleQuote] Gray says, \
-\[OpenCurlyDoubleQuote]they\[CloseCurlyQuote]re gonna complain: Well, we don\
-\[CloseCurlyQuote]t have Mathematica, this is an expensive product give us \
-something that\[CloseCurlyQuote]s more of a standard.\[CloseCurlyDoubleQuote]\
-\[LineSeparator]\[LineSeparator]It doesn\[CloseCurlyQuote]t help that Wolfram \
-the man, and to some extent the company touts Mathematica\[CloseCurlyQuote]s \
-superiority, its necessity, in a way that even Gray describes as being a bit \
-like how CrossFit people won\[CloseCurlyQuote]t shut up about CrossFit. This \
-is, after all, the same Stephen Wolfram who titled a book about his own work \
-on cellular automata A New Kind of Science. In his blog post about \
-computational essays, he writes, \[OpenCurlyDoubleQuote]At the core of \
-computational essays is the idea of expressing computational thoughts using \
-the Wolfram Language.\[CloseCurlyDoubleQuote] Which, who knows, might well be \
-true maybe computational notebooks will only take root if they\
-\[CloseCurlyQuote]re backed by a single super-language, or by a company with \
-deep pockets and a vested interest in making them work. But it seems just as \
-likely that the opposite is true. A federated effort, while more chaotic, \
-might also be more robust and the only way to win the trust of the scientific \
-community.\
-\>", "Text",ExpressionUUID->"434e1881-0854-4ccd-a592-9a339fb45a78"],
+actually want to try and do it right.\[CloseCurlyDoubleQuote]\
+\>", "Text",ExpressionUUID->"086c6761-a442-4ac9-87d2-a3fff6c716ec"],
+
+Cell["\<\
+But it\[CloseCurlyQuote]s hard to sell the scientific community on a piece of \
+commercial software. Even though Wolfram Research has given away a free \
+Mathematica notebook viewer for years, and even though most major \
+universities already have a site license that lets their students and faculty \
+use Mathematica freely, it might be too much to ask publishers to abandon \
+PDFs, an open format, for a proprietary product. \[OpenCurlyDoubleQuote]Right \
+now if you make a Mathematica notebook and you try to send that to a journal,\
+\[CloseCurlyDoubleQuote] Gray says, \[OpenCurlyDoubleQuote]they\
+\[CloseCurlyQuote]re gonna complain: Well, we don\[CloseCurlyQuote]t have \
+Mathematica, this is an expensive product give us something that\
+\[CloseCurlyQuote]s more of a standard.\[CloseCurlyDoubleQuote]\
+\>", "Text",ExpressionUUID->"252880b7-bd0a-41f6-9098-736e909a18ca"],
+
+Cell["\<\
+It doesn\[CloseCurlyQuote]t help that Wolfram the man, and to some extent the \
+company touts Mathematica\[CloseCurlyQuote]s superiority, its necessity, in a \
+way that even Gray describes as being a bit like how CrossFit people won\
+\[CloseCurlyQuote]t shut up about CrossFit. This is, after all, the same \
+Stephen Wolfram who titled a book about his own work on cellular automata A \
+New Kind of Science. In his blog post about computational essays, he writes, \
+\[OpenCurlyDoubleQuote]At the core of computational essays is the idea of \
+expressing computational thoughts using the Wolfram Language.\
+\[CloseCurlyDoubleQuote] Which, who knows, might well be true maybe \
+computational notebooks will only take root if they\[CloseCurlyQuote]re \
+backed by a single super-language, or by a company with deep pockets and a \
+vested interest in making them work. But it seems just as likely that the \
+opposite is true. A federated effort, while more chaotic, might also be more \
+robust and the only way to win the trust of the scientific community.\
+\>", "Text",ExpressionUUID->"61db863e-a21b-4d76-922c-84837feec654"],
 
 Cell["\<\
 Wolfram has a hard time seeing outside Wolfram, and perhaps that\
@@ -577,7 +622,7 @@ notebooks when they were kids :-).\
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{808, 796},
+WindowSize->{935, 849},
 WindowMargins->{{4, Automatic}, {Automatic, 4}},
 FrontEndVersion->"14.2 for Mac OS X ARM (64-bit) (March 16, 2025)",
 StyleDefinitions->"Default.nb",
@@ -596,47 +641,59 @@ CellTagsIndex->{}
 Notebook[{
 Cell[CellGroupData[{
 Cell[576, 22, 99, 0, 66, "Section",ExpressionUUID->"dfeaa5b7-d9bc-46bd-81b7-565cc8996e1e"],
-Cell[678, 24, 195, 3, 55, "Text",ExpressionUUID->"2cf7349e-3e7c-4684-8406-b0dd2746aafb"],
+Cell[678, 24, 195, 3, 33, "Text",ExpressionUUID->"2cf7349e-3e7c-4684-8406-b0dd2746aafb"],
 Cell[876, 29, 379, 8, 33, "Text",ExpressionUUID->"8f7c8115-5e65-43c8-9852-fc69c187bc39"],
-Cell[1258, 39, 497, 7, 99, "Text",ExpressionUUID->"4f5eab8d-dbe1-45c4-9758-a542e16f1de6"],
+Cell[1258, 39, 497, 7, 77, "Text",ExpressionUUID->"4f5eab8d-dbe1-45c4-9758-a542e16f1de6"],
 Cell[1758, 48, 251, 4, 55, "Text",ExpressionUUID->"a0fdd20c-f9e5-4539-92c8-caa4f4bb3c68"],
-Cell[2012, 54, 961, 13, 186, "Text",ExpressionUUID->"45b45cf9-428c-4b2f-ae6b-96d98f03ca21"],
-Cell[2976, 69, 845, 11, 164, "Text",ExpressionUUID->"43202de1-3caf-4748-bff1-3edc2d4ecce2"],
-Cell[3824, 82, 1446, 20, 274, "Text",ExpressionUUID->"9ed03fb0-2b45-4073-8136-15175378c81b"],
-Cell[5273, 104, 331, 5, 77, "Text",ExpressionUUID->"aa2c4470-2c89-4567-ac75-9d6cc1bc66ca"],
-Cell[5607, 111, 497, 11, 77, "Text",ExpressionUUID->"614a5646-de01-4d85-aa35-daedb6952bd3"],
+Cell[2012, 54, 961, 13, 164, "Text",ExpressionUUID->"45b45cf9-428c-4b2f-ae6b-96d98f03ca21"],
+Cell[2976, 69, 466, 7, 77, "Text",ExpressionUUID->"43202de1-3caf-4748-bff1-3edc2d4ecce2"],
+Cell[3445, 78, 459, 6, 77, "Text",ExpressionUUID->"ba8b051d-d067-4138-9376-402bb60888ee"],
+Cell[3907, 86, 679, 9, 121, "Text",ExpressionUUID->"9ed03fb0-2b45-4073-8136-15175378c81b"],
+Cell[4589, 97, 845, 12, 143, "Text",ExpressionUUID->"c3b32a24-b673-4d8d-8491-0668455b10f5"],
+Cell[5437, 111, 331, 5, 55, "Text",ExpressionUUID->"aa2c4470-2c89-4567-ac75-9d6cc1bc66ca"],
+Cell[5771, 118, 495, 11, 55, "Text",ExpressionUUID->"614a5646-de01-4d85-aa35-daedb6952bd3"],
 Cell[CellGroupData[{
-Cell[6129, 126, 77, 0, 53, "Subsection",ExpressionUUID->"af54aefe-25ab-49a4-8e32-b773bc3b762c"],
-Cell[6209, 128, 506, 12, 77, "Text",ExpressionUUID->"bf4330a5-062c-4624-8147-1e6d489ebda1"],
-Cell[6718, 142, 836, 11, 164, "Text",ExpressionUUID->"172ff52d-2b65-46f1-a414-4fd3d7ff636c"],
-Cell[7557, 155, 828, 12, 164, "Text",ExpressionUUID->"cf1d4439-e479-4112-9852-e83de1feea2e"],
-Cell[8388, 169, 577, 8, 99, "Text",ExpressionUUID->"f29debe1-e72f-46c6-af38-0d51094fd1c4"],
-Cell[8968, 179, 721, 10, 121, "Text",ExpressionUUID->"e75fc02b-3af7-4f5c-a998-64b620fd4090"],
-Cell[9692, 191, 734, 10, 143, "Text",ExpressionUUID->"3568e2cc-3695-4210-8d8a-65d98c69d0c8"],
-Cell[10429, 203, 816, 11, 143, "Text",ExpressionUUID->"3ccf5346-52d8-45f2-b425-f863d23b4137"],
-Cell[11248, 216, 642, 9, 121, "Text",ExpressionUUID->"0e6fa5cc-4452-4588-a1cc-fd0e7279b31e"],
-Cell[11893, 227, 570, 8, 99, "Text",ExpressionUUID->"982039cd-6e35-4d8f-8f6e-38531e306985"],
-Cell[12466, 237, 588, 8, 121, "Text",ExpressionUUID->"4d5ee808-ba67-40d0-8fa4-63b185d8609d"],
-Cell[13057, 247, 634, 9, 121, "Text",ExpressionUUID->"bc6ea42a-f09e-42ce-81db-e835cb742e81"],
-Cell[13694, 258, 1247, 17, 208, "Text",ExpressionUUID->"a1fae3e5-e64b-45e5-a8e2-3b4e17015247"],
-Cell[14944, 277, 976, 14, 208, "Text",ExpressionUUID->"e824fa61-e34a-4a17-be4e-b95de1133c09"],
-Cell[15923, 293, 9159, 123, 1738, "Text",ExpressionUUID->"434e1881-0854-4ccd-a592-9a339fb45a78"],
-Cell[25085, 418, 339, 5, 77, "Text",ExpressionUUID->"97eeb4d3-c55c-4540-801a-bf79cc2c7180"],
-Cell[25427, 425, 483, 7, 99, "Text",ExpressionUUID->"828bcd7f-71dd-47f6-9ea2-610a2569c828"],
-Cell[25913, 434, 621, 9, 121, "Text",ExpressionUUID->"bb9f36d0-8fc6-47d8-8c6a-8c568522ac29"],
-Cell[26537, 445, 835, 11, 143, "Text",ExpressionUUID->"15f8929f-db1d-4797-94fd-6751d5deb7e3"],
-Cell[27375, 458, 989, 13, 164, "Text",ExpressionUUID->"82185d3d-3f20-4c4f-9fb1-4dbce0102296"],
-Cell[28367, 473, 693, 10, 121, "Text",ExpressionUUID->"cf3d2225-7324-4e94-9d71-ee5767553486"],
-Cell[29063, 485, 1039, 14, 208, "Text",ExpressionUUID->"baa24edd-00e7-4733-bcbe-cebec9807ba9"],
-Cell[30105, 501, 514, 7, 77, "Text",ExpressionUUID->"d11c1c45-9457-4027-98fb-be1a0dda9206"]
+Cell[6291, 133, 421, 10, 53, "Subsection",ExpressionUUID->"af54aefe-25ab-49a4-8e32-b773bc3b762c"],
+Cell[6715, 145, 506, 12, 77, "Text",ExpressionUUID->"bf4330a5-062c-4624-8147-1e6d489ebda1"],
+Cell[7224, 159, 836, 11, 143, "Text",ExpressionUUID->"172ff52d-2b65-46f1-a414-4fd3d7ff636c"],
+Cell[8063, 172, 828, 12, 143, "Text",ExpressionUUID->"cf1d4439-e479-4112-9852-e83de1feea2e"],
+Cell[8894, 186, 577, 8, 99, "Text",ExpressionUUID->"f29debe1-e72f-46c6-af38-0d51094fd1c4"],
+Cell[9474, 196, 721, 10, 99, "Text",ExpressionUUID->"e75fc02b-3af7-4f5c-a998-64b620fd4090"],
+Cell[10198, 208, 734, 10, 121, "Text",ExpressionUUID->"3568e2cc-3695-4210-8d8a-65d98c69d0c8"],
+Cell[10935, 220, 816, 11, 121, "Text",ExpressionUUID->"3ccf5346-52d8-45f2-b425-f863d23b4137"],
+Cell[11754, 233, 642, 9, 99, "Text",ExpressionUUID->"0e6fa5cc-4452-4588-a1cc-fd0e7279b31e"],
+Cell[12399, 244, 570, 8, 77, "Text",ExpressionUUID->"982039cd-6e35-4d8f-8f6e-38531e306985"],
+Cell[12972, 254, 588, 8, 99, "Text",ExpressionUUID->"4d5ee808-ba67-40d0-8fa4-63b185d8609d"],
+Cell[13563, 264, 634, 9, 121, "Text",ExpressionUUID->"bc6ea42a-f09e-42ce-81db-e835cb742e81"],
+Cell[14200, 275, 1247, 17, 164, "Text",ExpressionUUID->"a1fae3e5-e64b-45e5-a8e2-3b4e17015247"],
+Cell[15450, 294, 958, 13, 164, "Text",ExpressionUUID->"e824fa61-e34a-4a17-be4e-b95de1133c09"],
+Cell[16411, 309, 748, 10, 99, "Text",ExpressionUUID->"434e1881-0854-4ccd-a592-9a339fb45a78"],
+Cell[17162, 321, 925, 13, 143, "Text",ExpressionUUID->"dafb0c3d-5051-43a9-9dde-f92e739aff66"],
+Cell[18090, 336, 773, 10, 143, "Text",ExpressionUUID->"d9a2c47c-cb38-405c-96a1-56b60ab10804"],
+Cell[18866, 348, 719, 11, 99, "Text",ExpressionUUID->"0caa4530-0103-4c14-9a60-9e6736a6e57c"],
+Cell[19588, 361, 760, 11, 121, "Text",ExpressionUUID->"1d7e7b06-f624-4669-8abe-cfd325a22ae0"],
+Cell[20351, 374, 559, 8, 77, "Text",ExpressionUUID->"9f0dcffb-87f7-4dc5-a5c1-ea0a8483d649"],
+Cell[20913, 384, 1344, 18, 186, "Text",ExpressionUUID->"17c2e69f-d2f9-4413-99ef-dde0be3c3b1b"],
+Cell[22260, 404, 797, 11, 121, "Text",ExpressionUUID->"9523ba2a-6d4f-4288-abff-11e183c201ec"],
+Cell[23060, 417, 969, 13, 121, "Text",ExpressionUUID->"086c6761-a442-4ac9-87d2-a3fff6c716ec"],
+Cell[24032, 432, 886, 12, 121, "Text",ExpressionUUID->"252880b7-bd0a-41f6-9098-736e909a18ca"],
+Cell[24921, 446, 1129, 15, 186, "Text",ExpressionUUID->"61db863e-a21b-4d76-922c-84837feec654"],
+Cell[26053, 463, 339, 5, 55, "Text",ExpressionUUID->"97eeb4d3-c55c-4540-801a-bf79cc2c7180"],
+Cell[26395, 470, 483, 7, 77, "Text",ExpressionUUID->"828bcd7f-71dd-47f6-9ea2-610a2569c828"],
+Cell[26881, 479, 621, 9, 99, "Text",ExpressionUUID->"bb9f36d0-8fc6-47d8-8c6a-8c568522ac29"],
+Cell[27505, 490, 835, 11, 121, "Text",ExpressionUUID->"15f8929f-db1d-4797-94fd-6751d5deb7e3"],
+Cell[28343, 503, 989, 13, 143, "Text",ExpressionUUID->"82185d3d-3f20-4c4f-9fb1-4dbce0102296"],
+Cell[29335, 518, 693, 10, 99, "Text",ExpressionUUID->"cf3d2225-7324-4e94-9d71-ee5767553486"],
+Cell[30031, 530, 1039, 14, 186, "Text",ExpressionUUID->"baa24edd-00e7-4733-bcbe-cebec9807ba9"],
+Cell[31073, 546, 514, 7, 77, "Text",ExpressionUUID->"d11c1c45-9457-4027-98fb-be1a0dda9206"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[30656, 513, 82, 0, 53, "Subsection",ExpressionUUID->"a5fc25bc-0354-4472-937f-d3e6462b13d4"],
-Cell[30741, 515, 356, 8, 33, "Text",ExpressionUUID->"80940bbd-7604-4949-a142-07aeeb69fbc7"],
-Cell[31100, 525, 152, 2, 33, "Text",ExpressionUUID->"e0f47e2d-9634-4d9c-bfb6-7de27333c946"],
-Cell[31255, 529, 2033, 27, 405, "Text",ExpressionUUID->"5aad87d3-5f2c-4314-9d27-b21202dff6da"],
-Cell[33291, 558, 394, 6, 77, "Text",ExpressionUUID->"4c62bb06-82a8-420b-9c3e-ff8ed4b9f631"],
-Cell[33688, 566, 648, 9, 143, "Text",ExpressionUUID->"0ea887f6-6da1-4787-b927-efb9979d3c28"]
+Cell[31624, 558, 82, 0, 53, "Subsection",ExpressionUUID->"a5fc25bc-0354-4472-937f-d3e6462b13d4"],
+Cell[31709, 560, 356, 8, 33, "Text",ExpressionUUID->"80940bbd-7604-4949-a142-07aeeb69fbc7"],
+Cell[32068, 570, 152, 2, 33, "Text",ExpressionUUID->"e0f47e2d-9634-4d9c-bfb6-7de27333c946"],
+Cell[32223, 574, 2033, 27, 361, "Text",ExpressionUUID->"5aad87d3-5f2c-4314-9d27-b21202dff6da"],
+Cell[34259, 603, 394, 6, 77, "Text",ExpressionUUID->"4c62bb06-82a8-420b-9c3e-ff8ed4b9f631"],
+Cell[34656, 611, 648, 9, 121, "Text",ExpressionUUID->"0ea887f6-6da1-4787-b927-efb9979d3c28"]
 }, Open  ]]
 }, Open  ]]
 }
